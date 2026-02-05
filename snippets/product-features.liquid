@@ -1,107 +1,18 @@
-{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
-
-{% style %}
-  .ai-product-features-{{ ai_gen_id }} {
-    display: block;
-    width: 100%;
-    padding: 40px 20px;
-  }
-  .ai-product-features-grid-{{ ai_gen_id }} {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  @media screen and (max-width: 989px) {
-    .ai-product-features-grid-{{ ai_gen_id }} {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-  }
-  @media screen and (max-width: 749px) {
-    .ai-product-features-grid-{{ ai_gen_id }} {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-  }
-  .ai-product-feature-item-{{ ai_gen_id }} {
-    display: flex;
-    flex-direction: column;
-    align-items: {{ block.settings.alignment }};
-    text-align: {{ block.settings.alignment }};
-    gap: 12px;
-  }
-  .ai-product-feature-icon-{{ ai_gen_id }} {
-    width: {{ block.settings.icon_size }}px;
-    height: {{ block.settings.icon_size }}px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .ai-product-feature-icon-{{ ai_gen_id }} svg {
-    width: 100%;
-    height: 100%;
-    color: {{ block.settings.icon_color }};
-  }
-  .ai-product-feature-heading-{{ ai_gen_id }} {
-    margin: 0;
-    font-size: {{ block.settings.heading_size }}px;
-    font-weight: 600;
-    color: {{ block.settings.heading_color }};
-  }
-  .ai-product-feature-text-{{ ai_gen_id }} {
-    margin: 0;
-    font-size: {{ block.settings.text_size }}px;
-    line-height: 1.5;
-    color: {{ block.settings.text_color }};
-  }
-{% endstyle %}
-
-<div class="ai-product-features-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
-  <div class="ai-product-features-grid-{{ ai_gen_id }}">
-    <div class="ai-product-feature-item-{{ ai_gen_id }}">
-      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-      </div>
-      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.scent_heading }}</h3>
-      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.scent_text }}</p>
-    </div>
-    <div class="ai-product-feature-item-{{ ai_gen_id }}">
-      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M8 12h8"/>
-          <path d="M12 8v8"/>
-        </svg>
-      </div>
-      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.intensity_heading }}</h3>
-      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.intensity_text }}</p>
-    </div>
-    <div class="ai-product-feature-item-{{ ai_gen_id }}">
-      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-      </div>
-      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.occasion_heading }}</h3>
-      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.occasion_text }}</p>
-    </div>
-    <div class="ai-product-feature-item-{{ ai_gen_id }}">
-      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2v20"/>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-      </div>
-      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.persistence_heading }}</h3>
-      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.persistence_text }}</p>
-    </div>
+<div class="product-features" {{ block.shopify_attributes }} style="width: 100%; padding: 10px; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex; flex-wrap: wrap;">
+  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
+    <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.scent_heading }}:</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.scent_text }}</div>
+  </div>
+  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
+    <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.occasion_heading }}:</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.occasion_text }}</div>
+  </div>
+  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
+    <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.intensity_heading }}:</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.intensity_text }}</div>
+  </div>
+  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
+    <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.persistence_heading }}:</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.persistence_text }}</div>
   </div>
 </div>

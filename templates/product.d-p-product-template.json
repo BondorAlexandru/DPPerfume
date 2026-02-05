@@ -61,6 +61,10 @@
             "description": ""
           }
         },
+        "product_features": {
+          "type": "product_features",
+          "settings": {}
+        },
         "popup_KKFQyV": {
           "type": "popup",
           "repeater": "{{ product.metafields.shopify.scent.value }}",
@@ -121,6 +125,7 @@
         "variant_picker",
         "buy_buttons",
         "description_J3BppF",
+        "product_features",
         "popup_KKFQyV",
         "popup_67EXtY",
         "popup_yX9T7z",
