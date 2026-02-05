@@ -1,18 +1,33 @@
+{%- assign scent_value = product.metafields.custom.familie_olfactiva | default: block.settings.scent_text -%}
+{%- assign occasion_value = product.metafields.custom.ocazie | default: block.settings.occasion_text -%}
+{%- assign intensity_value = product.metafields.custom.intensitate | default: block.settings.intensity_text -%}
+{%- assign persistence_value = product.metafields.custom.persistenta | default: block.settings.persistence_text -%}
+
+{% if scent_value != blank or occasion_value != blank or intensity_value != blank or persistence_value != blank %}
 <div class="product-features" {{ block.shopify_attributes }} style="width: 100%; padding: 10px; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex; flex-wrap: wrap;">
+  {% if scent_value != blank %}
   <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
     <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.scent_heading }}:</div>
-    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.scent_text }}</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ scent_value }}</div>
   </div>
+  {% endif %}
+  {% if occasion_value != blank %}
   <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
     <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.occasion_heading }}:</div>
-    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.occasion_text }}</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ occasion_value }}</div>
   </div>
+  {% endif %}
+  {% if intensity_value != blank %}
   <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
     <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.intensity_heading }}:</div>
-    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.intensity_text }}</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ intensity_value }}</div>
   </div>
+  {% endif %}
+  {% if persistence_value != blank %}
   <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
     <div style="color: #4D4D4D; font-size: 10px; font-family: Open Sans; font-weight: 400; text-transform: uppercase; line-height: 16.20px; letter-spacing: 0.65px;">{{ block.settings.persistence_heading }}:</div>
-    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ block.settings.persistence_text }}</div>
+    <div style="color: black; font-size: 15.40px; font-family: Open Sans; font-weight: 400; line-height: 20.02px;">{{ persistence_value }}</div>
   </div>
+  {% endif %}
 </div>
+{% endif %}
