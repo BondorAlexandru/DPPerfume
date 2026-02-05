@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.settings.header-group.label",
+  "sections": {
+    "countdown-timer-bar": {
+      "type": "countdown-timer-bar",
+      "disabled": true,
+      "settings": {
+        "height": 40,
+        "height_mobile": 65,
+        "color_scheme": "",
+        "promo_text": "Display a limited time offer",
+        "enable_mock_timer": false,
+        "mock_date_picker_day": 2,
+        "mock_date_picker_hours": 3,
+        "date_picker": "2025-06-01",
+        "time_picker": "00:00",
+        "countdown_block_font": "h2",
+        "completed_countdown": "show_text",
+        "countdown_heading": "Time Is Running Out",
+        "button_label": "Shop now",
+        "button_link": "",
+        "overlay_mobile_link": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_nQ3VtC": {
+          "type": "mega_menu",
+          "settings": {
+            "mega_menu_trigger": "",
+            "enable_dropdown_menu": false,
+            "enable_dropdown_submenu": false,
+            "open_dropdown_menu": "on_click",
+            "block_image_ratio": "portrait",
+            "first_product": "",
+            "first_collection": "",
+            "second_product": "",
+            "second_collection": "",
+            "small_menu": "",
+            "mega_menu_description": "Quick access to our top sections.",
+            "mega_menu_button_label": "Here can be a promo button",
+            "mega_menu_button_link": "",
+            "mega_menu_button_style": "tertiary",
+            "mega_menu_promo_1_trigger": "",
+            "heading_1": "Here can be a main category",
+            "button_link_1": "",
+            "mega_menu_promo_2_trigger": "",
+            "heading_2": "Use this for a product section",
+            "button_link_2": "",
+            "mega_menu_promo_3_trigger": "",
+            "heading_3": "This is where a key link goes",
+            "button_link_3": "",
+            "mega_menu_promo_4_trigger": "",
+            "heading_4": "Here can be a main category",
+            "button_link_4": "",
+            "mega_menu_promo_5_trigger": "",
+            "heading_5": "Use this for a product section",
+            "button_link_5": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_nQ3VtC"
+      ],
+      "settings": {
+        "enable_border": true,
+        "header_type": "center-logo",
+        "logo": "shopify://shop_images/DP-LOGO.png",
+        "logo_2": "shopify://shop_images/DP-LOGO.png",
+        "logo_width": 100,
+        "menu": "main-menu",
+        "sticky_header_type": "always",
+        "header_animation_type": "slide",
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "enable_search": true,
+        "scheme_position": "right",
+        "dm_button_type": "text",
+        "search_button_type": "text",
+        "search_mobile_button_type": "icon",
+        "cart_button_type": "icon",
+        "cart_mobile_button_type": "icon",
+        "account_button_type": "text",
+        "language_button_type": "text",
+        "region_button_type": "text"
+      }
+    }
+  },
+  "order": [
+    "countdown-timer-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,441 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_pAAHRC": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "info_position": "inside",
+        "image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png",
+        "image_ratio": "21/9",
+        "opacity_overlay": 0.2,
+        "heading": "Termeni & Condiții",
+        "heading_size": "h1",
+        "text_information": "",
+        "text_align": "center",
+        "text_width": "full",
+        "additional_text": "",
+        "button_label": "",
+        "button_style": "tertiary",
+        "button_link": "",
+        "button_label2": "",
+        "button_style2": "tertiary",
+        "button_link2": "",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_PaQXM6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6hFaAb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Termeni și Condiții",
+            "heading_size": "h1"
+          }
+        },
+        "text_Y768km": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vizitarea, folosirea și cumpărarea produselor de pe site-ul www.dpparfum.ro presupune acceptarea în totalitate și de fiecare dată când accesați site-ul a Termenilor și Condițiilor sub care funcționează acest website și sistemul de livrare al produselor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6hFaAb",
+        "text_Y768km"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "l",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_cfbj9a": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dWkYgG": {
+          "type": "heading",
+          "settings": {
+            "heading": "1. Definiții și termeni",
+            "heading_size": "h1"
+          }
+        },
+        "text_mqRzLM": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Client</strong> – persoana fizică/juridică care efectuează o Comandă.</p><p><strong>Vânzător</strong> – societatea comerciala Smart Trade Management SRL, persoană juridică cu naționalitate română, cu sediul social în Str Maior Ion Coravu nr 45, bloc h3, sc. A, ap. 7 birou 2, etaj 1, Bucuresti, Sector 2</p><p><strong>Comanda</strong> – un document electronic ce intervine ca formă de comunicare între Client și Vânzător, prin care Clientul transmite Vânzătorului intenția sa de cumpărare a produselor prezentate pe website.</p><p><strong>Produse</strong> – orice produs, inclusiv documentele și serviciile menționate în Comandă, care urmează a fi furnizate Clientului, de către Vânzător.</p><p><strong>Contract / Termeni și Condiții</strong> – o Comandă lansată de Client și confirmată de către Vânzător prin email. Clientul acceptă termenii în care este încheiat contractul la momentul lansării comenzii. Renunțarea la contract se poate face în conformitate cu prevederile legale pentru contractele la distanță.</p><p>Smart Trade Management SRL acordă consumatorului o garanție legală de conformitate potrivit prevederilor Legii nr. 449/2003 privind vânzarea produselor și garanțiile asociate acestora și cu cele ale Ordonanței de Guvern nr. 21/1992 privind protecția consumatorului.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dWkYgG",
+        "text_mqRzLM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "m",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_Vxdd7F": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yAwyRU": {
+          "type": "heading",
+          "settings": {
+            "heading": "2. Achiziționarea produselor",
+            "heading_size": "h1"
+          }
+        },
+        "text_6QJmC4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Prin efectuarea unei comenzi pe site-ul www.dpparfum.ro, clientul își exprimă acordul cu forma de comunicare, prin e-mail sau telefonic, prin care Smart Trade Management SRL își desfășoară activitatea comercială.</p><p>Caracteristicile produselor și prețurile aferente sunt descrise pentru fiecare în pagină din care se face trimitere către comanda fermă. Odată trimis produsul în coș și plasată comanda fermă, clientul este de acord cu specificațiile și prețul produsului.</p><p>Pentru a achiziționa produsele prezente pe www.dpparfum.ro, consumatorul va plasa comanda online, aceasta fiind achitată prin card bancar ori numerar în sistem ramburs, în momentul livrării prin firma de curierat.</p><p>Comanda plasată trebuie să fie finalizată și confirmată prin email pentru ca produsele achiziționate să fie livrate.</p><p>Detaliile comenzii și factura electronică de achiziție vor fi trimise prin email după finalizarea comenzii și vor rămâne în istoricul comenzilor contului de pe care a fost efectuată comanda (în cazul în care Clientul avea cont activ și era logat la contul activ în momentul efectuării comenzii).</p><p>Odată plasată și finalizată comanda, cumpărătorul confirmă că datele furnizate sunt corecte și complete, astfel încât livrarea să fie realizată în condiții normale.</p><p>Dacă ați plasat o comandă și doriți să o anulați, acest lucru se poate realiza doar în următoarele 30 de minute de la plasarea comenzii, contactându-ne la:</p><p><strong>Număr de telefon:</strong> Tel: 0740520000 (luni-vineri 9-18)<br/><strong>Email:</strong> suport@dpparfum.ro</p><p>Comanda va fi anulată doar după primirea pe email a confirmării anulării comenzii.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yAwyRU",
+        "text_6QJmC4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_xtt99y": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jQBWQi": {
+          "type": "heading",
+          "settings": {
+            "heading": "3. Procesarea comenzii",
+            "heading_size": "h1"
+          }
+        },
+        "text_azQ8LN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>După plasarea comenzii, va fi trimis un email automat de primire a comenzii. În funcție de disponibilitatea în stoc, produsele sunt livrate în termen de 3-4 zile lucrătoare. În cazuri excepționale, dacă livrarea întârzie, veți fi anunțat telefonic de către reprezentantul Smart Trade Management SRL despre situația comenzii dvs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jQBWQi",
+        "text_azQ8LN"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_xCBLdr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_j7enHV": {
+          "type": "heading",
+          "settings": {
+            "heading": "4. Livrarea",
+            "heading_size": "h1"
+          }
+        },
+        "text_TfGDbn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Produsele comandate sunt livrate de firma de curierat cu care Smart Trade Management SRL are contract. Taxa de transport este 15 RON pentru comenzi de până în 235 RON, indiferent de locație pe teritoriul României.</p><p>În momentul expedierii comenzii veți primi o confirmare prin email sau SMS ce conține detalii privind firma de curierat și numărul coletului.</p><p>În cazul în care nu sunteți disponibil/ă pentru livrare, veți primi o notificare telefonică sau prin SMS. În cazul în care curierul nu va reuși livrarea produselor, comanda se va întoarce la expeditor. Vă recomandăm să ne contactați telefonic în timp util pentru rezolvarea situației livrării.</p><p>Magazinul dpparfum.ro vinde produse doar pe teritoriul României, nu livrăm în străinătate.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_j7enHV",
+        "text_TfGDbn"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_YydkAA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4kQpyz": {
+          "type": "heading",
+          "settings": {
+            "heading": "5. Modalități de plată",
+            "heading_size": "h1"
+          }
+        },
+        "text_JVffXz": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Plată la livrare (ramburs):</strong> Produsele pot fi achitate în numerar la momentul livrării, cu chitanță.</p><p><strong>Plată online cu card bancar:</strong> Plata se efectuează online prin intermediul unui sistem securizat de procesare a plăților cu card bancar (debit/credit).</p><p><strong>Plăți online prin Netopia mobilpay:</strong> Clientul poate efectua plata prin intermediul platformei Netopia mobilpay, care oferă o modalitate sigură și convenabilă de plată online.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4kQpyz",
+        "text_JVffXz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_h8QUNw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Pt96nF": {
+          "type": "heading",
+          "settings": {
+            "heading": "6. Politica de retur",
+            "heading_size": "h1"
+          }
+        },
+        "text_mTfLtH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Conform legislației în vigoare, clientul beneficiază de dreptul de retragere din contract în termen de 14 zile calendaristice de la primirea produsului.</p><p>Pentru a exercita dreptul de retragere, clientul trebuie să trimită formularul de retragere la adresa de email: <strong>retur@dpparfum.ro</strong></p><p><strong>Condiții pentru acceptarea returului:</strong></p><ul><li>Produsul trebuie să fie sigilat cu hologramă intactă</li><li>Produsul nu a fost deschis sau utilizat</li><li>Produsul nu este expirat</li><li>Produsul nu prezintă defecte ale supapei</li><li>Produsul nu este gol sau incomplet</li><li>Produsul nu a fost deteriorat în timpul transportului</li><li>Etichetele și ambalajul sunt intacte</li></ul><p><strong>Returnarea produselor:</strong> Costurile de transport pentru returnare sunt suportate de client. Returnarea se efectuează prin intermediul firmei Fan Courier la adresa: <strong>Smart Trade Management SRL, Strada Maior Ion Coravu 45, bl h3, sc A, ap. 7, sector 2, București</strong></p><p><strong>Concilierea amiabilă:</strong> Pentru orice neînțelegeri, clientul poate contacta: <strong>Andreea Mexi, suport@dpparfum.ro</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Pt96nF",
+        "text_mTfLtH"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "small",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_GqzwRM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KK8KVJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "7. Garanție și reclamații",
+            "heading_size": "h1"
+          }
+        },
+        "text_CWcapp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Clientul are obligația de a verifica starea coletului la momentul livrării, în prezența curierului. Dacă produsul prezintă defecte sau deteriorări, clientul are dreptul să refuze primirea acestuia.</p><p>Orice reclamație privind defectele produselor trebuie transmisă la adresa de email: <strong>retur@dpparfum.ro</strong>, însoțită de o descriere detaliată a defectului și o copie a facturii de achiziție.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KK8KVJ",
+        "text_CWcapp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_ykqTgU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cPBrWH": {
+          "type": "heading",
+          "settings": {
+            "heading": "8. Prețurile",
+            "heading_size": "h1"
+          }
+        },
+        "text_dzKHeh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Toate prețurile afișate pe site-ul www.dpparfum.ro includ TVA și sunt prețuri finale. Prețurile sunt valabile la data plasării comenzii. În cazul în care prețul unui produs se modifică după plasarea comenzii, clientul va fi notificat și va avea opțiunea de a confirma sau anula comanda.</p><p>Fotografiile produselor prezentate pe site sunt doar pentru prezentare și pot diferi ușor de aspectul real al produsului.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cPBrWH",
+        "text_dzKHeh"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_VbQ8m6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fAedMi": {
+          "type": "heading",
+          "settings": {
+            "heading": "9. Protecția datelor cu caracter personal",
+            "heading_size": "h1"
+          }
+        },
+        "text_xE7t6G": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Smart Trade Management SRL se angajează să protejeze datele cu caracter personal ale clienților în conformitate cu legislația în vigoare. Datele personale nu vor fi partajate cu terți fără consimțământul explicit al clientului.</p><p>Clientul are dreptul de a se opune prelucrării datelor sale personale și de a solicita ștergerea acestora contactând: <strong>suport@dpparfum.ro</strong></p><p><strong>Consimțământ pentru newsletter:</strong> Prin abonarea la newsletter, clientul consimte la primirea de comunicări comerciale și informații despre produse și oferte. Clientul poate opta pentru a nu mai primi aceste comunicări în orice moment.</p><p>Prelucrarea datelor personale se efectuează în conformitate cu <strong>Regulamentul (UE) 2016/679 (GDPR)</strong> și <strong>Legea nr. 677/2001</strong> privind protecția persoanelor cu privire la prelucrarea datelor cu caracter personal.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fAedMi",
+        "text_xE7t6G"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_TqVqRf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MCekyi": {
+          "type": "heading",
+          "settings": {
+            "heading": "11. Litigii",
+            "heading_size": "h1"
+          }
+        },
+        "text_EhfVbB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Orice litigiu care ar putea apărea între client și Smart Trade Management SRL va fi rezolvat în mod amiabil. În cazul în care nu se poate ajunge la o înțelegere amiabilă, litigiul va fi soluționat în conformitate cu legile României și va fi competența instanțelor de judecată din România.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MCekyi",
+        "text_EhfVbB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_UBKGwh": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kgHiYQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "10. Drepturile de autor",
+            "heading_size": "h1"
+          }
+        },
+        "text_xiBMmz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Toate conținuturile site-ului www.dpparfum.ro, inclusiv texte, imagini, grafice, logo-uri și alte materiale, sunt proprietatea Smart Trade Management SRL și sunt protejate de legile privind drepturile de autor.</p><p>Utilizarea comercială a oricărui conținut de pe site fără permisiunea scrisă a Smart Trade Management SRL este strict interzisă.</p><p>Site-ul poate conține materiale de la terți. Orice notificare privind încălcarea drepturilor de autor trebuie transmisă la: <strong>suport@dpparfum.ro</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kgHiYQ",
+        "text_xiBMmz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_YiJqaR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bCdNTK": {
+          "type": "heading",
+          "settings": {
+            "heading": "12. Dispoziții finale",
+            "heading_size": "h1"
+          }
+        },
+        "text_Rdyr3e": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Smart Trade Management SRL se rezervă dreptul de a modifica oricând Termenii și Condițiile și conținutul site-ului www.dpparfum.ro fără notificare prealabilă. Modificările vor intra în vigoare imediat după publicare pe site.</p><p>Smart Trade Management SRL nu poartă răspundere pentru conținutul site-urilor externe la care se face trimitere din site-ul www.dpparfum.ro. Accesarea acestor site-uri externe se face pe răspunderea proprie a utilizatorului.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bCdNTK",
+        "text_Rdyr3e"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "l"
+      }
+    }
+  },
+  "order": [
+    "image_banner_pAAHRC",
+    "main",
+    "rich_text_PaQXM6",
+    "rich_text_cfbj9a",
+    "rich_text_Vxdd7F",
+    "rich_text_xtt99y",
+    "rich_text_xCBLdr",
+    "rich_text_YydkAA",
+    "rich_text_h8QUNw",
+    "rich_text_GqzwRM",
+    "rich_text_ykqTgU",
+    "rich_text_VbQ8m6",
+    "rich_text_TqVqRf",
+    "rich_text_UBKGwh",
+    "rich_text_YiJqaR"
+  ]
+}

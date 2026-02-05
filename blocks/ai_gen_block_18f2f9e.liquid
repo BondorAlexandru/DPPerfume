@@ -1,0 +1,279 @@
+{% doc %}
+  @prompt
+    add a section with icon, header and copy for "Scent Family", "Intensity", "Occasion" and "Persistence"
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-features-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .ai-product-features-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-product-features-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-features-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .ai-product-feature-item-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: {{ block.settings.alignment }};
+    text-align: {{ block.settings.alignment }};
+    gap: 12px;
+  }
+
+  .ai-product-feature-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ai-product-feature-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-product-feature-heading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .ai-product-feature-text-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.5;
+    color: {{ block.settings.text_color }};
+  }
+{% endstyle %}
+
+<product-features-{{ ai_gen_id }} class="ai-product-features-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-product-features-grid-{{ ai_gen_id }}">
+    <div class="ai-product-feature-item-{{ ai_gen_id }}">
+      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.scent_heading }}</h3>
+      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.scent_text }}</p>
+    </div>
+
+    <div class="ai-product-feature-item-{{ ai_gen_id }}">
+      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 12h8"/>
+          <path d="M12 8v8"/>
+        </svg>
+      </div>
+      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.intensity_heading }}</h3>
+      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.intensity_text }}</p>
+    </div>
+
+    <div class="ai-product-feature-item-{{ ai_gen_id }}">
+      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.occasion_heading }}</h3>
+      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.occasion_text }}</p>
+    </div>
+
+    <div class="ai-product-feature-item-{{ ai_gen_id }}">
+      <div class="ai-product-feature-icon-{{ ai_gen_id }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <h3 class="ai-product-feature-heading-{{ ai_gen_id }}">{{ block.settings.persistence_heading }}</h3>
+      <p class="ai-product-feature-text-{{ ai_gen_id }}">{{ block.settings.persistence_text }}</p>
+    </div>
+  </div>
+</product-features-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductFeatures{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+    customElements.define('product-features-{{ ai_gen_id }}', ProductFeatures{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product features",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Scent family"
+    },
+    {
+      "type": "text",
+      "id": "scent_heading",
+      "label": "Heading",
+      "default": "Scent Family"
+    },
+    {
+      "type": "textarea",
+      "id": "scent_text",
+      "label": "Description",
+      "default": "Floral & Fresh"
+    },
+    {
+      "type": "header",
+      "content": "Intensity"
+    },
+    {
+      "type": "text",
+      "id": "intensity_heading",
+      "label": "Heading",
+      "default": "Intensity"
+    },
+    {
+      "type": "textarea",
+      "id": "intensity_text",
+      "label": "Description",
+      "default": "Medium to Strong"
+    },
+    {
+      "type": "header",
+      "content": "Occasion"
+    },
+    {
+      "type": "text",
+      "id": "occasion_heading",
+      "label": "Heading",
+      "default": "Occasion"
+    },
+    {
+      "type": "textarea",
+      "id": "occasion_text",
+      "label": "Description",
+      "default": "Day & Evening"
+    },
+    {
+      "type": "header",
+      "content": "Persistence"
+    },
+    {
+      "type": "text",
+      "id": "persistence_heading",
+      "label": "Heading",
+      "default": "Persistence"
+    },
+    {
+      "type": "textarea",
+      "id": "persistence_text",
+      "label": "Description",
+      "default": "6-8 Hours"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4d4d4d"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product features"
+    }
+  ]
+}
+{% endschema %}

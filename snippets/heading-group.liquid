@@ -1,0 +1,31 @@
+{% comment %}
+	 Renders section text
+	 Accepts:
+	 section: {Object} Section
+	class: {String} Class (optional)
+	 Usage:
+	 {% render 'heading-group', section: section, class: '' %}
+{% endcomment %}
+
+{% liquid
+	assign description_size = 'body-normal'
+
+	if desc_size != blank
+		assign description_size = desc_size
+	elsif section.settings.heading_size == 'h2' or section.settings.heading_size == 'h1'
+		assign description_size = 'body-large'
+	endif
+%}
+
+{%- if section.settings.heading != blank -%}
+	<{{ section.settings.heading_level | default: "h2" }}
+		class="{% if class %}{{ class }}__title{% endif %} section-title {{ section.settings.heading_size }}"
+	>
+		{{- section.settings.heading | newline_to_br -}}
+	</{{ section.settings.heading_level | default: "h2" }}>
+{% endif %}
+{%- if section.settings.description != blank -%}
+	<div class="{% if class %}{{ class }}__description{% endif %} section-description {{ description_size }} {% if settings.section_rte_type == 'custom' %}section-rte{% endif %}">
+		{{- section.settings.description -}}
+	</div>
+{% endif %}

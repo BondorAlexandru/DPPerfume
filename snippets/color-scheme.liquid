@@ -1,0 +1,26 @@
+{%- assign dark_mode_toggle = settings.dark_mode_toggle -%}
+{%- if dark_mode_toggle -%}
+	<div class='header__scheme header__icons--hover{% if section.settings.dm_button_type == 'icon' %} only_icon{% endif %}'>
+		<button
+			class='header__toggle-scheme toggle-scheme-button focus-inset header__icons--container'
+			aria-label='{{ 'general.dark_mode.dark'}}'
+		>
+			<div class='header__toggle-scheme-item header__toggle-scheme-item--light'>
+				{%- if section.settings.dm_button_type == 'icon' or section.settings.dm_button_type == 'icon-and-text' -%}
+					{% render 'icon-dark-mode' %}
+				{%-endif-%}
+				{%- if section.settings.dm_button_type == 'text' or section.settings.dm_button_type == 'icon-and-text' -%}
+					<span class=" link-hover-line">{{- 'sections.header.dark_mode' | t -}}</span>
+				{%-endif-%}
+			</div>
+			<div class='header__toggle-scheme-item header__toggle-scheme-item--dark'>
+				{%- if section.settings.dm_button_type == 'icon' or section.settings.dm_button_type == 'icon-and-text' -%}
+					{% render 'icon-light-mode' %}
+				{%-endif-%}
+				{%- if section.settings.dm_button_type == 'text' or section.settings.dm_button_type == 'icon-and-text' -%}
+					<span class=" link-hover-line">{{- 'sections.header.Light_mode' | t -}}</span>
+				{%-endif-%}
+			</div>
+		</button>
+	</div>
+{%- endif -%}

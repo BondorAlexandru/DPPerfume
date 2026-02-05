@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "media_banner_K49wpz": {
+      "type": "media-banner",
+      "blocks": {
+        "media_slide_V8KKMJ": {
+          "type": "media_slide",
+          "settings": {
+            "color_scheme": "background-2",
+            "image": "shopify://shop_images/Classic.png",
+            "overlay_opacity": 0.1,
+            "enable_hover": true,
+            "show_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description_video": "",
+            "subheading": "",
+            "heading": "Contactează-ne",
+            "heading_size": "h1",
+            "description": "Suntem disponibili pentru a îți răspunde la orice întrebare despre produsele noastre, comanda ta sau magazinele partenere D&P.",
+            "position_content": "center",
+            "align_content": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "simple",
+            "button_label2": "",
+            "button_link2": "",
+            "button_style2": "secondary",
+            "full_link": true
+          }
+        }
+      },
+      "block_order": [
+        "media_slide_V8KKMJ"
+      ],
+      "name": "t:sections.media-banner.name",
+      "settings": {
+        "header_overlay": true,
+        "sticky": "sticky-none",
+        "layout": "overlay",
+        "title_link": false,
+        "gap": false,
+        "aspect_ratio": "full",
+        "aspect_ratio_mobile": "full",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "contact_form_Xg69AE": {
+      "type": "contact-form",
+      "blocks": {
+        "contact_description_Q8KdPD": {
+          "type": "contact-description",
+          "settings": {
+            "subheading": "",
+            "heading": "Smart Trade Management SRL",
+            "heading_size": "h2",
+            "description": "<p>Capital social : 200 lei<br/>J40/5283/2018RO39201697</p>"
+          }
+        }
+      },
+      "block_order": [
+        "contact_description_Q8KdPD"
+      ],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "position": "right",
+        "enable_form": true,
+        "heading": "Ia legătura cu noi!",
+        "heading_size": "h1",
+        "text": "",
+        "additional_text": "",
+        "button_style": "primary",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "1770240557e4446757": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1770244388c652666b": {
+      "type": "_blocks",
+      "settings": {}
+    }
+  },
+  "order": [
+    "media_banner_K49wpz",
+    "contact_form_Xg69AE",
+    "1770240557e4446757",
+    "1770244388c652666b"
+  ]
+}

@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h3"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "pill_group": false,
+            "show_size_guide": true,
+            "size_guide_text": "Size Guide",
+            "size_guide_header": "Find Your Fit",
+            "size_guide_description": "<p>Use our size guide to choose the right size and shop with confidence.</p>",
+            "page": "size-chart"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity": false,
+            "show_gift_card_recipient": false,
+            "notification_modal": true,
+            "modal_button_label": "Notify Me",
+            "heading": "Notification",
+            "description": "The product is unfortunately out of stock. Please contact us to let us know when it is available.",
+            "button_label": "Customer Care",
+            "button_link": "",
+            "description_2": "We suggest you check out similar products, maybe you will find something suitable for you.",
+            "button_label_2": "View Similar Products",
+            "button_link_2": ""
+          }
+        },
+        "description_J3BppF": {
+          "type": "description",
+          "settings": {
+            "description": ""
+          }
+        },
+        "popup_KKFQyV": {
+          "type": "popup",
+          "repeater": "{{ product.metafields.shopify.scent.value }}",
+          "settings": {
+            "label": "{{ block.repeater.label.value }}"
+          }
+        },
+        "popup_67EXtY": {
+          "type": "popup",
+          "settings": {
+            "label": "Fabric & Care",
+            "text": "<h3>Outer Material</h3><p>100% Goat Leather.</p><h3>Lining Composition</h3><p>Viscose 37%, modal 33%, polyester 30%</p>",
+            "text_2": "",
+            "heading": "",
+            "img_text": ""
+          }
+        },
+        "popup_yX9T7z": {
+          "type": "popup",
+          "settings": {
+            "label": "Shipping, Exchange & Returns",
+            "text": "<h3>Standard / 3-5 Business Days / Estimated price of $15.00</h3><p>We offer reliable standard shipping with delivery within 3 to 5 business days. </p><h3>Pick-Up In Store / 3-5 Business Days / Free</h3><p>Choose our free in-store pick-up option and collect your order at a location near you within 3 to 5 business days.</p><h3>Express Home / 1-2 Business Days / Estimated price of $15.00</h3><p>For those who need their items quickly, our express home delivery ensures your order arrives within 1 to 2 days.</p>",
+            "text_2": "<h3>Exchange & Returns</h3><h3>Free Store Return</h3><p>You can return your items to any of our stores as long as the return is made in the same market where you made the purchase. Returns are always free of charge, and the deadline for returns is 30 days from the delivery confirmation date.</p><h3>Free Home Return</h3><p>Request a home return easily through your account. We offer free home returns, and you have 30 days from the delivery confirmation date to send back your items.</p>",
+            "heading": "",
+            "img_text": "<p>If you still have any questions, feel free to <a href=\"/pages/contact\" title=\"Customer Care\">contact us.</a></p>"
+          }
+        },
+        "floated_form": {
+          "type": "floated_form",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity": false
+          }
+        },
+        "pickup_availability_MNbMke": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "complementary_MDe68y": {
+          "type": "complementary",
+          "settings": {
+            "heading": "You May Also Like",
+            "heading_size": "h3",
+            "products_limit": 6,
+            "image_ratio": "portrait",
+            "image_fit": "cover",
+            "show_vendor": false,
+            "show_collection": false,
+            "show_desc": false,
+            "columns_mobile": "2"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "inventory",
+        "variant_picker",
+        "buy_buttons",
+        "description_J3BppF",
+        "popup_KKFQyV",
+        "popup_67EXtY",
+        "popup_yX9T7z",
+        "floated_form",
+        "pickup_availability_MNbMke",
+        "complementary_MDe68y"
+      ],
+      "settings": {
+        "gallery_type": "thumbs_aside_horizontal",
+        "mobile_gallery_type": "synchronize",
+        "desktop_alignment": "right",
+        "mobile_alignment": "before",
+        "slider_direction": "vertical",
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "enable_full_screen": true,
+        "header_overlay": false,
+        "enable_sticky_button": false,
+        "variant_media_display": "show_all"
+      }
+    },
+    "17693620531959beb6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_18f2f9e_4Yyggd": {
+          "type": "ai_gen_block_18f2f9e",
+          "settings": {
+            "scent_heading": "{{ closest.product.metafields.shopify.scent | metafield_text: field: 'label' }}",
+            "scent_text": "Floral & Fresh",
+            "intensity_heading": "Intensity",
+            "intensity_text": "Medium to Strong",
+            "occasion_heading": "Occasion",
+            "occasion_text": "Day & Evening",
+            "persistence_heading": "Persistence",
+            "persistence_text": "6-8 Hours",
+            "alignment": "center",
+            "icon_size": 32,
+            "icon_color": "#000000",
+            "heading_size": 16,
+            "heading_color": "#000000",
+            "text_size": 14,
+            "text_color": "#4d4d4d"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_18f2f9e_4Yyggd"
+      ],
+      "settings": {}
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "heading": "Alte Recomandări",
+        "description": "",
+        "heading_size": "h1",
+        "products_limit": 4,
+        "products_to_show": 4,
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_vendor": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_collection": false,
+        "show_desc": false,
+        "columns_mobile": "1",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "simple",
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "product-slider": {
+      "type": "product-slider",
+      "blocks": {
+        "product_slide": {
+          "type": "product_slide",
+          "settings": {
+            "product": "k5",
+            "image": "shopify://shop_images/K5.png",
+            "color_scheme": "",
+            "overlay_opacity": 0.1,
+            "description": "Highlight products, promos, or seasonal picks to engage visitors."
+          }
+        },
+        "product_slide1": {
+          "type": "product_slide",
+          "settings": {
+            "product": "a20",
+            "image": "shopify://shop_images/Classic.png",
+            "color_scheme": "",
+            "overlay_opacity": 0.1,
+            "description": "Highlight products, promos, or seasonal picks to engage visitors."
+          }
+        },
+        "product_slide2": {
+          "type": "product_slide",
+          "settings": {
+            "product": "a20",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_18_2025_10_11_21_PM.png",
+            "color_scheme": "",
+            "overlay_opacity": 0.1,
+            "description": "Highlight products, promos, or seasonal picks to engage visitors."
+          }
+        }
+      },
+      "block_order": [
+        "product_slide",
+        "product_slide1",
+        "product_slide2"
+      ],
+      "settings": {
+        "image_size": "1/1",
+        "subheading": "",
+        "heading": "Your Product Grid Title",
+        "heading_size": "h1",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "simple",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "navigation_position": "cursor",
+        "slideshow_speed": 2,
+        "slideshow_delay": 3,
+        "slide_effects": "slide",
+        "is_sync_slide": true,
+        "enable_main_image_link": false,
+        "enable_animation": true,
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_vendor": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_collection": false,
+        "show_desc": false,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "banner-with-popup": {
+      "type": "banner-with-popup",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png"
+          }
+        }
+      },
+      "block_order": [
+        "image"
+      ],
+      "settings": {
+        "aspect_ratio": "full",
+        "full_screen_image_mode": true,
+        "heading": "Banner Title Goes Here",
+        "heading_size": "h1",
+        "description": "<p>This is where you can share a quick story, highlight a special collection, or introduce an upcoming event, adding depth and making your visuals more engaging.</p>",
+        "button_label": "View more",
+        "button_link": "",
+        "button_style": "simple",
+        "button_function": "popup",
+        "enable_animation": false,
+        "slideshow_speed": 6,
+        "popup_heading": "Unlock Your Special Offer",
+        "popup_content_heading": "Ready to Shop?",
+        "popup_content": "<p>You can also use this space to highlight a specific collection, showcase limited-time offers, or introduce a special event. By adding context and narrative to your visuals, you’ll make them more impactful and memorable for your customers.</p>",
+        "popup_image_size": "portrait",
+        "popup_button_label": "",
+        "popup_button_link": "",
+        "popup_button_style": "tertiary",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17693620531959beb6",
+    "product-recommendations",
+    "product-slider",
+    "banner-with-popup"
+  ]
+}

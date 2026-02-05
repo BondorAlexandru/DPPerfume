@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_rfjwNg": {
+      "type": "image-with-text",
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "aspect_ratio": "medium",
+        "heading_position": "center",
+        "text_width": "medium",
+        "subheading": "",
+        "heading": "Despre Noi",
+        "heading_size": "h1",
+        "text": "<p>Parfumurile sunt întotdeauna asociate cu tendințele. Uneori, abundența acestor tendințe este atât de mare încât nu vă mai puteți găsi drumul prin ssaelecția uriașă. D&P Perfumum vă poate ajuta în acest sens.</p><p>Suntem contactul tău când vine vorba de parfumuri individuale care te fac să te simți bine. In magazinul nostru online veti gasi o selectie mare din care puteti alege dupa gustul dumneavoastra. Întotdeauna vă sprijinim și vă consiliem profesional, competent și cuprinzător. </p><ul><li>Toate produsele noastre sunt conforme cu regulamentul UE pentru produsele cosmetice;</li><li>Ținem pasul cu tendințele, de aceea elaborăm constant noi esențe.</li></ul>",
+        "enable_animation": true,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "simple",
+        "image": "shopify://shop_images/K5.png",
+        "mobile_image": "shopify://shop_images/K5.png",
+        "image_width": "large",
+        "height": "portrait",
+        "layout": "image_right",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "steps_MdG7i6": {
+      "type": "steps",
+      "blocks": {
+        "steps_item_wEjTjW": {
+          "type": "steps-item",
+          "settings": {
+            "date": "01",
+            "heading": "Suntem Certificați IFRA",
+            "description": "<p>Investim în calitatea parfumurilor, acestea fiind realizate din esențe naturale produse în Franța și în alte țări din Uniunea Europeană, după norme UE și la standarde IFRA (International Fragrance Association).</p>",
+            "image": "shopify://shop_images/K5.png"
+          }
+        },
+        "steps_item_BBw87C": {
+          "type": "steps-item",
+          "settings": {
+            "date": "02",
+            "heading": "Răspândire în Europa și nu numai",
+            "description": "<p>Produsele noastre sunt îmbuteliate la fabrica noastră Ankara (Turcia), conform reglementărilor cosmetice CE, și sunt distribuite în 37 de țări, printre care Marea Britanie, Germania, Austria, Franța, Turcia, Arabia Saudită, Olanda, Belgia, Egipt, Dubai, Cehia, Bulgaria și, bineînțeles, România.</p>",
+            "image": "shopify://shop_images/K5.png"
+          }
+        }
+      },
+      "block_order": [
+        "steps_item_wEjTjW",
+        "steps_item_BBw87C"
+      ],
+      "name": "t:sections.steps.name",
+      "settings": {
+        "image_ratio": "portrait",
+        "heading_size": "h1",
+        "sticky": false,
+        "margin_top": "m",
+        "margin_bottom": "xs"
+      }
+    },
+    "1770243434fa097dcf": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "ss_instafeed_9_4LQAKG": {
+      "type": "ss-instafeed-9",
+      "blocks": {
+        "sub_heading_CcQpyY": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "<h3>Subheading</h3>",
+            "sub_heading_custom": false,
+            "sub_heading_font": "josefin_sans_n4",
+            "sub_heading_size": 12,
+            "sub_heading_size_mobile": 12,
+            "sub_heading_advanced": false,
+            "sub_heading_height": 130,
+            "sub_heading_mt": 0,
+            "sub_heading_mt_mobile": 0,
+            "sub_heading_color": "#121212"
+          }
+        },
+        "heading_wwngQy": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>Instafeed #9</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 48,
+            "heading_size_mobile": 32,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 12,
+            "heading_mt_mobile": 12,
+            "heading_color": "#121212"
+          }
+        },
+        "text_ELNBQj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tell your story</p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 16,
+            "text_mt_mobile": 12,
+            "text_color": "#121212"
+          }
+        },
+        "button_Uj9KVU": {
+          "type": "button",
+          "settings": {
+            "button": "@ourbrand",
+            "url": "",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": false,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 32,
+            "button_padding_horizontal_mobile": 32,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_color": "#121212",
+            "button_hover_color": "#FFFFFF",
+            "button_bg_color": "#FFFFFF",
+            "button_bg_hover_color": "#121212",
+            "button_border_color": "#121212",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "video_R4hgpt": {
+          "type": "video",
+          "settings": {
+            "source": "uploaded",
+            "use_big_video": true
+          }
+        },
+        "image_WB3Amd": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "use_big_image": false
+          }
+        },
+        "image_PqBdhr": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "use_big_image": false
+          }
+        },
+        "video_R7Dnzg": {
+          "type": "video",
+          "settings": {
+            "source": "uploaded",
+            "use_big_video": true
+          }
+        },
+        "video_n9C3qr": {
+          "type": "video",
+          "settings": {
+            "source": "uploaded",
+            "use_big_video": false
+          }
+        },
+        "image_UN3Ema": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "use_big_image": true
+          }
+        },
+        "image_xikxgJ": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "use_big_image": false
+          }
+        },
+        "video_7bfUzi": {
+          "type": "video",
+          "settings": {
+            "source": "uploaded",
+            "use_big_video": false
+          }
+        },
+        "image_dfMfPX": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "use_big_image": false
+          }
+        }
+      },
+      "block_order": [
+        "sub_heading_CcQpyY",
+        "heading_wwngQy",
+        "text_ELNBQj",
+        "button_Uj9KVU",
+        "video_R4hgpt",
+        "image_WB3Amd",
+        "image_PqBdhr",
+        "video_R7Dnzg",
+        "video_n9C3qr",
+        "image_UN3Ema",
+        "image_xikxgJ",
+        "video_7bfUzi",
+        "image_dfMfPX"
+      ],
+      "name": "SS - Instafeed #9",
+      "settings": {
+        "content_max_width": 80,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "cards_per_row": 9,
+        "cards_per_row_mobile": "2",
+        "use_slider_mobile": true,
+        "cards_advanced": false,
+        "cards_gap": 16,
+        "cards_gap_mobile": 16,
+        "cards_mt": 48,
+        "cards_mt_mobile": 32,
+        "media_radius": 0,
+        "media_border_thickness": 0,
+        "media_ratio": "portrait",
+        "media_ratio_mobile": "portrait",
+        "icon_size": 32,
+        "icon_size_mobile": 32,
+        "icon_border_thickness": 0,
+        "icon_position": "bottom_left",
+        "icon_position_mobile": "bottom_left",
+        "media_border_color": "#000000",
+        "icon_color": "#FFFFFF",
+        "icon_bg_color": "#000000",
+        "icon_bg_opacity": 0.3,
+        "icon_border_color": "#FFFFFF",
+        "background_style": "solid",
+        "background_color": "#FFFFFF",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    }
+  },
+  "order": [
+    "image_with_text_rfjwNg",
+    "steps_MdG7i6",
+    "1770243434fa097dcf",
+    "ss_instafeed_9_4LQAKG"
+  ]
+}

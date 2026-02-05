@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "t:sections.overlay-group.name",
+  "sections": {
+    "popup_fdBqNk": {
+      "type": "popup",
+      "blocks": {
+        "popup_heading_cbVAPx": {
+          "type": "popup_heading",
+          "settings": {
+            "heading": "Ready to Shop?",
+            "heading2": "Subscribe to Newsletter & Get 25% Off Your First Order",
+            "heading_size": "h3"
+          }
+        },
+        "popup_description_DDJAKK": {
+          "type": "popup_description",
+          "settings": {
+            "description": "",
+            "description2": ""
+          }
+        },
+        "subscribe_form_49QRk3": {
+          "type": "subscribe_form",
+          "settings": {
+            "placeholder_input": "Your Email",
+            "button_label": "Subscribe",
+            "show_form_for_loggedout": false,
+            "button_label2": "Sign up",
+            "button_style": "tertiary",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "popup_heading_cbVAPx",
+        "popup_description_DDJAKK",
+        "subscribe_form_49QRk3"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_layout": "left",
+        "image_fit": "cover",
+        "image_caption": "Some caption for your popup image",
+        "content_alignment": "left",
+        "limit-display": 10,
+        "limit-cache": 30,
+        "position": "bottom-right",
+        "popup-id": "",
+        "trigger-open": "manual",
+        "trigger-open-delay": 1,
+        "open-scroll-type": "%",
+        "open-scroll-position": 20,
+        "manual-selector": "",
+        "trigger-close": "none",
+        "trigger-close-delay": 30,
+        "close-scroll-type": "%",
+        "close-scroll-position": 50,
+        "color_scheme": "",
+        "open-animation": "Fade",
+        "exit-animation": "Fade",
+        "show-overlay": false,
+        "mobile": false,
+        "scrolling": false,
+        "overlay-close": false,
+        "esc-close": false,
+        "f4-close": false
+      }
+    }
+  },
+  "order": [
+    "popup_fdBqNk"
+  ]
+}
