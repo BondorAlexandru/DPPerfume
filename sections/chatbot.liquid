@@ -793,7 +793,7 @@
 {%- endstyle -%}
 
 <div class="dp-chatbot-widget">
-  <div class="chat-container" id="dp-chat-wrapper">
+  <div class="chat-container hidden" id="dp-chat-wrapper">
     <div class="chat-header">
       <svg class="back-icon" id="dp-back-button" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83481 7.84021L9.1599 15.1653L8.3252 16L1.00011 8.67491L1.83481 7.84021Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5"/>
@@ -924,11 +924,20 @@
           return;
         }
 
-        // Set initial toggle icon
+        // Set initial state: HTML starts hidden, desktop opens it
         var toggleIcon = document.getElementById("dp-toggle-icon");
+        var isMobile = window.innerWidth <= 500;
         if (toggleIcon) {
-          toggleIcon.src = closeIconSvg;
-          this.chatToggle.classList.add("rotated");
+          if (isMobile) {
+            // Stay hidden, show open icon and label
+            toggleIcon.src = openIconSvg;
+            this.chatLabel.classList.add("visible");
+          } else {
+            // Desktop: remove hidden class to open chat
+            this.chatWrapper.classList.remove("hidden");
+            toggleIcon.src = closeIconSvg;
+            this.chatToggle.classList.add("rotated");
+          }
         }
 
         this.setupEventListeners();
