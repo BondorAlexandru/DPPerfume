@@ -52,6 +52,37 @@
         "margin_bottom": "m"
       }
     },
+    "romania_map": {
+      "type": "romania-map",
+      "settings": {}
+    },
+    "store_locator": {
+      "type": "store-locator",
+      "blocks": {
+        "bucuresti": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "București",
+            "open_by_default": true,
+            "store_1_name": "Veranda Mall",
+            "store_1_phone": "0744 456 883",
+            "store_1_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)"
+          }
+        },
+        "arges": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Argeș",
+            "open_by_default": false,
+            "store_1_name": "Argeș Mall",
+            "store_1_phone": "0747.682.704",
+            "store_1_address": "Str. Tudor Vladimirescu 37, parter, vis-a-vis de DM"
+          }
+        }
+      },
+      "block_order": ["bucuresti", "arges"],
+      "settings": {}
+    },
     "177024784330092a01": {
       "type": "_blocks",
       "settings": {}
@@ -59,6 +90,8 @@
   },
   "order": [
     "about-us",
+    "romania_map",
+    "store_locator",
     "177024784330092a01"
   ]
 }

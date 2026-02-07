@@ -1,0 +1,350 @@
+{%- style -%}
+  .store-locator-{{ section.id }} {
+    padding: 60px 20px;
+    background: #FAFAFA;
+  }
+  .store-locator-{{ section.id }} .store-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+  @media screen and (max-width: 1200px) {
+    .store-locator-{{ section.id }} .store-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .store-locator-{{ section.id }} .store-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .store-locator-{{ section.id }} .city-group {
+    background: #ECECEC;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .store-locator-{{ section.id }} .city-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: #FAFAFA;
+    border-radius: 55px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .store-locator-{{ section.id }} .city-name {
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    flex: 1;
+    text-align: center;
+  }
+  .store-locator-{{ section.id }} .city-toggle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 0.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: transform 0.3s ease;
+  }
+  .store-locator-{{ section.id }} .city-toggle-icon {
+    width: 18px;
+    height: 3px;
+    background: black;
+    border-radius: 28px;
+    position: relative;
+  }
+  .store-locator-{{ section.id }} .city-toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 18px;
+    background: black;
+    border-radius: 28px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .store-locator-{{ section.id }} .city-group.open .city-toggle-icon::after {
+    opacity: 0;
+  }
+  .store-locator-{{ section.id }} .city-stores {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .store-locator-{{ section.id }} .city-group.open .city-stores {
+    display: flex;
+  }
+  .store-locator-{{ section.id }} .store-card {
+    background: #FAFAFA;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .store-locator-{{ section.id }} .store-name {
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .store-locator-{{ section.id }} .store-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .store-locator-{{ section.id }} .store-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .store-locator-{{ section.id }} .store-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .store-locator-{{ section.id }} .store-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .store-locator-{{ section.id }} .store-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+  }
+  .store-locator-{{ section.id }} .store-text a {
+    color: black;
+    text-decoration: none;
+  }
+  .store-locator-{{ section.id }} .store-text a:hover {
+    text-decoration: underline;
+  }
+{%- endstyle -%}
+
+<div class="store-locator-{{ section.id }}">
+  <div class="store-grid">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'city_group' -%}
+          <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
+            <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+              <div></div>
+              <span class="city-name">{{ block.settings.city_name }}</span>
+              <div class="city-toggle">
+                <div class="city-toggle-icon"></div>
+              </div>
+            </div>
+            <div class="city-stores">
+              {%- for i in (1..5) -%}
+                {%- assign store_name_key = 'store_' | append: i | append: '_name' -%}
+                {%- assign store_phone_key = 'store_' | append: i | append: '_phone' -%}
+                {%- assign store_address_key = 'store_' | append: i | append: '_address' -%}
+                {%- assign store_name = block.settings[store_name_key] -%}
+                {%- assign store_phone = block.settings[store_phone_key] -%}
+                {%- assign store_address = block.settings[store_address_key] -%}
+                {%- if store_name != blank -%}
+                  <div class="store-card">
+                    <div class="store-name">{{ store_name }}</div>
+                    <div class="store-info">
+                      {%- if store_phone != blank -%}
+                        <div class="store-info-row">
+                          <div class="store-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                          </div>
+                          <div class="store-text">
+                            <a href="tel:{{ store_phone | remove: ' ' | remove: '.' }}">{{ store_phone }}</a>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                      {%- if store_address != blank -%}
+                        <div class="store-info-row">
+                          <div class="store-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                          </div>
+                          <div class="store-text">{{ store_address }}</div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store Locator",
+  "tag": "section",
+  "class": "store-locator-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "city_group",
+      "name": "City Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "city_name",
+          "label": "City Name",
+          "default": "București"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Store 1"
+        },
+        {
+          "type": "text",
+          "id": "store_1_name",
+          "label": "Store Name",
+          "default": "Veranda Mall"
+        },
+        {
+          "type": "text",
+          "id": "store_1_phone",
+          "label": "Phone",
+          "default": "0744 456 883"
+        },
+        {
+          "type": "textarea",
+          "id": "store_1_address",
+          "label": "Address",
+          "default": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)"
+        },
+        {
+          "type": "header",
+          "content": "Store 2"
+        },
+        {
+          "type": "text",
+          "id": "store_2_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "store_2_phone",
+          "label": "Phone"
+        },
+        {
+          "type": "textarea",
+          "id": "store_2_address",
+          "label": "Address"
+        },
+        {
+          "type": "header",
+          "content": "Store 3"
+        },
+        {
+          "type": "text",
+          "id": "store_3_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "store_3_phone",
+          "label": "Phone"
+        },
+        {
+          "type": "textarea",
+          "id": "store_3_address",
+          "label": "Address"
+        },
+        {
+          "type": "header",
+          "content": "Store 4"
+        },
+        {
+          "type": "text",
+          "id": "store_4_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "store_4_phone",
+          "label": "Phone"
+        },
+        {
+          "type": "textarea",
+          "id": "store_4_address",
+          "label": "Address"
+        },
+        {
+          "type": "header",
+          "content": "Store 5"
+        },
+        {
+          "type": "text",
+          "id": "store_5_name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "store_5_phone",
+          "label": "Phone"
+        },
+        {
+          "type": "textarea",
+          "id": "store_5_address",
+          "label": "Address"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store Locator",
+      "blocks": [
+        {
+          "type": "city_group",
+          "settings": {
+            "city_name": "București",
+            "open_by_default": true,
+            "store_1_name": "Veranda Mall",
+            "store_1_phone": "0744 456 883",
+            "store_1_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)"
+          }
+        },
+        {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Argeș",
+            "store_1_name": "Argeș Mall",
+            "store_1_phone": "0747.682.704",
+            "store_1_address": "Str. Tudor Vladimirescu 37, parter, vis-a-vis de DM"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
