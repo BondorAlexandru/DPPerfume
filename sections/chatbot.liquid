@@ -1,0 +1,1496 @@
+{%- style -%}
+  /* D&P Chatbot Styles */
+  .dp-chatbot-widget .chat-container {
+    height: auto;
+    width: 400px;
+    position: fixed;
+    bottom: 75px;
+    right: 75px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(244, 173, 84, 1) 50%,
+      rgba(244, 173, 84, 1) 100%
+    );
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform-origin: bottom right;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+    opacity: 1;
+    z-index: 999;
+    transform: translateY(0);
+    will-change: transform, opacity;
+    contain: layout style;
+    touch-action: none;
+    isolation: isolate;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .chat-container.card-expanded {
+    height: 600px;
+  }
+
+  .dp-chatbot-widget .chat-header {
+    background-color: #f4ad54;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  .dp-chatbot-widget .chat-header.expanded-header {
+    padding: 20px;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .dp-chatbot-widget .chat-header.expanded-header #dp-header-text {
+    font-size: 14px;
+    color: #000;
+    margin-left: 30px;
+  }
+
+  .dp-chatbot-widget .back-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: none;
+  }
+
+  .dp-chatbot-widget #dp-header-text {
+    color: #fafafa;
+    font-size: 28px;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .card-container {
+    position: relative;
+    width: 400px;
+  }
+
+  .dp-chatbot-widget .card {
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 15px 35px 75px 35px;
+    margin-top: -50px;
+    box-shadow: 0px -4px 11px 2px rgba(0, 0, 0, 0.05);
+    transition: padding 0.3s ease, margin-top 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dp-chatbot-widget .card:hover {
+    padding-top: 25px;
+    margin-top: -60px;
+    box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .dp-chatbot-widget .card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.5s ease;
+    margin-top: 10px;
+  }
+
+  .dp-chatbot-widget .card:hover .card-title {
+    transform: translateY(-10px);
+  }
+
+  .dp-chatbot-widget .card.expanded {
+    height: 600px;
+    background-color: #fff !important;
+    transition: all 0.3s ease;
+    z-index: 10;
+    position: relative;
+    margin-top: 0;
+    transform-origin: bottom;
+    border-radius: 30px;
+    box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    padding-bottom: 35px;
+  }
+
+  .dp-chatbot-widget .card.expanding {
+    display: none;
+  }
+
+  .dp-chatbot-widget .card-container > .card {
+    display: flex;
+  }
+
+  .dp-chatbot-widget #dp-card1,
+  .dp-chatbot-widget #dp-card2,
+  .dp-chatbot-widget #dp-card3 {
+    background-color: #fafafa;
+  }
+
+  .dp-chatbot-widget .card-header {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .chevron-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+  }
+
+  .dp-chatbot-widget #dp-chat-messages {
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    padding-top: 20px;
+    background-color: #fff;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0px -4px 11px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    scroll-padding: 20px;
+    contain: layout style;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    isolation: isolate;
+  }
+
+  .dp-chatbot-widget .user-message,
+  .dp-chatbot-widget .system-message {
+    padding: 20px;
+    font-size: 14px;
+    max-width: 60%;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .question,
+  .dp-chatbot-widget .user-message,
+  .dp-chatbot-widget .system-message {
+    line-height: 1.4;
+  }
+
+  .dp-chatbot-widget .user-message {
+    background-color: #167cff;
+    color: #fff;
+    border-radius: 20px 20px 5px 20px;
+    margin-left: auto;
+  }
+
+  .dp-chatbot-widget .question {
+    background-color: #f2f3fa;
+    color: #000;
+    border-radius: 20px 20px 20px 5px;
+    padding: 20px;
+    font-size: 14px;
+    max-width: 70%;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .message-options {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+  }
+
+  .dp-chatbot-widget .message-text {
+    padding-top: 20px;
+    padding-inline: 20px;
+  }
+
+  .dp-chatbot-widget .answer-button {
+    background-color: #146fe5;
+    color: white;
+    border: none;
+    border-radius: 11px 11px 0px 11px;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 5px 0;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .answer-button:hover {
+    background-color: #115dbf;
+  }
+
+  .dp-chatbot-widget .chat-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f4ad54;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .dp-chatbot-widget .chat-toggle-button:hover {
+    transform: scale(1.05);
+  }
+
+  .dp-chatbot-widget .chat-toggle-button img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .dp-chatbot-widget .chat-toggle-button.rotated img {
+    transform: rotate(180deg);
+  }
+
+  .dp-chatbot-widget .chat-container.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
+  }
+
+  .dp-chatbot-widget .chat-assistant-label {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: #000;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.4s ease, padding 0.4s ease;
+    pointer-events: none;
+    z-index: 998;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 60px;
+    padding: 0;
+    text-indent: 60px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .chat-assistant-label.visible {
+    width: 250px;
+    padding: 0 75px 0 20px;
+    text-indent: 0;
+    justify-content: flex-start;
+  }
+
+  .dp-chatbot-widget .loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+
+  .dp-chatbot-widget .error {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  .dp-chatbot-widget .select-container {
+    width: 70%;
+    margin-left: auto;
+  }
+
+  .dp-chatbot-widget .select {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 11px 11px 0px 11px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #167cff;
+    color: white;
+  }
+
+  .dp-chatbot-widget .select:focus {
+    outline: none;
+    border-color: #167cff;
+  }
+
+  .dp-chatbot-widget .product-recommendation,
+  .dp-chatbot-widget .perfume-recommendation {
+    background-color: #f2f3fa;
+    padding: 20px;
+    border-radius: 20px 20px 20px 5px;
+    margin-bottom: 20px;
+    max-width: 75%;
+  }
+
+  .dp-chatbot-widget .carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0 15px;
+  }
+
+  .dp-chatbot-widget .carousel-arrow {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    user-select: none;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  .dp-chatbot-widget .carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .dp-chatbot-widget .carousel-arrow:active {
+    transform: scale(0.95);
+  }
+
+  .dp-chatbot-widget .carousel-arrow-left { left: 5px; }
+  .dp-chatbot-widget .carousel-arrow-right { right: 5px; }
+
+  .dp-chatbot-widget .product-recommendations,
+  .dp-chatbot-widget .perfume-recommendations {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 5px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    position: relative;
+  }
+
+  .dp-chatbot-widget .product-recommendations::-webkit-scrollbar,
+  .dp-chatbot-widget .perfume-recommendations::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dp-chatbot-widget .product-recommendations,
+  .dp-chatbot-widget .perfume-recommendations {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .dp-chatbot-widget .product-item,
+  .dp-chatbot-widget .perfume-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+    margin: 0;
+    min-width: 200px;
+    max-width: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    scroll-snap-align: center;
+  }
+
+  .dp-chatbot-widget .product-item:hover,
+  .dp-chatbot-widget .perfume-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .dp-chatbot-widget .product-image,
+  .dp-chatbot-widget .perfume-image {
+    width: calc(100% - 10px);
+    height: 160px;
+    margin-top: 5px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    background-color: #f5f5f5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+  }
+
+  .dp-chatbot-widget .product-name,
+  .dp-chatbot-widget .perfume-name {
+    font-weight: 600;
+    color: #333;
+    padding: 12px 15px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dp-chatbot-widget .product-price {
+    font-weight: normal;
+    font-size: 16px;
+    color: #333;
+    text-align: right;
+  }
+
+  .dp-chatbot-widget .product-add-button {
+    background-color: #167cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 5px 15px 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .dp-chatbot-widget .product-add-button:hover {
+    background-color: #3550e0;
+  }
+
+  .dp-chatbot-widget .chat-content {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .dp-chatbot-widget .card.expanded .chat-content {
+    display: block;
+    height: 500px;
+    overflow-y: auto;
+  }
+
+  .dp-chatbot-widget .date-header {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .dp-chatbot-widget .product-recommendations > .product-item:first-child { margin-left: 10px; }
+  .dp-chatbot-widget .product-recommendations > .product-item:last-child { margin-right: 10px; }
+  .dp-chatbot-widget .perfume-recommendations > .perfume-item:first-child { margin-left: 10px; }
+  .dp-chatbot-widget .perfume-recommendations > .perfume-item:last-child { margin-right: 10px; }
+
+  .dp-chatbot-widget .custom-dropdown-container {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+    padding-inline: 15px;
+    box-sizing: border-box;
+  }
+
+  .dp-chatbot-widget .dropdown-input {
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f2f3fa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 5px;
+  }
+
+  .dp-chatbot-widget .dropdown-input:focus {
+    outline: none;
+    border-color: #4776e6;
+    box-shadow: 0 1px 5px rgba(71, 118, 230, 0.2);
+  }
+
+  .dp-chatbot-widget .dropdown-list {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f2f3fa;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    margin-top: 5px;
+    z-index: 100;
+    position: relative;
+    display: none;
+    padding-block: 5px;
+  }
+
+  .dp-chatbot-widget .dropdown-list.active { display: block; }
+
+  .dp-chatbot-widget .dropdown-option {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .dp-chatbot-widget .dropdown-option:hover {
+    background-color: #629fee;
+    color: white;
+  }
+
+  .dp-chatbot-widget .dropdown-option.selected {
+    background-color: #8ab7f2;
+    color: white;
+  }
+
+  .dp-chatbot-widget .dropdown-no-result {
+    padding: 15px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+  }
+
+  .dp-chatbot-widget .system-message {
+    background-color: #f2f3fa;
+    color: #000;
+    border-radius: 20px 20px 20px 5px;
+    padding: 0px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    max-width: 85%;
+    overflow: visible;
+  }
+
+  /* Hide scrollbars within chatbot widget */
+  .dp-chatbot-widget *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  .dp-chatbot-widget * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Typing indicator */
+  .dp-chatbot-widget .typing-indicator {
+    max-width: 70px !important;
+    padding: 20px 35px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    background-color: #f2f3fa !important;
+    border-radius: 20px 20px 20px 5px !important;
+    position: relative !important;
+  }
+
+  .dp-chatbot-widget .typing-dots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    height: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dp-chatbot-widget .typing-dot {
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    min-width: 10px !important;
+    min-height: 10px !important;
+    max-width: 10px !important;
+    max-height: 10px !important;
+    border-radius: 50% !important;
+    background-color: #bbb !important;
+    animation: dpTypingAnimation 1.4s infinite ease-in-out both !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    transform-origin: center center !important;
+  }
+
+  .dp-chatbot-widget .typing-dot:nth-child(1) { animation-delay: 0s !important; }
+  .dp-chatbot-widget .typing-dot:nth-child(2) { animation-delay: 0.2s !important; }
+  .dp-chatbot-widget .typing-dot:nth-child(3) { animation-delay: 0.4s !important; }
+
+  @keyframes dpTypingAnimation {
+    0%, 100% { transform: scale(0.7) !important; opacity: 0.5 !important; }
+    50% { transform: scale(1) !important; opacity: 1 !important; }
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 500px) {
+    .dp-chatbot-widget .card-container {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      padding-bottom: 200px;
+      padding-bottom: calc(200px + env(safe-area-inset-bottom));
+      background-color: #fafafa;
+    }
+
+    .dp-chatbot-widget .chat-container {
+      background: #f4ad54;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 0;
+      transform-origin: bottom center;
+      transform: translateY(0);
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s ease-out;
+      will-change: transform;
+      box-shadow: none;
+      padding-top: 0;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: 0;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .dp-chatbot-widget .chat-container.card-expanded {
+      background: linear-gradient(to bottom, #f4ad54 0%, #f4ad54 15%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 100%);
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    .dp-chatbot-widget .chat-container.card-expanded .chat-header {
+      background-color: transparent;
+    }
+
+    .dp-chatbot-widget #dp-chat-messages {
+      position: relative;
+      height: calc(100vh - 200px);
+      height: calc(100dvh - 200px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      margin-bottom: 0;
+      margin-bottom: env(safe-area-inset-bottom);
+    }
+
+    .dp-chatbot-widget .chat-container.hidden {
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+    }
+
+    .dp-chatbot-widget .card {
+      padding: 15px 35px 155px 35px;
+      margin-top: -130px;
+      transition: all 0.3s ease-out;
+      position: relative;
+      box-shadow: 0px -9px 6px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .dp-chatbot-widget .card:hover {
+      padding-top: 15px;
+      margin-top: -130px;
+      transform: none;
+      box-shadow: 0px -9px 6px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .dp-chatbot-widget .card:hover .card-title { transform: none; }
+
+    .dp-chatbot-widget .card.expanding,
+    .dp-chatbot-widget .card.expanded {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 60px;
+      top: calc(60px + env(safe-area-inset-top));
+      height: calc(100vh - 100px);
+      height: calc(100dvh - 100px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      margin-top: 0;
+      border-radius: 30px 30px 0 0;
+      transform: translateY(0);
+      padding-bottom: 75px;
+      padding-bottom: calc(75px + env(safe-area-inset-bottom));
+      z-index: 1000;
+      background-color: #ffffff;
+      animation: dpSlideUpCard 0.3s ease forwards;
+    }
+
+    @keyframes dpSlideUpCard {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .dp-chatbot-widget .chat-header {
+      transition: background-color 0.3s ease-out;
+      padding-top: 32px;
+      padding-top: calc(32px + env(safe-area-inset-top));
+    }
+
+    .dp-chatbot-widget .chat-container.card-expanded .chat-header {
+      background-color: transparent;
+      padding-top: 20px;
+      padding-top: calc(20px + env(safe-area-inset-top));
+    }
+
+    .dp-chatbot-widget .chat-toggle-button {
+      bottom: 20px;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: 20px;
+      right: calc(20px + env(safe-area-inset-right));
+    }
+
+    .dp-chatbot-widget .chat-assistant-label {
+      bottom: 20px;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: 20px;
+      right: calc(20px + env(safe-area-inset-right));
+    }
+  }
+{%- endstyle -%}
+
+<div class="dp-chatbot-widget">
+  <div class="chat-container" id="dp-chat-wrapper">
+    <div class="chat-header">
+      <svg class="back-icon" id="dp-back-button" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83481 7.84021L9.1599 15.1653L8.3252 16L1.00011 8.67491L1.83481 7.84021Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.00226 8.66817L8.67042 1.00001L9.50513 1.83472L1.83697 9.50287L1.00226 8.66817Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5"/>
+      </svg>
+      <span id="dp-header-text">Bun&#259; ziua!<br/>Cu ce v&#259; putem ajuta?</span>
+    </div>
+
+    <div class="card-container" id="dp-card-container">
+      <div class="card" id="dp-card3">
+        <div class="card-title">
+          <div class="card-header">Vreau s&#259; &#238;mi aleg un parfum</div>
+          <svg class="chevron-icon" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83481 7.84021L9.1599 15.1653L8.3252 16L1.00011 8.67491L1.83481 7.84021Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.00226 8.66817L8.67042 1.00001L9.50513 1.83472L1.83697 9.50287L1.00226 8.66817Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+          </svg>
+        </div>
+        <div class="chat-content" id="dp-chat-content-3"></div>
+      </div>
+
+      <div class="card" id="dp-card1">
+        <div class="card-title">
+          <div class="card-header">Despre comanda mea</div>
+          <svg class="chevron-icon" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83481 7.84021L9.1599 15.1653L8.3252 16L1.00011 8.67491L1.83481 7.84021Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.00226 8.66817L8.67042 1.00001L9.50513 1.83472L1.83697 9.50287L1.00226 8.66817Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+          </svg>
+        </div>
+        <div class="chat-content" id="dp-chat-content-1"></div>
+      </div>
+
+      <div class="card" id="dp-card2">
+        <div class="card-title">
+          <div class="card-header">Despre cel mai apropiat magazin</div>
+          <svg class="chevron-icon" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83481 7.84021L9.1599 15.1653L8.3252 16L1.00011 8.67491L1.83481 7.84021Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.00226 8.66817L8.67042 1.00001L9.50513 1.83472L1.83697 9.50287L1.00226 8.66817Z" fill="#5E2E23" stroke="#5E2E23" stroke-width="0.5" transform="scale(-1, 1) translate(-10, 0)"/>
+          </svg>
+        </div>
+        <div class="chat-content" id="dp-chat-content-2"></div>
+      </div>
+    </div>
+
+    <div id="dp-chat-messages" style="display: none"></div>
+  </div>
+
+  <div class="chat-toggle-button" id="dp-chat-toggle">
+    <img id="dp-toggle-icon" alt="Chat toggle" width="50" height="50"/>
+  </div>
+
+  <div class="chat-assistant-label" id="dp-chat-label">
+    Asistent v&#226;nz&#259;ri AI
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"/>
+<script src="{{ 'dp-chatbot.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for dp-chatbot.js to load
+    function waitForChatbot(callback) {
+      if (window.PerfumeChatbot) {
+        callback();
+      } else {
+        setTimeout(function() { waitForChatbot(callback); }, 100);
+      }
+    }
+
+    // Inline SVG data URIs for icons
+    var openIconSvg = 'data:image/svg+xml,' + encodeURIComponent('<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="38" cy="38" r="38" fill="#F4AD54"/><path fill-rule="evenodd" clip-rule="evenodd" d="M43.1865 12H32.8136V28.4237H31.9637C28.6645 28.4237 25.9488 31.0632 25.9116 34.3821C25.9039 35.0674 25.8995 35.7352 25.8985 36.3866L25.8983 36.6583C25.8975 48.0258 26.9488 54.3542 29.5848 61.3215C29.9709 62.3418 30.9535 63 32.0386 63H43.9615C45.0466 63 46.0292 62.3418 46.4152 61.3215C49.2221 53.9025 50.2323 47.2079 50.0885 34.3821C50.0513 31.0632 47.3355 28.4237 44.0364 28.4237H43.1865V12ZM43.6451 58.997C44.7444 58.8181 45.694 58.1381 46.219 57.1659C45.8556 58.3715 45.446 59.5633 44.9877 60.7748C44.8352 61.1779 44.4354 61.4633 43.9615 61.4633H32.0386C31.5646 61.4633 31.1649 61.1779 31.0124 60.7748C30.7266 60.0194 30.4598 59.2717 30.2113 58.5235C30.5993 58.7585 31.0336 58.9209 31.4941 58.9956C35.9768 59.7224 39.1623 59.7269 43.6451 58.997ZM37.5678 45.1912C42.1109 45.1912 45.7939 43.1073 45.7939 40.5366C45.7939 37.966 42.1109 35.8821 37.5678 35.8821C33.0247 35.8821 29.3418 37.966 29.3418 40.5366C29.3418 43.1073 33.0247 45.1912 37.5678 45.1912Z" fill="white"/></svg>');
+    var closeIconSvg = 'data:image/svg+xml,' + encodeURIComponent('<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="38" cy="38" r="38" fill="#F4AD54"/><path fill-rule="evenodd" clip-rule="evenodd" d="M52.2092 53.2274L22.7196 23.7377L24.4573 22L53.9469 51.4897L52.2092 53.2274Z" fill="white" stroke="white" stroke-width="0.5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M53.2274 23.7383L23.7377 53.2279L22 51.4902L51.4897 22.0006L53.2274 23.7383Z" fill="white" stroke="white" stroke-width="0.5"/></svg>');
+
+    waitForChatbot(function() {
+      var assetUrls = {
+        parfumuri: {{ 'chatbot-parfumuri.csv' | asset_url | json }},
+        questions: {{ 'chatbot-questions.json' | asset_url | json }},
+        magazine: {{ 'chatbot-magazine.csv' | asset_url | json }}
+      };
+
+      // ChatbotInterface class (adapted from DPChat)
+      function ChatbotInterface(config) {
+        config = config || {};
+        this.config = {
+          headerTitle: config.headerTitle || "Chat Assistant",
+          containerId: "dp-chat-messages",
+          wrapperId: "dp-chat-wrapper",
+          toggleId: "dp-chat-toggle",
+          labelId: "dp-chat-label",
+          cardsContainerId: "dp-card-container",
+          headerTextId: "dp-header-text",
+          backButtonId: "dp-back-button"
+        };
+
+        this.chatContainer = document.getElementById(this.config.containerId);
+        this.chatWrapper = document.getElementById(this.config.wrapperId);
+        this.chatToggle = document.getElementById(this.config.toggleId);
+        this.chatLabel = document.getElementById(this.config.labelId);
+        this.cardContainer = document.getElementById(this.config.cardsContainerId);
+        this.headerText = document.getElementById(this.config.headerTextId);
+        this.backButton = document.getElementById(this.config.backButtonId);
+        this.chatHeader = this.chatWrapper.querySelector(".chat-header");
+
+        this.currentFlowId = null;
+        this.userId = "user_" + Date.now();
+        this.assetUrls = assetUrls;
+
+        this.specialQuestionTypes = {
+          "3.2.1": { type: "productDropdown", dataProvider: "getProductOptions" },
+          "2.1": { type: "locationDropdown", dataProvider: "getLocationOptions" },
+          "2.2.1": { type: "locationDropdown", dataProvider: "getLocationOptions" }
+        };
+
+        this.cardMapping = {
+          1: { questionId: "1", answerId: "1.1", text: "Despre comanda mea" },
+          2: { questionId: "1", answerId: "2.1", text: "Despre cel mai apropiat magazin" },
+          3: { questionId: "1", answerId: "3.1", text: "Vreau s\u0103 \u00eemi aleg un parfum" }
+        };
+
+        this.flowLabels = {
+          1: "Despre comanda mea",
+          2: "Despre cel mai apropiat magazin",
+          3: "Vreau s\u0103 \u00eemi aleg un parfum"
+        };
+
+        if (!this.chatContainer) {
+          console.error("Chat container not found!");
+          return;
+        }
+
+        // Set initial toggle icon
+        var toggleIcon = document.getElementById("dp-toggle-icon");
+        if (toggleIcon) {
+          toggleIcon.src = closeIconSvg;
+          this.chatToggle.classList.add("rotated");
+        }
+
+        this.setupEventListeners();
+        this.initCards();
+        this.preventScrollPropagation();
+      }
+
+      ChatbotInterface.prototype.init = async function(flowId) {
+        try {
+          this.currentFlowId = flowId;
+          this.showLoading();
+          this.chatbot = new window.PerfumeChatbot(this.userId, this.assetUrls);
+          this.productData = await this.chatbot.return_perfumes_brands_and_models();
+          await this.chatbot.process_questions();
+          this.hideLoading();
+          this.addDateHeader();
+          this.chatContainer.style.display = "flex";
+          var mapping = this.cardMapping[flowId];
+          if (mapping) {
+            this.processAnswer(mapping.questionId, mapping.answerId);
+          }
+        } catch (error) {
+          console.error("Initialization error:", error);
+          this.hideLoading();
+          this.showError("Error initializing chatbot: " + error.message);
+        }
+      };
+
+      ChatbotInterface.prototype.initCards = function() {
+        var self = this;
+        var cards = {};
+        Object.keys(this.cardMapping).forEach(function(id) {
+          cards[id] = document.getElementById("dp-card" + id);
+          if (cards[id]) {
+            cards[id].addEventListener("click", function() { self.expandCard(cards[id], id); });
+          }
+        });
+        this.backButton.addEventListener("click", function() { self.collapseCard(); });
+      };
+
+      ChatbotInterface.prototype.expandCard = function(card, flowId) {
+        var self = this;
+        this.chatWrapper.querySelectorAll(".card").forEach(function(c) {
+          if (c !== card) c.style.display = "none";
+        });
+        this.backButton.style.display = "block";
+        this.chatHeader.classList.add("expanded-header");
+        this.headerText.textContent = "Meniul principal";
+        this.cardContainer.style.display = "none";
+        this.chatContainer.style.display = "flex";
+        this.chatWrapper.classList.add("card-expanded");
+        this.init(flowId);
+        card.classList.add("expanded");
+      };
+
+      ChatbotInterface.prototype.collapseCard = function() {
+        var self = this;
+        this.chatContainer.style.display = "none";
+        this.cardContainer.style.display = "block";
+        this.chatHeader.classList.remove("expanded-header");
+        this.backButton.style.display = "none";
+        this.headerText.innerHTML = "Bun\u0103 ziua!<br/>Cu ce v\u0103 putem ajuta?";
+        this.chatWrapper.classList.remove("card-expanded");
+        this.chatWrapper.querySelectorAll(".card").forEach(function(card) {
+          card.style.display = "flex";
+          card.classList.remove("expanded");
+        });
+        this.chatContainer.innerHTML = "";
+        this.currentFlowId = null;
+      };
+
+      ChatbotInterface.prototype.setupEventListeners = function() {
+        var self = this;
+        if (this.chatHeader) {
+          this.chatHeader.addEventListener("click", function(e) {
+            if (self.chatHeader.classList.contains("expanded-header")) {
+              self.collapseCard();
+            }
+          });
+        }
+        if (this.chatToggle) {
+          var toggleIcon = document.getElementById("dp-toggle-icon");
+          this.chatToggle.addEventListener("click", function() {
+            self.chatWrapper.classList.toggle("hidden");
+            self.chatLabel.classList.toggle("visible");
+            self.chatToggle.classList.toggle("rotated");
+            if (self.chatWrapper.classList.contains("hidden")) {
+              setTimeout(function() { toggleIcon.src = openIconSvg; }, 150);
+            } else {
+              setTimeout(function() { toggleIcon.src = closeIconSvg; }, 150);
+            }
+          });
+        }
+      };
+
+      ChatbotInterface.prototype.showLoading = function() {
+        if (!this.chatContainer) return;
+        var loadingDiv = document.createElement("div");
+        loadingDiv.className = "loading system-message";
+        loadingDiv.id = "dp-loading-indicator";
+        loadingDiv.textContent = "...";
+        this.chatContainer.appendChild(loadingDiv);
+        this.scrollToBottom();
+      };
+
+      ChatbotInterface.prototype.hideLoading = function() {
+        if (!this.chatContainer) return;
+        var el = document.getElementById("dp-loading-indicator");
+        if (el) el.remove();
+        this.hideTypingIndicator();
+      };
+
+      ChatbotInterface.prototype.hideTypingIndicator = function() {
+        if (!this.chatContainer) return;
+        var el = document.getElementById("dp-typing-indicator");
+        if (el) el.remove();
+      };
+
+      ChatbotInterface.prototype.showError = function(message) {
+        if (!this.chatContainer) return;
+        var errorDiv = document.createElement("div");
+        errorDiv.className = "error system-message";
+        errorDiv.textContent = message;
+        this.chatContainer.appendChild(errorDiv);
+        this.scrollToBottom();
+      };
+
+      ChatbotInterface.prototype.getRandomThinkingTime = function() {
+        return Math.floor(Math.random() * 501) + 500;
+      };
+
+      ChatbotInterface.prototype.displayQuestion = function(questionData) {
+        if (!this.chatContainer || !questionData) return;
+        var specialConfig = this.specialQuestionTypes[questionData.id];
+        if (specialConfig) {
+          if (typeof this[specialConfig.dataProvider] === "function") {
+            var options = this[specialConfig.dataProvider](questionData);
+            this.displayCustomDropdown(questionData, options);
+          } else {
+            this.displayStandardQuestion(questionData);
+          }
+          return;
+        }
+        this.displayStandardQuestion(questionData);
+      };
+
+      ChatbotInterface.prototype.displayStandardQuestion = function(questionData) {
+        var self = this;
+        var questionDiv = document.createElement("div");
+        questionDiv.className = "question";
+        questionDiv.textContent = questionData.text;
+        this.chatContainer.appendChild(questionDiv);
+
+        var answersDiv = document.createElement("div");
+        answersDiv.className = "message-options";
+        questionData.answers.forEach(function(answer) {
+          var button = document.createElement("button");
+          button.className = "answer-button";
+          button.textContent = answer.text;
+          button.addEventListener("click", function() {
+            self.chatContainer.querySelectorAll(".message-options").forEach(function(optionDiv) {
+              optionDiv.remove();
+            });
+            var userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "user-message";
+            userMessageDiv.textContent = answer.text;
+            self.chatContainer.appendChild(userMessageDiv);
+            self.scrollToBottom();
+            self.showTypingIndicator();
+            var thinkingTime = self.getRandomThinkingTime();
+            setTimeout(function() {
+              self.hideTypingIndicator();
+              self.processAnswer(questionData.id, answer.id);
+            }, thinkingTime);
+          });
+          answersDiv.appendChild(button);
+        });
+        this.chatContainer.appendChild(answersDiv);
+        this.scrollToBottom();
+      };
+
+      ChatbotInterface.prototype.getProductOptions = function(questionData) {
+        if (!this.productData || !Array.isArray(this.productData)) return [];
+        return this.productData.map(function(item) {
+          return { id: item.brand + "-" + item.model, text: item.brand + " " + item.model, data: { brand: item.brand, model: item.model } };
+        });
+      };
+
+      ChatbotInterface.prototype.getLocationOptions = function(questionData) {
+        if (!questionData.answers || !Array.isArray(questionData.answers)) return [];
+        return questionData.answers.map(function(answer) {
+          return { id: answer.id, text: answer.text };
+        });
+      };
+
+      ChatbotInterface.prototype.displayCustomDropdown = function(questionData, options) {
+        if (!this.chatContainer || !options) return;
+        var self = this;
+        var messageDiv = document.createElement("div");
+        messageDiv.className = "system-message";
+        var textSpan = document.createElement("div");
+        textSpan.className = "message-text";
+        textSpan.textContent = questionData.text;
+        messageDiv.appendChild(textSpan);
+
+        var dropdownContainer = document.createElement("div");
+        dropdownContainer.className = "custom-dropdown-container";
+        var inputField = document.createElement("input");
+        inputField.type = "text";
+        inputField.className = "dropdown-input";
+        inputField.placeholder = "";
+        var dropdownList = document.createElement("div");
+        dropdownList.className = "dropdown-list";
+
+        dropdownContainer.appendChild(inputField);
+        dropdownContainer.appendChild(dropdownList);
+        messageDiv.appendChild(dropdownContainer);
+        this.chatContainer.appendChild(messageDiv);
+        setTimeout(function() { inputField.focus(); }, 100);
+
+        var selectedOption = null;
+        var renderOptions = function(filter) {
+          filter = filter || "";
+          dropdownList.classList.add("active");
+          dropdownList.innerHTML = "";
+          var filteredOptions = options.filter(function(option) {
+            return option.text.toLowerCase().includes(filter.toLowerCase());
+          });
+          if (filteredOptions.length === 0) {
+            var noResult = document.createElement("div");
+            noResult.className = "dropdown-no-result";
+            noResult.textContent = "Niciun rezultat g\u0103sit";
+            dropdownList.appendChild(noResult);
+          } else {
+            filteredOptions.forEach(function(option) {
+              var optionElement = document.createElement("div");
+              optionElement.className = "dropdown-option";
+              optionElement.textContent = option.text;
+              if (selectedOption && selectedOption.id === option.id) {
+                optionElement.classList.add("selected");
+              }
+              optionElement.addEventListener("click", function() {
+                selectedOption = option;
+                inputField.value = option.text;
+                dropdownList.classList.remove("active");
+                setTimeout(function() {
+                  messageDiv.removeChild(dropdownContainer);
+                  var userMessageDiv = document.createElement("div");
+                  userMessageDiv.className = "user-message";
+                  userMessageDiv.textContent = option.text;
+                  self.chatContainer.appendChild(userMessageDiv);
+                  self.scrollToBottom();
+                  self.showTypingIndicator();
+                  var thinkingTime = self.getRandomThinkingTime();
+                  setTimeout(function() {
+                    self.hideTypingIndicator();
+                    self.handleSpecialQuestionAnswer(questionData.id, option);
+                  }, thinkingTime);
+                }, 300);
+              });
+              dropdownList.appendChild(optionElement);
+            });
+          }
+          self.chatContainer.scrollTop = self.chatContainer.scrollHeight;
+        };
+
+        if (["2.1", "2.2.1"].includes(questionData.id)) {
+          renderOptions("");
+        }
+        inputField.addEventListener("input", function() { renderOptions(inputField.value); });
+        document.addEventListener("click", function(e) {
+          if (!dropdownContainer.contains(e.target)) {
+            dropdownList.classList.remove("active");
+          }
+        });
+        this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+      };
+
+      ChatbotInterface.prototype.handleSpecialQuestionAnswer = function(questionId, option) {
+        var specialConfig = this.specialQuestionTypes[questionId];
+        if (!specialConfig) {
+          this.processAnswer(questionId, option.id);
+          return;
+        }
+        switch (specialConfig.type) {
+          case "productDropdown":
+            this.processAnswer(questionId, "recommendation_model_brand", option.data);
+            break;
+          case "locationDropdown":
+          default:
+            this.processAnswer(questionId, option.id);
+            break;
+        }
+      };
+
+      ChatbotInterface.prototype.displayProductRecommendations = function(products, systemMessageContainer) {
+        if (!this.chatContainer || !products) return;
+        var self = this;
+        var recsDiv = systemMessageContainer || document.createElement("div");
+        if (!systemMessageContainer) {
+          recsDiv.className = "system-message";
+          this.chatContainer.appendChild(recsDiv);
+        }
+
+        var productArray = Array.isArray(products) ? products : Object.values(products);
+        var hasSingleProduct = productArray.length === 1;
+
+        var carouselContainer = document.createElement("div");
+        carouselContainer.className = "carousel-container";
+
+        if (!hasSingleProduct) {
+          var leftArrow = document.createElement("div");
+          leftArrow.className = "carousel-arrow carousel-arrow-left";
+          leftArrow.innerHTML = "&#10094;";
+          carouselContainer.appendChild(leftArrow);
+        }
+
+        var productRecsContainer = document.createElement("div");
+        productRecsContainer.className = "product-recommendations";
+
+        productArray.forEach(function(product) {
+          var productDiv = document.createElement("div");
+          productDiv.className = "product-item";
+          var imageContainer = document.createElement("div");
+          imageContainer.className = "product-image";
+          imageContainer.style.backgroundImage = "url(" + product.link_pic + ")";
+          var productCode = product.name.split(' ')[0];
+          var nameContainer = document.createElement("div");
+          nameContainer.className = "product-name";
+          var codeSpan = document.createElement("span");
+          codeSpan.textContent = productCode;
+          nameContainer.appendChild(codeSpan);
+          var addButton = document.createElement("a");
+          addButton.href = product.link;
+          addButton.target = "_blank";
+          addButton.className = "product-add-button";
+          addButton.textContent = "VEZI PRODUS";
+          productDiv.appendChild(imageContainer);
+          productDiv.appendChild(nameContainer);
+          productDiv.appendChild(addButton);
+          productRecsContainer.appendChild(productDiv);
+        });
+
+        carouselContainer.appendChild(productRecsContainer);
+
+        if (!hasSingleProduct) {
+          var rightArrow = document.createElement("div");
+          rightArrow.className = "carousel-arrow carousel-arrow-right";
+          rightArrow.innerHTML = "&#10095;";
+          carouselContainer.appendChild(rightArrow);
+        }
+
+        recsDiv.appendChild(carouselContainer);
+
+        if (!hasSingleProduct) {
+          this.setupCarouselNavigation(
+            carouselContainer.querySelector('.carousel-arrow-left'),
+            carouselContainer.querySelector('.carousel-arrow-right'),
+            productRecsContainer
+          );
+        }
+
+        this.scrollToBottom();
+        return recsDiv;
+      };
+
+      ChatbotInterface.prototype.setupCarouselNavigation = function(leftArrow, rightArrow, container) {
+        if (!container || !leftArrow || !rightArrow) return;
+        var scrollAmount = 195;
+        var canScrollLeft = function() { return container.scrollLeft > 5; };
+        var canScrollRight = function() {
+          var maxScrollLeft = container.scrollWidth - container.clientWidth;
+          return container.scrollLeft < maxScrollLeft - 5;
+        };
+        leftArrow.addEventListener('click', function() {
+          if (canScrollLeft()) container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        rightArrow.addEventListener('click', function() {
+          if (canScrollRight()) container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        var updateArrowVisibility = function() {
+          var hasScrollableContent = container.scrollWidth > container.clientWidth;
+          if (!hasScrollableContent) {
+            leftArrow.style.opacity = '0.3'; rightArrow.style.opacity = '0.3';
+            leftArrow.style.pointerEvents = 'none'; rightArrow.style.pointerEvents = 'none';
+            return;
+          }
+          leftArrow.style.opacity = canScrollLeft() ? '1' : '0.3';
+          leftArrow.style.pointerEvents = canScrollLeft() ? 'auto' : 'none';
+          rightArrow.style.opacity = canScrollRight() ? '1' : '0.3';
+          rightArrow.style.pointerEvents = canScrollRight() ? 'auto' : 'none';
+        };
+        setTimeout(updateArrowVisibility, 100);
+        container.addEventListener('scroll', updateArrowVisibility);
+        window.addEventListener('resize', updateArrowVisibility);
+      };
+
+      ChatbotInterface.prototype.processAnswer = function(questionId, answerId, additionalData) {
+        if (!this.chatbot) return;
+        var self = this;
+        try {
+          var result = additionalData
+            ? this.chatbot.processAnswer(questionId, answerId, additionalData)
+            : this.chatbot.processAnswer(questionId, answerId);
+
+          if (result === null) {
+            var endDiv = document.createElement("div");
+            endDiv.className = "system-message";
+            var textDiv = document.createElement("div");
+            textDiv.className = "message-text";
+            textDiv.textContent = 'Conversa\u021Bie \u00EEncheiată. V\u0103 mul\u021Bumim!';
+            endDiv.appendChild(textDiv);
+            this.chatContainer.appendChild(endDiv);
+            this.scrollToBottom();
+          } else {
+            if (result.system_options && result.system_options.output_list) {
+              var systemMessageDiv = document.createElement("div");
+              systemMessageDiv.className = "system-message";
+              var textDiv2 = document.createElement("div");
+              textDiv2.className = "message-text";
+              textDiv2.textContent = result.question.text;
+              systemMessageDiv.appendChild(textDiv2);
+              this.chatContainer.appendChild(systemMessageDiv);
+              this.displayProductRecommendations(result.system_options.output_list, systemMessageDiv);
+
+              if (result.question.answers && Object.keys(result.question.answers).length > 0) {
+                var answersDiv = document.createElement("div");
+                answersDiv.className = "message-options";
+                Object.entries(result.question.answers).forEach(function(entry) {
+                  var id = entry[0];
+                  var answer = entry[1];
+                  var button = document.createElement("button");
+                  button.className = "answer-button";
+                  button.textContent = answer.text;
+                  button.addEventListener("click", function() {
+                    self.chatContainer.querySelectorAll(".message-options").forEach(function(optionDiv) { optionDiv.remove(); });
+                    var userMessageDiv = document.createElement("div");
+                    userMessageDiv.className = "user-message";
+                    userMessageDiv.textContent = answer.text;
+                    self.chatContainer.appendChild(userMessageDiv);
+                    self.scrollToBottom();
+                    self.showTypingIndicator();
+                    setTimeout(function() {
+                      self.hideTypingIndicator();
+                      self.processAnswer(result.question.id, (Number(id)+1).toString());
+                    }, 1000);
+                  });
+                  answersDiv.appendChild(button);
+                });
+                self.chatContainer.appendChild(answersDiv);
+                self.scrollToBottom();
+              }
+            } else {
+              this.displayQuestion(result.question);
+            }
+            this.scrollToBottom();
+          }
+        } catch (error) {
+          console.error("Process answer error:", error);
+          this.showError("Error processing answer: " + error.message);
+        }
+      };
+
+      ChatbotInterface.prototype.restart = async function() {
+        if (!this.chatContainer) return;
+        this.chatContainer.innerHTML = "";
+        if (this.currentFlowId) {
+          await this.init(this.currentFlowId);
+        } else {
+          this.collapseCard();
+        }
+      };
+
+      ChatbotInterface.prototype.formatRomanianDate = function() {
+        var today = new Date();
+        var months = ["IANUARIE","FEBRUARIE","MARTIE","APRILIE","MAI","IUNIE","IULIE","AUGUST","SEPTEMBRIE","OCTOMBRIE","NOIEMBRIE","DECEMBRIE"];
+        return today.getDate() + " " + months[today.getMonth()] + " " + today.getFullYear();
+      };
+
+      ChatbotInterface.prototype.addDateHeader = function() {
+        if (!this.chatContainer) return;
+        var dateHeader = document.createElement("div");
+        dateHeader.className = "date-header";
+        dateHeader.textContent = this.formatRomanianDate();
+        if (this.chatContainer.firstChild) {
+          this.chatContainer.insertBefore(dateHeader, this.chatContainer.firstChild);
+        } else {
+          this.chatContainer.appendChild(dateHeader);
+        }
+      };
+
+      ChatbotInterface.prototype.scrollToBottom = function() {
+        var self = this;
+        if (this.chatContainer) {
+          setTimeout(function() {
+            self.chatContainer.scrollTo({ top: self.chatContainer.scrollHeight, behavior: 'smooth' });
+          }, 100);
+        }
+      };
+
+      ChatbotInterface.prototype.showTypingIndicator = function() {
+        if (!this.chatContainer) return;
+        this.hideLoading();
+        var loadingDiv = document.createElement("div");
+        loadingDiv.className = "typing-indicator system-message";
+        loadingDiv.id = "dp-typing-indicator";
+        var dotsContainer = document.createElement("div");
+        dotsContainer.className = "typing-dots";
+        for (var i = 0; i < 3; i++) {
+          var dot = document.createElement("span");
+          dot.className = "typing-dot";
+          dotsContainer.appendChild(dot);
+        }
+        loadingDiv.appendChild(dotsContainer);
+        this.chatContainer.appendChild(loadingDiv);
+        this.scrollToBottom();
+      };
+
+      ChatbotInterface.prototype.preventScrollPropagation = function() {
+        var preventScroll = function(e) { e.stopPropagation(); e.stopImmediatePropagation(); };
+        var preventTouchScroll = function(e) {
+          var target = e.target.closest('#dp-chat-messages');
+          if (target) { e.stopPropagation(); e.stopImmediatePropagation(); }
+        };
+        if (this.chatContainer) {
+          this.chatContainer.addEventListener('wheel', preventScroll, { passive: false });
+          this.chatContainer.addEventListener('touchmove', preventTouchScroll, { passive: false });
+          this.chatContainer.addEventListener('scroll', preventScroll, { passive: true });
+        }
+        if (this.chatWrapper) {
+          this.chatWrapper.addEventListener('wheel', preventScroll, { passive: false });
+          this.chatWrapper.addEventListener('touchmove', preventTouchScroll, { passive: false });
+          this.chatWrapper.addEventListener('scroll', preventScroll, { passive: true });
+          this.chatWrapper.style.touchAction = 'none';
+          this.chatWrapper.style.overscrollBehavior = 'contain';
+        }
+        var chatMessages = document.getElementById('dp-chat-messages');
+        if (chatMessages) {
+          chatMessages.addEventListener('wheel', function(e) { e.stopPropagation(); e.stopImmediatePropagation(); }, { passive: false });
+          chatMessages.addEventListener('touchstart', function(e) { e.stopPropagation(); }, { passive: true });
+          chatMessages.addEventListener('touchmove', function(e) { e.stopPropagation(); }, { passive: false });
+        }
+      };
+
+      // Initialize the chatbot
+      window.dpChatbotInterface = new ChatbotInterface({
+        headerTitle: "Bun\u0103 ziua! Cu ce v\u0103 putem ajuta?"
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "D&P Chatbot",
+  "tag": "section",
+  "class": "dp-chatbot-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "D&P Chatbot"
+    }
+  ]
+}
+{% endschema %}
