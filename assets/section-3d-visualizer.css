@@ -1,0 +1,196 @@
+/* ========================================
+   3D Visualizer Section
+   ======================================== */
+
+.visualizer-3d__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.visualizer-3d__subheading {
+  margin-bottom: 0.5rem;
+}
+
+.visualizer-3d__heading {
+  margin: 0;
+}
+
+/* Navigation buttons */
+.visualizer-3d__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.visualizer-3d__nav-btn {
+  border: 1px solid rgba(var(--color-foreground), 0.3);
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-button-family);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.visualizer-3d__nav-btn:hover {
+  border-color: rgb(var(--color-foreground));
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
+.visualizer-3d__nav-btn--active {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  border-color: rgb(var(--color-foreground));
+}
+
+/* Viewer container */
+.visualizer-3d__viewer {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.visualizer-3d__viewer--small {
+  height: 400px;
+}
+
+.visualizer-3d__viewer--medium {
+  height: 550px;
+}
+
+.visualizer-3d__viewer--large {
+  height: 700px;
+}
+
+.visualizer-3d__viewer--full {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* model-viewer element */
+.visualizer-3d__viewer model-viewer {
+  width: 100%;
+  height: 100%;
+  --poster-color: transparent;
+}
+
+/* Vignette overlay */
+.visualizer-3d__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 8px;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+}
+
+/* AR button */
+.visualizer-3d__ar-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--font-button-family);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.visualizer-3d__ar-btn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.visualizer-3d__ar-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Loading state */
+.visualizer-3d__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.visualizer-3d__loading img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.visualizer-3d__progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.visualizer-3d__progress-fill {
+  height: 100%;
+  background: rgb(var(--color-foreground));
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 749px) {
+  .visualizer-3d__viewer--small {
+    height: 300px;
+  }
+
+  .visualizer-3d__viewer--medium {
+    height: 400px;
+  }
+
+  .visualizer-3d__viewer--large {
+    height: 500px;
+  }
+
+  .visualizer-3d__nav {
+    gap: 0.8rem;
+  }
+
+  .visualizer-3d__nav-btn {
+    padding: 5px 16px;
+    font-size: 10px;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .visualizer-3d__ar-btn {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
