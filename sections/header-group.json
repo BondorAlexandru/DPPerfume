@@ -76,9 +76,9 @@
       "settings": {
         "enable_border": true,
         "header_type": "center-logo",
-        "logo": "shopify://shop_images/DP-LOGO.png",
-        "logo_2": "shopify://shop_images/DP-LOGO.png",
-        "logo_width": 100,
+        "logo": "shopify://shop_images/DP_Logo_Black.png",
+        "logo_2": "shopify://shop_images/DP_Logo_White.png",
+        "logo_width": 90,
         "menu": "main-menu",
         "sticky_header_type": "always",
         "header_animation_type": "slide",

@@ -24,9 +24,9 @@
             "description": "<p>Experimentati un parfum intens cu note dominante de bergamota, lamaie si lavanda. O alegere perfecta pentru evenimentele speciale.</p>",
             "tab_subheading": "",
             "tab_heading": "Rafinament Subtil",
-            "button_label": "Discover Collection",
+            "button_label": "Descoperă produsul",
             "button_link": "",
-            "button_style": "tertiary",
+            "button_style": "primary",
             "enable_fullscreen_link": true
           }
         },
@@ -44,7 +44,7 @@
             "tab_heading": "Ocazii Speciale",
             "button_label": "Descoperă produsul",
             "button_link": "",
-            "button_style": "tertiary",
+            "button_style": "primary",
             "enable_fullscreen_link": true
           }
         }
@@ -109,9 +109,10 @@
         "product_slide2"
       ],
       "custom_css": [
-        ".product-slider__image-swiper {border-radius: 20px;}",
-        ".card--product {border-radius: 20px;}",
-        ".product-slider__wrapper {padding-inline: 24px;}"
+        ".product-slider__image-swiper {border-radius: 15px;}",
+        ".card--product {border-radius: 15px;}",
+        ".product-slider__wrapper {padding-inline: 24px;}",
+        ".product-slider__image-slider {position: relative; height: 70vh; min-height: 700px;}"
       ],
       "settings": {
         "image_size": "large",
@@ -138,24 +139,24 @@
         "show_size_count": false,
         "show_collection": false,
         "show_desc": false,
-        "margin_top": "m",
-        "margin_bottom": "m"
+        "margin_top": "s",
+        "margin_bottom": "s"
       }
     },
     "products_grid_7giBeM": {
       "type": "products-grid",
       "custom_css": [
-        ".card {border-radius: 20px;}"
+        ".card {border-radius: 15px;}"
       ],
       "name": "t:sections.products-grid.name",
       "settings": {
         "subheading": "",
-        "heading": "Your product grid title",
+        "heading": "Preferatele Noastre",
         "description": "",
         "heading_size": "h1",
         "collection": "",
         "product_list": [],
-        "products_per_page": 12,
+        "products_per_page": 5,
         "products_to_show": 5,
         "sort": "alphabetical",
         "image_ratio": "portrait",
@@ -205,16 +206,19 @@
       "block_order": [
         "media_slide"
       ],
+      "custom_css": [
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 60%; min-height: unset; padding-top: 0; margin-inline: 20px; overflow: hidden; width: auto; border-radius: 20px;}"
+      ],
       "settings": {
         "header_overlay": false,
         "sticky": "sticky-none",
         "layout": "simple",
         "title_link": false,
         "gap": false,
-        "aspect_ratio": "full",
-        "aspect_ratio_mobile": "full",
+        "aspect_ratio": "adapt",
+        "aspect_ratio_mobile": "adapt",
         "margin_top": "no-indent",
-        "margin_bottom": "m"
+        "margin_bottom": "no-indent"
       }
     },
     "categories_list_6QxCjk": {
@@ -257,7 +261,7 @@
         "collection_item_KXAdXC"
       ],
       "custom_css": [
-        ".collections-grid__image {border-radius: 20px;}"
+        ".collections-grid__image {border-radius: 15px;}"
       ],
       "name": "t:sections.categories-list.presets.name",
       "settings": {
@@ -309,6 +313,9 @@
         "product-slide1",
         "product-slide2"
       ],
+      "custom_css": [
+        ".card-horizontal__image {border-radius: 8px;}"
+      ],
       "settings": {
         "color_scheme": "",
         "big_image_ratio": "portrait",
@@ -325,7 +332,7 @@
         "show_vendor": false,
         "show_collection": false,
         "margin_top": "no-indent",
-        "margin_bottom": "l"
+        "margin_bottom": "no-indent"
       }
     },
     "image-with-text": {
@@ -338,38 +345,37 @@
         "heading_position": "center",
         "text_width": "medium",
         "subheading": "",
-        "heading": "We focus on well-crafted, memorable fragrances that fit your lifestyle. Thoughtfully composed for comfort, versatility, and everyday wear.",
+        "heading": "De peste 20 de ani, redefinim accesibilitatea în parfumerie, fără compromisuri de calitate.",
         "heading_size": "h1",
         "text": "",
         "enable_animation": true,
-        "button_label": "Read Our Story",
-        "button_link": "",
+        "button_label": "Descoperă povestea noastră",
+        "button_link": "shopify://pages/contact",
         "button_style": "simple",
         "image_width": "large",
         "height": "portrait",
         "layout": "image_bottom",
-        "margin_top": "l",
-        "margin_bottom": "l"
+        "margin_top": "xl",
+        "margin_bottom": "xl"
       }
     },
-    "media-banner-2": {
+    "media_banner_T7VKPd": {
       "type": "media-banner",
       "blocks": {
-        "media_slide": {
+        "media_slide_CaEEpW": {
           "type": "media_slide",
           "settings": {
             "color_scheme": "",
-            "image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png",
-            "mobile_image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png",
+            "image": "shopify://shop_images/Classic.png",
             "overlay_opacity": 0,
             "enable_hover": true,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
             "subheading": "",
-            "heading": "The Go-To Collection",
+            "heading": "The Fragrances You’ll Love",
             "heading_size": "h1",
-            "description": "Perfumes made to match your rhythm. Easy to wear, beautifully balanced, and always appropriate.",
+            "description": "Timeless scents, premium ingredients, and effortless wearability — essentials you’ll reach for every day.",
             "position_content": "bottom",
             "align_content": "left",
             "button_label": "Discover Collection",
@@ -383,7 +389,10 @@
         }
       },
       "block_order": [
-        "media_slide"
+        "media_slide_CaEEpW"
+      ],
+      "custom_css": [
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 60%; min-height: unset; padding-top: 0; margin-inline: 20px; overflow: hidden; width: auto; border-radius: 20px;}"
       ],
       "settings": {
         "header_overlay": false,
@@ -391,39 +400,11 @@
         "layout": "simple",
         "title_link": false,
         "gap": false,
-        "aspect_ratio": "full",
-        "aspect_ratio_mobile": "full",
+        "aspect_ratio": "adapt",
+        "aspect_ratio_mobile": "adapt",
         "margin_top": "no-indent",
-        "margin_bottom": "m"
+        "margin_bottom": "no-indent"
       }
-    },
-    "1769361835668dec2b": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_ba35953_iNYmHz": {
-          "type": "ai_gen_block_ba35953",
-          "settings": {
-            "show_icon": true,
-            "icon_size": 50,
-            "icon_placeholder_color": "#f5f5f5",
-            "heading": "Feature heading",
-            "heading_font": "instrument_sans_n5",
-            "heading_size": 18,
-            "heading_color": "#000000",
-            "text": "<p>Add a short description for this feature</p>",
-            "text_font": "instrument_sans_n4",
-            "text_size": 14,
-            "text_color": "#4d4d4d",
-            "alignment": "center",
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_ba35953_iNYmHz"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -434,7 +415,6 @@
     "categories_list_6QxCjk",
     "featured-products",
     "image-with-text",
-    "media-banner-2",
-    "1769361835668dec2b"
+    "media_banner_T7VKPd"
   ]
 }

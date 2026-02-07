@@ -41,6 +41,9 @@
       "block_order": [
         "media_slide_V8KKMJ"
       ],
+      "custom_css": [
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 105vh; border-radius: 0px 0px 30px 30px;}"
+      ],
       "name": "t:sections.media-banner.name",
       "settings": {
         "header_overlay": true,
@@ -57,28 +60,54 @@
     "contact_form_Xg69AE": {
       "type": "contact-form",
       "blocks": {
-        "contact_description_Q8KdPD": {
-          "type": "contact-description",
+        "call_center": {
+          "type": "contact_info",
           "settings": {
-            "subheading": "",
-            "heading": "Smart Trade Management SRL",
-            "heading_size": "h2",
-            "description": "<p>Capital social : 200 lei<br/>J40/5283/2018RO39201697</p>"
+            "title": "Call Center",
+            "content": "<p>+40 123 456 789<br>+40 987 654 321</p>"
+          }
+        },
+        "location": {
+          "type": "contact_info",
+          "settings": {
+            "title": "Locație",
+            "content": "<p>România, București<br>Str. Exemplu Nr. 1</p>"
+          }
+        },
+        "email": {
+          "type": "contact_info",
+          "settings": {
+            "title": "Email",
+            "content": "<p>contact@dpparfum.ro</p>"
+          }
+        },
+        "social": {
+          "type": "social_links",
+          "settings": {
+            "title": "Social",
+            "facebook": "",
+            "instagram": ""
           }
         }
       },
       "block_order": [
-        "contact_description_Q8KdPD"
+        "call_center",
+        "location",
+        "email",
+        "social"
       ],
       "name": "t:sections.contact-form.presets.name",
       "settings": {
-        "position": "right",
-        "enable_form": true,
+        "subheading": "/ contactează-ne /",
         "heading": "Ia legătura cu noi!",
-        "heading_size": "h1",
-        "text": "",
-        "additional_text": "",
-        "button_style": "primary",
+        "text": "Suntem aici să te ajutăm cu orice întrebare despre produsele noastre sau comenzile tale.",
+        "form_heading": "Trimite-ne un mesaj",
+        "form_description": "Completează formularul și te vom contacta în cel mai scurt timp.",
+        "name_placeholder": "Nume complet",
+        "email_placeholder": "Email",
+        "subject_placeholder": "Subiect",
+        "message_placeholder": "Mesaj",
+        "button_label": "Trimite mesaj",
         "margin_top": "no-indent",
         "margin_bottom": "m"
       }
