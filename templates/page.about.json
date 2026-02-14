@@ -33,6 +33,42 @@
         "margin_bottom": "no-indent"
       }
     },
+    "3d_visualizer_4tG8kY": {
+      "type": "3d-visualizer",
+      "blocks": {
+        "model_item_ynaiik": {
+          "type": "model_item",
+          "settings": {
+            "label": "Model 1",
+            "model_url": "https://cdn.shopify.com/3d/models/74815c53737b595e/Copilot3D-b5816098-31c6-4802-9ea9-509f4e9b5d8a.glb"
+          }
+        }
+      },
+      "block_order": [
+        "model_item_ynaiik"
+      ],
+      "name": "3D Visualizer",
+      "settings": {
+        "heading": "3D Product Viewer",
+        "subheading": "",
+        "background_color": "#F8F7F5",
+        "section_height": "medium",
+        "full_width": false,
+        "show_vignette": true,
+        "auto_rotate": true,
+        "rotation_delay": "500",
+        "rotation_speed": 25,
+        "camera_controls": true,
+        "show_ar_button": true,
+        "exposure": 1,
+        "shadow_intensity": 0.8,
+        "shadow_softness": 1,
+        "environment": "neutral",
+        "environment_image_url": "",
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
     "steps_MdG7i6": {
       "type": "steps",
       "blocks": {
@@ -142,8 +178,8 @@
             "button_radius": 100,
             "button_border_thickness": 1,
             "button_color": "#121212",
-            "button_hover_color": "#FFFFFF",
-            "button_bg_color": "#FFFFFF",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#ffffff",
             "button_bg_hover_color": "#121212",
             "button_border_color": "#121212",
             "button_border_hover_color": "#121212"
@@ -153,6 +189,7 @@
           "type": "video",
           "settings": {
             "source": "uploaded",
+            "video_url": "",
             "use_big_video": true
           }
         },
@@ -174,6 +211,7 @@
           "type": "video",
           "settings": {
             "source": "uploaded",
+            "video_url": "",
             "use_big_video": true
           }
         },
@@ -181,6 +219,7 @@
           "type": "video",
           "settings": {
             "source": "uploaded",
+            "video_url": "",
             "use_big_video": false
           }
         },
@@ -202,6 +241,7 @@
           "type": "video",
           "settings": {
             "source": "uploaded",
+            "video_url": "",
             "use_big_video": false
           }
         },
@@ -251,12 +291,12 @@
         "icon_position": "bottom_left",
         "icon_position_mobile": "bottom_left",
         "media_border_color": "#000000",
-        "icon_color": "#FFFFFF",
+        "icon_color": "#ffffff",
         "icon_bg_color": "#000000",
         "icon_bg_opacity": 0.3,
-        "icon_border_color": "#FFFFFF",
+        "icon_border_color": "#ffffff",
         "background_style": "solid",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
         "border_color": "#121212",
         "margin_top": 0,
@@ -277,6 +317,7 @@
   },
   "order": [
     "image_with_text_rfjwNg",
+    "3d_visualizer_4tG8kY",
     "steps_MdG7i6",
     "1770243434fa097dcf",
     "ss_instafeed_9_4LQAKG"

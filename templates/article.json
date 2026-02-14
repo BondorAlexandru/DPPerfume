@@ -17,9 +17,9 @@
           "settings": {
             "blog_show_tags": true,
             "blog_show_excerpt": true,
-            "blog_show_author": true,
+            "blog_show_author": false,
             "blog_show_date": true,
-            "image_height": "adapt"
+            "image_height": "medium"
           }
         },
         "content": {

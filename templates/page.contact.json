@@ -63,30 +63,33 @@
         "call_center": {
           "type": "contact_info",
           "settings": {
-            "title": "Call Center",
-            "content": "<p>+40 123 456 789<br>+40 987 654 321</p>"
+            "title": "Telefon",
+            "content": "<p><a href=\"tel:0740520000\" title=\"tel:0740520000\">+40 740 520 000</a></p>"
           }
         },
         "location": {
           "type": "contact_info",
           "settings": {
             "title": "Locație",
-            "content": "<p>România, București<br>Str. Exemplu Nr. 1</p>"
+            "content": "<p>Str Maior Ion Coravu nr 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, București<br/><br/>Luni – Vineri: 09:00 - 18:00</p>"
           }
         },
         "email": {
           "type": "contact_info",
           "settings": {
             "title": "Email",
-            "content": "<p>contact@dpparfum.ro</p>"
+            "content": "<p>support@dpparfum.ro</p>"
           }
         },
         "social": {
           "type": "social_links",
           "settings": {
-            "title": "Social",
-            "facebook": "",
-            "instagram": ""
+            "title": "Social Media",
+            "facebook": "https://www.facebook.com/dpparfum/",
+            "twitter": "",
+            "linkedin": "",
+            "youtube": "",
+            "instagram": "https://www.instagram.com/dpparfumro/"
           }
         }
       },
@@ -98,16 +101,16 @@
       ],
       "name": "t:sections.contact-form.presets.name",
       "settings": {
-        "subheading": "/ contactează-ne /",
+        "subheading": "",
         "heading": "Ia legătura cu noi!",
-        "text": "Suntem aici să te ajutăm cu orice întrebare despre produsele noastre sau comenzile tale.",
+        "text": "SMART TRADE MANAGEMENT SRL\nCapital social : 200 lei\nJ40/5283/2018\nRO39201697",
         "form_heading": "Trimite-ne un mesaj",
         "form_description": "Completează formularul și te vom contacta în cel mai scurt timp.",
-        "name_placeholder": "Nume complet",
+        "name_placeholder": "Nume",
         "email_placeholder": "Email",
-        "subject_placeholder": "Subiect",
+        "subject_placeholder": "Telefon",
         "message_placeholder": "Mesaj",
-        "button_label": "Trimite mesaj",
+        "button_label": "Trimite",
         "margin_top": "no-indent",
         "margin_bottom": "m"
       }
