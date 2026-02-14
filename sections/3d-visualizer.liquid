@@ -70,6 +70,7 @@
               {%- endif -%}
               loading="lazy"
               reveal="auto"
+              field-of-view="10deg"
               interaction-prompt="none"
               style="background-color: var(--viewer-bg); width: 100%; height: 100%;"
             >
@@ -86,10 +87,6 @@
               </div>
             {%- endif -%}
             </model-viewer>
-
-            {%- if section.settings.show_vignette -%}
-              <div class="visualizer-3d__vignette" aria-hidden="true"></div>
-            {%- endif -%}
           </div>
         </div>
 
@@ -204,13 +201,6 @@
       "id": "background_color",
       "label": "Viewer background color",
       "default": "#F8F7F5"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vignette",
-      "label": "Show vignette effect",
-      "default": true,
-      "info": "Subtle darkening around edges for a cinematic look"
     },
     {
       "type": "header",
