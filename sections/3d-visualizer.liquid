@@ -2,108 +2,125 @@
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.margin_top | default: 'm' }};
-    padding-bottom: {{ section.settings.margin_bottom | default: 'm' }};
-  }
+  {% render 'section-margin' %}
 {%- endstyle -%}
 
 {%- assign first_block = section.blocks | first -%}
 {%- assign block_count = section.blocks.size -%}
 
-<div class="visualizer-3d section-{{ section.id }}-padding"
+<div class="visualizer-3d"
      id="Visualizer-{{ section.id }}"
      style="--viewer-bg: {{ section.settings.background_color }};">
 
-  <div class="{% unless section.settings.full_width %}page-width{% endunless %}">
+  <div class="">
+    <div class="visualizer-3d__wrapper">
+      <div class="visualizer-3d__inner">
 
-    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
-      <div class="visualizer-3d__header">
-        {%- if section.settings.subheading != blank -%}
-          <p class="visualizer-3d__subheading subtitle">{{ section.settings.subheading }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="visualizer-3d__heading h2">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
-    {%- if block_count > 1 -%}
-      <div class="visualizer-3d__nav">
-        {%- for block in section.blocks -%}
-          <button
-            class="visualizer-3d__nav-btn{% if forloop.first %} visualizer-3d__nav-btn--active{% endif %}"
-            data-model-url="{{ block.settings.model_url }}"
-            {%- if block.settings.poster -%}
-              data-poster="{{ block.settings.poster | image_url: width: 800 }}"
-            {%- endif -%}
-            {{ block.shopify_attributes }}
-          >
-            {{ block.settings.label }}
-          </button>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    <div class="visualizer-3d__viewer visualizer-3d__viewer--{{ section.settings.section_height }}">
-      <model-viewer
-        id="ModelViewer-{{ section.id }}"
-        {%- if first_block -%}
-          src="{{ first_block.settings.model_url }}"
-        {%- endif -%}
-        alt="{{ section.settings.heading | default: '3D Model Viewer' }}"
-        {%- if section.settings.auto_rotate -%}
-          auto-rotate
-          auto-rotate-delay="{{ section.settings.rotation_delay }}"
-          rotation-per-second="{{ section.settings.rotation_speed }}deg"
-        {%- endif -%}
-        {%- if section.settings.camera_controls -%}
-          camera-controls
-          touch-action="pan-y"
-        {%- endif -%}
-        {%- if section.settings.show_ar_button -%}
-          ar
-          ar-modes="webxr scene-viewer quick-look"
-        {%- endif -%}
-        exposure="{{ section.settings.exposure }}"
-        shadow-intensity="{{ section.settings.shadow_intensity }}"
-        shadow-softness="{{ section.settings.shadow_softness }}"
-        {%- case section.settings.environment -%}
-          {%- when 'legacy' -%}
-            environment-image="legacy"
-          {%- when 'custom' -%}
-            {%- if section.settings.environment_image_url != blank -%}
-              environment-image="{{ section.settings.environment_image_url }}"
-            {%- endif -%}
-        {%- endcase -%}
-        {%- if section.settings.poster_image -%}
-          poster="{{ section.settings.poster_image | image_url: width: 1200 }}"
-        {%- endif -%}
-        loading="lazy"
-        reveal="auto"
-        interaction-prompt="none"
-        style="background-color: var(--viewer-bg); width: 100%; height: 100%;"
-      >
-        {%- if section.settings.show_ar_button -%}
-          <button slot="ar-button" class="visualizer-3d__ar-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/></svg>
-            <span>View in AR</span>
-          </button>
-        {%- endif -%}
-
-        <div class="visualizer-3d__loading" slot="poster">
-          {%- if section.settings.poster_image -%}
-            {{ section.settings.poster_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+        <div class="visualizer-3d__viewer-col">
+          {%- if block_count > 1 -%}
+            <div class="visualizer-3d__nav">
+              {%- for block in section.blocks -%}
+                <button
+                  class="visualizer-3d__nav-btn{% if forloop.first %} visualizer-3d__nav-btn--active{% endif %}"
+                  data-model-url="{{ block.settings.model_url }}"
+                  {%- if block.settings.poster -%}
+                    data-poster="{{ block.settings.poster | image_url: width: 800 }}"
+                  {%- endif -%}
+                  {{ block.shopify_attributes }}
+                >
+                  {{ block.settings.label }}
+                </button>
+              {%- endfor -%}
+            </div>
           {%- endif -%}
-          <div class="visualizer-3d__progress-bar">
-            <div class="visualizer-3d__progress-fill"></div>
+
+          <div class="visualizer-3d__viewer visualizer-3d__viewer--{{ section.settings.section_height }}">
+            <model-viewer
+              id="ModelViewer-{{ section.id }}"
+              {%- if first_block -%}
+                src="{{ first_block.settings.model_url }}"
+              {%- endif -%}
+              alt="{{ section.settings.heading | default: '3D Model Viewer' }}"
+              {%- if section.settings.auto_rotate -%}
+                auto-rotate
+                auto-rotate-delay="{{ section.settings.rotation_delay }}"
+                rotation-per-second="{{ section.settings.rotation_speed }}deg"
+              {%- endif -%}
+              {%- if section.settings.camera_controls -%}
+                camera-controls
+                touch-action="pan-y"
+              {%- endif -%}
+              {%- if section.settings.show_ar_button -%}
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+              {%- endif -%}
+              exposure="{{ section.settings.exposure }}"
+              shadow-intensity="{{ section.settings.shadow_intensity }}"
+              shadow-softness="{{ section.settings.shadow_softness }}"
+              {%- case section.settings.environment -%}
+                {%- when 'legacy' -%}
+                  environment-image="legacy"
+                {%- when 'custom' -%}
+                  {%- if section.settings.environment_image_url != blank -%}
+                    environment-image="{{ section.settings.environment_image_url }}"
+                  {%- endif -%}
+              {%- endcase -%}
+              {%- if section.settings.poster_image -%}
+                poster="{{ section.settings.poster_image | image_url: width: 1200 }}"
+              {%- endif -%}
+              loading="lazy"
+              reveal="auto"
+              interaction-prompt="none"
+              style="background-color: var(--viewer-bg); width: 100%; height: 100%;"
+            >
+              {%- if section.settings.show_ar_button -%}
+                <button slot="ar-button" class="visualizer-3d__ar-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/></svg>
+                  <span>View in AR</span>
+                </button>
+              {%- endif -%}
+
+              <div class="visualizer-3d__loading" slot="poster">
+                {%- if section.settings.poster_image -%}
+                  {{ section.settings.poster_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+                {%- endif -%}
+                <div class="visualizer-3d__progress-bar">
+                  <div class="visualizer-3d__progress-fill"></div>
+                </div>
+              </div>
+            </model-viewer>
+
+            {%- if section.settings.show_vignette -%}
+              <div class="visualizer-3d__vignette" aria-hidden="true"></div>
+            {%- endif -%}
           </div>
         </div>
-      </model-viewer>
 
-      {%- if section.settings.show_vignette -%}
-        <div class="visualizer-3d__vignette" aria-hidden="true"></div>
-      {%- endif -%}
+        <div class="visualizer-3d__text-col">
+          <div class="titles">
+            {%- if section.settings.subheading != blank -%}
+              <p class="subtitle">{{ section.settings.subheading }}</p>
+            {%- endif -%}
+            {%- if section.settings.heading != blank -%}
+              <h1 class="h1">{{ section.settings.heading }}</h1>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.text != blank -%}
+            <div class="rte">{{ section.settings.text }}</div>
+          {%- endif -%}
+          {%- if section.settings.button_label != blank -%}
+            <a
+              {%- if section.settings.button_link != blank -%}
+                href="{{ section.settings.button_link }}"
+              {%- endif -%}
+              class="button"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
@@ -159,7 +176,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Section header"
+      "content": "Text content"
     },
     {
       "type": "text",
@@ -171,6 +188,22 @@
       "type": "text",
       "id": "subheading",
       "label": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Explore our product in 3D. Rotate, zoom, and interact with the model.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     },
     {
       "type": "header",
@@ -193,12 +226,6 @@
         { "value": "full", "label": "Full viewport" }
       ],
       "default": "medium"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Full width",
-      "default": false
     },
     {
       "type": "checkbox",

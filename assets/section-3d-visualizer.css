@@ -2,17 +2,55 @@
    3D Visualizer Section
    ======================================== */
 
-.visualizer-3d__header {
-  text-align: center;
-  margin-bottom: 2rem;
+/* Outer wrapper — matches Figma: white bg, 24px padding */
+.visualizer-3d__wrapper {
+  padding: 24px;
+  background: rgb(var(--color-background));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.visualizer-3d__subheading {
-  margin-bottom: 0.5rem;
+/* Inner container — matches Figma: #F2F2F2 bg, 12px padding, rounded */
+.visualizer-3d__inner {
+  flex: 1;
+  padding: 12px;
+  background: #F2F2F2;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.visualizer-3d__heading {
-  margin: 0;
+@media screen and (min-width: 990px) {
+  .visualizer-3d__inner {
+    flex-direction: row;
+  }
+}
+
+/* Viewer column (left) */
+.visualizer-3d__viewer-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Text column (right) — top-aligned */
+.visualizer-3d__text-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.6rem;
+  padding: 2.4rem 1.2rem;
+}
+
+@media screen and (min-width: 990px) {
+  .visualizer-3d__text-col {
+    padding: 2.4rem;
+  }
 }
 
 /* Navigation buttons */
@@ -55,7 +93,7 @@
 .visualizer-3d__viewer {
   position: relative;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -89,7 +127,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  border-radius: 8px;
+  border-radius: 12px;
   background: radial-gradient(
     ellipse at center,
     transparent 60%,
@@ -164,6 +202,10 @@
 
 /* Mobile responsive */
 @media screen and (max-width: 749px) {
+  .visualizer-3d__wrapper {
+    padding: 16px;
+  }
+
   .visualizer-3d__viewer--small {
     height: 300px;
   }
