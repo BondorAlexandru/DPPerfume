@@ -80,14 +80,11 @@
                 </button>
               {%- endif -%}
 
+              {%- if section.settings.poster_image -%}
               <div class="visualizer-3d__loading" slot="poster">
-                {%- if section.settings.poster_image -%}
-                  {{ section.settings.poster_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
-                {%- endif -%}
-                <div class="visualizer-3d__progress-bar">
-                  <div class="visualizer-3d__progress-fill"></div>
-                </div>
+                {{ section.settings.poster_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
               </div>
+            {%- endif -%}
             </model-viewer>
 
             {%- if section.settings.show_vignette -%}
@@ -134,13 +131,6 @@
     var navButtons = section.querySelectorAll('.visualizer-3d__nav-btn');
 
     if (!modelViewer) return;
-
-    modelViewer.addEventListener('progress', function(event) {
-      var progressBar = section.querySelector('.visualizer-3d__progress-fill');
-      if (progressBar) {
-        progressBar.style.width = (event.detail.totalProgress * 100) + '%';
-      }
-    });
 
     if (navButtons.length > 0) {
       navButtons.forEach(function(button) {

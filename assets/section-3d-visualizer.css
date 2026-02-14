@@ -198,21 +198,6 @@
   object-fit: contain;
 }
 
-.visualizer-3d__progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.visualizer-3d__progress-fill {
-  height: 100%;
-  background: rgb(var(--color-foreground));
-  transition: width 0.3s ease;
-  width: 0%;
-}
 
 /* Mobile responsive */
 @media screen and (max-width: 749px) {
