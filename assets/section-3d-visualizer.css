@@ -62,8 +62,13 @@
 }
 
 @media screen and (min-width: 990px) {
+  .visualizer-3d__viewer-col,
   .visualizer-3d__text-col {
-    padding: 2.4rem;
+    flex-basis: 50%;
+  }
+
+  .visualizer-3d__text-col {
+    padding: 2.4rem 9.6rem;
   }
 }
 
@@ -107,25 +112,10 @@
 .visualizer-3d__viewer {
   position: relative;
   width: 100%;
+  min-height: 700px;
+  height: 100%;
   border-radius: 12px;
   overflow: hidden;
-}
-
-.visualizer-3d__viewer--small {
-  height: 400px;
-}
-
-.visualizer-3d__viewer--medium {
-  height: 550px;
-}
-
-.visualizer-3d__viewer--large {
-  height: 700px;
-}
-
-.visualizer-3d__viewer--full {
-  height: 100vh;
-  height: 100dvh;
 }
 
 /* model-viewer element */
@@ -203,18 +193,6 @@
 @media screen and (max-width: 749px) {
   .visualizer-3d__wrapper {
     padding: 16px;
-  }
-
-  .visualizer-3d__viewer--small {
-    height: 300px;
-  }
-
-  .visualizer-3d__viewer--medium {
-    height: 400px;
-  }
-
-  .visualizer-3d__viewer--large {
-    height: 500px;
   }
 
   .visualizer-3d__nav {

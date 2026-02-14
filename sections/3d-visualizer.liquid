@@ -34,7 +34,7 @@
             </div>
           {%- endif -%}
 
-          <div class="visualizer-3d__viewer visualizer-3d__viewer--{{ section.settings.section_height }}">
+          <div class="visualizer-3d__viewer">
             <model-viewer
               id="ModelViewer-{{ section.id }}"
               {%- if first_block -%}
@@ -204,18 +204,6 @@
       "id": "background_color",
       "label": "Viewer background color",
       "default": "#F8F7F5"
-    },
-    {
-      "type": "select",
-      "id": "section_height",
-      "label": "Viewer height",
-      "options": [
-        { "value": "small", "label": "Small (400px)" },
-        { "value": "medium", "label": "Medium (550px)" },
-        { "value": "large", "label": "Large (700px)" },
-        { "value": "full", "label": "Full viewport" }
-      ],
-      "default": "medium"
     },
     {
       "type": "checkbox",
