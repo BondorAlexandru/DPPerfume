@@ -47,6 +47,20 @@
   padding: 2.4rem 1.2rem;
 }
 
+.visualizer-3d__text-col .titles {
+  margin: 0;
+}
+
+.visualizer-3d__text-col h1,
+.visualizer-3d__text-col h2,
+.visualizer-3d__text-col .h1,
+.visualizer-3d__text-col .h2,
+.visualizer-3d__text-col .subtitle,
+.visualizer-3d__text-col .rte,
+.visualizer-3d__text-col .rte p {
+  margin: 0;
+}
+
 @media screen and (min-width: 990px) {
   .visualizer-3d__text-col {
     padding: 2.4rem;
