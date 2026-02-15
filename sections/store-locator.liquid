@@ -1,13 +1,12 @@
 {%- style -%}
   .store-locator-{{ section.id }} {
     padding: 60px 20px;
-    background: #FAFAFA;
   }
   .store-locator-{{ section.id }} .store-grid {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    gap: 30px;
+    gap: 20px;
   }
   .store-locator-{{ section.id }} .store-col {
     flex: 1 1 0;
@@ -19,7 +18,7 @@
     .store-locator-{{ section.id }} .store-grid {
       display: block;
       column-count: 2;
-      column-gap: 30px;
+      column-gap: 20px;
     }
     .store-locator-{{ section.id }} .store-col {
       display: contents;
@@ -33,7 +32,7 @@
   .store-locator-{{ section.id }} .city-group {
     break-inside: avoid;
     margin-bottom: 20px;
-    background: #ECECEC;
+    background: #F5F5F5;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -42,74 +41,52 @@
   }
   .store-locator-{{ section.id }} .city-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 15px;
-    background: #FAFAFA;
-    border-radius: 55px;
+    align-items: center;
     cursor: pointer;
     user-select: none;
   }
   .store-locator-{{ section.id }} .city-name {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 300;
     color: black;
     font-family: 'Open Sans', sans-serif;
-    flex: 1;
-    text-align: center;
   }
   .store-locator-{{ section.id }} .city-toggle {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 0.5px solid black;
+    width: 25px;
+    height: 25px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: transparent;
-    transition: transform 0.3s ease;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: black;
   }
-  .store-locator-{{ section.id }} .city-toggle-icon {
-    width: 18px;
-    height: 3px;
-    background: black;
-    border-radius: 28px;
-    position: relative;
-  }
-  .store-locator-{{ section.id }} .city-toggle-icon::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 18px;
-    background: black;
-    border-radius: 28px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  .store-locator-{{ section.id }} .city-group.open .city-toggle-icon::after {
-    opacity: 0;
-  }
+  .store-locator-{{ section.id }} .toggle-minus { display: none; }
+  .store-locator-{{ section.id }} .toggle-plus { display: block; }
+  .store-locator-{{ section.id }} .city-group.open .toggle-minus { display: block; }
+  .store-locator-{{ section.id }} .city-group.open .toggle-plus { display: none; }
   .store-locator-{{ section.id }} .city-stores {
     display: none;
     flex-direction: column;
-    gap: 10px;
   }
   .store-locator-{{ section.id }} .city-group.open .city-stores {
     display: flex;
   }
-  .store-locator-{{ section.id }} .store-card {
-    background: #FAFAFA;
-    border-radius: 20px;
-    padding: 20px;
+  .store-locator-{{ section.id }} .store-item {
+    padding: 15px;
+    border-bottom: 0.5px solid black;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+  .store-locator-{{ section.id }} .store-item:last-child {
+    border-bottom: none;
+  }
   .store-locator-{{ section.id }} .store-name {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     color: black;
     font-family: 'Open Sans', sans-serif;
   }
@@ -134,8 +111,9 @@
     height: 100%;
   }
   .store-locator-{{ section.id }} .store-text {
+    flex: 1;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
     color: black;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.4;
@@ -149,267 +127,127 @@
   }
 {%- endstyle -%}
 
-{%- assign block_count = section.blocks.size -%}
-{%- assign col_size = block_count | plus: 2 | divided_by: 3 -%}
-{%- assign col2_offset = col_size -%}
-{%- assign col3_offset = col_size | times: 2 -%}
-
 <div class="store-locator-{{ section.id }}">
-  <div class="store-grid">
-    <div class="store-col">
-      {%- for block in section.blocks limit: col_size -%}
-        {%- if block.type == 'city_group' -%}
-          <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
-            <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
-              <div></div>
-              <span class="city-name">{{ block.settings.city_name }}</span>
-              <div class="city-toggle">
-                <div class="city-toggle-icon"></div>
-              </div>
+  <div class="store-grid" id="StoreGrid-{{ section.id }}">
+    {%- assign city_started = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'city' -%}
+        {%- if city_started -%}
+          </div></div>
+        {%- endif -%}
+        {%- assign city_started = true -%}
+        <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
+          <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+            <span class="city-name">{{ block.settings.city_name }}</span>
+            <div class="city-toggle">
+              <span class="toggle-plus">+</span>
+              <span class="toggle-minus">—</span>
             </div>
-            <div class="city-stores">
-              {%- for i in (1..16) -%}
-                {%- assign store_name_key = 'store_' | append: i | append: '_name' -%}
-                {%- assign store_phone_key = 'store_' | append: i | append: '_phone' -%}
-                {%- assign store_address_key = 'store_' | append: i | append: '_address' -%}
-                {%- assign store_name = block.settings[store_name_key] -%}
-                {%- assign store_phone = block.settings[store_phone_key] -%}
-                {%- assign store_address = block.settings[store_address_key] -%}
-                {%- if store_name != blank -%}
-                  <div class="store-card">
-                    <div class="store-name">{{ store_name }}</div>
-                    <div class="store-info">
-                      {%- if store_phone != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">
-                            <a href="tel:{{ store_phone | remove: ' ' | remove: '.' }}">{{ store_phone }}</a>
-                          </div>
-                        </div>
-                      {%- endif -%}
-                      {%- if store_address != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">{{ store_address }}</div>
-                        </div>
-                      {%- endif -%}
+          </div>
+          <div class="city-stores">
+      {%- elsif block.type == 'store' -%}
+            <div class="store-item" {{ block.shopify_attributes }}>
+              <div class="store-name">{{ block.settings.store_name }}</div>
+              <div class="store-info">
+                {%- if block.settings.store_phone != blank -%}
+                  <div class="store-info-row">
+                    <div class="store-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                    </div>
+                    <div class="store-text">
+                      <a href="tel:{{ block.settings.store_phone | remove: ' ' | remove: '.' }}">{{ block.settings.store_phone }}</a>
                     </div>
                   </div>
                 {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-
-    <div class="store-col">
-      {%- for block in section.blocks limit: col_size offset: col2_offset -%}
-        {%- if block.type == 'city_group' -%}
-          <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
-            <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
-              <div></div>
-              <span class="city-name">{{ block.settings.city_name }}</span>
-              <div class="city-toggle">
-                <div class="city-toggle-icon"></div>
-              </div>
-            </div>
-            <div class="city-stores">
-              {%- for i in (1..16) -%}
-                {%- assign store_name_key = 'store_' | append: i | append: '_name' -%}
-                {%- assign store_phone_key = 'store_' | append: i | append: '_phone' -%}
-                {%- assign store_address_key = 'store_' | append: i | append: '_address' -%}
-                {%- assign store_name = block.settings[store_name_key] -%}
-                {%- assign store_phone = block.settings[store_phone_key] -%}
-                {%- assign store_address = block.settings[store_address_key] -%}
-                {%- if store_name != blank -%}
-                  <div class="store-card">
-                    <div class="store-name">{{ store_name }}</div>
-                    <div class="store-info">
-                      {%- if store_phone != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">
-                            <a href="tel:{{ store_phone | remove: ' ' | remove: '.' }}">{{ store_phone }}</a>
-                          </div>
-                        </div>
-                      {%- endif -%}
-                      {%- if store_address != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">{{ store_address }}</div>
-                        </div>
-                      {%- endif -%}
+                {%- if block.settings.store_address != blank -%}
+                  <div class="store-info-row">
+                    <div class="store-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
                     </div>
+                    <div class="store-text">{{ block.settings.store_address }}</div>
                   </div>
                 {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-
-    <div class="store-col">
-      {%- for block in section.blocks offset: col3_offset -%}
-        {%- if block.type == 'city_group' -%}
-          <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
-            <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
-              <div></div>
-              <span class="city-name">{{ block.settings.city_name }}</span>
-              <div class="city-toggle">
-                <div class="city-toggle-icon"></div>
               </div>
             </div>
-            <div class="city-stores">
-              {%- for i in (1..16) -%}
-                {%- assign store_name_key = 'store_' | append: i | append: '_name' -%}
-                {%- assign store_phone_key = 'store_' | append: i | append: '_phone' -%}
-                {%- assign store_address_key = 'store_' | append: i | append: '_address' -%}
-                {%- assign store_name = block.settings[store_name_key] -%}
-                {%- assign store_phone = block.settings[store_phone_key] -%}
-                {%- assign store_address = block.settings[store_address_key] -%}
-                {%- if store_name != blank -%}
-                  <div class="store-card">
-                    <div class="store-name">{{ store_name }}</div>
-                    <div class="store-info">
-                      {%- if store_phone != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">
-                            <a href="tel:{{ store_phone | remove: ' ' | remove: '.' }}">{{ store_phone }}</a>
-                          </div>
-                        </div>
-                      {%- endif -%}
-                      {%- if store_address != blank -%}
-                        <div class="store-info-row">
-                          <div class="store-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                          </div>
-                          <div class="store-text">{{ store_address }}</div>
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if city_started -%}
+      </div></div>
+    {%- endif -%}
   </div>
 </div>
+
+<script>
+  (function() {
+    var grid = document.getElementById('StoreGrid-{{ section.id }}');
+    if (!grid) return;
+    var groups = Array.from(grid.querySelectorAll(':scope > .city-group'));
+    if (groups.length < 2) return;
+
+    var colSize = Math.ceil(groups.length / 3);
+    for (var c = 0; c < 3; c++) {
+      var col = document.createElement('div');
+      col.className = 'store-col';
+      var start = c * colSize;
+      var end = Math.min(start + colSize, groups.length);
+      for (var i = start; i < end; i++) {
+        col.appendChild(groups[i]);
+      }
+      grid.appendChild(col);
+    }
+  })();
+</script>
 
 {% schema %}
 {
   "name": "Store Locator",
   "tag": "section",
   "class": "store-locator-section",
+  "max_blocks": 50,
   "settings": [],
   "blocks": [
     {
-      "type": "city_group",
-      "name": "City Group",
+      "type": "city",
+      "name": "City",
       "settings": [
         {
           "type": "text",
           "id": "city_name",
-          "label": "City Name",
-          "default": "București"
+          "label": "City name",
+          "default": "City"
         },
         {
           "type": "checkbox",
           "id": "open_by_default",
           "label": "Open by default",
           "default": false
+        }
+      ]
+    },
+    {
+      "type": "store",
+      "name": "Store",
+      "settings": [
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Store name",
+          "default": "Store name"
         },
-        { "type": "header", "content": "Store 1" },
-        { "type": "text", "id": "store_1_name", "label": "Store Name" },
-        { "type": "text", "id": "store_1_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_1_address", "label": "Address" },
-        { "type": "header", "content": "Store 2" },
-        { "type": "text", "id": "store_2_name", "label": "Store Name" },
-        { "type": "text", "id": "store_2_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_2_address", "label": "Address" },
-        { "type": "header", "content": "Store 3" },
-        { "type": "text", "id": "store_3_name", "label": "Store Name" },
-        { "type": "text", "id": "store_3_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_3_address", "label": "Address" },
-        { "type": "header", "content": "Store 4" },
-        { "type": "text", "id": "store_4_name", "label": "Store Name" },
-        { "type": "text", "id": "store_4_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_4_address", "label": "Address" },
-        { "type": "header", "content": "Store 5" },
-        { "type": "text", "id": "store_5_name", "label": "Store Name" },
-        { "type": "text", "id": "store_5_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_5_address", "label": "Address" },
-        { "type": "header", "content": "Store 6" },
-        { "type": "text", "id": "store_6_name", "label": "Store Name" },
-        { "type": "text", "id": "store_6_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_6_address", "label": "Address" },
-        { "type": "header", "content": "Store 7" },
-        { "type": "text", "id": "store_7_name", "label": "Store Name" },
-        { "type": "text", "id": "store_7_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_7_address", "label": "Address" },
-        { "type": "header", "content": "Store 8" },
-        { "type": "text", "id": "store_8_name", "label": "Store Name" },
-        { "type": "text", "id": "store_8_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_8_address", "label": "Address" },
-        { "type": "header", "content": "Store 9" },
-        { "type": "text", "id": "store_9_name", "label": "Store Name" },
-        { "type": "text", "id": "store_9_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_9_address", "label": "Address" },
-        { "type": "header", "content": "Store 10" },
-        { "type": "text", "id": "store_10_name", "label": "Store Name" },
-        { "type": "text", "id": "store_10_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_10_address", "label": "Address" },
-        { "type": "header", "content": "Store 11" },
-        { "type": "text", "id": "store_11_name", "label": "Store Name" },
-        { "type": "text", "id": "store_11_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_11_address", "label": "Address" },
-        { "type": "header", "content": "Store 12" },
-        { "type": "text", "id": "store_12_name", "label": "Store Name" },
-        { "type": "text", "id": "store_12_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_12_address", "label": "Address" },
-        { "type": "header", "content": "Store 13" },
-        { "type": "text", "id": "store_13_name", "label": "Store Name" },
-        { "type": "text", "id": "store_13_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_13_address", "label": "Address" },
-        { "type": "header", "content": "Store 14" },
-        { "type": "text", "id": "store_14_name", "label": "Store Name" },
-        { "type": "text", "id": "store_14_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_14_address", "label": "Address" },
-        { "type": "header", "content": "Store 15" },
-        { "type": "text", "id": "store_15_name", "label": "Store Name" },
-        { "type": "text", "id": "store_15_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_15_address", "label": "Address" },
-        { "type": "header", "content": "Store 16" },
-        { "type": "text", "id": "store_16_name", "label": "Store Name" },
-        { "type": "text", "id": "store_16_phone", "label": "Phone" },
-        { "type": "textarea", "id": "store_16_address", "label": "Address" }
+        {
+          "type": "text",
+          "id": "store_phone",
+          "label": "Phone"
+        },
+        {
+          "type": "textarea",
+          "id": "store_address",
+          "label": "Address"
+        }
       ]
     }
   ],
@@ -417,16 +255,8 @@
     {
       "name": "Store Locator",
       "blocks": [
-        {
-          "type": "city_group",
-          "settings": {
-            "city_name": "București",
-            "open_by_default": true,
-            "store_1_name": "Veranda Mall",
-            "store_1_phone": "0744 456 883",
-            "store_1_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)"
-          }
-        }
+        { "type": "city", "settings": { "city_name": "București", "open_by_default": true } },
+        { "type": "store", "settings": { "store_name": "Veranda Mall", "store_phone": "0744 456 883", "store_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)" } }
       ]
     }
   ]
