@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "about-us": {
@@ -66,7 +57,52 @@
             "open_by_default": true,
             "store_1_name": "Veranda Mall",
             "store_1_phone": "0744 456 883",
-            "store_1_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)"
+            "store_1_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)",
+            "store_2_name": "Afi Palace Mall Cotroceni",
+            "store_2_phone": "0744 456 883",
+            "store_2_address": "Blvd Gral Paul Teodorescu nr.4, parter, vis-à-vis de Musette",
+            "store_3_name": "Supernova Lujerului",
+            "store_3_phone": "0757.265.639",
+            "store_3_address": "Blvd. Iuliu Maniu 19, parter, linia caselor de marcat Carrefour",
+            "store_4_name": "Supernova Alexandriei",
+            "store_4_phone": "0744.477.115",
+            "store_4_address": "Sos Alexandriei 152, parter, pe linia caselor de marcat la zona Tabac",
+            "store_5_name": "Centru Esplanada Pantelimon",
+            "store_5_phone": "0743.112.346",
+            "store_5_address": "Sos. Vergului 20, parter, zona de food, vis-à-vis de Yokko",
+            "store_6_name": "Piata Resita",
+            "store_6_phone": "0743.112.341",
+            "store_6_address": "Str Resita, nr 5B, parter, langa Casino Las Vegas",
+            "store_7_name": "Complex Comercial Big Berceni",
+            "store_7_phone": "0722.253.809",
+            "store_7_address": "Soseaua Berceni 2, parter",
+            "store_8_name": "Mega Mall Pantelimon",
+            "store_8_phone": "0722.253.809",
+            "store_8_address": "Bulevardul Pierre de Coubertin 3-5, vis-à-vis de Notino",
+            "store_9_name": "Liberty Center",
+            "store_9_phone": "0758.056.307",
+            "store_9_address": "Liberty Mall Rahova",
+            "store_10_name": "Grand Arena",
+            "store_10_phone": "0758.056.318",
+            "store_10_address": "Bulevardul Metalurgiei 12-18, parter, vis-à-vis de Polo Assn",
+            "store_11_name": "Auchan Militari",
+            "store_11_phone": "0743.112.348",
+            "store_11_address": "Bulevardul Iuliu Maniu nr. 536, parter, vis-à-vis de Noriel",
+            "store_12_name": "Sun Plaza Mall",
+            "store_12_phone": "0722.253.809",
+            "store_12_address": "Calea Văcărești 391, parter, vis-à-vis de Vodafone",
+            "store_13_name": "Magazin Secuilor",
+            "store_13_phone": "0743.112.344",
+            "store_13_address": "Str Secuilor nr.2, langa Ela Salon",
+            "store_14_name": "Park Lake",
+            "store_14_phone": "0748.054.725",
+            "store_14_address": "Str. Liviu Rebreanu 4, etaj -2, vis-à-vis de amanet Tezaur",
+            "store_15_name": "Iris Titan",
+            "store_15_phone": "0752.089.752",
+            "store_15_address": "Bulevardul 1 Decembrie 1918, vis-à-vis de H&M",
+            "store_16_name": "Magazin Piata Rahovei",
+            "store_16_phone": "0724.832.842",
+            "store_16_address": "Calea Rahova, in piata Rahova"
           }
         },
         "arges": {
@@ -76,11 +112,178 @@
             "open_by_default": false,
             "store_1_name": "Argeș Mall",
             "store_1_phone": "0747.682.704",
-            "store_1_address": "Str. Tudor Vladimirescu 37, parter, vis-a-vis de DM"
+            "store_1_address": "Str. Tudor Vladimirescu 37, parter, vis-a-vis de DM",
+            "store_2_name": "Trivale Shopping Center",
+            "store_2_phone": "0747.682.704",
+            "store_2_address": "Str Victoriei, parter, intrare",
+            "store_3_name": "Auchan Pitești",
+            "store_3_phone": "0747.682.704",
+            "store_3_address": "Geamana, parter, vis-à-vis Pepco"
+          }
+        },
+        "braila": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Brăila",
+            "open_by_default": false,
+            "store_1_name": "Brăila Mall",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Strada Principală 4B, vis-à-vis de Moneygram Exchange"
+          }
+        },
+        "brasov": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Brașov",
+            "open_by_default": false,
+            "store_1_name": "Complexul Comercial BRINTEX",
+            "store_1_phone": "0727.247.892",
+            "store_1_address": "Langa intrarea din Brintex catre Supermarketul La Cocos. Program de lucru: Luni-Vineri 10:00-17:30, Sambata 9:30-16:00"
+          }
+        },
+        "buzau": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Buzău",
+            "open_by_default": false,
+            "store_1_name": "Shopping City Buzău",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Bulevardul Unirii 232, vis-à-vis de magazinul Pepco"
+          }
+        },
+        "cluj": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Cluj",
+            "open_by_default": false,
+            "store_1_name": "Iulius Mall Cluj, etaj 1",
+            "store_1_phone": "0722 253 809",
+            "store_1_address": "Strada Alexandru Vaida Voevod 53B, etaj, vis-à-vis de Torry Milano"
+          }
+        },
+        "constanta": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Constanța",
+            "open_by_default": false,
+            "store_1_name": "Comercial Tomis",
+            "store_1_phone": "0742 788 397",
+            "store_1_address": "Blvd Tomis 391, parter, vis-à-vis de Esenta Plant",
+            "store_2_name": "Magazin Vivo",
+            "store_2_phone": "0742 788 397",
+            "store_2_address": "Blvd. Aurel Vlaicu 220, parter, intrarea 2 intre Pandora si Splendor"
+          }
+        },
+        "dolj": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Dolj",
+            "open_by_default": false,
+            "store_1_name": "Mall Electroputere Parc Craiova",
+            "store_1_phone": "0747.682.704",
+            "store_1_address": "Calea Bucuresti 80, langa Banca Transilvania"
+          }
+        },
+        "galati": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Galați",
+            "open_by_default": false,
+            "store_1_name": "Shopping City Galați",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Bulevardul George Coșbuc 251, parter, vis-à-vis de magazinul Pepco"
+          }
+        },
+        "ilfov": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Ilfov",
+            "open_by_default": false,
+            "store_1_name": "DN1 Value Centre - Balotesti",
+            "store_1_phone": "0736.458.203",
+            "store_1_address": "Calea Bucuresti 2bis, parter, pe linia caselor de marcat, vis-à-vis de Diverta",
+            "store_2_name": "Complex Bragadiru",
+            "store_2_phone": "0769.736.104",
+            "store_2_address": "Soseaua Alexandriei nr.229, Complex Bragadiru",
+            "store_3_name": "Magazin Buftea",
+            "store_3_phone": "0761.612.021",
+            "store_3_address": "Str Oltului nr 4, Buftea, Ilfov"
+          }
+        },
+        "iasi": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Iași",
+            "open_by_default": false,
+            "store_1_name": "Pallas Mall",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Strada Palas 7A, corp A, etaj cupola, vis-à-vis de magazinul Mango",
+            "store_2_name": "Moldova Mall",
+            "store_2_phone": "0722.253.809",
+            "store_2_address": "Șoseaua Păcurari 121, corp nou, vis-à-vis de Waikiki"
+          }
+        },
+        "olt": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Olt",
+            "open_by_default": false,
+            "store_1_name": "Caracal",
+            "store_1_phone": "0765.453.484",
+            "store_1_address": "Str Aleea Lipscani bl 22 B, parter",
+            "store_2_name": "Magazin Slatina",
+            "store_2_phone": "0765.453.484",
+            "store_2_address": "Blv Ioan Cuza, Bloc V4, Parter"
+          }
+        },
+        "prahova": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Prahova",
+            "open_by_default": false,
+            "store_1_name": "Shopping City Ploiești",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Bulevardul Republicii 76, vis-à-vis de magazinul Teilor"
+          }
+        },
+        "suceava": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Suceava",
+            "open_by_default": false,
+            "store_1_name": "Iulius Mall Suceava",
+            "store_1_phone": "0722.253.809",
+            "store_1_address": "Calea Unirii 22, corp nou, vis-à-vis de H&M"
+          }
+        },
+        "valcea": {
+          "type": "city_group",
+          "settings": {
+            "city_name": "Vâlcea",
+            "open_by_default": false,
+            "store_1_name": "River Plaza Mall",
+            "store_1_phone": "0747.682.704",
+            "store_1_address": "Str. Calea lui Traian nr. 121"
           }
         }
       },
-      "block_order": ["bucuresti", "arges"],
+      "block_order": [
+        "bucuresti",
+        "arges",
+        "braila",
+        "brasov",
+        "buzau",
+        "cluj",
+        "constanta",
+        "dolj",
+        "galati",
+        "ilfov",
+        "iasi",
+        "olt",
+        "prahova",
+        "suceava",
+        "valcea"
+      ],
       "settings": {}
     },
     "177024784330092a01": {
