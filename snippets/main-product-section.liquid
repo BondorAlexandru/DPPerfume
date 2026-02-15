@@ -18,7 +18,7 @@
 			{% if product.media.size > 0 %}
 				<div class="product__media-wrapper" data-section="product-media-{{ section.id }}" data-source="{{ section.id }}">
 					<div class="product__media-list-wrapper">
-						<div class="product__media-list media_size-{{ section.settings.image_ratio }} {% if gallery_type != 'static_multicolumns_aside' and gallery_type != 'static_column_aside' and gallery_type != 'two_column_aside' %}js-media-list swiper {% endif %} {% if gallery_type == 'static_multicolumns_aside' and product.media.size == 1 %} product__media-list--full{% endif %} {% if section.settings.enable_full_screen %} product__media-list--full_screen {% endif %}no-js-hidden"
+						<div class="product__media-list media_size-{{ section.settings.image_ratio }} {% if gallery_type != 'static_multicolumns_aside' and gallery_type != 'static_column_aside' and gallery_type != 'two_column_aside' %}js-media-list product-swiper {% endif %} {% if gallery_type == 'static_multicolumns_aside' and product.media.size == 1 %} product__media-list--full{% endif %} {% if section.settings.enable_full_screen %} product__media-list--full_screen {% endif %}no-js-hidden"
 							data-direction="{{ section.settings.slider_direction }}"
 							data-gallery-type="{{ gallery_type }}"
 						{% if gallery_type == 'thumbs_aside_horizontal' or gallery_type == 'mobile_sliding_bar' or gallery_type == 'full_horizontal_slider' %} data-direction_desc = 'horizontal' {%  else %} data-direction_desc = 'vertical' {% endif %}
@@ -171,7 +171,7 @@
 														calc(((100vw - 6rem) / 4) * {{ width_ratio_mobile }})
 													{% endcapture %}
 
-													<div class="product__media">
+													<div class="product__media product__media-rounded">
 														{{ media.preview_image | image_url: width: media.preview_image.width | image_tag:
 															loading: 'lazy',
 															height: '187',
