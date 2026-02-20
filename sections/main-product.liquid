@@ -636,6 +636,42 @@ customElements.define('product-modal', ProductModal);
 			]
 		},
 		{
+			"type": "spacer",
+			"name": "Spacer",
+			"settings": [
+				{
+					"type": "text",
+					"id": "height",
+					"label": "Height (px)",
+					"default": "20"
+				}
+			]
+		},
+		{
+			"type": "info_dropdown",
+			"name": "Info Dropdown",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "Dropdown title"
+				},
+				{
+					"type": "richtext",
+					"id": "content",
+					"label": "Content",
+					"info": "Connect to a product metafield using the dynamic source button"
+				},
+				{
+					"type": "checkbox",
+					"id": "open_by_default",
+					"label": "Open by default",
+					"default": false
+				}
+			]
+		},
+		{
       "type": "floated_form",
       "name": "t:sections.main-product.blocks.floated_form.name",
       "limit": 1,

@@ -1141,6 +1141,14 @@
 									</modal-dialog>
 								</div>
 	
+							{%- when 'spacer' -%}
+								<div style="height: {{ block.settings.height }}px;" {{ block.shopify_attributes }}></div>
+
+							{%- when 'info_dropdown' -%}
+								<div class="info-dropdown-block" {{ block.shopify_attributes }}>
+									{%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
+								</div>
+
 							{%- when '@app' -%}
 								{% render block %}
 						{%- endcase -%}

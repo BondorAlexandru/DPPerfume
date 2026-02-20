@@ -1,0 +1,146 @@
+{%- style -%}
+  .info-dropdown-{{ section.id }} {
+    padding: 0 24px;
+  }
+  .info-dropdown-{{ section.id }} .info-dropdown__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .info-dropdown-{{ section.id }} .info-dropdown-block {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .info-dropdown-{{ section.id }} .info-dropdown-block:last-child {
+    border-bottom: none;
+  }
+  .info-dropdown-block__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+  }
+  .info-dropdown-block__title {
+    margin: 0;
+  }
+  .info-dropdown-block__toggle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(var(--color-foreground));
+    flex-shrink: 0;
+  }
+  .info-dropdown-block__toggle .toggle-minus { display: none; }
+  .info-dropdown-block__toggle .toggle-plus { display: block; }
+  .info-dropdown-block__item.open .info-dropdown-block__toggle .toggle-minus { display: block; }
+  .info-dropdown-block__item.open .info-dropdown-block__toggle .toggle-plus { display: none; }
+  .info-dropdown-block__content {
+    display: none;
+    padding: 0 0 24px;
+  }
+  .info-dropdown-block__item.open .info-dropdown-block__content {
+    display: block;
+  }
+  .info-dropdown-block__content .rte {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(var(--color-foreground));
+    line-height: 1.6;
+  }
+  .info-dropdown-block__content .rte h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 0.3em;
+  }
+  .info-dropdown-block__content .rte p {
+    margin: 0 0 1em;
+  }
+  .info-dropdown-block__content .rte p:last-child {
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 749px) {
+    .info-dropdown-{{ section.id }} {
+      padding: 0 16px;
+    }
+    .info-dropdown-block__header {
+      padding: 20px 0;
+    }
+    .info-dropdown-block__content {
+      padding: 0 0 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="info-dropdown-{{ section.id }}">
+  <div class="info-dropdown__wrapper">
+    {%- for block in section.blocks -%}
+      <div class="info-dropdown-block" {{ block.shopify_attributes }}>
+        {%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Info Dropdown",
+  "tag": "section",
+  "class": "info-dropdown-section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "dropdown_item",
+      "name": "Dropdown item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dropdown title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "info": "Connect to a product metafield using the dynamic source button",
+          "default": "<p>Add your content here.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Info Dropdown",
+      "blocks": [
+        {
+          "type": "dropdown_item",
+          "settings": {
+            "title": "Tasting Notes",
+            "open_by_default": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
