@@ -15,7 +15,7 @@
         "title": {
           "type": "title",
           "settings": {
-            "heading_size": "h3"
+            "heading_size": "h1"
           }
         },
         "price": {
@@ -24,6 +24,7 @@
         },
         "inventory": {
           "type": "inventory",
+          "disabled": true,
           "settings": {}
         },
         "variant_picker": {
@@ -31,7 +32,7 @@
           "settings": {
             "picker_type": "button",
             "pill_group": false,
-            "show_size_guide": true,
+            "show_size_guide": false,
             "size_guide_text": "Size Guide",
             "size_guide_header": "Find Your Fit",
             "size_guide_description": "<p>Use our size guide to choose the right size and shop with confidence.</p>",
@@ -41,14 +42,18 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false,
-            "show_quantity": false,
+            "show_dynamic_checkout": true,
+            "show_quantity": true,
             "show_gift_card_recipient": false,
-            "notification_modal": true,
+            "notification_modal": false,
             "modal_button_label": "Notify Me",
             "heading": "Notification",
             "description": "The product is unfortunately out of stock. Please contact us to let us know when it is available.",
+            "button_label": "Customer Care",
+            "button_link": "",
             "description_2": "We suggest you check out similar products, maybe you will find something suitable for you.",
+            "button_label_2": "View Similar Products",
+            "button_link_2": ""
           }
         },
         "description_J3BppF": {
@@ -59,13 +64,23 @@
         },
         "product_features": {
           "type": "product_features",
-          "settings": {}
+          "settings": {
+            "scent_heading": "Familie Olfactivă",
+            "scent_text": "Floral",
+            "occasion_heading": "Ocazie",
+            "occasion_text": "Zi, Noapte",
+            "intensity_heading": "Intensitate",
+            "intensity_text": "Intens",
+            "persistence_heading": "Persistență",
+            "persistence_text": "6 Ore"
+          }
         },
         "popup_KKFQyV": {
           "type": "popup",
+          "name": "Intrebări Frecvente",
           "settings": {
-            "label": "Fabric & Care",
-            "text": "<h3>Outer Material</h3><p>100% Goat Leather.</p><h3>Lining Composition</h3><p>Viscose 37%, modal 33%, polyester 30%</p>",
+            "label": "Întrebări Frecvente",
+            "text": "<h3>Unde sunt produse parfumurile D&P?</h3><p>Parfumurile D&P sunt realizate din esențe naturale produse în Franța și în alte țări din Uniunea Europeană, de unde provin majoritatea parfumurilor calitative de brand, produse după norme UE și la standarde IFRA (International Fragrance Association). Esențele sunt ambalate în Ankara, Turcia, și sunt distribuite și foarte apreciate în peste 400 de magazine din 37 de țări.</p><h3>Unde pot găsi parfumurile D&P în România?</h3><p>Parfumurile D&P pot fi comandate online pe <a href=\"https://www.dpparfum.ro/\">www.dpparfum.ro</a> sau cumpărate din magazinele D&P prezente în București, Baia Mare, Brașov, Botoșani, Buzău, Constanța, Craiova, Drobeta Turnu Severin, Focșani, Iași, Petroșani, Pitești, Ploiești, Râmnicu Vâlcea, Târgoviște și Sibiu. Lista magazinelor D&P poate fi găsită <a href=\"https://www.dpparfum.ro/magazinele-noastre/\"><strong>aici</strong></a>.</p><h3>Cum aleg parfumul potrivit?</h3><p>Puteți testa parfumurile D&P în magazinele D&P din cele 16 orașe din România. În cazul în care nu există magazine D&P în localitatea dumneavoastră, vă recomandăm să citiți descrierea fiecărui parfum ori despre categoria din care face parte, ori să ne întrebați prin mesaj pe Facebook sau Instagram, pentru a alege ce tip de produs este pe placul dvs. Spre exemplu, dacă preferați aroma de trandafir, iasomie ori santal, puteți include în bara de căutare (din colțul dreapta sus al ecranului) unul din aceste cuvinte, iar rezultatele oferite vor reprezenta parfumurile care conțin aceste ingrediente.</p><h3>Ce variante de parfum am?</h3><p>Produsele D&P de pe <a href=\"https://www.dpparfum.ro/\">www.dpparfum.ro</a> sunt EDP (Eau de Parfum) în ambalaje de 50 ml și 100 ml, precum și deo body spray.</p>",
             "text_2": "",
             "heading": "",
             "img_text": ""
@@ -73,12 +88,24 @@
         },
         "popup_yX9T7z": {
           "type": "popup",
+          "name": "Modalități de Plată",
           "settings": {
-            "label": "Shipping, Exchange & Returns",
-            "text": "<h3>Standard / 3-5 Business Days / Estimated price of $15.00</h3><p>We offer reliable standard shipping with delivery within 3 to 5 business days. </p><h3>Pick-Up In Store / 3-5 Business Days / Free</h3><p>Choose our free in-store pick-up option and collect your order at a location near you within 3 to 5 business days.</p><h3>Express Home / 1-2 Business Days / Estimated price of $15.00</h3><p>For those who need their items quickly, our express home delivery ensures your order arrives within 1 to 2 days.</p>",
-            "text_2": "<h3>Exchange & Returns</h3><h3>Free Store Return</h3><p>You can return your items to any of our stores as long as the return is made in the same market where you made the purchase. Returns are always free of charge, and the deadline for returns is 30 days from the delivery confirmation date.</p><h3>Free Home Return</h3><p>Request a home return easily through your account. We offer free home returns, and you have 30 days from the delivery confirmation date to send back your items.</p>",
+            "label": "Modalități De Plată",
+            "text": "<p>Puteți plăti pentru produsele D&P în două moduri: prin ramburs sau online.</p><h3>Prin ramburs</h3><p>În acest caz, plata se face integral la livrare, numerar, către agentul firmei de curierat.</p><h3>Plată online</h3><p>În această variantă plata se va face prin platforma Netopia, utilizând un card bancar.</p><p>E important de reținut că se pot face plăti numai folosind carduri de debit sau credit.</p><p>Cardurile acceptate de către procesatorul nostru de plăți sunt Visa, Visa Electron, Mastercard și Maestro.</p><p>Indiferent de valuta pe care o aveți în cont, tranzacțiile se fac în lei, la cursul de schimb al băncii dumneavoastră.</p><p>Procesarea datelor de card se face exclusiv prin intermediul platformei de plată Netopia – Mobilpay. D&P nu solicita și nu stochează niciun fel de detalii referitoare la cardul dumneavoastră.</p><p>Nu este perceput niciun comision suplimentar pentru tranzacții.</p>",
+            "text_2": "",
             "heading": "",
-            "img_text": "<p>If you still have any questions, feel free to <a href=\"/pages/contact\" title=\"Customer Care\">contact us.</a></p>"
+            "img_text": ""
+          }
+        },
+        "popup_WrHEyp": {
+          "type": "popup",
+          "name": "Informații despre Livrare",
+          "settings": {
+            "label": "Informații despre Livrare",
+            "text": "<p>Produsele vor ajunge la dumneavoastră într-un interval de la una la trei zile din momentul efectuării comenzii.</p><p>Partenerul nostru pentru serviciile de livrare este compania FanCourier.</p><p>Livrările se fac oriunde în țară, dar numai pe teritoriul României.</p>",
+            "text_2": "",
+            "heading": "",
+            "img_text": ""
           }
         },
         "floated_form": {
@@ -117,74 +144,103 @@
         "product_features",
         "popup_KKFQyV",
         "popup_yX9T7z",
+        "popup_WrHEyp",
         "floated_form",
         "pickup_availability_MNbMke",
         "complementary_MDe68y"
       ],
+      "custom_css": [
+        ".product__tax,.price-item--regular .tax-included,.unit-price-measurement__tax {display: none !important;}",
+        "* button,* [type=\"submit\"],* [type=\"button\"] {border-radius: 60px !important;}",
+        "* input[type=\"number\"] {border-radius: 60px !important;}",
+        ".quantity {position: relative; width: 10rem; height: 3.6rem; display: flex; border: 0.1rem solid rgb(var(--color-border-input)); background-color: rgb(var(--color-background-input)); border-radius: 60px; transition: border var(--duration-default);}"
+      ],
       "settings": {
         "gallery_type": "thumbs_aside",
+        "mobile_gallery_type": "synchronize",
         "desktop_alignment": "right",
         "mobile_alignment": "before",
+        "slider_direction": "vertical",
         "image_ratio": "portrait",
         "image_fit": "cover",
-        "enable_full_screen": true,
-        "header_overlay": false
+        "enable_full_screen": false,
+        "header_overlay": false,
+        "enable_sticky_button": false,
+        "variant_media_display": "show_all"
       }
     },
-    "product-slider": {
+    "product_slider_iNfftq": {
       "type": "product-slider",
       "blocks": {
-        "product_slide": {
+        "product_slide_AF9xKg": {
           "type": "product_slide",
           "settings": {
+            "product": "a20",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_18_2025_10_11_21_PM.png",
             "color_scheme": "",
-            "overlay_opacity": 0.1
+            "overlay_opacity": 0.1,
+            "description": "Soft fabrics, flattering silhouettes, and timeless style."
           }
         },
-        "product_slide1": {
+        "product_slide_dEFBEQ": {
           "type": "product_slide",
           "settings": {
+            "product": "k5",
+            "image": "shopify://shop_images/K5.png",
             "color_scheme": "",
-            "overlay_opacity": 0.1
+            "overlay_opacity": 0.1,
+            "description": "Modern, versatile, and designed to make an impact without the effort."
           }
         },
-        "product_slide2": {
+        "product_slide_wFcgRT": {
           "type": "product_slide",
           "settings": {
+            "product": "sample-coconut-bar-soap",
+            "image": "shopify://shop_images/ChatGPTImageOct17_2025_06_33_03PM.png",
             "color_scheme": "",
-            "overlay_opacity": 0.1
+            "overlay_opacity": 0.1,
+            "description": "Comfortable, chic, stylish, and always in season."
           }
         }
       },
       "block_order": [
-        "product_slide",
-        "product_slide1",
-        "product_slide2"
+        "product_slide_AF9xKg",
+        "product_slide_dEFBEQ",
+        "product_slide_wFcgRT"
+      ],
+      "custom_css": [
+        ".product-slider__image-swiper {border-radius: 15px;}",
+        ".card--product {border-radius: 15px;}",
+        ".product-slider__wrapper {padding-inline: 24px;}",
+        ".product-slider__image-slider {position: relative; height: 70vh; min-height: 700px;}"
       ],
       "settings": {
-        "image_size": "1/1",
+        "image_size": "large",
         "subheading": "",
-        "heading": "Your Product Grid Title",
+        "heading": "",
         "heading_size": "h1",
         "description": "",
         "button_label": "",
         "button_link": "",
         "button_style": "simple",
-        "is_autoplay": false,
-        "is_hover_stop_autoplay": false,
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": true,
         "navigation_position": "cursor",
-        "slideshow_speed": 2,
+        "slideshow_speed": 1.1,
         "slideshow_delay": 3,
         "slide_effects": "slide",
+        "is_sync_slide": true,
+        "enable_main_image_link": false,
         "enable_animation": true,
         "image_ratio": "portrait",
         "image_fit": "cover",
         "show_vendor": false,
         "show_color_count": true,
+        "show_size_count": false,
         "show_collection": false,
         "show_desc": false,
-        "margin_top": "m",
-        "margin_bottom": "m"
+        "margin_top": "s",
+        "margin_bottom": "s"
       }
     },
     "banner-with-popup": {
@@ -201,14 +257,17 @@
       "settings": {
         "aspect_ratio": "full",
         "full_screen_image_mode": true,
+        "heading": "Banner Title Goes Here",
         "heading_size": "h1",
         "description": "<p>This is where you can share a quick story, highlight a special collection, or introduce an upcoming event, adding depth and making your visuals more engaging.</p>",
+        "button_label": "View more",
         "button_link": "",
         "button_style": "simple",
         "button_function": "popup",
         "enable_animation": false,
         "slideshow_speed": 6,
         "popup_heading": "Unlock Your Special Offer",
+        "popup_content_heading": "Ready to Shop?",
         "popup_content": "<p>You can also use this space to highlight a specific collection, showcase limited-time offers, or introduce a special event. By adding context and narrative to your visuals, you’ll make them more impactful and memorable for your customers.</p>",
         "popup_image_size": "portrait",
         "popup_button_label": "",
@@ -222,6 +281,7 @@
       "type": "product-recommendations",
       "settings": {
         "subheading": "",
+        "heading": "You May Also Like",
         "description": "",
         "heading_size": "h1",
         "products_limit": 4,
@@ -230,6 +290,7 @@
         "image_fit": "cover",
         "show_vendor": false,
         "show_color_count": true,
+        "show_size_count": false,
         "show_collection": false,
         "show_desc": false,
         "columns_mobile": "1",
@@ -243,7 +304,7 @@
   },
   "order": [
     "main",
-    "product-slider",
+    "product_slider_iNfftq",
     "banner-with-popup",
     "product-recommendations"
   ]
