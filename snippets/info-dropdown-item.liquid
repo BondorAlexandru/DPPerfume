@@ -7,8 +7,10 @@
     </div>
   </button>
   <div class="info-dropdown-block__content">
-    {%- if content != blank -%}
-      <div class="rte">{{ content }}</div>
-    {%- endif -%}
+    <div class="info-dropdown-block__content-inner">
+      {%- if content != blank -%}
+        <div class="rte">{{ content }}</div>
+      {%- endif -%}
+    </div>
   </div>
 </div>

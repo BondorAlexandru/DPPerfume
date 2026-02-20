@@ -2927,11 +2927,20 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
 .info-dropdown-block__item.open .info-dropdown-block__toggle .toggle-minus { display: block; }
 .info-dropdown-block__item.open .info-dropdown-block__toggle .toggle-plus { display: none; }
 .info-dropdown-block__content {
-  display: none;
-  padding: 0 0 20px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms ease-in-out;
 }
 .info-dropdown-block__item.open .info-dropdown-block__content {
-  display: block;
+  grid-template-rows: 1fr;
+}
+.info-dropdown-block__content-inner {
+  overflow: hidden;
+  transition: padding 350ms ease-in-out;
+  padding: 0;
+}
+.info-dropdown-block__item.open .info-dropdown-block__content-inner {
+  padding: 0 0 20px;
 }
 .info-dropdown-block__content .rte {
   font-size: 14px;
