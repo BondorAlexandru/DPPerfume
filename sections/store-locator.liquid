@@ -34,7 +34,7 @@
     margin-bottom: 20px;
     background: #F5F5F5;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -127,57 +127,421 @@
   }
 {%- endstyle -%}
 
+{%- capture phone_icon -%}<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>{%- endcapture -%}
+{%- capture address_icon -%}<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>{%- endcapture -%}
+
 <div class="store-locator-{{ section.id }}">
   <div class="store-grid" id="StoreGrid-{{ section.id }}">
-    {%- assign city_started = false -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'city' -%}
-        {%- if city_started -%}
-          </div></div>
-        {%- endif -%}
-        {%- assign city_started = true -%}
-        <div class="city-group {% if block.settings.open_by_default %}open{% endif %}" {{ block.shopify_attributes }}>
-          <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
-            <span class="city-name">{{ block.settings.city_name }}</span>
-            <div class="city-toggle">
-              <span class="toggle-plus">+</span>
-              <span class="toggle-minus">—</span>
-            </div>
+
+    <!-- Bucuresti -->
+    <div class="city-group open" data-county="bucharest">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Bucuresti</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Veranda Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0744456883">0744 456 883</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)</div></div>
           </div>
-          <div class="city-stores">
-      {%- elsif block.type == 'store' -%}
-            <div class="store-item" {{ block.shopify_attributes }}>
-              <div class="store-name">{{ block.settings.store_name }}</div>
-              <div class="store-info">
-                {%- if block.settings.store_phone != blank -%}
-                  <div class="store-info-row">
-                    <div class="store-icon">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                      </svg>
-                    </div>
-                    <div class="store-text">
-                      <a href="tel:{{ block.settings.store_phone | remove: ' ' | remove: '.' }}">{{ block.settings.store_phone }}</a>
-                    </div>
-                  </div>
-                {%- endif -%}
-                {%- if block.settings.store_address != blank -%}
-                  <div class="store-info-row">
-                    <div class="store-icon">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                      </svg>
-                    </div>
-                    <div class="store-text">{{ block.settings.store_address }}</div>
-                  </div>
-                {%- endif -%}
-              </div>
-            </div>
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if city_started -%}
-      </div></div>
-    {%- endif -%}
+        </div>
+        <div class="store-item">
+          <div class="store-name">Afi Palace Mall Cotroceni</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0744456883">0744 456 883</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blvd Gral Paul Teodorescu nr.4, parter, vis-a-vis de Musette</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Supernova Lujerului</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0757265639">0757.265.639</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blvd. Iuliu Maniu 19, parter, linia caselor de marcat Carrefour</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Supernova Alexandriei</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0744477115">0744.477.115</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Sos Alexandriei 152, parter, pe linia caselor de marcat la zona Tabac</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Centru Esplanada Pantelimon</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0743112346">0743.112.346</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Sos. Vergului 20, parter, zona de food, vis-a-vis de Yokko</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Piata Resita</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0743112341">0743.112.341</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Resita, nr 5B, parter, langa Casino Las Vegas</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Complex Comercial Big Berceni</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Soseaua Berceni 2, parter</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Mega Mall Pantelimon</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Pierre de Coubertin 3-5, vis-a-vis de Notino</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Liberty Center</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0758056307">0758.056.307</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Liberty Mall Rahova</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Grand Arena</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0758056318">0758.056.318</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Metalurgiei 12-18, parter, vis-a-vis de Polo Assn</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Auchan Militari</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0743112348">0743.112.348</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Iuliu Maniu nr. 536, parter, vis-a-vis de Noriel</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Sun Plaza Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Vacaresti 391, parter, vis-a-vis de Vodafone</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Magazin Secuilor</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0743112344">0743.112.344</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Secuilor nr.2, langa Ela Salon</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Park Lake</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0748054725">0748.054.725</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str. Liviu Rebreanu 4, etaj -2, vis-a-vis de amanet Tezaur</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Iris Titan</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0752089752">0752.089.752</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul 1 Decembrie 1918, vis-a-vis de H&M</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Magazin Piata Rahovei</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0724832842">0724.832.842</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Rahova, in piata Rahova</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arges -->
+    <div class="city-group" data-county="arges">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Arges</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Arges Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0747682704">0747.682.704</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str. Tudor Vladimirescu 37, parter, vis-a-vis de DM</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Trivale Shopping Center</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0747682704">0747.682.704</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Victoriei, parter, intrare</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Auchan Pitesti</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0747682704">0747.682.704</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Geamana, parter, vis-a-vis Pepco</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Braila -->
+    <div class="city-group" data-county="braila">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Braila</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Braila Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Strada Principala 4B, vis-a-vis de Moneygram Exchange</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brasov -->
+    <div class="city-group" data-county="brasov">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Brasov</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Complexul Comercial BRINTEX</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0727247892">0727.247.892</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Langa intrarea din Brintex catre Supermarketul La Cocos. Program de lucru: Luni-Vineri 10:00-17:30, Sambata 9:30-16:00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buzau -->
+    <div class="city-group" data-county="buzau">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Buzau</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Shopping City Buzau</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Unirii 232, vis-a-vis de magazinul Pepco</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cluj -->
+    <div class="city-group" data-county="cluj">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Cluj</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Iulius Mall Cluj, etaj 1</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722 253 809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Strada Alexandru Vaida Voevod 53B, etaj, vis-a-vis de Torry Milano</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Constanta -->
+    <div class="city-group" data-county="constanta">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Constanta</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Comercial Tomis</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0742788397">0742 788 397</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blvd Tomis 391, parter, vis-a-vis de Esenta Plant</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Magazin Vivo</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0742788397">0742 788 397</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blvd. Aurel Vlaicu 220, parter, intrarea 2 intre Pandora si Splendor</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dolj -->
+    <div class="city-group" data-county="dolj">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Dolj</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Mall Electroputere Parc Craiova</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0747682704">0747.682.704</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Bucuresti 80, langa Banca Transilvania</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galati -->
+    <div class="city-group" data-county="galati">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Galati</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Shopping City Galati</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul George Cosbuc 251, parter, vis-a-vis de magazinul Pepco</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ilfov -->
+    <div class="city-group" data-county="ilfov">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Ilfov</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">DN1 Value Centre - Balotesti</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0736458203">0736.458.203</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Bucuresti 2bis, parter, pe linia caselor de marcat, vis-a-vis de Diverta</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Complex Bragadiru</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0769736104">0769.736.104</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Soseaua Alexandriei nr.229, Complex Bragadiru</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Magazin Buftea</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0761612021">0761.612.021</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Oltului nr 4, Buftea, Ilfov</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Iasi -->
+    <div class="city-group" data-county="iasi">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Iasi</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Pallas Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Strada Palas 7A, corp A, etaj cupola, vis-a-vis de magazinul Mango</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Moldova Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Soseaua Pacurari 121, corp nou, vis-a-vis de Waikiki</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Olt -->
+    <div class="city-group" data-county="olt">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Olt</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Caracal</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0765453484">0765.453.484</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Aleea Lipscani bl 22 B, parter</div></div>
+          </div>
+        </div>
+        <div class="store-item">
+          <div class="store-name">Magazin Slatina</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0765453484">0765.453.484</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blv Ioan Cuza, Bloc V4, Parter</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prahova -->
+    <div class="city-group" data-county="prahova">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Prahova</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Shopping City Ploiesti</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Republicii 76, vis-a-vis de magazinul Teilor</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suceava -->
+    <div class="city-group" data-county="suceava">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Suceava</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">Iulius Mall Suceava</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0722253809">0722.253.809</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Unirii 22, corp nou, vis-a-vis de H&M</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Valcea -->
+    <div class="city-group" data-county="valcea">
+      <div class="city-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="city-name">Valcea</span>
+        <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
+      </div>
+      <div class="city-stores">
+        <div class="store-item">
+          <div class="store-name">River Plaza Mall</div>
+          <div class="store-info">
+            <div class="store-info-row"><div class="store-icon">{{ phone_icon }}</div><div class="store-text"><a href="tel:0747682704">0747.682.704</a></div></div>
+            <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str. Calea lui Traian nr. 121</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -207,57 +571,10 @@
   "name": "Store Locator",
   "tag": "section",
   "class": "store-locator-section",
-  "max_blocks": 50,
   "settings": [],
-  "blocks": [
-    {
-      "type": "city",
-      "name": "City",
-      "settings": [
-        {
-          "type": "text",
-          "id": "city_name",
-          "label": "City name",
-          "default": "City"
-        },
-        {
-          "type": "checkbox",
-          "id": "open_by_default",
-          "label": "Open by default",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "store",
-      "name": "Store",
-      "settings": [
-        {
-          "type": "text",
-          "id": "store_name",
-          "label": "Store name",
-          "default": "Store name"
-        },
-        {
-          "type": "text",
-          "id": "store_phone",
-          "label": "Phone"
-        },
-        {
-          "type": "textarea",
-          "id": "store_address",
-          "label": "Address"
-        }
-      ]
-    }
-  ],
   "presets": [
     {
-      "name": "Store Locator",
-      "blocks": [
-        { "type": "city", "settings": { "city_name": "București", "open_by_default": true } },
-        { "type": "store", "settings": { "store_name": "Veranda Mall", "store_phone": "0744 456 883", "store_address": "Str Ziduri Mosi 23 (nivelul 0 parter, in fata caselor de marcat Carrefour)" } }
-      ]
+      "name": "Store Locator"
     }
   ]
 }
