@@ -79,6 +79,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  max-width: 1254px;
   background: rgb(var(--color-background));
 }
 @media (min-width: 750px) {
@@ -124,7 +125,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
     width: 33%;
     position: sticky;
     top: 6.4rem;
-    margin: 6.4rem 0;
+    margin: 2.4rem 0;
   }
 }
 .product__outer--static-multicolumns-aside .product__info-container .product__info-main, .product__outer--thumbs-aside .product__info-container .product__info-main, .product__outer--static-column-aside .product__info-container .product__info-main, .product__outer--two-column-aside .product__info-container .product__info-main {
@@ -1431,11 +1432,6 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
 @media (min-width: 576px) {
   .product-parameters {
     margin: 4rem 0;
-  }
-}
-@media (min-width: 1360px) {
-  .product-parameters {
-    margin-top: 10rem;
   }
 }
 .product-parameters variant-radios,
