@@ -2788,7 +2788,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
 /* Info Dropdown Block */
 .info-dropdown-block {
   width: 100%;
-  background-color: #F5F5F5;
+  border: 0.5px solid black;
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 0 15px;
@@ -2797,7 +2797,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 10px 0;
   cursor: pointer;
   user-select: none;
   background: none;
