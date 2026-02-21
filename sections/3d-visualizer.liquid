@@ -1,5 +1,4 @@
 {{ 'section-3d-visualizer.css' | asset_url | stylesheet_tag }}
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
 {%- style -%}
   {% render 'section-margin' %}
@@ -8,14 +7,14 @@
 {%- assign first_block = section.blocks | first -%}
 {%- assign block_count = section.blocks.size -%}
 
-<div class="visualizer-3d"
-     id="Visualizer-{{ section.id }}"
-     style="--viewer-bg: {{ section.settings.background_color }};">
-
+<div
+  class="visualizer-3d"
+  id="Visualizer-{{ section.id }}"
+  style="--viewer-bg: {{ section.settings.background_color }};"
+>
   <div class="">
     <div class="visualizer-3d__wrapper">
       <div class="visualizer-3d__inner">
-
         <div class="visualizer-3d__viewer-col">
           {%- if block_count > 1 -%}
             <div class="visualizer-3d__nav">
@@ -23,9 +22,6 @@
                 <button
                   class="visualizer-3d__nav-btn{% if forloop.first %} visualizer-3d__nav-btn--active{% endif %}"
                   data-model-url="{{ block.settings.model_url }}"
-                  {%- if block.settings.poster -%}
-                    data-poster="{{ block.settings.poster | image_url: width: 800 }}"
-                  {%- endif -%}
                   {{ block.shopify_attributes }}
                 >
                   {{ block.settings.label }}
@@ -34,59 +30,16 @@
             </div>
           {%- endif -%}
 
-          <div class="visualizer-3d__viewer">
-            <model-viewer
-              id="ModelViewer-{{ section.id }}"
-              {%- if first_block -%}
-                src="{{ first_block.settings.model_url }}"
-              {%- endif -%}
-              alt="{{ section.settings.heading | default: '3D Model Viewer' }}"
-              {%- if section.settings.auto_rotate -%}
-                auto-rotate
-                auto-rotate-delay="{{ section.settings.rotation_delay }}"
-                rotation-per-second="{{ section.settings.rotation_speed }}deg"
-              {%- endif -%}
-              {%- if section.settings.camera_controls -%}
-                camera-controls
-                touch-action="pan-y"
-              {%- endif -%}
-              {%- if section.settings.show_ar_button -%}
-                ar
-                ar-modes="webxr scene-viewer quick-look"
-              {%- endif -%}
-              exposure="{{ section.settings.exposure }}"
-              shadow-intensity="{{ section.settings.shadow_intensity }}"
-              shadow-softness="{{ section.settings.shadow_softness }}"
-              {%- case section.settings.environment -%}
-                {%- when 'legacy' -%}
-                  environment-image="legacy"
-                {%- when 'custom' -%}
-                  {%- if section.settings.environment_image_url != blank -%}
-                    environment-image="{{ section.settings.environment_image_url }}"
-                  {%- endif -%}
-              {%- endcase -%}
-              {%- if section.settings.poster_image -%}
-                poster="{{ section.settings.poster_image | image_url: width: 1200 }}"
-              {%- endif -%}
-              loading="lazy"
-              reveal="auto"
-              field-of-view="10deg"
-              interaction-prompt="none"
-              style="background-color: var(--viewer-bg); width: 100%; height: 100%;"
-            >
-              {%- if section.settings.show_ar_button -%}
-                <button slot="ar-button" class="visualizer-3d__ar-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/></svg>
-                  <span>View in AR</span>
-                </button>
-              {%- endif -%}
-
-              {%- if section.settings.poster_image -%}
-              <div class="visualizer-3d__loading" slot="poster">
-                {{ section.settings.poster_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
-              </div>
+          <div
+            class="visualizer-3d__viewer"
+            {%- if section.settings.poster_image -%}
+              style="background-image: url('{{ section.settings.poster_image | image_url: width: 1200 }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
             {%- endif -%}
-            </model-viewer>
+          >
+            <canvas id="Canvas-{{ section.id }}"></canvas>
+            <div class="visualizer-3d__spinner" id="Spinner-{{ section.id }}">
+              <div class="visualizer-3d__spinner-ring"></div>
+            </div>
           </div>
         </div>
 
@@ -113,27 +66,61 @@
             </a>
           {%- endif -%}
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
-<script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+    }
+  }
+</script>
+
+<script type="module">
+  import { ThreeViewer } from '{{ '3d-viewer-engine.js' | asset_url }}';
+
   (function() {
-    var section = document.getElementById('Visualizer-{{ section.id }}');
-    if (!section) return;
+    var sectionEl = document.getElementById('Visualizer-{{ section.id }}');
+    if (!sectionEl) return;
 
-    var modelViewer = section.querySelector('model-viewer');
-    var navButtons = section.querySelectorAll('.visualizer-3d__nav-btn');
+    var canvas = document.getElementById('Canvas-{{ section.id }}');
+    var spinner = document.getElementById('Spinner-{{ section.id }}');
+    var navButtons = sectionEl.querySelectorAll('.visualizer-3d__nav-btn');
 
-    if (!modelViewer) return;
+    if (!canvas) return;
+
+    var viewer = new ThreeViewer(canvas, {
+      bgColor: '{{ section.settings.background_color | default: "#F8F7F5" }}',
+      autoRotate: {{ section.settings.auto_rotate | default: true }},
+      rotationSpeed: {{ section.settings.rotation_speed | default: 60 | divided_by: 15.0 }},
+      rotationDelay: {{ section.settings.rotation_delay | default: 3000 }},
+      cameraControls: {{ section.settings.camera_controls | default: true }},
+      exposure: {{ section.settings.exposure | default: 1.0 }},
+      hdrUrl: '{{ section.settings.hdr_environment_url | default: "" }}',
+      bloomIntensity: {{ section.settings.bloom_intensity | default: 0.3 }},
+      onLoad: function() {
+        if (spinner) spinner.style.display = 'none';
+        canvas.parentElement.style.backgroundImage = 'none';
+      }
+    });
+
+    {% if first_block and first_block.settings.model_url != blank %}
+      viewer.loadModel('{{ first_block.settings.model_url }}').catch(function(err) {
+        console.error('Failed to load initial model:', err);
+        if (spinner) spinner.style.display = 'none';
+      });
+    {% else %}
+      if (spinner) spinner.style.display = 'none';
+    {% endif %}
 
     if (navButtons.length > 0) {
       navButtons.forEach(function(button) {
         button.addEventListener('click', function() {
           var modelUrl = this.getAttribute('data-model-url');
-          var poster = this.getAttribute('data-poster');
           if (!modelUrl) return;
 
           navButtons.forEach(function(btn) {
@@ -141,14 +128,24 @@
           });
           this.classList.add('visualizer-3d__nav-btn--active');
 
-          var progressBar = section.querySelector('.visualizer-3d__progress-fill');
-          if (progressBar) progressBar.style.width = '0%';
+          spinner.style.display = 'flex';
+          canvas.parentElement.style.backgroundImage = 'none';
 
-          if (poster) modelViewer.setAttribute('poster', poster);
-          modelViewer.setAttribute('src', modelUrl);
+          viewer.loadModel(modelUrl).catch(function(err) {
+            console.error('Failed to load model:', err);
+          }).finally(function() {
+            spinner.style.display = 'none';
+          });
         });
       });
     }
+
+    // Cleanup on section unload
+    document.addEventListener('shopify:section:unload', function(e) {
+      if (e.detail && e.detail.sectionId === '{{ section.id }}') {
+        viewer.dispose();
+      }
+    });
   })();
 </script>
 
@@ -236,60 +233,34 @@
       "default": true
     },
     {
-      "type": "checkbox",
-      "id": "show_ar_button",
-      "label": "Show AR button on supported devices",
-      "default": true
-    },
-    {
       "type": "header",
-      "content": "Lighting & shadows"
+      "content": "Lighting & rendering"
     },
     {
       "type": "range",
       "id": "exposure",
       "label": "Exposure",
-      "min": 0,
-      "max": 2,
+      "min": 0.5,
+      "max": 3,
       "step": 0.1,
-      "default": 1.0,
-      "info": "Controls overall brightness"
+      "default": 1.2,
+      "info": "Controls overall brightness. Higher values make glass more visible."
     },
     {
       "type": "range",
-      "id": "shadow_intensity",
-      "label": "Shadow intensity",
-      "min": 0,
-      "max": 2,
-      "step": 0.1,
-      "default": 0.8
-    },
-    {
-      "type": "range",
-      "id": "shadow_softness",
-      "label": "Shadow softness",
+      "id": "bloom_intensity",
+      "label": "Bloom intensity",
       "min": 0,
       "max": 1,
       "step": 0.1,
-      "default": 1
-    },
-    {
-      "type": "select",
-      "id": "environment",
-      "label": "Environment lighting",
-      "options": [
-        { "value": "neutral", "label": "Neutral (default)" },
-        { "value": "legacy", "label": "Legacy" },
-        { "value": "custom", "label": "Custom environment image" }
-      ],
-      "default": "neutral",
-      "info": "Controls reflections and ambient lighting on the model"
+      "default": 0.3,
+      "info": "Glow on bright highlights. Creates sparkle on glass and metallic surfaces."
     },
     {
       "type": "text",
-      "id": "environment_image_url",
-      "label": "Custom environment image URL",
-      "info": "Upload an HDR or equirectangular JPG to Shopify Files and paste the URL here. Only used when 'Custom' is selected above."
+      "id": "hdr_environment_url",
+      "label": "HDR environment image URL",
+      "info": "Upload an .hdr file to Shopify Files (or host externally) and paste the URL. Critical for realistic glass reflections and refractions."
     },
     {
       "type": "header",
@@ -351,12 +322,6 @@
           "id": "model_url",
           "label": "GLB file URL",
           "info": "Upload a .glb file to Shopify Settings > Files, then paste the URL here"
-        },
-        {
-          "type": "image_picker",
-          "id": "poster",
-          "label": "Poster image (optional)",
-          "info": "Override the section poster for this specific model"
         }
       ]
     }
