@@ -67,9 +67,8 @@
         },
         "popup_KKFQyV": {
           "type": "popup",
-          "repeater": "{{ product.metafields.shopify.scent.value }}",
           "settings": {
-            "label": "{{ block.repeater.label.value }}"
+            "label": "Scent"
           }
         },
         "popup_67EXtY": {
@@ -153,7 +152,7 @@
         "ai_gen_block_18f2f9e_4Yyggd": {
           "type": "ai_gen_block_18f2f9e",
           "settings": {
-            "scent_heading": "{{ closest.product.metafields.shopify.scent | metafield_text: field: 'label' }}",
+            "scent_heading": "Scent",
             "scent_text": "Floral & Fresh",
             "intensity_heading": "Intensity",
             "intensity_text": "Medium to Strong",
