@@ -42,6 +42,7 @@
     "home_page_slider": false,
     "enable_home_footer_logo": false,
     "show_back_to_top": true,
+    "media_border_radius": 20,
     "sale_badge_color_scheme": "background-1",
     "sections": {
       "chatbot": {
