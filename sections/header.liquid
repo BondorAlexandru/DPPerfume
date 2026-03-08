@@ -26,6 +26,14 @@
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
 <style>
+	.shopify-section-header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 100;
+		background-color: rgb(var(--color-background));
+	}
+
 	header-drawer {
 		justify-self: start;
 	}
@@ -96,7 +104,7 @@
 				{% render 'header-center-logo-with-burger-menu' %}
 			{% endif %}
 		</header>
-	</{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
+	</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 {% endunless %}
 
 {% javascript %}
