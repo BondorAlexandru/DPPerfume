@@ -24,7 +24,8 @@
   .contact-section-{{ section.id }} .contact-left {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 12px;
+    padding-top: 40px;
   }
   .contact-section-{{ section.id }} .contact-subheading {
     font-size: 14px;
@@ -34,7 +35,7 @@
     letter-spacing: 0.5px;
   }
   .contact-section-{{ section.id }} .contact-heading {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: 32px;
     font-weight: 500;
     line-height: 1.1;
     margin: 0;
@@ -51,7 +52,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 48px;
-    margin-top: 16px;
+    margin-top: 36px;
   }
   @media screen and (max-width: 600px) {
     .contact-section-{{ section.id }} .contact-info-grid {
@@ -186,11 +187,11 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="contact-heading">{{ section.settings.heading }}</h2>
+        <h2 class="contact-heading">{{ section.settings.heading | newline_to_br }}</h2>
       {%- endif -%}
 
       {%- if section.settings.text != blank -%}
-        <p class="contact-text">{{ section.settings.text }}</p>
+        <p class="contact-text">{{ section.settings.text | newline_to_br }}</p>
       {%- endif -%}
 
       <div class="contact-info-grid">
@@ -250,7 +251,7 @@
       {%- endif -%}
 
       {%- if section.settings.form_description != blank -%}
-        <p class="form-description">{{ section.settings.form_description }}</p>
+        <p class="form-description">{{ section.settings.form_description | newline_to_br }}</p>
       {%- endif -%}
 
       {%- form 'contact', id: 'ContactForm', class: 'contact-form-fields' -%}
