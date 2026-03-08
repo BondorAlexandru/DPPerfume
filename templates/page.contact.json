@@ -16,8 +16,8 @@
           "type": "media_slide",
           "settings": {
             "color_scheme": "background-2",
-            "image": "shopify://shop_images/Classic.png",
-            "overlay_opacity": 0.1,
+            "image": "shopify://shop_images/Contact_Page_Header.png",
+            "overlay_opacity": 0.2,
             "enable_hover": true,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
@@ -42,7 +42,7 @@
         "media_slide_V8KKMJ"
       ],
       "custom_css": [
-        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 105vh; border-radius: 0px 0px 30px 30px;}"
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {border-radius: 0px 0px 30px 30px;}"
       ],
       "name": "t:sections.media-banner.name",
       "settings": {
@@ -51,7 +51,7 @@
         "layout": "overlay",
         "title_link": false,
         "gap": false,
-        "aspect_ratio": "full",
+        "aspect_ratio": "21/9",
         "aspect_ratio_mobile": "full",
         "margin_top": "no-indent",
         "margin_bottom": "m"

@@ -62,17 +62,28 @@
             "description": ""
           }
         },
-        "product_features": {
-          "type": "product_features",
+        "info_dropdown_ecNApx": {
+          "type": "info_dropdown",
+          "name": "Caracteristici Generale",
           "settings": {
-            "scent_heading": "Familie Olfactivă",
-            "scent_text": "Floral",
-            "occasion_heading": "Ocazie",
-            "occasion_text": "Zi, Noapte",
-            "intensity_heading": "Intensitate",
-            "intensity_text": "Intens",
-            "persistence_heading": "Persistență",
-            "persistence_text": "6 Ore"
+            "title": "Caracteristici Generale",
+            "content": "<p>Familie Olfactivă: {{ product.metafields.fragrance.olfactory_family.value }}<br/>Ocazie: {{ product.metafields.fragrance.occasion.value }}<br/>Intensitate: {{ product.metafields.fragrance.intensity.value }}</p>",
+            "open_by_default": true
+          }
+        },
+        "info_dropdown_VqdXwE": {
+          "type": "info_dropdown",
+          "name": "Note",
+          "settings": {
+            "title": "Note",
+            "content": "<p>Note de vârf: {{ product.metafields.fragrance.note_varf.value }}<br/>Note mijlocii: {{ product.metafields.fragrance.note_medii.value }}<br/>Note de bază: {{ product.metafields.fragrance.note_baza.value }}</p>",
+            "open_by_default": false
+          }
+        },
+        "spacer_LRJKXT": {
+          "type": "spacer",
+          "settings": {
+            "height": "40"
           }
         },
         "popup_KKFQyV": {
@@ -141,7 +152,9 @@
         "variant_picker",
         "buy_buttons",
         "description_J3BppF",
-        "product_features",
+        "info_dropdown_ecNApx",
+        "info_dropdown_VqdXwE",
+        "spacer_LRJKXT",
         "popup_KKFQyV",
         "popup_yX9T7z",
         "popup_WrHEyp",
@@ -149,12 +162,7 @@
         "pickup_availability_MNbMke",
         "complementary_MDe68y"
       ],
-      "custom_css": [
-        ".product__tax,.price-item--regular .tax-included,.unit-price-measurement__tax {display: none !important;}",
-        "* button,* [type=\"submit\"],* [type=\"button\"] {border-radius: 60px !important;}",
-        "* input[type=\"number\"] {border-radius: 60px !important;}",
-        ".quantity {position: relative; width: 10rem; height: 3.6rem; display: flex; border: 0.1rem solid rgb(var(--color-border-input)); background-color: rgb(var(--color-background-input)); border-radius: 60px; transition: border var(--duration-default);}"
-      ],
+      "custom_css": [],
       "settings": {
         "gallery_type": "thumbs_aside",
         "mobile_gallery_type": "synchronize",
@@ -167,114 +175,6 @@
         "header_overlay": false,
         "enable_sticky_button": false,
         "variant_media_display": "show_all"
-      }
-    },
-    "product_slider_iNfftq": {
-      "type": "product-slider",
-      "blocks": {
-        "product_slide_AF9xKg": {
-          "type": "product_slide",
-          "settings": {
-            "product": "a20",
-            "image": "shopify://shop_images/ChatGPT_Image_Oct_18_2025_10_11_21_PM.png",
-            "color_scheme": "",
-            "overlay_opacity": 0.1,
-            "description": "Soft fabrics, flattering silhouettes, and timeless style."
-          }
-        },
-        "product_slide_dEFBEQ": {
-          "type": "product_slide",
-          "settings": {
-            "product": "k5",
-            "image": "shopify://shop_images/K5.png",
-            "color_scheme": "",
-            "overlay_opacity": 0.1,
-            "description": "Modern, versatile, and designed to make an impact without the effort."
-          }
-        },
-        "product_slide_wFcgRT": {
-          "type": "product_slide",
-          "settings": {
-            "product": "sample-coconut-bar-soap",
-            "image": "shopify://shop_images/ChatGPTImageOct17_2025_06_33_03PM.png",
-            "color_scheme": "",
-            "overlay_opacity": 0.1,
-            "description": "Comfortable, chic, stylish, and always in season."
-          }
-        }
-      },
-      "block_order": [
-        "product_slide_AF9xKg",
-        "product_slide_dEFBEQ",
-        "product_slide_wFcgRT"
-      ],
-      "custom_css": [
-        ".product-slider__image-swiper {border-radius: 15px;}",
-        ".card--product {border-radius: 15px;}",
-        ".product-slider__wrapper {padding-inline: 24px;}",
-        ".product-slider__image-slider {position: relative; height: 70vh; min-height: 700px;}"
-      ],
-      "settings": {
-        "image_size": "large",
-        "subheading": "",
-        "heading": "",
-        "heading_size": "h1",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "simple",
-        "is_autoplay": true,
-        "is_hover_stop_autoplay": true,
-        "navigation_position": "cursor",
-        "slideshow_speed": 1.1,
-        "slideshow_delay": 3,
-        "slide_effects": "slide",
-        "is_sync_slide": true,
-        "enable_main_image_link": false,
-        "enable_animation": true,
-        "image_ratio": "portrait",
-        "image_fit": "cover",
-        "show_vendor": false,
-        "show_color_count": true,
-        "show_size_count": false,
-        "show_collection": false,
-        "show_desc": false,
-        "margin_top": "s",
-        "margin_bottom": "s"
-      }
-    },
-    "banner-with-popup": {
-      "type": "banner-with-popup",
-      "blocks": {
-        "image": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "image"
-      ],
-      "settings": {
-        "aspect_ratio": "full",
-        "full_screen_image_mode": true,
-        "heading": "Banner Title Goes Here",
-        "heading_size": "h1",
-        "description": "<p>This is where you can share a quick story, highlight a special collection, or introduce an upcoming event, adding depth and making your visuals more engaging.</p>",
-        "button_label": "View more",
-        "button_link": "",
-        "button_style": "simple",
-        "button_function": "popup",
-        "enable_animation": false,
-        "slideshow_speed": 6,
-        "popup_heading": "Unlock Your Special Offer",
-        "popup_content_heading": "Ready to Shop?",
-        "popup_content": "<p>You can also use this space to highlight a specific collection, showcase limited-time offers, or introduce a special event. By adding context and narrative to your visuals, you’ll make them more impactful and memorable for your customers.</p>",
-        "popup_image_size": "portrait",
-        "popup_button_label": "",
-        "popup_button_link": "",
-        "popup_button_style": "tertiary",
-        "margin_top": "no-indent",
-        "margin_bottom": "m"
       }
     },
     "product-recommendations": {
@@ -304,8 +204,6 @@
   },
   "order": [
     "main",
-    "product_slider_iNfftq",
-    "banner-with-popup",
     "product-recommendations"
   ]
 }

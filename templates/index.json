@@ -15,15 +15,15 @@
         "slideshow-item1": {
           "type": "slideshow-item",
           "settings": {
-            "image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png",
+            "image": "shopify://shop_images/Richest_Joy_Hero.jpg",
             "overlay_opacity": 0.1,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
-            "heading": "K5 — Subtilitatea Absolută",
-            "description": "<p>Experimentati un parfum intens cu note dominante de bergamota, lamaie si lavanda. O alegere perfecta pentru evenimentele speciale.</p>",
+            "heading": "M16 Richest Joy",
+            "description": "<p>Experimentati un parfum intens cu note dominante de cedru, portocală si șofran. O alegere perfecta pentru evenimentele speciale.</p>",
             "tab_subheading": "",
-            "tab_heading": "Rafinament Subtil",
+            "tab_heading": "Încredere Absolută",
             "button_label": "Descoperă produsul",
             "button_link": "",
             "button_style": "primary",
@@ -33,15 +33,15 @@
         "slideshow-item": {
           "type": "slideshow-item",
           "settings": {
-            "image": "shopify://shop_images/Sol_D_oro_Extended_df43fbcf-ccc5-473b-949e-a5e2e8439fc5.png",
+            "image": "shopify://shop_images/Midnight_Reverie_Hero.jpg",
             "overlay_opacity": 0.1,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
-            "heading": "Noul Parfum SOLO D'ORO",
-            "description": "<p>Experimentati un parfum intens cu note dominante de bergamota, lamaie si lavanda. O alegere perfecta pentru evenimentele speciale.</p>",
+            "heading": "U-E6 Midnight Reverie",
+            "description": "<p>Experimentați un parfum intens cu note dominante de bergamota, ghimbir si pară. O alegere perfecta pentru evenimentele speciale.</p>",
             "tab_subheading": "",
-            "tab_heading": "Ocazii Speciale",
+            "tab_heading": "Seri Rafinate",
             "button_label": "Descoperă produsul",
             "button_link": "",
             "button_style": "primary",
@@ -69,37 +69,103 @@
         "margin_bottom": "m"
       }
     },
+    "categories_list_6QxCjk": {
+      "type": "categories-list",
+      "blocks": {
+        "collection_item_wDLNLh": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "classic-collection",
+            "button_label": "Descoperă colecția",
+            "button_link": "shopify://collections/classic-collection",
+            "overlay_opacity": 0.6
+          }
+        },
+        "collection_item_3r6Kb7": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "exclusives-collection",
+            "button_label": "Descoperă colecția",
+            "button_link": "shopify://collections/exclusives-collection",
+            "overlay_opacity": 0.6
+          }
+        },
+        "collection_item_KXAdXC": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "niche-collection",
+            "button_label": "Descoperă colecția",
+            "button_link": "shopify://collections/niche-collection",
+            "overlay_opacity": 0.6
+          }
+        },
+        "collection_item_PrxbJ4": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "arabian-collection",
+            "button_label": "descoperă colecția",
+            "button_link": "shopify://collections/arabian-collection",
+            "overlay_opacity": 0.6
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_wDLNLh",
+        "collection_item_3r6Kb7",
+        "collection_item_KXAdXC",
+        "collection_item_PrxbJ4"
+      ],
+      "custom_css": [
+        ".collections-grid__image {border-radius: 15px;}"
+      ],
+      "name": "t:sections.categories-list.presets.name",
+      "settings": {
+        "subheading": "",
+        "heading": "Colecțiile Noastre",
+        "heading_size": "h1",
+        "button_label": "arată mai multe",
+        "button_link": "",
+        "button_style": "simple",
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_desc": false,
+        "collection_heading_size": "h2",
+        "collections_to_show": 4,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
     "product-slider": {
       "type": "product-slider",
       "blocks": {
         "product_slide": {
           "type": "product_slide",
           "settings": {
-            "product": "a20",
-            "image": "shopify://shop_images/ChatGPT_Image_Oct_18_2025_10_11_21_PM.png",
+            "product": "a1-eau-de-parfum",
+            "image": "shopify://shop_images/Ingredients01.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Soft fabrics, flattering silhouettes, and timeless style."
+            "description": "Pompus. Fructat, proaspăt, încrezător."
           }
         },
         "product_slide1": {
           "type": "product_slide",
           "settings": {
-            "product": "k5",
-            "image": "shopify://shop_images/K5.png",
+            "product": "a1-eau-de-parfum",
+            "image": "shopify://shop_images/Ingredients02.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Modern, versatile, and designed to make an impact without the effort."
+            "description": "Upstarrus. Modern, versatile, and designed to make an impact without the effort."
           }
         },
         "product_slide2": {
           "type": "product_slide",
           "settings": {
-            "product": "sample-coconut-bar-soap",
-            "image": "shopify://shop_images/ChatGPTImageOct17_2025_06_33_03PM.png",
+            "product": "a1-eau-de-parfum",
+            "image": "shopify://shop_images/Ingredients03.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Comfortable, chic, stylish, and always in season."
+            "description": "Moonlite. Comfortable, chic, and always in season."
           }
         }
       },
@@ -151,12 +217,12 @@
       "name": "t:sections.products-grid.name",
       "settings": {
         "subheading": "",
-        "heading": "Preferatele Noastre",
+        "heading": "Produsele Noastre",
         "description": "",
         "heading_size": "h1",
         "collection": "",
         "product_list": [],
-        "products_per_page": 5,
+        "products_per_page": 10,
         "products_to_show": 5,
         "sort": "alphabetical",
         "image_ratio": "portrait",
@@ -167,115 +233,9 @@
         "show_collection": false,
         "show_desc": false,
         "columns_mobile": "2",
-        "button_label": "Explore More",
-        "button_link": "",
+        "button_label": "Descoperă produsele",
+        "button_link": "shopify://collections/all",
         "button_style": "simple",
-        "margin_top": "m",
-        "margin_bottom": "m"
-      }
-    },
-    "media-banner": {
-      "type": "media-banner",
-      "blocks": {
-        "media_slide": {
-          "type": "media_slide",
-          "settings": {
-            "color_scheme": "",
-            "image": "shopify://shop_images/Classic.png",
-            "overlay_opacity": 0,
-            "enable_hover": true,
-            "show_video": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description_video": "",
-            "subheading": "",
-            "heading": "The Fragrances You’ll Love",
-            "heading_size": "h1",
-            "description": "Timeless scents, premium ingredients, and effortless wearability — essentials you’ll reach for every day.",
-            "position_content": "bottom",
-            "align_content": "left",
-            "button_label": "Discover Collection",
-            "button_link": "",
-            "button_style": "simple",
-            "button_label2": "",
-            "button_link2": "",
-            "button_style2": "secondary",
-            "full_link": true
-          }
-        }
-      },
-      "block_order": [
-        "media_slide"
-      ],
-      "custom_css": [
-        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 60%; min-height: unset; padding-top: 0; margin-inline: 20px; overflow: hidden; width: auto; border-radius: 20px;}"
-      ],
-      "settings": {
-        "header_overlay": false,
-        "sticky": "sticky-none",
-        "layout": "simple",
-        "title_link": false,
-        "gap": false,
-        "aspect_ratio": "adapt",
-        "aspect_ratio_mobile": "adapt",
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
-      }
-    },
-    "categories_list_6QxCjk": {
-      "type": "categories-list",
-      "blocks": {
-        "collection_item_wDLNLh": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "classic-collection",
-            "image": "shopify://shop_images/Classic.png",
-            "button_label": "Descoperă colecția",
-            "button_link": "",
-            "overlay_opacity": 0.2
-          }
-        },
-        "collection_item_3r6Kb7": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "classic-collection",
-            "image": "shopify://shop_images/Classic.png",
-            "button_label": "Descoperă colecția",
-            "button_link": "",
-            "overlay_opacity": 0.2
-          }
-        },
-        "collection_item_KXAdXC": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "classic-collection",
-            "image": "shopify://shop_images/Classic.png",
-            "button_label": "Descoperă colecția",
-            "button_link": "",
-            "overlay_opacity": 0.2
-          }
-        }
-      },
-      "block_order": [
-        "collection_item_wDLNLh",
-        "collection_item_3r6Kb7",
-        "collection_item_KXAdXC"
-      ],
-      "custom_css": [
-        ".collections-grid__image {border-radius: 15px;}"
-      ],
-      "name": "t:sections.categories-list.presets.name",
-      "settings": {
-        "subheading": "",
-        "heading": "Colecțiile Noastre",
-        "heading_size": "h1",
-        "button_label": "arată mai multe",
-        "button_link": "",
-        "button_style": "simple",
-        "image_ratio": "portrait",
-        "image_fit": "cover",
-        "show_desc": false,
-        "collection_heading_size": "h2",
-        "collections_to_show": 3,
         "margin_top": "m",
         "margin_bottom": "m"
       }
@@ -286,25 +246,25 @@
         "product-slide": {
           "type": "product-slide",
           "settings": {
-            "image": "shopify://shop_images/K5.png",
-            "heading": "An Elegant Glow",
-            "product": "k5"
+            "image": "shopify://shop_images/Rune_K5.jpg",
+            "heading": "O Eleganță Aparte",
+            "product": "a1-eau-de-parfum"
           }
         },
         "product-slide1": {
           "type": "product-slide",
           "settings": {
-            "image": "shopify://shop_images/ChatGPTImageOct17_2025_06_33_03PM.png",
-            "heading": "Radiate confidence with timeless pieces",
-            "product": "sample-coconut-bar-soap"
+            "image": "shopify://shop_images/Midnight_Reverie.jpg",
+            "heading": "Radiază Încredere",
+            "product": "a1-eau-de-parfum"
           }
         },
         "product-slide2": {
           "type": "product-slide",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Oct_18_2025_10_11_21_PM.png",
-            "heading": "Discover the allure of understated elegance",
-            "product": "a20"
+            "image": "shopify://shop_images/Richest_Joy_M16.png",
+            "heading": "Decoperă Bucuria Simțurilor",
+            "product": "a1-eau-de-parfum"
           }
         }
       },
@@ -359,27 +319,27 @@
         "margin_bottom": "xl"
       }
     },
-    "media_banner_T7VKPd": {
+    "media_banner_A9VLBr": {
       "type": "media-banner",
       "blocks": {
-        "media_slide_CaEEpW": {
+        "media_slide_M9DLaw": {
           "type": "media_slide",
           "settings": {
             "color_scheme": "",
-            "image": "shopify://shop_images/Classic.png",
+            "image": "shopify://shop_images/Magazinele_Noastre.jpg",
             "overlay_opacity": 0,
             "enable_hover": true,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
             "subheading": "",
-            "heading": "The Fragrances You’ll Love",
-            "heading_size": "h1",
-            "description": "Timeless scents, premium ingredients, and effortless wearability — essentials you’ll reach for every day.",
+            "heading": "Descoperă locațiile D&P",
+            "heading_size": "h2",
+            "description": "Explorează harta interactivă și află unde este cel mai apropiat magazin certificat.",
             "position_content": "bottom",
             "align_content": "left",
-            "button_label": "Discover Collection",
-            "button_link": "",
+            "button_label": "descoperă mai mult",
+            "button_link": "shopify://pages/magazinele-noastre",
             "button_style": "simple",
             "button_label2": "",
             "button_link2": "",
@@ -389,8 +349,9 @@
         }
       },
       "block_order": [
-        "media_slide_CaEEpW"
+        "media_slide_M9DLaw"
       ],
+      "disabled": true,
       "custom_css": [
         ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 60%; min-height: unset; padding-top: 0; margin-inline: 20px; overflow: hidden; width: auto; border-radius: 20px;}"
       ],
@@ -401,7 +362,31 @@
         "title_link": false,
         "gap": false,
         "aspect_ratio": "adapt",
-        "aspect_ratio_mobile": "adapt",
+        "aspect_ratio_mobile": "21/9",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "image_with_text_DECNpR": {
+      "type": "image-with-text",
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "aspect_ratio": "medium",
+        "heading_position": "center",
+        "text_width": "medium",
+        "subheading": "",
+        "heading": "Descoperă locațiile partenere D&P",
+        "heading_size": "h1",
+        "text": "<p>Adevărata esență D&P Perfumum se simte cel mai bine în persoană, motiv pentru care suntem mereu mai aproape de tine decât crezi. Explorează harta noastră interactivă pentru a localiza instantaneu cel mai apropiat magazin și pentru a descoperi rețeaua noastră de locații din întreaga țară. Indiferent unde te poartă pașii, o nouă destinație olfactivă te așteaptă cu ușile deschise. Vizitează-ne pentru a testa calitatea excepțională a aromelor noastre și găsește-ți parfumul semnătură perfect.</p>",
+        "enable_animation": true,
+        "button_label": "Descoperă Magazinele",
+        "button_link": "shopify://pages/magazinele-noastre",
+        "button_style": "simple",
+        "image": "shopify://shop_images/Magazinele_Noastre.jpg",
+        "image_width": "large",
+        "height": "square",
+        "layout": "image_right",
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
       }
@@ -409,12 +394,12 @@
   },
   "order": [
     "slideshow",
+    "categories_list_6QxCjk",
     "product-slider",
     "products_grid_7giBeM",
-    "media-banner",
-    "categories_list_6QxCjk",
     "featured-products",
     "image-with-text",
-    "media_banner_T7VKPd"
+    "media_banner_A9VLBr",
+    "image_with_text_DECNpR"
   ]
 }

@@ -43,6 +43,12 @@
     "enable_home_footer_logo": false,
     "show_back_to_top": true,
     "sale_badge_color_scheme": "background-1",
+    "sections": {
+      "chatbot": {
+        "type": "chatbot",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "1656560654682496077": {
@@ -57,7 +63,7 @@
           "colors_text": "#000000",
           "colors_secondary_text": "#4d4d4d",
           "colors_text_title": "#000000",
-          "colors_background_1": "#ffffff",
+          "colors_background_1": "#fafafa",
           "colors_background_2": "#f5f5f5",
           "background_gradient": "",
           "colors_solid_button_labels": "#f9f9f9",

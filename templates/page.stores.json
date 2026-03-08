@@ -1,45 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "about-us": {
-      "type": "about-us",
+    "media_banner_jjTR7p": {
+      "type": "media-banner",
       "blocks": {
-        "image": {
-          "type": "image",
+        "media_slide_wCUpdL": {
+          "type": "media_slide",
           "settings": {
-            "image_ratio": "portrait"
-          }
-        },
-        "image1": {
-          "type": "image",
-          "settings": {
-            "image_ratio": "portrait"
-          }
-        },
-        "about-us-description": {
-          "type": "about-us-description",
-          "settings": {
-            "subheading": "Where your story begins",
-            "heading": "This could be your mission statement",
-            "heading_size": "h2",
-            "description": "<p>A short explanation of why you do what you do and what you stand for.</p>"
+            "color_scheme": "background-2",
+            "image": "shopify://shop_images/Magazinele_Noastre.jpg",
+            "overlay_opacity": 0.2,
+            "enable_hover": true,
+            "show_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description_video": "",
+            "subheading": "",
+            "heading": "Magazine",
+            "heading_size": "h1",
+            "description": "Suntem disponibili pentru a îți răspunde la orice întrebare despre produsele noastre, comanda ta sau magazinele partenere D&P.",
+            "position_content": "center",
+            "align_content": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "simple",
+            "button_label2": "",
+            "button_link2": "",
+            "button_style2": "secondary",
+            "full_link": true
           }
         }
       },
       "block_order": [
-        "image",
-        "image1",
-        "about-us-description"
+        "media_slide_wCUpdL"
       ],
+      "custom_css": [
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 105vh; border-radius: 0px 0px 30px 30px;}"
+      ],
+      "name": "t:sections.media-banner.name",
       "settings": {
-        "subheading": "",
-        "heading": "Here can be your main title",
-        "heading_size": "h2",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "simple",
-        "sticky": false,
-        "margin_top": "xs",
+        "header_overlay": true,
+        "sticky": "sticky-none",
+        "layout": "overlay",
+        "title_link": false,
+        "gap": false,
+        "aspect_ratio": "21/9",
+        "aspect_ratio_mobile": "full",
+        "margin_top": "no-indent",
         "margin_bottom": "m"
       }
     },
@@ -57,7 +71,7 @@
     }
   },
   "order": [
-    "about-us",
+    "media_banner_jjTR7p",
     "romania_map",
     "store_locator",
     "177024784330092a01"

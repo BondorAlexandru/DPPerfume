@@ -12,18 +12,37 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_image": false
+        "show_collection_image": true,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 32,
+        "grid_space": "standard",
+        "enable_per_row_button": true,
+        "default_per_row": "small",
         "enable_filtering": true,
+        "enable_tag": true,
+        "filter_type": "vertical",
         "enable_sorting": true,
+        "image_filter_ratio": "4/5",
+        "image_filter_fit": "cover",
+        "image_filter_columns": 5,
         "image_ratio": "portrait",
         "image_fit": "cover",
-        "show_desc": false
+        "show_vendor": false,
+        "show_collection": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_desc": false,
+        "columns_mobile": "2",
+        "show_collection_description": true,
+        "description_products": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent turpis nunc, facilisis nec lorem sit amet, cursus tincidunt felis. Aliquam pharetra ornare malesuada. Vivamus faucibus enim ac justo iaculis, non pellentesque magna bibendum. Suspendisse non massa id nunc suscipit ornare et ac leo. Ut sapien ante, dictum id accumsan sit amet, aliquam non velit.",
+        "margin_top": "m",
+        "margin_bottom": "m"
       }
     }
   },
