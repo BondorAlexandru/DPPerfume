@@ -32,47 +32,57 @@
   .store-locator-{{ section.id }} .city-group {
     break-inside: avoid;
     margin-bottom: 20px;
-    background: #F5F5F5;
-    border-radius: 20px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 0 15px;
   }
   .store-locator-{{ section.id }} .city-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
     cursor: pointer;
     user-select: none;
+    background: none;
+    border: none;
+    width: 100%;
   }
   .store-locator-{{ section.id }} .city-name {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 18px;
+    font-weight: 500;
     color: black;
-    font-family: 'Open Sans', sans-serif;
+    margin: 0;
   }
   .store-locator-{{ section.id }} .city-toggle {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     color: black;
+    flex-shrink: 0;
   }
   .store-locator-{{ section.id }} .toggle-minus { display: none; }
   .store-locator-{{ section.id }} .toggle-plus { display: block; }
   .store-locator-{{ section.id }} .city-group.open .toggle-minus { display: block; }
   .store-locator-{{ section.id }} .city-group.open .toggle-plus { display: none; }
   .store-locator-{{ section.id }} .city-stores {
-    display: none;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 350ms ease-in-out;
   }
   .store-locator-{{ section.id }} .city-group.open .city-stores {
-    display: flex;
+    grid-template-rows: 1fr;
+  }
+  .store-locator-{{ section.id }} .city-stores-inner {
+    overflow: hidden;
+    transition: padding 350ms ease-in-out;
+    padding: 0;
+  }
+  .store-locator-{{ section.id }} .city-group.open .city-stores-inner {
+    padding: 0 0 15px;
   }
   .store-locator-{{ section.id }} .store-item {
     padding: 15px;
@@ -139,7 +149,7 @@
         <span class="city-name">Bucuresti</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Veranda Mall</div>
           <div class="store-info">
@@ -252,7 +262,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Rahova, in piata Rahova</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Arges -->
@@ -261,7 +271,7 @@
         <span class="city-name">Arges</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Arges Mall</div>
           <div class="store-info">
@@ -283,7 +293,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Geamana, parter, vis-a-vis Pepco</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Braila -->
@@ -292,7 +302,7 @@
         <span class="city-name">Braila</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Braila Mall</div>
           <div class="store-info">
@@ -300,7 +310,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Strada Principala 4B, vis-a-vis de Moneygram Exchange</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Brasov -->
@@ -309,7 +319,7 @@
         <span class="city-name">Brasov</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Complexul Comercial BRINTEX</div>
           <div class="store-info">
@@ -317,7 +327,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Langa intrarea din Brintex catre Supermarketul La Cocos. Program de lucru: Luni-Vineri 10:00-17:30, Sambata 9:30-16:00</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Buzau -->
@@ -326,7 +336,7 @@
         <span class="city-name">Buzau</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Shopping City Buzau</div>
           <div class="store-info">
@@ -334,7 +344,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Unirii 232, vis-a-vis de magazinul Pepco</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Cluj -->
@@ -343,7 +353,7 @@
         <span class="city-name">Cluj</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Iulius Mall Cluj, etaj 1</div>
           <div class="store-info">
@@ -351,7 +361,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Strada Alexandru Vaida Voevod 53B, etaj, vis-a-vis de Torry Milano</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Constanta -->
@@ -360,7 +370,7 @@
         <span class="city-name">Constanta</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Comercial Tomis</div>
           <div class="store-info">
@@ -375,7 +385,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blvd. Aurel Vlaicu 220, parter, intrarea 2 intre Pandora si Splendor</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Dolj -->
@@ -384,7 +394,7 @@
         <span class="city-name">Dolj</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Mall Electroputere Parc Craiova</div>
           <div class="store-info">
@@ -392,7 +402,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Bucuresti 80, langa Banca Transilvania</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Galati -->
@@ -401,7 +411,7 @@
         <span class="city-name">Galati</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Shopping City Galati</div>
           <div class="store-info">
@@ -409,7 +419,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul George Cosbuc 251, parter, vis-a-vis de magazinul Pepco</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Ilfov -->
@@ -418,7 +428,7 @@
         <span class="city-name">Ilfov</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">DN1 Value Centre - Balotesti</div>
           <div class="store-info">
@@ -440,7 +450,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str Oltului nr 4, Buftea, Ilfov</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Iasi -->
@@ -449,7 +459,7 @@
         <span class="city-name">Iasi</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Pallas Mall</div>
           <div class="store-info">
@@ -464,7 +474,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Soseaua Pacurari 121, corp nou, vis-a-vis de Waikiki</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Olt -->
@@ -473,7 +483,7 @@
         <span class="city-name">Olt</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Caracal</div>
           <div class="store-info">
@@ -488,7 +498,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Blv Ioan Cuza, Bloc V4, Parter</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Prahova -->
@@ -497,7 +507,7 @@
         <span class="city-name">Prahova</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Shopping City Ploiesti</div>
           <div class="store-info">
@@ -505,7 +515,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Bulevardul Republicii 76, vis-a-vis de magazinul Teilor</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Suceava -->
@@ -514,7 +524,7 @@
         <span class="city-name">Suceava</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">Iulius Mall Suceava</div>
           <div class="store-info">
@@ -522,7 +532,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Calea Unirii 22, corp nou, vis-a-vis de H&M</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <!-- Valcea -->
@@ -531,7 +541,7 @@
         <span class="city-name">Valcea</span>
         <div class="city-toggle"><span class="toggle-plus">+</span><span class="toggle-minus">—</span></div>
       </div>
-      <div class="city-stores">
+      <div class="city-stores"><div class="city-stores-inner">
         <div class="store-item">
           <div class="store-name">River Plaza Mall</div>
           <div class="store-info">
@@ -539,7 +549,7 @@
             <div class="store-info-row"><div class="store-icon">{{ address_icon }}</div><div class="store-text">Str. Calea lui Traian nr. 121</div></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
 
   </div>
