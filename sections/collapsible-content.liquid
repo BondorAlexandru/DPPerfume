@@ -95,6 +95,21 @@
 										</div>
 									{%- endif -%}
 								</div>
+							{% elsif block.type == 'text' %}
+								<div class="collapsible-content__item collapsible-content__item--text" {{ block.shopify_attributes }}>
+									{%- if block.settings.question != blank -%}
+										<h3 class="collapsible-content__question">
+											{{ block.settings.question | escape }}
+										</h3>
+									{%- endif -%}
+									{%- if block.settings.answer != blank -%}
+										<div class="collapsible-content__answer" style="display: block;">
+											<div class="collapsible-content__answer-inner">
+												{{ block.settings.answer }}
+											</div>
+										</div>
+									{%- endif -%}
+								</div>
 							{% endif %}
 						{%- endfor -%}
 					</div>
@@ -146,6 +161,25 @@
 					"type": "richtext",
 					"id": "answer",
 					"default": "t:sections.collapsible-content.blocks.answer.default",
+					"label": "t:sections.all.text.label"
+				}
+			]
+		},
+		{
+			"type": "text",
+			"name": "Text",
+			"limit": 20,
+			"settings": [
+				{
+					"type": "text",
+					"id": "question",
+					"default": "Text title",
+					"label": "t:sections.all.heading.label"
+				},
+				{
+					"type": "richtext",
+					"id": "answer",
+					"default": "<p>Add your content here.</p>",
 					"label": "t:sections.all.text.label"
 				}
 			]

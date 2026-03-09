@@ -409,3 +409,9 @@
 .collapsible-content__answer-inner *:last-child {
   margin-bottom: 0;
 }
+.collapsible-content__item--text > .collapsible-content__question {
+  padding: 1.6rem 0 0;
+}
+.collapsible-content__item--text > .collapsible-content__answer {
+  display: block;
+}
