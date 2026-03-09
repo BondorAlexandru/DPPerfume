@@ -197,7 +197,7 @@
         "button_label": "",
         "button_link": "",
         "button_style": "simple",
-        "margin_top": "no-indent",
+        "margin_top": "l",
         "margin_bottom": "m"
       }
     }
