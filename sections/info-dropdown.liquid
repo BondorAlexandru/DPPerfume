@@ -78,6 +78,22 @@
   .info-dropdown-block__content .rte p:last-child {
     margin-bottom: 0;
   }
+  .info-dropdown-block__text {
+    padding: 24px 0;
+  }
+  .info-dropdown-block__text .rte {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(var(--color-foreground));
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .info-dropdown-block__text .rte p {
+    margin: 0 0 1em;
+  }
+  .info-dropdown-block__text .rte p:last-child {
+    margin-bottom: 0;
+  }
   @media screen and (max-width: 749px) {
     .info-dropdown-{{ section.id }} {
       padding: 0 16px;
@@ -95,7 +111,18 @@
   <div class="info-dropdown__wrapper">
     {%- for block in section.blocks -%}
       <div class="info-dropdown-block" {{ block.shopify_attributes }}>
-        {%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
+        {%- if block.type == 'text_item' -%}
+          <div class="info-dropdown-block__text">
+            {%- if block.settings.title != blank -%}
+              <h3 class="info-dropdown-block__title h3">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.content != blank -%}
+              <div class="rte">{{ block.settings.content }}</div>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          {%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
+        {%- endif -%}
       </div>
     {%- endfor -%}
   </div>
@@ -133,6 +160,25 @@
           "id": "open_by_default",
           "label": "Open by default",
           "default": false
+        }
+      ]
+    },
+    {
+      "type": "text_item",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Text title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "info": "Connect to a product metafield using the dynamic source button",
+          "default": "<p>Add your content here.</p>"
         }
       ]
     }
