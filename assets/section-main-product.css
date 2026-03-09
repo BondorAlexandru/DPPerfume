@@ -2869,4 +2869,9 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
   .product__media-list.js-media-list {
     touch-action: pan-y !important;
   }
+  .product__media-list.media_size-landscape .product__media,
+  .product__media-list.media_size-portrait .product__media,
+  .product__media-list.media_size-square .product__media {
+    height: 342px !important;
+  }
 }
