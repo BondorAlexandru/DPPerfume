@@ -16,7 +16,7 @@
 <div class="collapsible-content{% if count != 0 %} collapsible-content--{{ section.settings.aspect_ratio }}{% endif %} background color-background-1 section-{{ section.id }}">
 	<div class="container">
 		{% if count != 0 %}
-			<div class="collapsible-content__gallery{% if section.settings.enable_animation %} observe-me{% endif %}" data-speed="{{ section.settings.slideshow_speed }}" data-id="{{ section.id }}">
+			<div class="collapsible-content__gallery{% if section.settings.enable_animation and count > 1 %} observe-me{% endif %}" data-speed="{{ section.settings.slideshow_speed }}" data-id="{{ section.id }}">
 				{% assign index_count = count %}
 				{%- for block in section.blocks -%}
 					{% if block.type == 'image' %}
@@ -47,7 +47,7 @@
 							{% endif %}
 					{%- endif -%}
 				{%- endfor -%}
-			{% if section.settings.enable_animation %}<div class="collapsible-content__animated-overlay" style="z-index: {{count}}"></div>{% endif %}
+			{% if section.settings.enable_animation and count > 1 %}<div class="collapsible-content__animated-overlay" style="z-index: {{count}}"></div>{% endif %}
 			</div>
 		{% endif %}
 		<div class="collapsible-content__info">
