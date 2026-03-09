@@ -2860,3 +2860,13 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
 .info-dropdown-block__content .rte + .rte {
   margin-top: 1em;
 }
+
+@media screen and (max-width: 749px) {
+  .product__media-sublist,
+  .product__media-sublist .swiper-wrapper {
+    touch-action: pan-y !important;
+  }
+  .product__media-list.js-media-list {
+    touch-action: pan-y !important;
+  }
+}
