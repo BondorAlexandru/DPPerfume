@@ -33,39 +33,6 @@
         "margin_bottom": "no-indent"
       }
     },
-    "3d_visualizer_4tG8kY": {
-      "type": "3d-visualizer",
-      "blocks": {
-        "model_item_ynaiik": {
-          "type": "model_item",
-          "settings": {
-            "label": "Model 1",
-            "model_url": "https://cdn.shopify.com/3d/models/74815c53737b595e/Copilot3D-b5816098-31c6-4802-9ea9-509f4e9b5d8a.glb"
-          }
-        }
-      },
-      "block_order": [
-        "model_item_ynaiik"
-      ],
-      "name": "3D Visualizer",
-      "settings": {
-        "heading": "Un semn al Excelenței",
-        "subheading": "Forma Noastră Unică",
-        "text": "<p>Sticla noastră unică este mai mult decât un simplu recipient; este simbolul durabil al anilor care au consacrat D&P Perfumum drept parfumierul tău de încredere. Silueta sa curată și inconfundabilă reprezintă sigiliul nostru absolut de excelență, reflectând o dedicare neobosită pentru arta parfumeriei fine. </p><p>Am eliminat detaliile inutile pentru a ne concentra exclusiv pe calitatea excepțională a esenței din interior. Această formă iconică este manifestul nostru modern: promisiunea fermă că parfumurile incredibile, persistente, pot și trebuie să fie accesibile tuturor, fără compromisuri. Când ții în mână sticla noastră, ții decenii de pasiune, măiestrie premium și un preț corect. Este semnătura noastră, creată pentru a deveni parte din povestea ta de zi cu zi.</p>",
-        "button_label": "Descoperă colecția clasică",
-        "button_link": "shopify://collections/classic-collection",
-        "background_color": "#fafafa",
-        "auto_rotate": true,
-        "rotation_delay": "500",
-        "rotation_speed": 25,
-        "camera_controls": true,
-        "exposure": 1,
-        "bloom_intensity": 0.3,
-        "hdr_environment_url": "",
-        "margin_top": "m",
-        "margin_bottom": "m"
-      }
-    },
     "steps_MdG7i6": {
       "type": "steps",
       "blocks": {
@@ -107,216 +74,46 @@
         "include_margins": true
       }
     },
-    "ss_instafeed_9_4LQAKG": {
-      "type": "ss-instafeed-9",
+    "collapsible_content_kriUb6": {
+      "type": "collapsible-content",
       "blocks": {
-        "sub_heading_CcQpyY": {
-          "type": "sub_heading",
-          "settings": {
-            "sub_heading": "<h3>Subheading</h3>",
-            "sub_heading_custom": false,
-            "sub_heading_font": "josefin_sans_n4",
-            "sub_heading_size": 12,
-            "sub_heading_size_mobile": 12,
-            "sub_heading_advanced": false,
-            "sub_heading_height": 130,
-            "sub_heading_mt": 0,
-            "sub_heading_mt_mobile": 0,
-            "sub_heading_color": "#121212"
-          }
-        },
-        "heading_wwngQy": {
-          "type": "heading",
-          "settings": {
-            "heading": "<h2>Instafeed #9</h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_size": 48,
-            "heading_size_mobile": 32,
-            "heading_advanced": false,
-            "heading_height": 130,
-            "heading_mt": 12,
-            "heading_mt_mobile": 12,
-            "heading_color": "#121212"
-          }
-        },
-        "text_ELNBQj": {
+        "text_KkAPgq": {
           "type": "text",
           "settings": {
-            "text": "<p>Tell your story</p>",
-            "text_custom": false,
-            "text_font": "josefin_sans_n4",
-            "text_size": 18,
-            "text_size_mobile": 14,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_mt": 16,
-            "text_mt_mobile": 12,
-            "text_color": "#121212"
+            "question": "",
+            "answer": "<p>Sticla noastră unică este mai mult decât un simplu recipient; este simbolul durabil al anilor care au consacrat D&P Perfumum drept parfumierul tău de încredere. Silueta sa curată și inconfundabilă reprezintă sigiliul nostru absolut de excelență, reflectând o dedicare neobosită pentru arta parfumeriei fine.<br/><br/>Am eliminat detaliile inutile pentru a ne concentra exclusiv pe calitatea excepțională a esenței din interior. Această formă iconică este manifestul nostru modern: promisiunea fermă că parfumurile incredibile, persistente, pot și trebuie să fie accesibile tuturor, fără compromisuri. Când ții în mână sticla noastră, ții decenii de pasiune, măiestrie premium și un preț corect. Este semnătura noastră, creată pentru a deveni parte din povestea ta de zi cu zi.</p>"
           }
         },
-        "button_Uj9KVU": {
-          "type": "button",
-          "settings": {
-            "button": "@ourbrand",
-            "url": "",
-            "open_in_new_tab": false,
-            "button_style": "outline",
-            "button_custom": false,
-            "button_font": "josefin_sans_n4",
-            "button_size": 14,
-            "button_size_mobile": 14,
-            "button_advanced": false,
-            "button_height": 100,
-            "button_padding_horizontal": 32,
-            "button_padding_horizontal_mobile": 32,
-            "button_padding_vertical": 16,
-            "button_padding_vertical_mobile": 16,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_color": "#121212",
-            "button_hover_color": "#ffffff",
-            "button_bg_color": "#ffffff",
-            "button_bg_hover_color": "#121212",
-            "button_border_color": "#121212",
-            "button_border_hover_color": "#121212"
-          }
-        },
-        "video_R4hgpt": {
-          "type": "video",
-          "settings": {
-            "source": "uploaded",
-            "video_url": "",
-            "use_big_video": true
-          }
-        },
-        "image_WB3Amd": {
+        "image_rg36wt": {
           "type": "image",
           "settings": {
-            "url": "",
-            "use_big_image": false
-          }
-        },
-        "image_PqBdhr": {
-          "type": "image",
-          "settings": {
-            "url": "",
-            "use_big_image": false
-          }
-        },
-        "video_R7Dnzg": {
-          "type": "video",
-          "settings": {
-            "source": "uploaded",
-            "video_url": "",
-            "use_big_video": true
-          }
-        },
-        "video_n9C3qr": {
-          "type": "video",
-          "settings": {
-            "source": "uploaded",
-            "video_url": "",
-            "use_big_video": false
-          }
-        },
-        "image_UN3Ema": {
-          "type": "image",
-          "settings": {
-            "url": "",
-            "use_big_image": true
-          }
-        },
-        "image_xikxgJ": {
-          "type": "image",
-          "settings": {
-            "url": "",
-            "use_big_image": false
-          }
-        },
-        "video_7bfUzi": {
-          "type": "video",
-          "settings": {
-            "source": "uploaded",
-            "video_url": "",
-            "use_big_video": false
-          }
-        },
-        "image_dfMfPX": {
-          "type": "image",
-          "settings": {
-            "url": "",
-            "use_big_image": false
+            "image": "shopify://shop_images/Classic_Bottle_Shape.jpg"
           }
         }
       },
       "block_order": [
-        "sub_heading_CcQpyY",
-        "heading_wwngQy",
-        "text_ELNBQj",
-        "button_Uj9KVU",
-        "video_R4hgpt",
-        "image_WB3Amd",
-        "image_PqBdhr",
-        "video_R7Dnzg",
-        "video_n9C3qr",
-        "image_UN3Ema",
-        "image_xikxgJ",
-        "video_7bfUzi",
-        "image_dfMfPX"
+        "text_KkAPgq",
+        "image_rg36wt"
       ],
-      "name": "SS - Instafeed #9",
+      "name": "t:sections.collapsible-content.name",
       "settings": {
-        "content_max_width": 80,
-        "content_align": "left",
-        "content_align_mobile": "left",
-        "cards_per_row": 9,
-        "cards_per_row_mobile": "2",
-        "use_slider_mobile": true,
-        "cards_advanced": false,
-        "cards_gap": 16,
-        "cards_gap_mobile": 16,
-        "cards_mt": 48,
-        "cards_mt_mobile": 32,
-        "media_radius": 0,
-        "media_border_thickness": 0,
-        "media_ratio": "portrait",
-        "media_ratio_mobile": "portrait",
-        "icon_size": 32,
-        "icon_size_mobile": 32,
-        "icon_border_thickness": 0,
-        "icon_position": "bottom_left",
-        "icon_position_mobile": "bottom_left",
-        "media_border_color": "#000000",
-        "icon_color": "#ffffff",
-        "icon_bg_color": "#000000",
-        "icon_bg_opacity": 0.3,
-        "icon_border_color": "#ffffff",
-        "background_style": "solid",
-        "background_color": "#ffffff",
-        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
-        "border_color": "#121212",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "width": "page",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
+        "aspect_ratio": "medium",
+        "heading": "Un semn al excelenței",
+        "heading_size": "h1",
+        "enable_animation": true,
+        "slideshow_speed": 4,
+        "button_label": "Learn More",
+        "button_link": "",
+        "button_style": "simple",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
       }
     }
   },
   "order": [
     "image_with_text_rfjwNg",
-    "3d_visualizer_4tG8kY",
     "steps_MdG7i6",
     "1770243434fa097dcf",
-    "ss_instafeed_9_4LQAKG"
+    "collapsible_content_kriUb6"
   ]
 }
