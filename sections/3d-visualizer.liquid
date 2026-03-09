@@ -21,7 +21,12 @@
               {%- for block in section.blocks -%}
                 <button
                   class="visualizer-3d__nav-btn{% if forloop.first %} visualizer-3d__nav-btn--active{% endif %}"
-                  data-model-url="{{ block.settings.model_url }}"
+                  data-block-type="{{ block.type }}"
+                  {%- if block.type == 'model_item' -%}
+                    data-model-url="{{ block.settings.model_url }}"
+                  {%- elsif block.type == 'image_item' and block.settings.image -%}
+                    data-image-url="{{ block.settings.image | image_url: width: 1600 }}"
+                  {%- endif -%}
                   {{ block.shopify_attributes }}
                 >
                   {{ block.settings.label }}
@@ -36,8 +41,13 @@
               style="background-image: url('{{ section.settings.poster_image | image_url: width: 1200 }}'); background-size: contain; background-position: center; background-repeat: no-repeat;"
             {%- endif -%}
           >
-            <canvas id="Canvas-{{ section.id }}"></canvas>
-            <div class="visualizer-3d__spinner" id="Spinner-{{ section.id }}">
+            <canvas id="Canvas-{{ section.id }}"{% if first_block.type == 'image_item' %} style="display:none;"{% endif %}></canvas>
+            <div class="visualizer-3d__image-display" id="ImageDisplay-{{ section.id }}"{% if first_block.type != 'image_item' %} style="display:none;"{% endif %}>
+              {%- if first_block.type == 'image_item' and first_block.settings.image -%}
+                {{ first_block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'visualizer-3d__image' }}
+              {%- endif -%}
+            </div>
+            <div class="visualizer-3d__spinner" id="Spinner-{{ section.id }}"{% if first_block.type == 'image_item' %} style="display:none;"{% endif %}>
               <div class="visualizer-3d__spinner-ring"></div>
             </div>
           </div>
@@ -60,9 +70,12 @@
               {%- if section.settings.button_link != blank -%}
                 href="{{ section.settings.button_link }}"
               {%- endif -%}
-              class="button"
+              class="button button--{{ section.settings.button_style }} focus-inset"
+              {%- if section.settings.button_link == blank %}
+                aria-disabled="true"
+              {%- endif %}
             >
-              {{ section.settings.button_label }}
+              <span>{{- section.settings.button_label | escape -}}</span>
             </a>
           {%- endif -%}
         </div>
@@ -89,6 +102,7 @@
 
     var canvas = document.getElementById('Canvas-{{ section.id }}');
     var spinner = document.getElementById('Spinner-{{ section.id }}');
+    var imageDisplay = document.getElementById('ImageDisplay-{{ section.id }}');
     var navButtons = sectionEl.querySelectorAll('.visualizer-3d__nav-btn');
 
     if (!canvas) return;
@@ -108,11 +122,26 @@
       }
     });
 
-    {% if first_block and first_block.settings.model_url != blank %}
+    function showCanvas() {
+      canvas.style.display = '';
+      imageDisplay.style.display = 'none';
+    }
+
+    function showImage(url) {
+      canvas.style.display = 'none';
+      imageDisplay.innerHTML = '<img src="' + url + '" class="visualizer-3d__image" loading="lazy">';
+      imageDisplay.style.display = '';
+      spinner.style.display = 'none';
+      canvas.parentElement.style.backgroundImage = 'none';
+    }
+
+    {% if first_block.type == 'model_item' and first_block.settings.model_url != blank %}
       viewer.loadModel('{{ first_block.settings.model_url }}').catch(function(err) {
         console.error('Failed to load initial model:', err);
         if (spinner) spinner.style.display = 'none';
       });
+    {% elsif first_block.type == 'image_item' %}
+      // Image is already rendered server-side
     {% else %}
       if (spinner) spinner.style.display = 'none';
     {% endif %}
@@ -120,22 +149,30 @@
     if (navButtons.length > 0) {
       navButtons.forEach(function(button) {
         button.addEventListener('click', function() {
-          var modelUrl = this.getAttribute('data-model-url');
-          if (!modelUrl) return;
+          var blockType = this.getAttribute('data-block-type');
 
           navButtons.forEach(function(btn) {
             btn.classList.remove('visualizer-3d__nav-btn--active');
           });
           this.classList.add('visualizer-3d__nav-btn--active');
 
-          spinner.style.display = 'flex';
-          canvas.parentElement.style.backgroundImage = 'none';
+          if (blockType === 'image_item') {
+            var imageUrl = this.getAttribute('data-image-url');
+            if (imageUrl) showImage(imageUrl);
+          } else {
+            var modelUrl = this.getAttribute('data-model-url');
+            if (!modelUrl) return;
 
-          viewer.loadModel(modelUrl).catch(function(err) {
-            console.error('Failed to load model:', err);
-          }).finally(function() {
-            spinner.style.display = 'none';
-          });
+            showCanvas();
+            spinner.style.display = 'flex';
+            canvas.parentElement.style.backgroundImage = 'none';
+
+            viewer.loadModel(modelUrl).catch(function(err) {
+              console.error('Failed to load model:', err);
+            }).finally(function() {
+              spinner.style.display = 'none';
+            });
+          }
         });
       });
     }
@@ -188,6 +225,18 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "tertiary", "label": "Tertiary" },
+        { "value": "simple", "label": "Simple" }
+      ],
+      "default": "primary"
     },
     {
       "type": "header",
@@ -322,6 +371,24 @@
           "id": "model_url",
           "label": "GLB file URL",
           "info": "Upload a .glb file to Shopify Settings > Files, then paste the URL here"
+        }
+      ]
+    },
+    {
+      "type": "image_item",
+      "name": "Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button label",
+          "default": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         }
       ]
     }
