@@ -103,6 +103,7 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
 @media screen and (min-width: 1100px) {
   .article-template__text {
     max-width: 60.8rem;
+    grid-column: 2;
   }
 }
 .article-template__text .page-header {
@@ -113,14 +114,22 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
   margin-top: 0.8rem;
   margin-bottom: 2.4rem;
   letter-spacing: -0.02em;
+  font-size: 36px;
 }
 .article-template__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.6rem;
-  margin-bottom: 1.6rem;
   line-height: var(--font-body-line-height);
+}
+@media screen and (min-width: 1100px) {
+  .article-template__meta {
+    grid-column: 2;
+  }
+}
+.article-template__meta--tags {
+  margin-bottom: 0;
 }
 .article-template__meta-left, .article-template__meta-right {
   display: flex;
@@ -165,6 +174,11 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
   margin: 0;
   list-style: none;
 }
+.article-template__tag > .card__subtitle {
+  padding: 7px 15px;
+  border-radius: 60px;
+  background-color: black;
+}
 .article-template__tag {
   z-index: 1;
   transition: opacity var(--duration-default) ease;
@@ -174,8 +188,8 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
   text-decoration: none;
 }
 .article-template__tag * {
-  font-weight: 500;
-  color: rgb(var(--color-foreground));
+  font-size: calc(var(--font-body-second-scale) * 1rem);
+  color: white;
 }
 @media screen and (min-width: 750px) {
   .article-template__tag:hover {
@@ -183,10 +197,15 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
   }
 }
 .article-template__date {
+  background-color: black;
+  border-radius: 60px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   column-gap: 0.6rem;
+}
+.article-template__date > .card__subtitle {
+  border: none;
 }
 .article-template__date .card__subtitle {
   display: flex;
@@ -196,7 +215,8 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
   font-weight: var(--font-body-weight);
   line-height: var(--font-body-line-height);
   letter-spacing: normal;
-  color: rgb(var(--color-foreground-secondary));
+  color: white;
+  padding: 7px 15px;
 }
 .article-template__date .card__subtitle:first-child:not(:last-child)::after {
   content: "";
@@ -262,6 +282,8 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
 .article-template__hero {
   max-width: 97.2rem;
   margin: 0 auto;
+  padding-inline: 20px;
+  padding-top: 20px;
 }
 .article-template__excerpt {
   margin-top: 0;

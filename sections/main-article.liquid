@@ -85,45 +85,12 @@
             "
           >
             <div class="article-template__info container">
-              {%- if block.settings.blog_show_author
-                or block.settings.blog_show_tags
-                or block.settings.blog_show_date
-              -%}
-                <div class="article-template__meta">
-                  <div class="article-template__meta-left">
-
-                    {%- if article.tags != blank
-                      and block.settings.blog_show_tags == true
-                    -%}
-                      <ul class="article-template__tags">
-                        {% for tag in article.tags %}
-                          <li class="article-template__tag card__subtitle">
-                            <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="card__subtitle">
-                              <span title="{{ tag }}" class="secondary_text">
-                                {{- tag }}
-                                {%- if forloop.last == false -%},{%- endif -%}
-                              </span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    {%- endif -%}
-                  </div>
-
-                  <div class="article-template__meta-right">
-                    {%- if block.settings.blog_show_date -%}
-                      <div class="article-template__date {% if section.settings.header_variant %} article-template__date_overlay {% endif %}">
-                        <span class="card__subtitle" itemprop="dateCreated pubdate datePublished">
-                          <span>{{ article.published_at | date: "%d/%m/%Y" }}</span>
-                        </span>
-                        {% comment %} {% if article.updated_at != article.published_at %}
-                          <span class="card__subtitle" itemprop="dateCreated pubdate datePublished">
-                            {{- 'general.blog.update' | t | append: ':' }} 
-                            <span>{{ article.updated_at | date: "%d/%m/%Y" }}</span>
-                          </span>
-                        {% endif %} {% endcomment %}
-                      </div>
-                    {%- endif -%}
+              {%- if block.settings.blog_show_date -%}
+                <div class="article-template__meta article-template__meta--date">
+                  <div class="article-template__date {% if section.settings.header_variant %} article-template__date_overlay {% endif %}">
+                    <span class="card__subtitle" itemprop="dateCreated pubdate datePublished">
+                      <span>{{ article.published_at | date: "%d/%m/%Y" }}</span>
+                    </span>
                   </div>
                   {%- if block.settings.blog_show_author -%}
                     <div
@@ -138,7 +105,7 @@
                     </div>
                   {%- endif -%}
                 </div>
-              {% endif %}
+              {%- endif -%}
               <div class="article-template__text">
                 <div class="page-header">
                   <div class="page-header__inner">
@@ -153,6 +120,22 @@
                   </div>
                 {%- endif -%}
               </div>
+              {%- if article.tags != blank and block.settings.blog_show_tags == true -%}
+                <div class="article-template__meta article-template__meta--tags">
+                  <ul class="article-template__tags">
+                    {% for tag in article.tags %}
+                      <li class="article-template__tag">
+                        <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="card__subtitle">
+                          <span title="{{ tag }}" class="secondary_text">
+                            {{- tag }}
+                            {%- if forloop.last == false -%},{%- endif -%}
+                          </span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {%- endif -%}
 
             </div>
             {% if section.settings.header_variant == 'row' %}
