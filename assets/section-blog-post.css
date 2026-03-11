@@ -482,6 +482,7 @@ main .shopify-section:first-child.not-margin .section--overlay > .article-templa
 .article-template .previous_next_links_block .previous_next_links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 7rem;
 }
 @media screen and (max-width: 575px) {
   .article-template .previous_next_links_block .previous_next_links {
