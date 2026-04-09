@@ -1139,6 +1139,22 @@
 									{%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
 								</div>
 
+							{%- when 'fragrance_general' -%}
+								{%- capture general_content -%}
+									<p>{{ block.settings.label_famille }}: {{ product.metafields.fragrance.olfactory_family.value | join: ", " }}<br/>{{ block.settings.label_occasion }}: {{ product.metafields.fragrance.occasion.value | join: ", " }}<br/>{{ block.settings.label_intensity }}: {{ product.metafields.fragrance.intensity.value | join: ", " }}</p>
+								{%- endcapture -%}
+								<div class="info-dropdown-block" {{ block.shopify_attributes }}>
+									{%- render 'info-dropdown-item', title: block.settings.title, content: general_content, open_by_default: block.settings.open_by_default -%}
+								</div>
+
+							{%- when 'fragrance_notes' -%}
+								{%- capture notes_content -%}
+									<p>{{ block.settings.label_varf }}: {{ product.metafields.fragrance.note_varf.value | join: ", " }}<br/>{{ block.settings.label_medii }}: {{ product.metafields.fragrance.note_medii.value | join: ", " }}<br/>{{ block.settings.label_baza }}: {{ product.metafields.fragrance.note_baza.value | join: ", " }}</p>
+								{%- endcapture -%}
+								<div class="info-dropdown-block" {{ block.shopify_attributes }}>
+									{%- render 'info-dropdown-item', title: block.settings.title, content: notes_content, open_by_default: block.settings.open_by_default -%}
+								</div>
+
 							{%- when '@app' -%}
 								{% render block %}
 						{%- endcase -%}

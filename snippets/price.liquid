@@ -45,7 +45,21 @@
   if target == product and product.compare_at_price_varies
 	assign money_compare_at_price = compare_at_price_min | append: ' - ' | append: compare_at_price_max
   endif
-	
+
+  assign volume_ml = 0
+  for option_value in target.options
+    assign option_upper = option_value | upcase
+    if option_upper contains 'ML'
+      assign vol_parts = option_upper | split: ' ML'
+      assign volume_ml = vol_parts[0] | times: 1
+    endif
+  endfor
+
+  if volume_ml > 0
+    assign price_decimal = price | times: 1.0 | divided_by: 100
+    assign price_per_ml = price_decimal | divided_by: volume_ml | round: 2
+  endif
+
 -%}
 
 <div
@@ -76,6 +90,9 @@
         <span class="price-item price-item--regular">
           {{ money_price }}
         </span>
+        {%- if volume_ml > 0 -%}
+          <span class="price__per-litre">Preț per mililitru: {{ price_per_ml }} lei/mL</span>
+        {%- endif -%}
       </dd>
     </div>
     <div class="price__sale">
@@ -98,8 +115,11 @@
         <span class="price-item price-item--sale">
           {{ money_price }}
         </span>
+        {%- if volume_ml > 0 -%}
+          <span class="price__per-litre">Preț per mililitru: {{ price_per_ml }} lei/mL</span>
+        {%- endif -%}
       </dd>
-      
+
     </div>
     <dl class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
       <dt class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</dt>

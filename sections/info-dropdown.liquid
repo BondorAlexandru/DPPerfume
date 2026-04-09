@@ -78,6 +78,13 @@
   .info-dropdown-block__content .rte p:last-child {
     margin-bottom: 0;
   }
+  .info-dropdown-block__content--comma .rte p {
+    display: inline;
+    margin: 0;
+  }
+  .info-dropdown-block__content--comma .rte p:not(:last-child)::after {
+    content: ", ";
+  }
   .info-dropdown-block__text {
     padding: 24px 0;
   }
@@ -121,7 +128,7 @@
             {%- endif -%}
           </div>
         {%- else -%}
-          {%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default -%}
+          {%- render 'info-dropdown-item', title: block.settings.title, content: block.settings.content, open_by_default: block.settings.open_by_default, comma_separated: block.settings.comma_separated -%}
         {%- endif -%}
       </div>
     {%- endfor -%}
@@ -159,6 +166,12 @@
           "type": "checkbox",
           "id": "open_by_default",
           "label": "Open by default",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "comma_separated",
+          "label": "Comma separated items",
           "default": false
         }
       ]

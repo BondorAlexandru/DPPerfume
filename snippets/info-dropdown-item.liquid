@@ -6,7 +6,7 @@
       <span class="toggle-minus">&mdash;</span>
     </div>
   </button>
-  <div class="info-dropdown-block__content">
+  <div class="info-dropdown-block__content {% if comma_separated %}info-dropdown-block__content--comma{% endif %}">
     <div class="info-dropdown-block__content-inner">
       {%- if content != blank -%}
         <div class="rte">{{ content }}</div>

@@ -1,9 +1,16 @@
+.price__per-litre {
+  display: block;
+  font-size: 1.1rem;
+  color: rgba(var(--color-foreground), 0.5);
+  margin-top: 0.2rem;
+}
+
 .price-wrapper {
   margin-top: 1.6rem;
 }
 
 .price {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -86,12 +93,12 @@
 
 .price__sale dd {
   display: flex;
-  align-items: flex-end;
-  text-align: end;
+  align-items: flex-start;
+  text-align: start;
 }
 
 .price__regular dd {
-  text-align: end;
+  text-align: start;
 }
 
 .unit-price {

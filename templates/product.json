@@ -62,21 +62,25 @@
             "description": ""
           }
         },
-        "info_dropdown_ecNApx": {
-          "type": "info_dropdown",
+        "fragrance_general_ecNApx": {
+          "type": "fragrance_general",
           "name": "Caracteristici Generale",
           "settings": {
             "title": "Caracteristici Generale",
-            "content": "<p>Familie Olfactivă: {{ product.metafields.fragrance.olfactory_family.value }}<br/>Ocazie: {{ product.metafields.fragrance.occasion.value }}<br/>Intensitate: {{ product.metafields.fragrance.intensity.value }}</p>",
+            "label_famille": "Familie Olfactivă",
+            "label_occasion": "Ocazie",
+            "label_intensity": "Intensitate",
             "open_by_default": true
           }
         },
-        "info_dropdown_VqdXwE": {
-          "type": "info_dropdown",
+        "fragrance_notes_VqdXwE": {
+          "type": "fragrance_notes",
           "name": "Note",
           "settings": {
             "title": "Note",
-            "content": "<p>Note de vârf: {{ product.metafields.fragrance.note_varf.value }}<br/>Note mijlocii: {{ product.metafields.fragrance.note_medii.value }}<br/>Note de bază: {{ product.metafields.fragrance.note_baza.value }}</p>",
+            "label_varf": "Note de vârf",
+            "label_medii": "Note mijlocii",
+            "label_baza": "Note de bază",
             "open_by_default": false
           }
         },
@@ -185,8 +189,8 @@
         "variant_picker",
         "buy_buttons",
         "description_J3BppF",
-        "info_dropdown_ecNApx",
-        "info_dropdown_VqdXwE",
+        "fragrance_general_ecNApx",
+        "fragrance_notes_VqdXwE",
         "popup_BeT88j",
         "popup_tKQKC4",
         "popup_GdpXHw",
