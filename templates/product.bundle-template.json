@@ -65,6 +65,7 @@
         "info_dropdown_ecNApx": {
           "type": "info_dropdown",
           "name": "Caracteristici Generale",
+          "disabled": true,
           "settings": {
             "title": "Caracteristici Generale",
             "content": "<p>Familie Olfactivă: {{ product.metafields.fragrance.olfactory_family.value }}<br/>Ocazie: {{ product.metafields.fragrance.occasion.value }}<br/>Intensitate: {{ product.metafields.fragrance.intensity.value }}</p>",
@@ -74,6 +75,7 @@
         "info_dropdown_VqdXwE": {
           "type": "info_dropdown",
           "name": "Note",
+          "disabled": true,
           "settings": {
             "title": "Note",
             "content": "<p>Note de vârf: {{ product.metafields.fragrance.note_varf.value }}<br/>Note mijlocii: {{ product.metafields.fragrance.note_medii.value }}<br/>Note de bază: {{ product.metafields.fragrance.note_baza.value }}</p>",
@@ -83,6 +85,7 @@
         "popup_BeT88j": {
           "type": "popup",
           "name": "Cum Miroase Produsul?",
+          "disabled": true,
           "settings": {
             "label": "Cum Miroase {{ product.title }}?",
             "text": "{{ product.metafields.fragrance.description_1 | metafield_tag }}",
@@ -94,6 +97,7 @@
         "popup_tKQKC4": {
           "type": "popup",
           "name": "Cum și când să folosești?",
+          "disabled": true,
           "settings": {
             "label": "Cum și când să îl folosești?",
             "text": "{{ product.metafields.fragrance.description_2 | metafield_tag }}",
@@ -105,6 +109,7 @@
         "popup_GdpXHw": {
           "type": "popup",
           "name": "De ce să alegi",
+          "disabled": true,
           "settings": {
             "label": "De ce să alegi {{ product.title }} de la D&P?",
             "text": "{{ product.metafields.fragrance.description_3 | metafield_tag }}",

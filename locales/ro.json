@@ -22,6 +22,7 @@
       "burger_menu": "Meniu burgeri",
       "burger_menu_open": "Deschide meniul de burgeri",
       "popular_articles": "Cele mai populare postări",
+      "cart": "Coș",
       "cart_count": {
         "one": "{{ count }} articol",
         "other": "{{ count }} articole"
@@ -34,6 +35,7 @@
       "Light_mode": "Mod de lumină: Activat"
     },
     "cart": {
+      "subtotal": "Subtotal",
       "title": "Cărucior de cumpărături",
       "title2": "Rezumatul comenzii",
       "caption": "Articole în coș",
@@ -58,7 +60,8 @@
       "headings": {
         "product": "Produs",
         "price": "Preţ",
-        "quantity": "Cantitate"
+        "quantity": "Cantitate",
+        "total": "Total"
       },
       "update": "Actualizare",
       "remove": "Elimina"
@@ -75,7 +78,9 @@
       "read_more": "Citeşte mai mult",
       "onboarding_title": "Sursa ta pentru știri, tendințe și povești",
       "onboarding_content": "Oferă-le clienților tăi un rezumat al postării tale de pe blog",
-      "tag": "Tendințe"
+      "tag": "Tendințe",
+      "author": "Autor",
+      "date": "Data"
     },
     "featured_article": {
       "onboarding_title": "Postare pe blog",
@@ -149,6 +154,18 @@
         "share_on_facebook": "Distribuie pe Facebook",
         "share_on_twitter": "Tweet pe Twitter",
         "share_on_pinterest": "Fixează pe Pinterest"
+      },
+      "links": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "linkedin": "LinkedIn",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
       }
     },
     "continue_shopping": "Continuă cumpărăturile",
@@ -167,7 +184,8 @@
       "articles": "Povești",
       "pages": "Pagini",
       "placeholder": "Tastați pentru a căuta",
-      "header_placeholder": "Ce căutați?"
+      "header_placeholder": "Ce căutați?",
+      "popular_items": "Produse populare"
     },
     "card": {
       "view__all": "Vezi toate",
@@ -183,7 +201,8 @@
       "view": "Vizualizați coșul de cumpărături",
       "empty_cart": "Coșul dvs. de cumpărături este gol",
       "button_label": "Explorează colecțiile",
-      "item_added_notification": "Produs adăugat corect în coș"
+      "item_added_notification": "Produs adăugat corect în coș",
+      "item_added": "Articol adăugat în coș"
     },
     "share": {
       "copy_to_clipboard": "Copiază linkul",
@@ -191,11 +210,17 @@
       "share_url": "Legătură",
       "success_message": "Copiat",
       "links": {
-        "copy": "Copiază linkul"
+        "copy": "Copiază linkul",
+        "twitter": "Distribuie pe Twitter",
+        "facebook": "Distribuie pe Facebook",
+        "pinterest": "Distribuie pe Pinterest"
       }
     },
     "countdown": {
-      "hours": "ore"
+      "hours": "ore",
+      "days": "zile",
+      "minutes": "minute",
+      "seconds": "secunde"
     },
     "blog": {
       "author": "de",
@@ -219,6 +244,7 @@
     }
   },
   "customer": {
+    "log_in": "Autentificare",
     "order": {
       "fulfillment_status": "Starea îndeplinirii",
       "discount": "Reducere",
@@ -240,7 +266,11 @@
       "cancelled_reason": "Motiv: {{ reason }}",
       "billing_address": "Adresa de facturare",
       "payment_status": "Starea plății",
-      "shipping_address": "Adresa de transport"
+      "shipping_address": "Adresa de transport",
+      "date_html": "Plasată pe <time datetime='{{ date }}'>{{ date }}</time>",
+      "sku": "SKU",
+      "total": "Total",
+      "subtotal": "Subtotal"
     },
     "orders": {
       "title": "Istoricul comenzilor",
@@ -251,7 +281,8 @@
       "fulfillment_status": "Starea îndeplinirii",
       "total_refunded": "Rambursat",
       "total_duties": "Îndatoriri",
-      "shipping_free": "Gratuit"
+      "shipping_free": "Gratuit",
+      "total": "Total"
     },
     "recover_password": {
       "title": "Resetați parola",
@@ -370,7 +401,8 @@
     }
   },
   "popular": {
-    "new": "Nou"
+    "new": "Nou",
+    "url": "/collections/all"
   },
   "recipient": {
     "form": {
@@ -392,10 +424,10 @@
     "next": "Următorul"
   },
   "newsletter": {
-    "label": "Adresa dvs. de e-mail",
+    "label": "Adresa Email",
     "success": "Îți mulțumim pentru abonare. Detaliile au fost trimise pe adresa de e-mail.",
-    "button_label": "Abonează-te",
-    "button_label_request": "Trimiteți cererea"
+    "button_label": "Abonare",
+    "button_label_request": "Trimite"
   },
   "accessibility": {
     "skip_to_text": "Sari la conținut",
@@ -441,7 +473,8 @@
       "back_to_blog": "Înapoi la blog",
       "share": "Distribuie acest articol",
       "success": "Comentariul tău a fost postat cu succes! Mulțumesc!",
-      "success_moderated": "Comentariul tău a fost postat cu succes. Îl vom publica în scurt timp, deoarece blogul nostru este moderat."
+      "success_moderated": "Comentariul tău a fost postat cu succes. Îl vom publica în scurt timp, deoarece blogul nostru este moderat.",
+      "blog": "Blog"
     }
   },
   "onboarding": {
@@ -510,7 +543,8 @@
       "xr_button": "Vizualizare în spațiul dvs.",
       "xr_button_label": "Vizualizare în spațiul dvs., încarcă elementul în fereastra de realitate augmentată",
       "colors": "Culori",
-      "sizes": "Dimensiuni"
+      "sizes": "Dimensiuni",
+      "sku": "SKU"
     },
     "load_more": {
       "label": "Încărcați mai mult"
@@ -525,8 +559,8 @@
       "clear_all": "Ștergeți tot",
       "from": "Din",
       "filter_and_sort": "Filtrare și sortare",
-      "filter_by_label": "Filtra:",
-      "filter_button": "Filtra",
+      "filter_by_label": "Filtru:",
+      "filter_button": "Filtru",
       "items": "Articole",
       "hide_filters": "Ascunde filtrele",
       "show_filters": "Afișați filtrele",
@@ -554,13 +588,13 @@
   },
   "templates": {
     "search": {
-      "no_results_title": "Nu s-au găsit rezultate pentru cuvântul cheie „ {{ terms }} ”",
+      "no_results_title": "Nu s-au găsit rezultate pentru cuvântul cheie „ {{ terms }} ",
       "no_results": "Pentru a îmbunătăți rezultatele, verificați ortografia sau folosiți un cuvânt cheie mai general.",
       "results": "Se afișează {{ count }} rezultate.",
       "page": "Pagină",
       "results_with_count": {
-        "one": "{{ count }} rezultat găsit pentru „ {{ terms }} ”",
-        "other": "{{ count }} rezultate găsite pentru „ {{ terms }} ”"
+        "one": "{{ count }} rezultat găsit pentru „ {{ terms }} ",
+        "other": "{{ count }} rezultate găsite pentru „ {{ terms }} "
       },
       "title": "Rezultate căutare",
       "results_count": {
@@ -585,13 +619,14 @@
       },
       "products": "Produse",
       "results_with_count_and_term": {
-        "one": "{{ count }} rezultat găsit pentru „ {{ terms }} ”",
-        "other": "{{ count }} rezultate găsite pentru „ {{ terms }} ”"
+        "one": "{{ count }} rezultat găsit pentru „ {{ terms }} ",
+        "other": "{{ count }} rezultate găsite pentru „ {{ terms }} "
       },
-      "search_for": "Căutați „ {{ terms }} ”"
+      "search_for": "Căutați „ {{ terms }} "
     },
     "cart": {
-      "shopping_cart": "Cărucior de cumpărături"
+      "cart": "Coș",
+      "shopping_cart": "Coș"
     },
     "contact": {
       "form": {
@@ -600,7 +635,8 @@
         "comment": "Mesaj",
         "send": "Trimite",
         "post_success": "Vă mulțumim că ne-ați contactat. Vă vom răspunde cât mai curând posibil.",
-        "error_heading": "Vă rugăm să ajustați următoarele:"
+        "error_heading": "Vă rugăm să ajustați următoarele:",
+        "email": "E-mail"
       }
     },
     "404": {
@@ -621,5 +657,8 @@
     "save": "Salvați modificările",
     "language": "Selectați limba preferată",
     "current": "În prezent, expediați în {{ country }} , iar comanda dvs. va fi facturată în {{ currency }} ."
+  },
+  "date_formats": {
+    "month_year": "%B %Y"
   }
 }

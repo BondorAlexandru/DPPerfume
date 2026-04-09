@@ -52,8 +52,15 @@
     },
     "content_for_index": [],
     "blocks": {
-      "1656560654682496077": {
-        "type": "shopify://apps/instant-section-page-builder/blocks/instant_core/927e19d9-4e68-41db-99c7-d8debdc1f80d",
+      "1530068250781986104": {
+        "type": "shopify://apps/fbp-fast-bundle/blocks/fast_bundle/9e87fbe2-9041-4c23-acf5-322413994cef",
+        "disabled": false,
+        "settings": {
+          "home": false
+        }
+      },
+      "8605505498557855500": {
+        "type": "shopify://apps/bogos-io-free-gift/blocks/app-embed/0432bba6-720a-4e95-be5a-b868386f7aa6",
         "disabled": false,
         "settings": {}
       }

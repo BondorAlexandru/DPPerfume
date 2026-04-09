@@ -1,0 +1,676 @@
+{% comment %}
+  ============================================================
+  D&P Perfumum — Calitate și Certificări
+  Fișier: dp-quality-certifications.liquid
+  Instalare: Online Store → Themes → Edit code → /sections/ → New file
+  Adăugare: Customize → Despre Noi → Add section → "Calitate și Certificări"
+  ============================================================
+{% endcomment %}
+
+<style>
+  #dp-cert-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.color_background }};
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__inner {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* ── Header ─────────────────────────────────── */
+  #dp-cert-{{ section.id }} .dp-cert__header {
+    margin-bottom: {{ section.settings.header_gap }}px;
+    {% if section.settings.header_align == 'center' %}
+      text-align: center;
+    {% endif %}
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__overline {
+    display: block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    margin-bottom: 14px;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 16px;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__subheading {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.subheading_max_width }}px;
+    margin: 0;
+    {% if section.settings.header_align == 'center' %}
+      margin-left: auto;
+      margin-right: auto;
+    {% endif %}
+  }
+
+  /* ── Grid ────────────────────────────────────── */
+  #dp-cert-{{ section.id }} .dp-cert__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: {{ section.settings.card_gap }}px;
+    margin-bottom: {{ section.settings.grid_bottom_gap }}px;
+  }
+
+  /* ── Card ────────────────────────────────────── */
+  #dp-cert-{{ section.id }} .dp-cert__card {
+    background-color: {{ section.settings.color_card_bg }};
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: {{ section.settings.card_padding_v }}px {{ section.settings.card_padding_h }}px;
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    display: flex;
+    flex-direction: column;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__card-num {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.68rem);
+    letter-spacing: 0.2em;
+    color: {{ section.settings.color_text_muted }};
+    opacity: 0.5;
+    margin-bottom: {{ section.settings.num_gap }}px;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    border-radius: {{ section.settings.icon_radius }}px;
+    background-color: {{ section.settings.color_background }};
+    border: 1px solid {{ section.settings.color_card_border }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: {{ section.settings.icon_gap }}px;
+    flex-shrink: 0;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__icon svg {
+    width: {{ section.settings.icon_svg_size }}px;
+    height: {{ section.settings.icon_svg_size }}px;
+    stroke: {{ section.settings.color_text }};
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__card-title {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h3-scale) * 1.4rem);
+    line-height: 1.3;
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 {{ section.settings.title_gap }}px;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__card-desc {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.9rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    margin: 0;
+    flex: 1;
+  }
+
+  /* ── Bottom strip ────────────────────────────── */
+  {% if section.settings.show_strip %}
+  #dp-cert-{{ section.id }} .dp-cert__strip {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: {{ section.settings.strip_padding_v }}px {{ section.settings.strip_padding_h }}px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__strip-label {
+    display: block;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.68rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  #dp-cert-{{ section.id }} .dp-cert__strip-text {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.9375rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text }};
+  }
+  {% endif %}
+
+  /* ── Mobile ──────────────────────────────────── */
+  @media screen and (max-width: 989px) {
+    #dp-cert-{{ section.id }} .dp-cert__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #dp-cert-{{ section.id }} .dp-cert__inner {
+      padding: 0 20px;
+    }
+    #dp-cert-{{ section.id }} .dp-cert__grid {
+      grid-template-columns: 1fr;
+    }
+    #dp-cert-{{ section.id }} .dp-cert__strip {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #dp-cert-{{ section.id }} .dp-cert__strip .button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section id="dp-cert-{{ section.id }}">
+  <div class="dp-cert__inner">
+
+    {% if section.settings.show_header %}
+      <div class="dp-cert__header">
+        {% if section.settings.overline != blank %}
+          <span class="dp-cert__overline">{{ section.settings.overline }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="dp-cert__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="dp-cert__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="dp-cert__grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'cert_card' %}
+            <div class="dp-cert__card" {{ block.shopify_attributes }}>
+
+              {% if section.settings.show_numbers %}
+                <div class="dp-cert__card-num">
+                  {%- assign num = forloop.index -%}
+                  {%- if num < 10 -%}0{%- endif -%}{{ num }}
+                </div>
+              {% endif %}
+
+              {% if section.settings.show_icons %}
+                <div class="dp-cert__icon">
+                  {% case block.settings.icon %}
+                    {% when 'shield' %}
+                      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    {% when 'clock' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    {% when 'globe' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    {% when 'leaf' %}
+                      <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.34a1 1 0 001.66 1.1l.93-1.08A15.12 15.12 0 0117 8zm0 0a15 15 0 010 8"/></svg>
+                    {% when 'check' %}
+                      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    {% when 'star' %}
+                      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    {% when 'flask' %}
+                      <svg viewBox="0 0 24 24"><path d="M9 3h6M9 3v8l-4 9h14l-4-9V3"/></svg>
+                    {% when 'award' %}
+                      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    {% when 'monitor' %}
+                      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    {% when 'map-pin' %}
+                      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {% endcase %}
+                </div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h3 class="dp-cert__card-title">{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <p class="dp-cert__card-desc">{{ block.settings.description }}</p>
+              {% endif %}
+
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_strip %}
+      <div class="dp-cert__strip">
+        <div>
+          {% if section.settings.strip_label != blank %}
+            <span class="dp-cert__strip-label">{{ section.settings.strip_label }}</span>
+          {% endif %}
+          {% if section.settings.strip_text != blank %}
+            <span class="dp-cert__strip-text">{{ section.settings.strip_text }}</span>
+          {% endif %}
+        </div>
+        {% if section.settings.strip_btn_text != blank and section.settings.strip_btn_url != blank %}
+          <a href="{{ section.settings.strip_btn_url }}" class="button button--tertiary">
+            <span>{{ section.settings.strip_btn_text }}</span>
+            <svg class="icon-button-arrow" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 8.5H15M9.5 3L15 8.5L9.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Calitate și Certificări",
+  "tag": "section",
+  "class": "dp-quality-certifications",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "── Header ───────────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Afișează header",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "header_align",
+      "label": "Aliniere header",
+      "options": [
+        { "value": "left",   "label": "Stânga" },
+        { "value": "center", "label": "Centru" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Text mic deasupra titlului",
+      "default": "Angajamentul nostru"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu principal",
+      "default": "Calitate controlată la sursă"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitlu / descriere",
+      "default": "Investim constant în calitatea ingredientelor noastre. Toate parfumurile D&P Perfumum sunt realizate din extracte naturale produse în Franța și în alte țări ale Uniunii Europene, în conformitate cu normele UE și cu standardele IFRA."
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Lățime maximă subtitlu (px)",
+      "min": 300, "max": 800, "step": 20,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Spațiu sub header (px)",
+      "min": 20, "max": 100, "step": 4,
+      "default": 52
+    },
+
+    {
+      "type": "header",
+      "content": "── Culori ───────────────────────────"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Fundal secțiune",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "color_card_bg",
+      "label": "Fundal carduri și strip",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_card_border",
+      "label": "Border carduri",
+      "default": "#EEEEEE"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text principal",
+      "default": "#1a1814"
+    },
+    {
+      "type": "color",
+      "id": "color_text_muted",
+      "label": "Text secundar (descrieri, overline)",
+      "default": "#999999"
+    },
+
+    {
+      "type": "header",
+      "content": "── Card — aspect ────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_numbers",
+      "label": "Afișează numerele (01, 02...)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icons",
+      "label": "Afișează iconițe",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Rotunjire carduri (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Grosime border card (px)",
+      "min": 0, "max": 3, "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "card_padding_v",
+      "label": "Padding vertical card (px)",
+      "min": 16, "max": 56, "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "card_padding_h",
+      "label": "Padding orizontal card (px)",
+      "min": 16, "max": 56, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "num_gap",
+      "label": "Spațiu sub număr (px)",
+      "min": 8, "max": 32, "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "title_gap",
+      "label": "Spațiu sub titlul cardului (px)",
+      "min": 4, "max": 24, "step": 2,
+      "default": 10
+    },
+
+    {
+      "type": "header",
+      "content": "── Iconiță ──────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Dimensiune container iconiță (px)",
+      "min": 24, "max": 56, "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "icon_svg_size",
+      "label": "Dimensiune SVG iconiță (px)",
+      "min": 12, "max": 28, "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_radius",
+      "label": "Rotunjire container iconiță (px)",
+      "min": 0, "max": 16, "step": 2,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "label": "Spațiu sub iconiță (px)",
+      "min": 8, "max": 28, "step": 2,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "── Grid ─────────────────────────────"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Coloane (desktop)",
+      "options": [
+        { "value": "2", "label": "2 coloane" },
+        { "value": "3", "label": "3 coloane" },
+        { "value": "4", "label": "4 coloane" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Spațiu între carduri (px)",
+      "min": 4, "max": 32, "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "grid_bottom_gap",
+      "label": "Spațiu sub grid (px)",
+      "min": 0, "max": 60, "step": 4,
+      "default": 36
+    },
+
+    {
+      "type": "header",
+      "content": "── Strip de jos ─────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_strip",
+      "label": "Afișează strip-ul de jos",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "strip_label",
+      "label": "Etichetă mică (deasupra textului)",
+      "default": "Din 2018 · Paris"
+    },
+    {
+      "type": "text",
+      "id": "strip_text",
+      "label": "Text principal strip",
+      "default": "Teste periodice Cosmetovigilans confirmate de International Beauty Office SAS"
+    },
+    {
+      "type": "text",
+      "id": "strip_btn_text",
+      "label": "Text buton (opțional)",
+      "default": "Află mai multe"
+    },
+    {
+      "type": "url",
+      "id": "strip_btn_url",
+      "label": "Link buton"
+    },
+    {
+      "type": "range",
+      "id": "strip_padding_v",
+      "label": "Padding vertical strip (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "strip_padding_h",
+      "label": "Padding orizontal strip (px)",
+      "min": 16, "max": 56, "step": 4,
+      "default": 28
+    },
+
+    {
+      "type": "header",
+      "content": "── Layout și spațiere ───────────────"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Lățime maximă secțiune (px)",
+      "min": 600, "max": 1400, "step": 20,
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding orizontal (px)",
+      "min": 0, "max": 80, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding sus secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding jos secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "cert_card",
+      "name": "Card certificare",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Iconiță",
+          "options": [
+            { "value": "shield",    "label": "Scut (certificare)" },
+            { "value": "clock",     "label": "Ceas (timp / ani)" },
+            { "value": "globe",     "label": "Glob (internațional)" },
+            { "value": "leaf",      "label": "Frunză (natural)" },
+            { "value": "check",     "label": "Bifă (conformitate)" },
+            { "value": "star",      "label": "Stea (calitate)" },
+            { "value": "flask",     "label": "Eprubetă (laborator)" },
+            { "value": "award",     "label": "Trofeu (premiu)" },
+            { "value": "monitor",   "label": "Monitor (control)" },
+            { "value": "map-pin",   "label": "Pin (locație)" }
+          ],
+          "default": "shield"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu card",
+          "default": "Certificare IFRA"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descriere",
+          "default": "Toate formulările noastre respectă standardele International Fragrance Association — cadrul internațional de referință pentru siguranța ingredientelor în parfumerie."
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Calitate și Certificări D&P",
+      "blocks": [
+        {
+          "type": "cert_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Certificare IFRA",
+            "description": "Toate formulările noastre respectă standardele International Fragrance Association — cadrul internațional de referință pentru siguranța ingredientelor în parfumerie."
+          }
+        },
+        {
+          "type": "cert_card",
+          "settings": {
+            "icon": "flask",
+            "title": "International Beauty Office SAS · Paris",
+            "description": "Laboratorul oficial care certifică D&P Perfumum pentru teste periodice Cosmetovigilans din 2018 — controlează calitatea și siguranța ingredientelor în utilizarea zilnică."
+          }
+        },
+        {
+          "type": "cert_card",
+          "settings": {
+            "icon": "leaf",
+            "title": "Materie primă europeană",
+            "description": "Esențele concentrate provin din Franța și parteneri europeni selectați, conform acordului de know-how cu GALLIMARD — activ din anul 2000."
+          }
+        },
+        {
+          "type": "cert_card",
+          "settings": {
+            "icon": "monitor",
+            "title": "Reglementări cosmetice UE",
+            "description": "Produsele sunt îmbuteliate la Ankara în conformitate deplină cu legislația cosmetică a Uniunii Europene și distribuite sub reglementările CE în 43 de țări."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

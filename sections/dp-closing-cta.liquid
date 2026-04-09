@@ -1,0 +1,320 @@
+{% comment %}
+  ============================================================
+  D&P Perfumum — Closing CTA (Secțiunea 8)
+  Fișier: dp-closing-cta.liquid
+  Instalare: Online Store → Themes → Edit code → /sections/ → New file
+  Adăugare: Customize → Despre Noi → Add section → "Closing CTA"
+  ============================================================
+{% endcomment %}
+
+<style>
+  #dp-cta-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.color_background }};
+    text-align: center;
+  }
+
+  #dp-cta-{{ section.id }} .dp-cta__inner {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* ── Overline ────────────────────────────────── */
+  #dp-cta-{{ section.id }} .dp-cta__over {
+    display: block;
+    font-family: var(--font-button-family);
+    font-style: var(--font-button-style);
+    font-weight: var(--font-button-weight);
+    font-size: calc(var(--font-button-scale) * 0.9rem);
+    letter-spacing: calc(var(--font-button-letter-spacing) * 0.1);
+    text-transform: var(--font-button-text-transform);
+    color: {{ section.settings.color_text_muted }};
+    margin-bottom: {{ section.settings.overline_gap }}px;
+  }
+
+  /* ── Heading ─────────────────────────────────── */
+  #dp-cta-{{ section.id }} .dp-cta__h2 {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 {{ section.settings.heading_gap }}px;
+  }
+
+  /* ── Subheading ──────────────────────────────── */
+  #dp-cta-{{ section.id }} .dp-cta__sub {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.subheading_max_width }}px;
+    margin: 0 auto {{ section.settings.subheading_gap }}px;
+  }
+
+  /* ── Actions row ─────────────────────────────── */
+  #dp-cta-{{ section.id }} .dp-cta__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: {{ section.settings.actions_gap }}px;
+    flex-wrap: wrap;
+  }
+
+  /* ── Primary button ──────────────────────────── */
+  /* Inherits all font/color vars from .button and .button--primary,
+     overrides border-radius to match the site's slideshow button (60px) */
+  #dp-cta-{{ section.id }} .dp-cta__actions .button--primary {
+    border-radius: {{ section.settings.btn_primary_radius }}px;
+  }
+
+  /* ── Divider ─────────────────────────────────── */
+  #dp-cta-{{ section.id }} .dp-cta__divider {
+    width: 1px;
+    height: 20px;
+    background-color: {{ section.settings.color_text }};
+    opacity: 0.12;
+    flex-shrink: 0;
+  }
+
+  /* ── button--simple override ─────────────────── */
+  /* base.css sets display:block (full-width); override to inline-block
+     so the animated underline matches the text width only */
+  #dp-cta-{{ section.id }} .button--simple {
+    display: inline-block;
+  }
+
+  /* ── Mobile ──────────────────────────────────── */
+  @media screen and (max-width: 749px) {
+    #dp-cta-{{ section.id }} .dp-cta__inner {
+      padding: 0 20px;
+    }
+    #dp-cta-{{ section.id }} .dp-cta__actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+    #dp-cta-{{ section.id }} .dp-cta__divider {
+      display: none;
+    }
+    #dp-cta-{{ section.id }} .dp-cta__actions .button--primary {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>
+
+<section id="dp-cta-{{ section.id }}">
+  <div class="dp-cta__inner">
+
+    {% if section.settings.overline != blank %}
+      <span class="dp-cta__over">{{ section.settings.overline }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="dp-cta__h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="dp-cta__sub">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <div class="dp-cta__actions">
+
+      {% if section.settings.btn_primary_text != blank and section.settings.btn_primary_url != blank %}
+        <a href="{{ section.settings.btn_primary_url }}" class="button button--primary">
+          <span>{{ section.settings.btn_primary_text }}</span>
+        </a>
+      {% endif %}
+
+      {% if section.settings.btn_primary_text != blank and section.settings.btn_secondary_text != blank
+          and section.settings.btn_primary_url != blank and section.settings.btn_secondary_url != blank %}
+        <div class="dp-cta__divider"></div>
+      {% endif %}
+
+      {% if section.settings.btn_secondary_text != blank and section.settings.btn_secondary_url != blank %}
+        <a href="{{ section.settings.btn_secondary_url }}" class="button button--simple">
+          <span>{{ section.settings.btn_secondary_text }}</span>
+        </a>
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Closing CTA",
+  "tag": "section",
+  "class": "dp-closing-cta",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "── Content ───────────────────────────"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "D&P Perfumum"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Descoperă parfumeria D&P"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Fie că ești pentru prima dată pe site-ul nostru sau ne ești alături de ani de zile — te invităm să explorezi colecțiile noastre, să găsești parfumul care te reprezintă și să experimentezi singur diferența D&P."
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Subheading max width (px)",
+      "min": 300, "max": 800, "step": 20,
+      "default": 500
+    },
+
+    {
+      "type": "header",
+      "content": "── Primary button ────────────────────"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_text",
+      "label": "Primary button text",
+      "default": "Explorează parfumurile"
+    },
+    {
+      "type": "url",
+      "id": "btn_primary_url",
+      "label": "Primary button link"
+    },
+    {
+      "type": "range",
+      "id": "btn_primary_radius",
+      "label": "Primary button border radius (px)",
+      "info": "60px matches the homepage slideshow buttons",
+      "min": 0, "max": 100, "step": 2,
+      "default": 60
+    },
+
+    {
+      "type": "header",
+      "content": "── Secondary button ──────────────────",
+      "info": "Uses the theme's button--simple style (sliding underline animation)"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_text",
+      "label": "Secondary button text",
+      "default": "Găsește un magazin"
+    },
+    {
+      "type": "url",
+      "id": "btn_secondary_url",
+      "label": "Secondary button link"
+    },
+
+    {
+      "type": "header",
+      "content": "── Colors ───────────────────────────"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Primary text",
+      "default": "#1a1814"
+    },
+    {
+      "type": "color",
+      "id": "color_text_muted",
+      "label": "Muted text (overline, subheading)",
+      "default": "#999999"
+    },
+
+    {
+      "type": "header",
+      "content": "── Spacing ──────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "overline_gap",
+      "label": "Space below overline (px)",
+      "min": 8, "max": 40, "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Space below heading (px)",
+      "min": 8, "max": 48, "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "subheading_gap",
+      "label": "Space below subheading (px)",
+      "min": 20, "max": 80, "step": 4,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "actions_gap",
+      "label": "Gap between buttons (px)",
+      "min": 8, "max": 64, "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section max width (px)",
+      "min": 400, "max": 1200, "step": 20,
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding (px)",
+      "min": 0, "max": 80, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section top padding (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section bottom padding (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 96
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Closing CTA D&P"
+    }
+  ]
+}
+{% endschema %}

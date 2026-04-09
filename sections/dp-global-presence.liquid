@@ -1,0 +1,792 @@
+{% comment %}
+  ============================================================
+  D&P Perfumum — Prezență Globală (Secțiunea 6)
+  Fișier: dp-global-presence.liquid
+  Instalare: Online Store → Themes → Edit code → /sections/ → New file
+  Adăugare: Customize → Despre Noi → Add section → "Prezență Globală"
+  ============================================================
+{% endcomment %}
+
+<style>
+  #dp-gp-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.color_background }};
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__inner {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* ── Header ──────────────────────────────────── */
+  #dp-gp-{{ section.id }} .dp-gp__header {
+    margin-bottom: {{ section.settings.header_gap }}px;
+    {% if section.settings.header_align == 'center' %}text-align: center;{% endif %}
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__over {
+    display: block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    margin-bottom: 14px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__h2 {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 16px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__sub {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.subheading_max_width }}px;
+    margin: 0;
+    {% if section.settings.header_align == 'center' %}margin-left: auto; margin-right: auto;{% endif %}
+  }
+
+  /* ── Image ───────────────────────────────────── */
+  #dp-gp-{{ section.id }} .dp-gp__img-wrap {
+    width: 100%;
+    border-radius: {{ section.settings.image_radius }}px;
+    overflow: hidden;
+    margin-bottom: {{ section.settings.image_margin_bottom }}px;
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__img-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__img-placeholder {
+    aspect-ratio: 21 / 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__img-placeholder svg {
+    opacity: 0.2;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__img-placeholder span {
+    font-family: var(--font-body-family);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    opacity: 0.6;
+  }
+
+  /* ── Stats grid ──────────────────────────────── */
+  #dp-gp-{{ section.id }} .dp-gp__stats {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.stats_columns }}, 1fr);
+    gap: {{ section.settings.stats_gap }}px;
+    margin-bottom: {{ section.settings.stats_margin_bottom }}px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__stat {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.stat_card_radius }}px;
+    padding: {{ section.settings.stat_padding_v }}px {{ section.settings.stat_padding_h }}px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__stat-num {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: {{ section.settings.stat_num_size }}px;
+    letter-spacing: -0.03em;
+    color: {{ section.settings.color_text }};
+    line-height: 1;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__stat-label {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.85rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+  }
+
+  /* ── Regions grid ────────────────────────────── */
+  #dp-gp-{{ section.id }} .dp-gp__regions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ section.settings.regions_gap }}px;
+    margin-bottom: {{ section.settings.regions_margin_bottom }}px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__region {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.region_card_radius }}px;
+    padding: {{ section.settings.region_padding_v }}px {{ section.settings.region_padding_h }}px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__region-title {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.68rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__pill {
+    display: inline-block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.8rem);
+    color: {{ section.settings.color_pill_text }};
+    background-color: {{ section.settings.color_pill_bg }};
+    border: 1px solid {{ section.settings.color_card_border }};
+    border-radius: 100px;
+    padding: 4px 12px;
+    line-height: 1.4;
+  }
+
+  /* ── New market strip ────────────────────────── */
+  {% if section.settings.show_new_strip %}
+  #dp-gp-{{ section.id }} .dp-gp__new-strip {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.region_card_radius }}px;
+    padding: {{ section.settings.strip_padding_v }}px {{ section.settings.strip_padding_h }}px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-button-weight);
+    font-size: calc(var(--font-body-scale) * 0.65rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_background }};
+    background-color: {{ section.settings.color_text }};
+    border-radius: 100px;
+    padding: 4px 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-pulse {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: {{ section.settings.color_background }};
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-text {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.9rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text }};
+    flex: 1;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-text strong {
+    font-weight: var(--font-button-weight);
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-divider {
+    width: 1px;
+    height: 20px;
+    background-color: {{ section.settings.color_card_border }};
+    flex-shrink: 0;
+  }
+
+  #dp-gp-{{ section.id }} .dp-gp__new-year {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.8rem);
+    color: {{ section.settings.color_text_muted }};
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  {% endif %}
+
+  /* ── Mobile ──────────────────────────────────── */
+  @media screen and (max-width: 989px) {
+    #dp-gp-{{ section.id }} .dp-gp__stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #dp-gp-{{ section.id }} .dp-gp__inner {
+      padding: 0 20px;
+    }
+    #dp-gp-{{ section.id }} .dp-gp__stats {
+      grid-template-columns: 1fr 1fr;
+    }
+    #dp-gp-{{ section.id }} .dp-gp__regions {
+      grid-template-columns: 1fr;
+    }
+    #dp-gp-{{ section.id }} .dp-gp__new-strip {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #dp-gp-{{ section.id }} .dp-gp__new-divider {
+      display: none;
+    }
+    #dp-gp-{{ section.id }} .dp-gp__new-year {
+      display: none;
+    }
+  }
+</style>
+
+<section id="dp-gp-{{ section.id }}">
+  <div class="dp-gp__inner">
+
+    {% if section.settings.show_header %}
+      <div class="dp-gp__header">
+        {% if section.settings.overline != blank %}
+          <span class="dp-gp__over">{{ section.settings.overline }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="dp-gp__h2">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="dp-gp__sub">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_image %}
+      <div class="dp-gp__img-wrap">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              class: 'dp-gp__img'
+          }}
+        {% else %}
+          <div class="dp-gp__img-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+            <span>Adaugă o imagine sau hartă din Customizer</span>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
+    {% if stat_blocks.size > 0 %}
+      <div class="dp-gp__stats">
+        {% for block in stat_blocks %}
+          <div class="dp-gp__stat" {{ block.shopify_attributes }}>
+            {% if block.settings.number != blank %}
+              <span class="dp-gp__stat-num">{{ block.settings.number }}</span>
+            {% endif %}
+            {% if block.settings.label != blank %}
+              <span class="dp-gp__stat-label">{{ block.settings.label }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% assign region_blocks = section.blocks | where: 'type', 'region' %}
+    {% if region_blocks.size > 0 %}
+      <div class="dp-gp__regions">
+        {% for block in region_blocks %}
+          <div class="dp-gp__region" {{ block.shopify_attributes }}>
+            {% if block.settings.title != blank %}
+              <span class="dp-gp__region-title">{{ block.settings.title }}</span>
+            {% endif %}
+            {% if block.settings.countries != blank %}
+              <div class="dp-gp__pills">
+                {% assign country_list = block.settings.countries | split: ',' %}
+                {% for country in country_list %}
+                  <span class="dp-gp__pill">{{ country | strip }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_new_strip %}
+      <div class="dp-gp__new-strip">
+        {% if section.settings.strip_badge != blank %}
+          <span class="dp-gp__new-badge">
+            <span class="dp-gp__new-pulse"></span>
+            {{ section.settings.strip_badge }}
+          </span>
+        {% endif %}
+        {% if section.settings.strip_text != blank %}
+          <span class="dp-gp__new-text">{{ section.settings.strip_text }}</span>
+        {% endif %}
+        {% if section.settings.strip_year != blank %}
+          <div class="dp-gp__new-divider"></div>
+          <span class="dp-gp__new-year">{{ section.settings.strip_year }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Prezență Globală",
+  "tag": "section",
+  "class": "dp-global-presence",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "── Header ───────────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Afișează header",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "header_align",
+      "label": "Aliniere header",
+      "options": [
+        { "value": "left",   "label": "Stânga" },
+        { "value": "center", "label": "Centru" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Text mic deasupra titlului",
+      "default": "Prezență globală"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu principal",
+      "default": "O marcă globală, cu rădăcini locale"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitlu / descriere",
+      "default": "Produsele D&P Perfumum sunt distribuite sub aceeași marcă în 43 de țări, în peste 710 de magazine partenere. Din Europa până în Orientul Mijlociu, din Asia până în Statele Unite — aceeași calitate, același preț corect."
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Lățime maximă subtitlu (px)",
+      "min": 300, "max": 800, "step": 20,
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Spațiu sub header (px)",
+      "min": 20, "max": 100, "step": 4,
+      "default": 48
+    },
+
+    {
+      "type": "header",
+      "content": "── Imagine / hartă (opțional) ───────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Afișează imaginea",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagine (hartă, foto atmosferă etc.)"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Rotunjire imagine (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "image_margin_bottom",
+      "label": "Spațiu sub imagine (px)",
+      "min": 8, "max": 48, "step": 4,
+      "default": 20
+    },
+
+    {
+      "type": "header",
+      "content": "── Stat-uri ─────────────────────────"
+    },
+    {
+      "type": "select",
+      "id": "stats_columns",
+      "label": "Număr coloane stat-uri (desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "stat_num_size",
+      "label": "Dimensiune font număr stat (px)",
+      "min": 24, "max": 64, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "stat_card_radius",
+      "label": "Rotunjire card stat (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "stat_padding_v",
+      "label": "Padding vertical card stat (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "stat_padding_h",
+      "label": "Padding orizontal card stat (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "stats_gap",
+      "label": "Spațiu între stat-uri (px)",
+      "min": 4, "max": 32, "step": 4,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "stats_margin_bottom",
+      "label": "Spațiu sub grid stat-uri (px)",
+      "min": 8, "max": 48, "step": 4,
+      "default": 20
+    },
+
+    {
+      "type": "header",
+      "content": "── Regiuni ──────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "region_card_radius",
+      "label": "Rotunjire card regiune (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "region_padding_v",
+      "label": "Padding vertical card regiune (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "region_padding_h",
+      "label": "Padding orizontal card regiune (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "regions_gap",
+      "label": "Spațiu între regiuni (px)",
+      "min": 4, "max": 32, "step": 4,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "regions_margin_bottom",
+      "label": "Spațiu sub grid regiuni (px)",
+      "min": 0, "max": 48, "step": 4,
+      "default": 12
+    },
+
+    {
+      "type": "header",
+      "content": "── Strip piață nouă ──────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_new_strip",
+      "label": "Afișează strip-ul piață nouă",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "strip_badge",
+      "label": "Text badge",
+      "default": "Noutate"
+    },
+    {
+      "type": "text",
+      "id": "strip_text",
+      "label": "Text strip (folosește <strong> pentru bold)",
+      "default": "D&P Perfumum este acum disponibil și în <strong>Statele Unite ale Americii</strong>"
+    },
+    {
+      "type": "text",
+      "id": "strip_year",
+      "label": "An (opțional)",
+      "default": "2025"
+    },
+    {
+      "type": "range",
+      "id": "strip_padding_v",
+      "label": "Padding vertical strip (px)",
+      "min": 12, "max": 40, "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "strip_padding_h",
+      "label": "Padding orizontal strip (px)",
+      "min": 16, "max": 48, "step": 4,
+      "default": 24
+    },
+
+    {
+      "type": "header",
+      "content": "── Culori ───────────────────────────"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Fundal secțiune",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "color_card_bg",
+      "label": "Fundal carduri",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_card_border",
+      "label": "Border carduri",
+      "default": "#EEEEEE"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text principal",
+      "default": "#1a1814"
+    },
+    {
+      "type": "color",
+      "id": "color_text_muted",
+      "label": "Text secundar",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "color_pill_bg",
+      "label": "Fundal pill-uri țări",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "color_pill_text",
+      "label": "Text pill-uri țări",
+      "default": "#555555"
+    },
+
+    {
+      "type": "header",
+      "content": "── Layout și spațiere ───────────────"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Grosime border carduri (px)",
+      "min": 0, "max": 3, "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Lățime maximă secțiune (px)",
+      "min": 600, "max": 1400, "step": 20,
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding orizontal (px)",
+      "min": 0, "max": 80, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding sus secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding jos secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Număr / valoare",
+          "default": "43"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Descriere",
+          "default": "țări în care sunt distribuite produsele noastre"
+        }
+      ]
+    },
+    {
+      "type": "region",
+      "name": "Regiune",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu regiune",
+          "default": "Europa"
+        },
+        {
+          "type": "textarea",
+          "id": "countries",
+          "label": "Țări (separate prin virgulă)",
+          "default": "Germania, Austria, Franța, Belgia, Rep. Cehă, Malta, Bulgaria, Cipru, Kosovo, Marea Britanie, România"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Prezență Globală D&P",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "43",
+            "label": "țări în care sunt distribuite produsele noastre"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "710+",
+            "label": "magazine partenere la nivel mondial"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "20M",
+            "label": "sticle produse anual"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "1.500",
+            "label": "angajați în grupul D&P"
+          }
+        },
+        {
+          "type": "region",
+          "settings": {
+            "title": "Europa",
+            "countries": "Germania, Austria, Franța, Belgia, Rep. Cehă, Malta, Bulgaria, Cipru, Kosovo, Marea Britanie, România"
+          }
+        },
+        {
+          "type": "region",
+          "settings": {
+            "title": "Orient Mijlociu & Asia",
+            "countries": "Arabia Saudită, Emiratele Arabe, Qatar, Oman, Iran, Irak, Egipt, China, Taiwan, Azerbaijan, Kazahstan, Turkmenistan"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

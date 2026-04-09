@@ -12,24 +12,6 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "slideshow-item1": {
-          "type": "slideshow-item",
-          "settings": {
-            "image": "shopify://shop_images/Richest_Joy_Hero.jpg",
-            "overlay_opacity": 0.1,
-            "show_video": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description_video": "",
-            "heading": "M16 Richest Joy",
-            "description": "<p>Experimentati un parfum intens cu note dominante de cedru, portocală si șofran. O alegere perfecta pentru evenimentele speciale.</p>",
-            "tab_subheading": "",
-            "tab_heading": "Încredere Absolută",
-            "button_label": "Descoperă produsul",
-            "button_link": "",
-            "button_style": "primary",
-            "enable_fullscreen_link": true
-          }
-        },
         "slideshow-item": {
           "type": "slideshow-item",
           "settings": {
@@ -43,15 +25,33 @@
             "tab_subheading": "",
             "tab_heading": "Seri Rafinate",
             "button_label": "Descoperă produsul",
-            "button_link": "",
+            "button_link": "shopify://products/e6-midnight-reverie",
+            "button_style": "primary",
+            "enable_fullscreen_link": true
+          }
+        },
+        "slideshow-item1": {
+          "type": "slideshow-item",
+          "settings": {
+            "image": "shopify://shop_images/Richest_Joy_Hero.jpg",
+            "overlay_opacity": 0.1,
+            "show_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description_video": "",
+            "heading": "M16 Richest Joy",
+            "description": "<p>Experimentati un parfum intens cu note dominante de cedru, portocală si șofran. O alegere perfecta pentru evenimentele speciale.</p>",
+            "tab_subheading": "",
+            "tab_heading": "Încredere Absolută",
+            "button_label": "Descoperă produsul",
+            "button_link": "shopify://products/m16-richest-joy",
             "button_style": "primary",
             "enable_fullscreen_link": true
           }
         }
       },
       "block_order": [
-        "slideshow-item1",
-        "slideshow-item"
+        "slideshow-item",
+        "slideshow-item1"
       ],
       "settings": {
         "header_overlay": true,
@@ -75,18 +75,18 @@
         "collection_item_wDLNLh": {
           "type": "collection_item",
           "settings": {
-            "collection": "classic-collection",
+            "collection": "classic-collection-1",
             "button_label": "Descoperă colecția",
-            "button_link": "shopify://collections/classic-collection",
+            "button_link": "shopify://collections/classic-collection-1",
             "overlay_opacity": 0.6
           }
         },
         "collection_item_3r6Kb7": {
           "type": "collection_item",
           "settings": {
-            "collection": "exclusives-collection",
+            "collection": "private-collection",
             "button_label": "Descoperă colecția",
-            "button_link": "shopify://collections/exclusives-collection",
+            "button_link": "shopify://collections/private-collection",
             "overlay_opacity": 0.6
           }
         },
@@ -141,8 +141,8 @@
         "product_slide": {
           "type": "product_slide",
           "settings": {
-            "product": "a1-eau-de-parfum",
-            "image": "shopify://shop_images/Ingredients01.jpg",
+            "product": "n8-pompous",
+            "image": "shopify://shop_images/IngredientsN8.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
             "description": "Pompus. Fructat, proaspăt, încrezător."
@@ -151,8 +151,8 @@
         "product_slide1": {
           "type": "product_slide",
           "settings": {
-            "product": "a1-eau-de-parfum",
-            "image": "shopify://shop_images/Ingredients02.jpg",
+            "product": "m15-upstarrus",
+            "image": "shopify://shop_images/IngredientsM15.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
             "description": "Upstarrus. Modern, versatile, and designed to make an impact without the effort."
@@ -161,8 +161,8 @@
         "product_slide2": {
           "type": "product_slide",
           "settings": {
-            "product": "a1-eau-de-parfum",
-            "image": "shopify://shop_images/Ingredients03.jpg",
+            "product": "m17-moonlite",
+            "image": "shopify://shop_images/IngredientsM17.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
             "description": "Moonlite. Comfortable, chic, and always in season."
@@ -211,9 +211,7 @@
     },
     "products_grid_7giBeM": {
       "type": "products-grid",
-      "custom_css": [
-        ".card {border-radius: 15px;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.products-grid.name",
       "settings": {
         "subheading": "",
@@ -224,7 +222,7 @@
         "product_list": [],
         "products_per_page": 10,
         "products_to_show": 5,
-        "sort": "alphabetical",
+        "sort": "products_high",
         "image_ratio": "portrait",
         "image_fit": "cover",
         "show_vendor": false,
@@ -248,7 +246,7 @@
           "settings": {
             "image": "shopify://shop_images/Rune_K5.jpg",
             "heading": "O Eleganță Aparte",
-            "product": "a1-eau-de-parfum"
+            "product": "k5-rune"
           }
         },
         "product-slide1": {
@@ -256,7 +254,7 @@
           "settings": {
             "image": "shopify://shop_images/Midnight_Reverie.jpg",
             "heading": "Radiază Încredere",
-            "product": "a1-eau-de-parfum"
+            "product": "e6-midnight-reverie"
           }
         },
         "product-slide2": {
@@ -264,7 +262,7 @@
           "settings": {
             "image": "shopify://shop_images/Richest_Joy_M16.png",
             "heading": "Decoperă Bucuria Simțurilor",
-            "product": "a1-eau-de-parfum"
+            "product": "m16-richest-joy"
           }
         }
       },
@@ -310,7 +308,7 @@
         "text": "",
         "enable_animation": true,
         "button_label": "Descoperă povestea noastră",
-        "button_link": "shopify://pages/contact",
+        "button_link": "shopify://pages/despre_noi",
         "button_style": "simple",
         "image_width": "large",
         "height": "portrait",
@@ -390,6 +388,35 @@
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
       }
+    },
+    "apps_dTGCBw": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_kHUCtC": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Urmărește-ne pe Instagram",
+            "title_color": "",
+            "title_size_v2": 14,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 20,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": true,
+            "link_alignment": "center",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_kHUCtC"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -400,6 +427,7 @@
     "featured-products",
     "image-with-text",
     "media_banner_A9VLBr",
-    "image_with_text_DECNpR"
+    "image_with_text_DECNpR",
+    "apps_dTGCBw"
   ]
 }

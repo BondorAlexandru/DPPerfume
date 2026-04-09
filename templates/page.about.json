@@ -11,21 +11,20 @@
   "sections": {
     "image_with_text_rfjwNg": {
       "type": "image-with-text",
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "aspect_ratio": "medium",
+        "aspect_ratio": "large",
         "heading_position": "center",
         "text_width": "medium",
         "subheading": "",
-        "heading": "Despre Noi",
+        "heading": "Parfumuri de excepție. La prețul producătorului.",
         "heading_size": "h1",
-        "text": "<p>Parfumurile sunt întotdeauna asociate cu tendințele. Uneori, abundența acestor tendințe este atât de mare încât nu vă mai puteți găsi drumul prin ssaelecția uriașă. D&P Perfumum vă poate ajuta în acest sens.</p><p>Suntem contactul tău când vine vorba de parfumuri individuale care te fac să te simți bine. In magazinul nostru online veti gasi o selectie mare din care puteti alege dupa gustul dumneavoastra. Întotdeauna vă sprijinim și vă consiliem profesional, competent și cuprinzător. </p><ul><li>Toate produsele noastre sunt conforme cu regulamentul UE pentru produsele cosmetice;</li><li>Ținem pasul cu tendințele, de aceea elaborăm constant noi esențe.</li></ul>",
+        "text": "<p>Credem că fiecare om are dreptul să poarte un parfum cu adevărat bun, nu un compromis. De aceea, în 1999 am pornit cu o idee simplă: să producem parfumuri de înaltă calitate, cu esențe naturale din Franța, și să le oferim clienților noștri direct, la prețul producătorului, fără intermediari și fără costuri mari de publicitate.</p><p>Astăzi, după peste 25 de ani, această idee a ajuns în 43 de țări și în mâinile a milioane de clienți. Dar filosofia noastră a rămas exact aceeași.</p>",
         "enable_animation": true,
         "button_label": "",
         "button_link": "",
         "button_style": "simple",
-        "image": "shopify://shop_images/K5.png",
-        "mobile_image": "shopify://shop_images/K5.png",
         "image_width": "large",
         "height": "portrait",
         "layout": "image_right",
@@ -33,87 +32,554 @@
         "margin_bottom": "no-indent"
       }
     },
-    "steps_MdG7i6": {
-      "type": "steps",
+    "media_banner_UDaCqX": {
+      "type": "media-banner",
       "blocks": {
-        "steps_item_wEjTjW": {
-          "type": "steps-item",
+        "media_slide_Jmt8d4": {
+          "type": "media_slide",
           "settings": {
-            "date": "01",
-            "heading": "Suntem Certificați IFRA",
-            "description": "<p>Investim în calitatea parfumurilor, acestea fiind realizate din esențe naturale produse în Franța și în alte țări din Uniunea Europeană, după norme UE și la standarde IFRA (International Fragrance Association).</p>",
-            "image": "shopify://shop_images/K5.png"
-          }
-        },
-        "steps_item_BBw87C": {
-          "type": "steps-item",
-          "settings": {
-            "date": "02",
-            "heading": "Răspândire în Europa și nu numai",
-            "description": "<p>Produsele noastre sunt îmbuteliate la fabrica noastră Ankara (Turcia), conform reglementărilor cosmetice CE, și sunt distribuite în 37 de țări, printre care Marea Britanie, Germania, Austria, Franța, Turcia, Arabia Saudită, Olanda, Belgia, Egipt, Dubai, Cehia, Bulgaria și, bineînțeles, România.</p>",
-            "image": "shopify://shop_images/K5.png"
+            "color_scheme": "background-2",
+            "image": "shopify://shop_images/Classic_Bottle_Shape_Wide.png",
+            "overlay_opacity": 0.2,
+            "enable_hover": true,
+            "show_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description_video": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "description": "",
+            "position_content": "center",
+            "align_content": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "simple",
+            "button_label2": "",
+            "button_link2": "",
+            "button_style2": "secondary",
+            "full_link": true
           }
         }
       },
       "block_order": [
-        "steps_item_wEjTjW",
-        "steps_item_BBw87C"
+        "media_slide_Jmt8d4"
       ],
-      "name": "t:sections.steps.name",
+      "custom_css": [
+        ".media-banner .media-banner__content--full,.media-banner .media-banner__content--adapt {height: 105vh; border-radius: 0px 0px 30px 30px;}"
+      ],
+      "name": "t:sections.media-banner.name",
       "settings": {
-        "image_ratio": "portrait",
-        "heading_size": "h1",
-        "sticky": false,
-        "margin_top": "m",
+        "header_overlay": true,
+        "sticky": "sticky-none",
+        "layout": "overlay",
+        "title_link": false,
+        "gap": false,
+        "aspect_ratio": "21/9",
+        "aspect_ratio_mobile": "full",
+        "margin_top": "no-indent",
         "margin_bottom": "xs"
       }
     },
-    "1770243434fa097dcf": {
-      "type": "apps",
+    "rich_text_LB6pje": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_jUj7PC": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Povestea Noastră"
+          }
+        },
+        "heading_npXdqr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Parfumuri de excepție, la prețuri accesibile.",
+            "heading_size": "h1"
+          }
+        },
+        "text_gEcLi9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Credem că fiecare om are dreptul să poarte un parfum cu adevărat bun, nu un compromis. De aceea, în 1999 am pornit cu o idee simplă: să prodaucem parfumuri de înaltă calitate, cu esențe naturale din Franța, și UE, și să le oferim clienților noștri direct, într-un mod accesibil, fără intermediari și fără costuri mari de publicitate.<br/><br/>Astăzi, după peste 25 de ani, această idee a ajuns în 43 de țări și în mâinile a milioane de clienți. Dar filosofia noastră a rămas exact aceeași.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_jUj7PC",
+        "heading_npXdqr",
+        "text_gEcLi9"
+      ],
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "include_margins": true
+        "alignment": "center",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xl"
       }
     },
     "collapsible_content_kriUb6": {
       "type": "collapsible-content",
       "blocks": {
+        "image_rg36wt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IngredientsE6.jpg"
+          }
+        },
         "text_KkAPgq": {
           "type": "text",
           "settings": {
             "question": "",
-            "answer": "<p>Sticla noastră unică este mai mult decât un simplu recipient; este simbolul durabil al anilor care au consacrat D&P Perfumum drept parfumierul tău de încredere. Silueta sa curată și inconfundabilă reprezintă sigiliul nostru absolut de excelență, reflectând o dedicare neobosită pentru arta parfumeriei fine.<br/><br/>Am eliminat detaliile inutile pentru a ne concentra exclusiv pe calitatea excepțională a esenței din interior. Această formă iconică este manifestul nostru modern: promisiunea fermă că parfumurile incredibile, persistente, pot și trebuie să fie accesibile tuturor, fără compromisuri. Când ții în mână sticla noastră, ții decenii de pasiune, măiestrie premium și un preț corect. Este semnătura noastră, creată pentru a deveni parte din povestea ta de zi cu zi.</p>"
+            "answer": "<p>Totul a început în Ankara, Turcia, în 1999. Ideea fondatoare era, prin simplitatea ei, aproape îndrăzneață. Trei volume: 30 ml, 50 ml, 100 ml, la un singur preț, pentru parfumuri de cea mai înaltă calitate.</p>"
           }
         },
-        "image_rg36wt": {
-          "type": "image",
+        "text_znnVMb": {
+          "type": "text",
           "settings": {
-            "image": "shopify://shop_images/Classic_Bottle_Shape.jpg"
+            "question": "",
+            "answer": "<h2>„Am renunțat la marile trucuri de marketing. Am ales să lăsăm parfumul să vorbească și clienții noștri mulțumiți să ne recomande.\"</h2>"
+          }
+        },
+        "text_7BiDVq": {
+          "type": "text",
+          "settings": {
+            "question": "",
+            "answer": "<p>Pentru a asigura calitatea formulelor noastre, în anul 2000 am semnat un acord de know-how cu un renumit producător francez de parfumuri, cu sediul în Grasse, Franța, pentru furnizarea de materii prime și esențe concentrate.<br/><br/>Ca responsabilitate legală pentru piața europeană, am încheiat un acord cu IBO (International Beauty Office) din Paris, Franța, în conformitate cu Regulamentul European privind produsele cosmetice. Această colaborare ne-a permis să menținem standarde ridicate de formulare, în conformitate cu normele europene și IFRA, încă de la început.</p><p>În 2003, D&P Perfumum a ajuns în România. De atunci, de peste 22 de ani, deservim clienții români cu aceleași prețuri de producător, fără marje de profit ale distribuitorului.</p>"
           }
         }
       },
       "block_order": [
+        "image_rg36wt",
         "text_KkAPgq",
-        "image_rg36wt"
+        "text_znnVMb",
+        "text_7BiDVq"
       ],
       "name": "t:sections.collapsible-content.name",
       "settings": {
+        "image_position": "right",
         "aspect_ratio": "medium",
-        "heading": "Un semn al excelenței",
+        "heading": "Din 1999, cu o idee simplă.",
         "heading_size": "h1",
         "enable_animation": true,
         "slideshow_speed": 4,
-        "button_label": "Learn More",
+        "button_label": "",
         "button_link": "",
         "button_style": "simple",
         "margin_top": "no-indent",
         "margin_bottom": "m"
       }
+    },
+    "collapsible_content_8QJGk4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "text_KPYbnt": {
+          "type": "text",
+          "settings": {
+            "question": "",
+            "answer": "<p>Sticla noastră unică este mai mult decât un simplu recipient; este simbolul durabil al anilor care au consacrat D&P Perfumum drept parfumierul tău de încredere. Silueta sa curată și inconfundabilă reprezintă sigiliul nostru absolut de excelență, reflectând o dedicare neobosită pentru arta parfumeriei fine.</p><p>Forma sa iconică este înregistrată sub marca proprie <em>GOYA</em> și fabricată de <em>Saint-Gobain</em> în Franța — partener de producție din prima zi. Disponibilă în volumele 30 ml, 50 ml și 100 ml, aceasta reflectă fidel filosofia noastră originală: același conținut excepțional, în formatul potrivit pentru tine.</p><p>Am eliminat detaliile inutile pentru a ne concentra exclusiv pe calitatea excepțională a esenței din interior. Când ții în mână sticla noastră, ții decenii de pasiune, măiestrie premium și un preț corect — semnătura noastră, creată pentru a deveni parte din povestea ta de zi cu zi.</p>"
+          }
+        },
+        "image_xGkWX4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Bottle_Crop.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "text_KPYbnt",
+        "image_xGkWX4"
+      ],
+      "name": "t:sections.collapsible-content.name",
+      "settings": {
+        "image_position": "left",
+        "aspect_ratio": "medium",
+        "heading": "Un semn al excelenței",
+        "heading_size": "h1",
+        "enable_animation": true,
+        "slideshow_speed": 4,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "simple",
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "dp_collections_timeline_JmKep9": {
+      "type": "dp-collections-timeline",
+      "blocks": {
+        "collection_item_V4iqrQ": {
+          "type": "collection_item",
+          "settings": {
+            "year": "1999",
+            "badge": "Origini",
+            "name": "Classic Collection",
+            "description": "<p>Colecția originală. Sticla GOYA în 30 ml, 50 ml și 100 ml. Formule Eau de Parfum cu esențe naturale din Franța, la prețuri accesibile pentru orice buget. Echivalentele în spray deodorant de corp 150 ml sunt disponibile pentru întreaga gamă.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/classic-collection-1"
+          }
+        },
+        "collection_item_3LaWPf": {
+          "type": "collection_item",
+          "settings": {
+            "year": "2016",
+            "badge": "extindere premium",
+            "name": "Private Collection",
+            "description": "<p>O nouă serie de lux adăugată colecțiilor existente. Parfumuri realizate din esențe de nișă, ambalate în cutii de 50 ml și 100 ml. Rafinament fără compromis.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/private-collection"
+          }
+        },
+        "collection_item_PC6GUw": {
+          "type": "collection_item",
+          "settings": {
+            "year": "2022",
+            "badge": "Simturi orientale",
+            "name": "Arabian Collection",
+            "description": "<p>Inspirată din principii olfactive de origine orientală. Sticle premium de 100 ml, ambalate împreună cu cutia — un concept de lux complet.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/arabian-collection"
+          }
+        },
+        "collection_item_qFyeeC": {
+          "type": "collection_item",
+          "settings": {
+            "year": "2025",
+            "badge": "rafinament aparte",
+            "name": "Niche Collection",
+            "description": "<p>Parfumuri feminine și unisex de excepție, remarcabile atât prin selecția principiilor olfactive cât și prin ambalaj. Cea mai nouă expresie a viziunii D&P Perfumum.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/niche-collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_V4iqrQ",
+        "collection_item_3LaWPf",
+        "collection_item_PC6GUw",
+        "collection_item_qFyeeC"
+      ],
+      "name": "Timeline Colecții D&P",
+      "settings": {
+        "show_header": true,
+        "overline": "Povestea noastră",
+        "heading": "O linie în continuă evoluție",
+        "subheading": "De-a lungul anilor, am extins cu atenție portofoliul nostru, adăugând câte o nouă dimensiune parfumeriei D&P — fără a renunța niciodată la filosofia accesibilității și calității autentice.",
+        "subheading_max_width": 540,
+        "header_gap": 72,
+        "year_font_size": 80,
+        "year_font_weight": "700",
+        "year_opacity": 8,
+        "badge_font_size": 10,
+        "badge_padding_v": 4,
+        "badge_padding_h": 14,
+        "badge_gap": 14,
+        "name_gap": 10,
+        "desc_font_size": 15,
+        "desc_max_width": 500,
+        "btn_gap": 20,
+        "content_top_offset": 6,
+        "separator_opacity": 7,
+        "separator_margin": 52,
+        "color_background": "#fafafa",
+        "color_text": "#1a1814",
+        "color_text_muted": "#888888",
+        "year_col_width": 180,
+        "col_gap": 56,
+        "section_width": 1100,
+        "padding_horizontal": 40,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "dp_quality_certifications_hjUyXY": {
+      "type": "dp-quality-certifications",
+      "blocks": {
+        "cert_card_PeV3Gy": {
+          "type": "cert_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Certificare IFRA",
+            "description": "Toate formulările noastre respectă standardele International Fragrance Association — cadrul internațional de referință pentru siguranța ingredientelor în parfumerie."
+          }
+        },
+        "cert_card_bTYEUz": {
+          "type": "cert_card",
+          "settings": {
+            "icon": "flask",
+            "title": "International Beauty Office SAS · Paris",
+            "description": "Laboratorul oficial care certifică D&P Perfumum pentru teste periodice Cosmetovigilans din 2018 — controlează calitatea și siguranța ingredientelor în utilizarea zilnică."
+          }
+        },
+        "cert_card_8nCpew": {
+          "type": "cert_card",
+          "settings": {
+            "icon": "leaf",
+            "title": "Materie primă europeană",
+            "description": "Esențele concentrate provin din Franța și parteneri europeni selectați, conform acordului de know-how cu GALLIMARD — activ din anul 2000."
+          }
+        },
+        "cert_card_TKekwx": {
+          "type": "cert_card",
+          "settings": {
+            "icon": "monitor",
+            "title": "Reglementări cosmetice UE",
+            "description": "Produsele sunt îmbuteliate la Ankara în conformitate deplină cu legislația cosmetică a Uniunii Europene și distribuite sub reglementările CE în 43 de țări."
+          }
+        }
+      },
+      "block_order": [
+        "cert_card_PeV3Gy",
+        "cert_card_bTYEUz",
+        "cert_card_8nCpew",
+        "cert_card_TKekwx"
+      ],
+      "name": "Calitate și Certificări D&P",
+      "settings": {
+        "show_header": true,
+        "header_align": "left",
+        "overline": "Angajamentul nostru",
+        "heading": "Calitate controlată la sursă",
+        "subheading": "Investim constant în calitatea ingredientelor noastre. Toate parfumurile D&P Perfumum sunt realizate din extracte naturale produse în Franța și în alte țări ale Uniunii Europene, în conformitate cu normele UE și cu standardele IFRA.",
+        "subheading_max_width": 520,
+        "header_gap": 52,
+        "color_background": "#ffffff",
+        "color_card_bg": "#fafafa",
+        "color_card_border": "#eeeeee",
+        "color_text": "#1a1814",
+        "color_text_muted": "#999999",
+        "show_numbers": true,
+        "show_icons": true,
+        "card_radius": 16,
+        "card_border_width": 1,
+        "card_padding_v": 28,
+        "card_padding_h": 24,
+        "num_gap": 18,
+        "title_gap": 10,
+        "icon_size": 32,
+        "icon_svg_size": 14,
+        "icon_radius": 8,
+        "icon_gap": 14,
+        "columns": "2",
+        "card_gap": 12,
+        "grid_bottom_gap": 36,
+        "show_strip": true,
+        "strip_label": "Din 2018 · Paris",
+        "strip_text": "Teste periodice Cosmetovigilans confirmate de International Beauty Office SAS",
+        "strip_btn_text": "Află mai multe",
+        "strip_btn_url": "",
+        "strip_padding_v": 24,
+        "strip_padding_h": 28,
+        "section_width": 1100,
+        "padding_horizontal": 40,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "dp_global_presence_HFk33q": {
+      "type": "dp-global-presence",
+      "blocks": {
+        "stat_m3txYr": {
+          "type": "stat",
+          "settings": {
+            "number": "43",
+            "label": "țări în care sunt distribuite produsele noastre"
+          }
+        },
+        "stat_Rpfk6W": {
+          "type": "stat",
+          "settings": {
+            "number": "710+",
+            "label": "magazine partenere la nivel mondial"
+          }
+        },
+        "stat_YeEaMR": {
+          "type": "stat",
+          "settings": {
+            "number": "20M",
+            "label": "sticle produse anual"
+          }
+        },
+        "stat_dtQtfe": {
+          "type": "stat",
+          "settings": {
+            "number": "1.500",
+            "label": "angajați în grupul D&P"
+          }
+        },
+        "region_gBCLHT": {
+          "type": "region",
+          "settings": {
+            "title": "Europa",
+            "countries": "Germania, Austria, Franța, Belgia, Rep. Cehă, Malta, Bulgaria, Cipru, Kosovo, Marea Britanie, România"
+          }
+        },
+        "region_MEp87E": {
+          "type": "region",
+          "settings": {
+            "title": "Orient Mijlociu & Asia",
+            "countries": "Arabia Saudită, Emiratele Arabe, Qatar, Oman, Iran, Irak, Egipt, China, Taiwan, Azerbaijan, Kazahstan, Turkmenistan"
+          }
+        }
+      },
+      "block_order": [
+        "stat_m3txYr",
+        "stat_Rpfk6W",
+        "stat_YeEaMR",
+        "stat_dtQtfe",
+        "region_gBCLHT",
+        "region_MEp87E"
+      ],
+      "name": "Prezență Globală D&P",
+      "settings": {
+        "show_header": true,
+        "header_align": "left",
+        "overline": "Prezență globală",
+        "heading": "O marcă globală, cu rădăcini locale",
+        "subheading": "Produsele D&P Perfumum sunt distribuite sub aceeași marcă în 43 de țări, în peste 710 de magazine partenere. Din Europa până în Orientul Mijlociu, din Asia până în Statele Unite — aceeași calitate, același preț corect.",
+        "subheading_max_width": 560,
+        "header_gap": 48,
+        "show_image": true,
+        "image": "shopify://shop_images/Collection_Classic_Wide_06b21421-fda1-4bb0-a4b8-edc5cfc5ce4b.jpg",
+        "image_radius": 16,
+        "image_margin_bottom": 20,
+        "stats_columns": "4",
+        "stat_num_size": 40,
+        "stat_card_radius": 16,
+        "stat_padding_v": 24,
+        "stat_padding_h": 20,
+        "stats_gap": 12,
+        "stats_margin_bottom": 20,
+        "region_card_radius": 16,
+        "region_padding_v": 24,
+        "region_padding_h": 24,
+        "regions_gap": 12,
+        "regions_margin_bottom": 12,
+        "show_new_strip": true,
+        "strip_badge": "Noutate",
+        "strip_text": "D&P Perfumum este acum disponibil și în Statele Unite ale Americii",
+        "strip_year": "2025",
+        "strip_padding_v": 16,
+        "strip_padding_h": 24,
+        "color_background": "#fafafa",
+        "color_card_bg": "#ffffff",
+        "color_card_border": "#eeeeee",
+        "color_text": "#1a1814",
+        "color_text_muted": "#999999",
+        "color_pill_bg": "#fafafa",
+        "color_pill_text": "#555555",
+        "card_border_width": 1,
+        "section_width": 1100,
+        "padding_horizontal": 40,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "dp_romania_VWQVDf": {
+      "type": "dp-romania",
+      "blocks": {
+        "stat_JgYk4M": {
+          "type": "stat",
+          "settings": {
+            "number": "22+",
+            "label": "ani pe piața din România"
+          }
+        },
+        "stat_JjEALW": {
+          "type": "stat",
+          "settings": {
+            "number": "40",
+            "label": "locații de vânzare active astăzi"
+          }
+        },
+        "stat_c34RVK": {
+          "type": "stat",
+          "settings": {
+            "number": "15–20%",
+            "label": "creștere anuală a cifrei de afaceri"
+          }
+        }
+      },
+      "block_order": [
+        "stat_JgYk4M",
+        "stat_JjEALW",
+        "stat_c34RVK"
+      ],
+      "name": "D&P în România",
+      "settings": {
+        "show_header": true,
+        "overline": "D&P în România",
+        "heading": "22 de ani alături de clienții din România",
+        "subheading": "România este una dintre piețele noastre cu cea mai lungă tradiție. Din 2003, am construit o prezență reală, fizică, în orașele din toată țara — crescând constant prin recomandările clienților noștri, nu prin campanii publicitare.",
+        "subheading_max_width": 540,
+        "header_gap": 48,
+        "body_text": "Aplicăm în România prețurile de producător, conform politicii de prețuri a grupului D&P — nu suntem un vânzător de cosmetice mixte, ci reprezentanța directă a producătorului. Cei peste 22 de ani de prezență continuă pe piața românească vorbesc despre o relație construită pe încredere reală.",
+        "body_max_width": 600,
+        "body_gap_bottom": 52,
+        "btn_text": "Găsește cel mai apropiat magazin",
+        "btn_url": "",
+        "quote_text": "",
+        "quote_author": "",
+        "quote_mark_size": 120,
+        "quote_radius": 20,
+        "quote_padding_v": 48,
+        "quote_padding_h": 56,
+        "quote_inner_gap": 48,
+        "stat_num_size": 40,
+        "stat_padding_v": 24,
+        "stat_padding_h": 20,
+        "stats_gap": 12,
+        "stats_gap_bottom": 52,
+        "color_background": "#ffffff",
+        "color_card_bg": "#fafafa",
+        "color_card_border": "#eeeeee",
+        "color_text": "#1a1814",
+        "color_text_muted": "#999999",
+        "color_body_text": "#555555",
+        "card_radius": 16,
+        "card_border_width": 1,
+        "section_width": 1100,
+        "padding_horizontal": 40,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "dp_closing_cta_bRLMga": {
+      "type": "dp-closing-cta",
+      "name": "Closing CTA D&P",
+      "settings": {
+        "overline": "D&P Perfumum",
+        "heading": "Descoperă parfumeria D&P",
+        "subheading": "Fie că ești pentru prima dată pe site-ul nostru sau ne ești alături de ani de zile — te invităm să explorezi colecțiile noastre, să găsești parfumul care te reprezintă și să experimentezi singur diferența D&P.",
+        "subheading_max_width": 500,
+        "btn_primary_text": "Explorează parfumurile",
+        "btn_primary_url": "shopify://collections/classic-collection-1",
+        "btn_primary_radius": 60,
+        "btn_secondary_text": "Găsește un magazin",
+        "btn_secondary_url": "shopify://pages/magazinele-noastre",
+        "color_background": "#fafafa",
+        "color_text": "#1a1814",
+        "color_text_muted": "#999999",
+        "overline_gap": 20,
+        "heading_gap": 20,
+        "subheading_gap": 52,
+        "actions_gap": 32,
+        "section_width": 800,
+        "padding_horizontal": 40,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
     "image_with_text_rfjwNg",
-    "steps_MdG7i6",
-    "1770243434fa097dcf",
-    "collapsible_content_kriUb6"
+    "media_banner_UDaCqX",
+    "rich_text_LB6pje",
+    "collapsible_content_kriUb6",
+    "collapsible_content_8QJGk4",
+    "dp_collections_timeline_JmKep9",
+    "dp_quality_certifications_hjUyXY",
+    "dp_global_presence_HFk33q",
+    "dp_romania_VWQVDf",
+    "dp_closing_cta_bRLMga"
   ]
 }

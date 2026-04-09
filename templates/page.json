@@ -19,7 +19,7 @@
         "image": "shopify://shop_images/K5_1865131f-4d0d-4c0a-ac2f-0603953f161c.png",
         "image_ratio": "21/9",
         "opacity_overlay": 0.2,
-        "heading": "Politica Cookies",
+        "heading": "Informații utile",
         "heading_size": "h1",
         "text_information": "",
         "text_align": "center",
@@ -49,14 +49,14 @@
         "heading_6hFaAb": {
           "type": "heading",
           "settings": {
-            "heading": "1. Ce sunt cookie-urile",
+            "heading": "1. Unde sunt produse parfumurile D&P?",
             "heading_size": "h1"
           }
         },
         "text_Y768km": {
           "type": "text",
           "settings": {
-            "text": "<p>Cookie-ul este un fisier de mici dimensiuni, format din litere si numere, care va fi stocat pe computerul, terminalul mobil sau alte echipamente ale unui utilizator de pe care se acceseaza internetul. Cookie-ul este instalat prin solicitarea emisa de catre un web-server unui browser (ex: internet Explorer, Chrome) si este complet “pasiv” (nu contine programe software, virusi sau spyware si nu poate accesa informatiile de pe hard driverul utilizatorului).<br/>Cookie-urile stabilite de operatorul site-ului web se numesc “cookies first party”. Cookie-urile setate de alte parti decat operatorul site-ului web se numesc “cookies third party”. Cookie-urile terta parte permit ca functiile si functionalitatile tertilor sa fie furnizate pe sau prin intermediul site-ului (de ex. colectare statistici, publicitate, continut interactiv media si analiza). Partile care au stabilit aceste cookie-uri terte pot recunoaste computerul atat atunci cand viziteaza site-ul in cauza, cat si cand viziteaza anumite alte site-uri web si / sau aplicatii mobile.</p>"
+            "text": "<p>Parfumurile D&P sunt realizate din esențe naturale produse în Franța și în alte țări din Uniunea Europeană, de unde provin majoritatea parfumurilor calitative de brand, produse după norme UE și la standarde IFRA (International Fragrance Association). Esențele sunt ambalate în Ankara, Turcia, și sunt distribuite și foarte apreciate în peste 400 de magazine din 37 de țări.</p>"
           }
         }
       },
@@ -78,14 +78,14 @@
         "heading_dWkYgG": {
           "type": "heading",
           "settings": {
-            "heading": "2. De ce folosim cookie-urile",
+            "heading": "2. Unde pot găsi parfumurile D&P în România?",
             "heading_size": "h1"
           }
         },
         "text_mqRzLM": {
           "type": "text",
           "settings": {
-            "text": "<p>Cookie-urile asigura utilizatorilor o experienta placuta de navigare si sustin eforturile Dpparfum, pentru a oferi servicii confortabile utilizatorilor: ex: – preferintele in materie de confidentialitate online, cosul de cumparaturi sau publicitate relevanta ( ex. Google, Facebook). De asemenea, sunt utilizate in pregatirea unor statistici anonime agregate care ne ajuta sa intelegem cum un utilizator beneficiaza de paginile noastre web, permitandu-ne imbunatatirea structurii si continutului lor, excluzand indentificarea personala a utilizatorului.</p><p>Cum sunt folosite cookies de catre acest site?<br/>In momentul in care vizitati site-ul se pot utiliza urmatoarele tipuri de cookies:</p><ul><li>Cookie-uri de performanta si securitate a site-ului;</li><li>Cookie-uri de analiza a vizitatorilor;</li><li>Cookie-uri de inregistrare;</li><li>Cookie-uri pentru publicitate;</li><li>Cookie-uri ale furnizorilor de publicitate.<br/></li></ul><p>Exemple privind utilitatea cookies – nu este necesara autentificarea in site:</p><ul><li>Continut si servicii adaptate preferintelor utilizatorului – categorii de produse si servicii.</li><li>Oferte adaptate intereselor utilizatorilor;</li><li>Retinerea detaliilor de autentificare (utilizator si parola);</li><li>Retinerea filtrelor de protectie a copiilor privind continutul pe internet (optiuni family mode, functii safe search);</li><li>Limitarea frecventei de difuzare a reclamelor – limitarea numarului de afisari a unei reclame pentru un anumit utilizator pe un site;</li><li>Furnizarea de publicitate relevanta pentru utilizator;</li><li>Masurarea, optimizarea si caracteristicile de analitice – cum ar fi confirmarea unui anumit nivel de trafic pe un website, ce tip de continut este vizualizat si modul cum un utilizator ajunge pe un website (ex.: prin motoare de cautare, direct, din alte website-uri etc). Website-urile deruleaza aceasta analiza a utilizarii lor pentru a imbunatati continutul acestora in beneficiul utilizatorului.</li></ul>"
+            "text": "<p>Parfumurile D&P pot fi comandate online pe www.dpparfum.ro sau cumpărate din <a href=\"https://www.dpparfum.ro/magazinele-noastre/\" target=\"_blank\"><strong>magazinele D&P</strong></a> prezente în București, Baia Mare, Brașov, Botoșani, Buzău, Constanța, Craiova, Drobeta Turnu Severin, Focșani, Iași, Petroșani, Pitești, Ploiești, Râmnicu Vâlcea, Târgoviște și Sibiu. Lista magazinelor D&P poate fi găsită aici.</p>"
           }
         }
       },
@@ -107,20 +107,223 @@
         "heading_yAwyRU": {
           "type": "heading",
           "settings": {
-            "heading": "3. Ce tip de cookie-uri folosim",
+            "heading": "3. Cum aleg parfumul potrivit?",
             "heading_size": "h1"
           }
         },
         "text_6QJmC4": {
           "type": "text",
           "settings": {
-            "text": "<p>Folosim doua tipuri de Cookie-uri: per sesiune si fixe. Cookie-urile per sesiune sunt fisiere temporare ce raman in terminalul utilizatorului pana la terminarea sesiunii sau inchiderea aplicatiei (browser-ului web), iar fisierele fixe raman pe terminalul utilizatorului pe o perioada in parametrii Cookie-ului sau pana sunt sterse manual de utilizator. Folosim cookie-uri de tip primar (first party) si sunt esentiale si strict necesare pentru procesarea unei comenzi cat si de tip tertiar (third party) pentru colectare statistici, publicitate, continut interactiv media si analiza. Cookie-urile tertiare sunt reprezentate de catre serviciile Google si Facebook.<br/>Aveti dreptul sa decideti daca doriti sa acceptati sau sa respingeti modulele cookie. Puteti sa va exprimati preferintele in legatura cu cookie-urile existente pe site-ul nostru.<br/>Informatii despre modul in care puteti controla cookie-urile utilizate in cadrul site-ului sunt prezentate mai jos.</p><ol><li>Controalele browserului: Puteti seta sau modifica comenzile browserului dvs. web pentru a accepta sau a refuza cookie-urile. Daca alegeti sa respingeti modulele cookie, puteti utiliza in continuare site-ul online si produsele si / sau serviciile, desi accesul dvs. la anumite functii si zone ale site-ului poate fi restrictionat. Deoarece mijloacele prin care puteti refuza cookie-urile prin intermediul controalelor browserului dvs. web variaza de la un browser la altul, ar trebui sa vizitati meniul de ajutor al browserului dvs. pentru mai multe informatii.</li><li>Dezactivarea publicitatii bazate pe interese: majoritatea retelelor de publicitate va ofera o modalitate de a renunta la publicitatea bazata pe categorii de interese. Daca doriti sa aflati mai multe informatii, vizitati http://www.aboutads.info/choices/ sau http://www.youronlinechoices.com. in cadrul acestor site-uri puteti opta de la ce companie puteti primi reclame. in cazul magazinului nostru Facebook si Google.</li><li>Publicitatea pe mobil: Puteti renunta la utilizarea identificatorilor dvs. de publicitate mobila pentru anumite tipuri de publicitate bazata pe categorii de interese, inclusiv cele efectuate de noi, accesand setarile din telefonul mobil apple sau android si respectand cele mai recente instructiuni publicate. Daca renuntati, vom elimina toate datele despre dvs. si nu va mai avea loc niciun fel de colectare sau urmarire a datelor. Identificarea aleatorie pe care noi (sau partenerii nostri terti) i-am atribuit-o anterior va fi, de asemenea, eliminata. Aceasta inseamna ca, daca intr-un stadiu ulterior, decideti sa va inscrieti, nu va exista corelarea datelor colectate ale aceluiasi utilizator si veti fi, in toate scopurile practice, un utilizator nou in sistemul nostru.</li><li>Unele browsere de internet – cum ar fi internet Explorer, Firefox si Safari – includ abilitatea de a transmite semnalele “Do not track” sau “DNT”. Intrucat standardele uniforme pentru semnalele “DNT” nu au fost adoptate, site-ul noastru nu proceseaza in prezent si nu raspunde la semnalele “DNT” in mod standardizat.</li><li>Se pot folosi si plugin-uri de blocare a cookieurikor compatibile cu browser-ele pe care le folositi: UBlock, Ghostery, AdBlock, Privacy Badger.</li></ol>"
+            "text": "<p>Puteți testa parfumurile D&P în <a href=\"https://www.dpparfum.ro/magazinele-noastre/\" target=\"_blank\"><strong>magazinele D&P din cele 18 orașe din România</strong></a>. În cazul în care nu există magazine D&P în localitatea dumneavoastră, vă recomandăm să citiți descrierea fiecărui parfum ori despre categoria din care face parte, ori să ne întrebați prin mesaj pe Facebook sau Instagram, pentru a alege ce tip de produs este pe placul dvs. Spre exemplu, dacă preferați aroma de trandafir, iasomie ori santal, puteți include în bara de căutare (din colțul dreapta sus al ecranului) unul din aceste cuvinte, iar rezultatele oferite vor reprezenta parfumurile care conțin aceste ingrediente.</p>"
           }
         }
       },
       "block_order": [
         "heading_yAwyRU",
         "text_6QJmC4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_XhY4UV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4yBWeg": {
+          "type": "heading",
+          "settings": {
+            "heading": "4. Ce variante de parfum am?",
+            "heading_size": "h1"
+          }
+        },
+        "text_pHhC37": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Produsele D&P de pe www.dpparfum.ro sunt EDP (Eau de Parfum) în ambalaje de 50 ml și 100 ml, precum și deo body spray.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4yBWeg",
+        "text_pHhC37"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_ykt4nJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_aTwzKA": {
+          "type": "heading",
+          "settings": {
+            "heading": "5. Cum fac comanda online?",
+            "heading_size": "h1"
+          }
+        },
+        "text_8eqwE6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vă recomandăm, mai întâi de toate, să vă creați contul dvs pe magazinul online D&P pentru ca pe viitor experiența de shopping să fie mai rapidă și personalizată, introducând numele, adresa de facturare și de livrare, emailul și numărul de telefon pentru a fi contactat de curier.</p><p>Logat în cont, alegeți produsele dorite și adăugați-le în coșul de cumpărături (prin selectarea butonului Cumpără acum), alegeți varianta dorită (100 ml sau 50 ml) , apoi click pe Adaugă în coș. Odată ce ajungeți în pagina ce conține produsele din Coș, aveți opțiunea Finalizează comanda sau Adaugă alte produse.</p><p>Când doriți să finalizați comanda, dacă nu sunteți deja logat în cont, introduceți detaliile de facturare și de livrare. (Vă recomandăm să va creați propriul cont pentru a fi mereu logat atunci când reveniți pe www.dpparfum.ro). De asemenea, vă puteți loga și prin contul dvs. de Facebook.</p><p>După ce introduceți datele de livrare, selectați metoda de plata dorită (plata cu cardul sau ramburs).</p><p>Citiți termenii și conditiile și bifați căsuța Sunt de acord cu termenii și condițiile de folosire.</p><p>Plasați comanda.</p><p>Odată trimisă comanda, veți primi un email de confirmare ori veți fi contactat de reprezentantul D&P, iar produsele dorite vor ajunge la dumneavoastră în intervalul 2-3 zile lucrătoare.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aTwzKA",
+        "text_8eqwE6"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_FHz6yC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GGTyf9": {
+          "type": "heading",
+          "settings": {
+            "heading": "6. Transportul este gratuit?",
+            "heading_size": "h1"
+          }
+        },
+        "text_r8bKTW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Transportul este gratuit pentru comenzile în valoare de peste 235 lei. Pentru a beneficia de transport gratuit, recomandarea noastră este de a cumpăra mai multe produse la fiecare comandă pe care o realizați, care să depășească astfel suma de 235 lei. Puteți comanda, spre exemplu, și pentru un prieten. Altfel, pentru comenzi de până în 235 lei, livrarea costă 15 lei.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GGTyf9",
+        "text_r8bKTW"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_CYewjQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AwCE9g": {
+          "type": "heading",
+          "settings": {
+            "heading": "7. Pot returna produsele comandate?",
+            "heading_size": "h1"
+          }
+        },
+        "text_NxbnaH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Puteți returna produsele comandate în termen de 30 zile de la primirea coletului.</p><p>Atenție, însă! NU se poate returna produsul dacă produsul a fost desigilat. (Fiecare produs vine cu sigiliu tip hologramă. Odată rupt acest sigiliu, produsul nu va putea fi returnat.)</p><p>Produsele pot fi acceptate ca retur dacă:</p><p>Ați primit un alt produs decât cel comandat, specificat în comandă și factură. Acesta trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Parfumul este scurs din cauza defectului valf. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Produsul este expirat (pe ambalaj este specificată data producției, termenul de valabilitate fiind de 24 de luni în sistem sigilat). Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Dacă ați primit flaconul rupt din pricina transportului. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Dacă produsul primit nu are etichetele din față și din spate, pe care sunt scrise numele și descrierea produsului. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Puteți returna produsele doar în starea în care au fost livrate (sigilate), completând Formularul de Retur (click aici). Vă recomandăm să citiți informațiile despre politica de retur din secțiunea Termeni și condiții. După ce veți primi pe email confirmarea aprobării cererii de retur, va trebui să contactați firma de curierat Fan Courier (www.fancourier.ro) pentru a programa ridicarea coletului dumneavoastră ce va fi trimis către:</p><p>Smart Trade Management SRL</p><p>Adresa: Str Maior Ion Coravu nr 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, Bucuresti</p><p>Cheltuielile de transport vor fi suportate de dvs. În cazul în care produsul prezintă defectele prevăzute la punctele 1,2,3,4 sau 5, specificate mai sus, în acest capitol, cheltuielile de transport vor fi suportate de D&P (Smart Trade Management SRL) după ce ați primit acordul de retur de la reprezentantul D&P (Smart Trade Management SRL).</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AwCE9g",
+        "text_NxbnaH"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_TDqMwc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VtY6Kt": {
+          "type": "heading",
+          "settings": {
+            "heading": "8. Cum pot lua legătura cu reprezentanții D&P?",
+            "heading_size": "h1"
+          }
+        },
+        "text_CXLA9f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Puteți returna produsele comandate în termen de 30 zile de la primirea coletului.</p><p>Atenție, însă! NU se poate returna produsul dacă produsul a fost desigilat. (Fiecare produs vine cu sigiliu tip hologramă. Odată rupt acest sigiliu, produsul nu va putea fi returnat.)</p><p>Produsele pot fi acceptate ca retur dacă:</p><p>Ați primit un alt produs decât cel comandat, specificat în comandă și factură. Acesta trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Parfumul este scurs din cauza defectului valf. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Produsul este expirat (pe ambalaj este specificată data producției, termenul de valabilitate fiind de 24 de luni în sistem sigilat). Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Dacă ați primit flaconul rupt din pricina transportului. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Dacă produsul primit nu are etichetele din față și din spate, pe care sunt scrise numele și descrierea produsului. Produsul trebuie returnat sigilat, nefolosit, așa cum a fost primit.<br/>Puteți returna produsele doar în starea în care au fost livrate (sigilate), completând Formularul de Retur (click aici). Vă recomandăm să citiți informațiile despre politica de retur din secțiunea Termeni și condiții. După ce veți primi pe email confirmarea aprobării cererii de retur, va trebui să contactați firma de curierat Fan Courier (www.fancourier.ro) pentru a programa ridicarea coletului dumneavoastră ce va fi trimis către:</p><p>Smart Trade Management SRL</p><p>Adresa: Str Maior Ion Coravu nr 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, Bucuresti</p><p>Cheltuielile de transport vor fi suportate de dvs. În cazul în care produsul prezintă defectele prevăzute la punctele 1,2,3,4 sau 5, specificate mai sus, în acest capitol, cheltuielile de transport vor fi suportate de D&P (Smart Trade Management SRL) după ce ați primit acordul de retur de la reprezentantul D&P (Smart Trade Management SRL).</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VtY6Kt",
+        "text_CXLA9f"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_MzcENV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KYifMP": {
+          "type": "heading",
+          "settings": {
+            "heading": "9. Care sunt modalitățile de plată?",
+            "heading_size": "h1"
+          }
+        },
+        "text_t3XnWQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Puteți plăti pentru produsele D&P în două moduri: prin ramburs sau online.</p><h3>PRIN RAMBURS</h3><p>În acest caz, plata se face integral la livrare, numerar, către agentul firmei de curierat.</p><h3>PLATĂ ONLINE</h3><p>În această variantă plata se va face prin platforma Netopia, utilizând un card bancar.<br/>E important de reținut că se pot face plăti numai folosind carduri de debit sau credit.</p><p>Cardurile acceptate de către procesatorul nostru de plăți sunt Visa, Visa Electron, Mastercard și Maestro.</p><p>Indiferent de valuta pe care o aveți în cont, tranzacțiile se fac în lei, la cursul de schimb al băncii dumneavoastră.</p><p>Procesarea datelor de card se face exclusiv prin intermediul platformei de plată Netopia – Mobilpay. D&P nu solicita și nu stochează niciun fel de detalii referitoare la cardul dumneavoastră.</p><p>Nu este perceput niciun comision suplimentar pentru tranzacții.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KYifMP",
+        "text_t3XnWQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "xs",
+        "margin_bottom": "xs"
+      }
+    },
+    "rich_text_MrEmyW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_33jDmf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Alte informații despre livrare",
+            "heading_size": "h1"
+          }
+        },
+        "text_jhfRKL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Produsele vor ajunge la dumneavoastră într-un interval de la una la trei zile din momentul efectuării comenzii.</p><p>Partenerul nostru pentru serviciile de livrare este compania FanCourier.</p><p>Livrările se fac oriunde în țară, dar numai pe teritoriul României.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_33jDmf",
+        "text_jhfRKL"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -136,6 +339,13 @@
     "main",
     "rich_text_PaQXM6",
     "rich_text_cfbj9a",
-    "rich_text_Vxdd7F"
+    "rich_text_Vxdd7F",
+    "rich_text_XhY4UV",
+    "rich_text_ykt4nJ",
+    "rich_text_FHz6yC",
+    "rich_text_CYewjQ",
+    "rich_text_TDqMwc",
+    "rich_text_MzcENV",
+    "rich_text_MrEmyW"
   ]
 }

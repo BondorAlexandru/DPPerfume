@@ -1,0 +1,572 @@
+{% comment %}
+  ============================================================
+  D&P Perfumum — Evoluția Colecțiilor (Timeline)
+  Fișier: dp-collections-timeline.liquid
+  Instalare: Online Store → Themes → Edit code → /sections/ → New file
+  Adăugare pe pagină: Customize → Despre Noi → Add section → "Timeline Colecții"
+  ============================================================
+{% endcomment %}
+
+<style>
+  #dp-tl-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.color_background }};
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__inner {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* ── Header ──────────────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__header {
+    margin-bottom: {{ section.settings.header_gap }}px;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__over {
+    display: block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    margin-bottom: 14px;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__h2 {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 12px;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__sub {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.subheading_max_width }}px;
+    margin: 0;
+  }
+
+  /* ── Row grid ────────────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__item {
+    display: grid;
+    grid-template-columns: {{ section.settings.year_col_width }}px 1fr;
+    gap: 0 {{ section.settings.col_gap }}px;
+  }
+
+  /* ── Separator ───────────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__sep {
+    height: 1px;
+    background: {{ section.settings.color_text }};
+    opacity: {{ section.settings.separator_opacity | divided_by: 100.0 }};
+    margin: {{ section.settings.separator_margin }}px 0;
+  }
+
+  /* ── Year column ─────────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__year-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 2px;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__year {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: {{ section.settings.year_font_weight }};
+    font-size: {{ section.settings.year_font_size }}px;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    color: {{ section.settings.color_text }};
+    opacity: {{ section.settings.year_opacity | divided_by: 100.0 }};
+    transition: opacity 0.4s ease;
+    user-select: none;
+    text-align: right;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__item:hover .dp-tl__year {
+    opacity: 1;
+  }
+
+  /* ── Content column ──────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__content {
+    padding-top: {{ section.settings.content_top_offset }}px;
+  }
+
+  /* ── Badge — black filled pill ───────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__badge {
+    display: inline-block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: {{ section.settings.badge_font_size }}px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background-color: {{ section.settings.color_text }};
+    color: {{ section.settings.color_background }};
+    border-radius: 100px;
+    padding: {{ section.settings.badge_padding_v }}px {{ section.settings.badge_padding_h }}px;
+    margin-bottom: {{ section.settings.badge_gap }}px;
+  }
+
+  /* ── Collection name ─────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__name {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h3-scale) * 1.3rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 {{ section.settings.name_gap }}px;
+  }
+
+  /* ── Description ─────────────────────────────── */
+  #dp-tl-{{ section.id }} .dp-tl__desc {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: {{ section.settings.desc_font_size }}px;
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.desc_max_width }}px;
+    margin: 0;
+  }
+
+  #dp-tl-{{ section.id }} .dp-tl__desc p { margin: 0 0 8px; }
+  #dp-tl-{{ section.id }} .dp-tl__desc p:last-child { margin-bottom: 0; }
+
+  /* ── button--simple override ─────────────────── */
+  /* base.css sets display:block (full-width). Override to inline-block
+     so the animated underline stops at the text edge, not page width. */
+  #dp-tl-{{ section.id }} .button--simple {
+    display: inline-block;
+    margin-top: {{ section.settings.btn_gap }}px;
+  }
+
+  /* ── Mobile ──────────────────────────────────── */
+  @media screen and (max-width: 749px) {
+    #dp-tl-{{ section.id }} .dp-tl__inner {
+      padding: 0 20px;
+    }
+    #dp-tl-{{ section.id }} .dp-tl__item {
+      grid-template-columns: 1fr;
+    }
+    #dp-tl-{{ section.id }} .dp-tl__year-col {
+      justify-content: flex-start;
+      margin-bottom: 12px;
+    }
+    #dp-tl-{{ section.id }} .dp-tl__year {
+      font-size: {{ section.settings.year_font_size | times: 0.6 | round }}px;
+      opacity: 1;
+    }
+  }
+</style>
+
+<section id="dp-tl-{{ section.id }}">
+  <div class="dp-tl__inner">
+
+    {% if section.settings.show_header %}
+      <div class="dp-tl__header">
+        {% if section.settings.overline != blank %}
+          <span class="dp-tl__over">{{ section.settings.overline }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="dp-tl__h2">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="dp-tl__sub">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% assign collection_blocks = section.blocks | where: 'type', 'collection_item' %}
+    {% for block in collection_blocks %}
+      <div class="dp-tl__item" {{ block.shopify_attributes }}>
+
+        <div class="dp-tl__year-col">
+          {% if block.settings.year != blank %}
+            <span class="dp-tl__year">{{ block.settings.year }}</span>
+          {% endif %}
+        </div>
+
+        <div class="dp-tl__content">
+          {% if block.settings.badge != blank %}
+            <span class="dp-tl__badge">{{ block.settings.badge }}</span>
+          {% endif %}
+          {% if block.settings.name != blank %}
+            <h3 class="dp-tl__name">{{ block.settings.name }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="dp-tl__desc">{{ block.settings.description }}</div>
+          {% endif %}
+          {% if block.settings.btn_text != blank and block.settings.btn_url != blank %}
+            <a href="{{ block.settings.btn_url }}" class="button button--simple">
+              <span>{{ block.settings.btn_text }}</span>
+            </a>
+          {% endif %}
+        </div>
+
+      </div>
+
+      {% unless forloop.last %}
+        <div class="dp-tl__sep"></div>
+      {% endunless %}
+    {% endfor %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Timeline Colecții",
+  "tag": "section",
+  "class": "dp-collections-timeline",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "── Header ────────────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Afișează header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline",
+      "default": "Povestea noastră"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu principal",
+      "default": "O linie în continuă evoluție"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subtitlu",
+      "default": "De-a lungul anilor, am extins cu atenție portofoliul nostru, adăugând câte o nouă dimensiune parfumeriei D&P — fără a renunța niciodată la filosofia accesibilității și calității autentice."
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Lățime max subtitlu (px)",
+      "min": 300, "max": 700, "step": 20,
+      "default": 540
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Spațiu sub header (px)",
+      "min": 24, "max": 120, "step": 4,
+      "default": 72
+    },
+
+    {
+      "type": "header",
+      "content": "── An ────────────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "year_font_size",
+      "label": "Dimensiune font an (px)",
+      "min": 40, "max": 120, "step": 4,
+      "default": 64
+    },
+    {
+      "type": "select",
+      "id": "year_font_weight",
+      "label": "Grosime font an",
+      "options": [
+        { "value": "300", "label": "Light (300)" },
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "300"
+    },
+    {
+      "type": "range",
+      "id": "year_opacity",
+      "label": "Opacitate an în repaus (%)",
+      "min": 3, "max": 50, "step": 1,
+      "default": 7
+    },
+
+    {
+      "type": "header",
+      "content": "── Badge ─────────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "badge_font_size",
+      "label": "Dimensiune font badge (px)",
+      "min": 8, "max": 13, "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_v",
+      "label": "Padding vertical badge (px)",
+      "min": 2, "max": 10, "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_h",
+      "label": "Padding orizontal badge (px)",
+      "min": 8, "max": 28, "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "badge_gap",
+      "label": "Spațiu sub badge (px)",
+      "min": 4, "max": 24, "step": 2,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "── Conținut ──────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "name_gap",
+      "label": "Spațiu sub titlul colecției (px)",
+      "min": 4, "max": 24, "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "desc_font_size",
+      "label": "Dimensiune font descriere (px)",
+      "min": 12, "max": 18, "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "desc_max_width",
+      "label": "Lățime max descriere (px)",
+      "min": 300, "max": 700, "step": 20,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "btn_gap",
+      "label": "Spațiu deasupra butonului (px)",
+      "min": 8, "max": 40, "step": 2,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "content_top_offset",
+      "label": "Offset vertical conținut față de an (px)",
+      "min": 0, "max": 20, "step": 2,
+      "default": 4
+    },
+
+    {
+      "type": "header",
+      "content": "── Separator ─────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "separator_opacity",
+      "label": "Opacitate separator (%)",
+      "min": 3, "max": 30, "step": 1,
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "separator_margin",
+      "label": "Spațiu separator sus/jos (px)",
+      "min": 16, "max": 80, "step": 4,
+      "default": 52
+    },
+
+    {
+      "type": "header",
+      "content": "── Culori ────────────────────────────"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Fundal secțiune",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Culoare principală (text + badge fill)",
+      "default": "#1a1814"
+    },
+    {
+      "type": "color",
+      "id": "color_text_muted",
+      "label": "Culoare secundară (descrieri, overline)",
+      "default": "#888888"
+    },
+
+    {
+      "type": "header",
+      "content": "── Layout & spațiere ─────────────────"
+    },
+    {
+      "type": "range",
+      "id": "year_col_width",
+      "label": "Lățime coloană an (px)",
+      "min": 80, "max": 300, "step": 10,
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "col_gap",
+      "label": "Spațiu între an și conținut (px)",
+      "min": 16, "max": 100, "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Lățime maximă secțiune (px)",
+      "min": 600, "max": 1400, "step": 20,
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding orizontal interior (px)",
+      "min": 0, "max": 80, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding sus secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding jos secțiune (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Colecție",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "An",
+          "default": "1999"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge text",
+          "default": "Origini"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Titlu colecție",
+          "default": "Classic Collection"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Descriere",
+          "default": "<p>Colecția originală. Sticla GOYA în 30 ml, 50 ml și 100 ml. Formule Eau de Parfum cu esențe naturale din Franța, la prețuri accesibile pentru orice buget.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Text buton",
+          "default": "Descoperă colecția"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Link buton"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Timeline Colecții D&P",
+      "blocks": [
+        {
+          "type": "collection_item",
+          "settings": {
+            "year": "1999",
+            "badge": "Origini",
+            "name": "Classic Collection",
+            "description": "<p>Colecția originală. Sticla GOYA în 30 ml, 50 ml și 100 ml. Formule Eau de Parfum cu esențe naturale din Franța, la prețuri accesibile pentru orice buget. Echivalentele în spray deodorant de corp 150 ml sunt disponibile pentru întreaga gamă.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/classic-collection-1"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "year": "2021",
+            "badge": "Extindere Premium",
+            "name": "Private Collection",
+            "description": "<p>O nouă serie de lux adăugată colecțiilor existente. Parfumuri realizate din esențe de nișă, ambalate în cutii de 50 ml și 100 ml. Rafinament fără compromis.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/private-collection"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "year": "2024",
+            "badge": "Simțuri Orientale",
+            "name": "Arabian Collection",
+            "description": "<p>Inspirată din principii olfactive de origine orientală. Sticle premium de 100 ml, ambalate împreună cu cutia — un concept de lux complet.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/arabian-collection"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "year": "2025",
+            "badge": "Rafinament Aparte",
+            "name": "Niche Collection",
+            "description": "<p>Parfumuri feminine și unisex de excepție, remarcabile atât prin selecția principiilor olfactive cât și prin ambalaj. Cea mai nouă expresie a viziunii D&P Perfumum.</p>",
+            "btn_text": "Descoperă colecția",
+            "btn_url": "/collections/niche-collection"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

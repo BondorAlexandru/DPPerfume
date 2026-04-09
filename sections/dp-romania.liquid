@@ -1,0 +1,635 @@
+{% comment %}
+  ============================================================
+  D&P Perfumum — D&P în România (Secțiunea 7)
+  Fișier: dp-romania.liquid
+  Instalare: Online Store → Themes → Edit code → /sections/ → New file
+  Adăugare: Customize → Despre Noi → Add section → "D&P în România"
+  ============================================================
+{% endcomment %}
+
+<style>
+  #dp-ro-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.color_background }};
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__inner {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* ── Header ──────────────────────────────────── */
+  #dp-ro-{{ section.id }} .dp-ro__header {
+    margin-bottom: {{ section.settings.header_gap }}px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__over {
+    display: block;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    margin-bottom: 14px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__h2 {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+    line-height: var(--font-heading-line-height);
+    letter-spacing: calc(var(--font-heading-letter-spacing) * 0.1);
+    color: {{ section.settings.color_text }};
+    margin: 0 0 16px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__sub {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+    max-width: {{ section.settings.subheading_max_width }}px;
+    margin: 0;
+  }
+
+  /* ── Stats ───────────────────────────────────── */
+  #dp-ro-{{ section.id }} .dp-ro__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ section.settings.stats_gap }}px;
+    margin-bottom: {{ section.settings.stats_gap_bottom }}px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__stat {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: {{ section.settings.stat_padding_v }}px {{ section.settings.stat_padding_h }}px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__stat-num {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: {{ section.settings.stat_num_size }}px;
+    letter-spacing: -0.03em;
+    color: {{ section.settings.color_text }};
+    line-height: 1;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__stat-label {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.85rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_text_muted }};
+  }
+
+  /* ── Body text ───────────────────────────────── */
+  #dp-ro-{{ section.id }} .dp-ro__body-wrap {
+    max-width: {{ section.settings.body_max_width }}px;
+    margin-bottom: {{ section.settings.body_gap_bottom }}px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__body {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1rem);
+    line-height: var(--font-body-line-height);
+    color: {{ section.settings.color_body_text }};
+    margin: 0;
+  }
+
+  /* ── Button — button--simple override ───────── */
+  /* base.css sets display:block (full-width); override to inline-block
+     so the animated underline matches the text width only */
+  #dp-ro-{{ section.id }} .button--simple {
+    display: inline-block;
+  }
+
+  /* ── Quote card ──────────────────────────────── */
+  #dp-ro-{{ section.id }} .dp-ro__quote {
+    background-color: {{ section.settings.color_card_bg }};
+    border: {{ section.settings.card_border_width }}px solid {{ section.settings.color_card_border }};
+    border-radius: {{ section.settings.quote_radius }}px;
+    padding: {{ section.settings.quote_padding_v }}px {{ section.settings.quote_padding_h }}px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 {{ section.settings.quote_inner_gap }}px;
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+    transition:
+      border-color 500ms ease,
+      transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.color_text }};
+    opacity: 0;
+    transition: opacity 500ms ease;
+    z-index: 0;
+    border-radius: calc({{ section.settings.quote_radius }}px - 1px);
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover {
+    border-color: {{ section.settings.color_text }};
+    transform: translateY(-3px);
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover::before {
+    opacity: 1;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover .dp-ro__qmark {
+    color: {{ section.settings.color_background }};
+    opacity: 0.2;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover .dp-ro__qtext {
+    color: {{ section.settings.color_background }};
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover .dp-ro__qname {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__quote:hover .dp-ro__qline {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qmark {
+    font-family: Georgia, serif;
+    font-size: {{ section.settings.quote_mark_size }}px;
+    font-weight: 400;
+    color: {{ section.settings.color_text }};
+    opacity: 0.06;
+    line-height: 0.75;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    transition: color 500ms ease, opacity 500ms ease;
+    flex-shrink: 0;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qcontent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qtext {
+    font-family: var(--font-heading-family);
+    font-style: italic;
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-h3-scale) * 1.4rem);
+    line-height: 1.75;
+    color: {{ section.settings.color_text }};
+    margin: 0;
+    transition: color 500ms ease;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qattr {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qline {
+    width: 24px;
+    height: 1px;
+    background: {{ section.settings.color_card_border }};
+    flex-shrink: 0;
+    transition: background 500ms ease;
+  }
+
+  #dp-ro-{{ section.id }} .dp-ro__qname {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 0.7rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.color_text_muted }};
+    transition: color 500ms ease;
+  }
+
+  /* ── Mobile ──────────────────────────────────── */
+  @media screen and (max-width: 749px) {
+    #dp-ro-{{ section.id }} .dp-ro__inner {
+      padding: 0 20px;
+    }
+    #dp-ro-{{ section.id }} .dp-ro__stats {
+      grid-template-columns: 1fr;
+    }
+    #dp-ro-{{ section.id }} .dp-ro__quote {
+      grid-template-columns: 1fr;
+    }
+    #dp-ro-{{ section.id }} .dp-ro__qmark {
+      font-size: 64px;
+      margin-bottom: 8px;
+    }
+    #dp-ro-{{ section.id }} .dp-ro__quote:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<section id="dp-ro-{{ section.id }}">
+  <div class="dp-ro__inner">
+
+    {% if section.settings.show_header %}
+      <div class="dp-ro__header">
+        {% if section.settings.overline != blank %}
+          <span class="dp-ro__over">{{ section.settings.overline }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="dp-ro__h2">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="dp-ro__sub">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
+    {% if stat_blocks.size > 0 %}
+      <div class="dp-ro__stats">
+        {% for block in stat_blocks %}
+          <div class="dp-ro__stat" {{ block.shopify_attributes }}>
+            {% if block.settings.number != blank %}
+              <span class="dp-ro__stat-num">{{ block.settings.number }}</span>
+            {% endif %}
+            {% if block.settings.label != blank %}
+              <span class="dp-ro__stat-label">{{ block.settings.label }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.body_text != blank %}
+      <div class="dp-ro__body-wrap">
+        <p class="dp-ro__body">{{ section.settings.body_text }}</p>
+        {% if section.settings.btn_text != blank and section.settings.btn_url != blank %}
+          <a href="{{ section.settings.btn_url }}" class="button button--simple">
+            <span>{{ section.settings.btn_text }}</span>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.quote_text != blank %}
+      <div class="dp-ro__quote">
+        <span class="dp-ro__qmark" aria-hidden="true">&ldquo;</span>
+        <div class="dp-ro__qcontent">
+          <p class="dp-ro__qtext">{{ section.settings.quote_text }}</p>
+          {% if section.settings.quote_author != blank %}
+            <div class="dp-ro__qattr">
+              <div class="dp-ro__qline"></div>
+              <span class="dp-ro__qname">{{ section.settings.quote_author }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "D&P în România",
+  "tag": "section",
+  "class": "dp-romania",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "── Header ───────────────────────────"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "D&P în România"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "22 de ani alături de clienții din România"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "România este una dintre piețele noastre cu cea mai lungă tradiție. Din 2003, am construit o prezență reală, fizică, în orașele din toată țara — crescând constant prin recomandările clienților noștri, nu prin campanii publicitare."
+    },
+    {
+      "type": "range",
+      "id": "subheading_max_width",
+      "label": "Subheading max width (px)",
+      "min": 300, "max": 800, "step": 20,
+      "default": 540
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Space below header (px)",
+      "min": 20, "max": 100, "step": 4,
+      "default": 48
+    },
+
+    {
+      "type": "header",
+      "content": "── Body text & CTA ──────────────────"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body paragraph",
+      "default": "Aplicăm în România prețurile de producător, conform politicii de prețuri a grupului D&P — nu suntem un vânzător de cosmetice mixte, ci reprezentanța directă a producătorului. Cei peste 22 de ani de prezență continuă pe piața românească vorbesc despre o relație construită pe încredere reală."
+    },
+    {
+      "type": "range",
+      "id": "body_max_width",
+      "label": "Body text max width (px)",
+      "min": 400, "max": 800, "step": 20,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "body_gap_bottom",
+      "label": "Space below body (px)",
+      "min": 20, "max": 80, "step": 4,
+      "default": 52
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Găsește cel mai apropiat magazin"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    },
+
+    {
+      "type": "header",
+      "content": "── Quote ────────────────────────────"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote text",
+      "default": "Când ești atent la cheltuielile tale și îți place să faci alegeri bine gândite, vei înțelege de ce conceptul D&P a devenit atât de popular — chiar și în țări extrem de dezvoltate, precum Anglia, Germania, Austria sau Franța."
+    },
+    {
+      "type": "text",
+      "id": "quote_author",
+      "label": "Quote attribution",
+      "default": "Cenap Arzan · Founder CEO, D&P Perfumum"
+    },
+    {
+      "type": "range",
+      "id": "quote_mark_size",
+      "label": "Quotation mark size (px)",
+      "min": 60, "max": 160, "step": 4,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "quote_radius",
+      "label": "Quote card border radius (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "quote_padding_v",
+      "label": "Quote card vertical padding (px)",
+      "min": 24, "max": 80, "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "quote_padding_h",
+      "label": "Quote card horizontal padding (px)",
+      "min": 24, "max": 80, "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "quote_inner_gap",
+      "label": "Gap between mark and text (px)",
+      "min": 16, "max": 80, "step": 4,
+      "default": 48
+    },
+
+    {
+      "type": "header",
+      "content": "── Stats ────────────────────────────"
+    },
+    {
+      "type": "range",
+      "id": "stat_num_size",
+      "label": "Stat number size (px)",
+      "min": 24, "max": 64, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "stat_padding_v",
+      "label": "Stat card vertical padding (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "stat_padding_h",
+      "label": "Stat card horizontal padding (px)",
+      "min": 12, "max": 48, "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "stats_gap",
+      "label": "Gap between stat cards (px)",
+      "min": 4, "max": 32, "step": 4,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "stats_gap_bottom",
+      "label": "Space below stats (px)",
+      "min": 20, "max": 80, "step": 4,
+      "default": 52
+    },
+
+    {
+      "type": "header",
+      "content": "── Colors ───────────────────────────"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_card_bg",
+      "label": "Card background",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "color",
+      "id": "color_card_border",
+      "label": "Card border",
+      "default": "#EEEEEE"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Primary text",
+      "default": "#1a1814"
+    },
+    {
+      "type": "color",
+      "id": "color_text_muted",
+      "label": "Secondary text",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "color_body_text",
+      "label": "Body paragraph text",
+      "default": "#555555"
+    },
+
+    {
+      "type": "header",
+      "content": "── Layout & spacing ─────────────────"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Stat card border radius (px)",
+      "min": 0, "max": 32, "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Card border width (px)",
+      "min": 0, "max": 3, "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section max width (px)",
+      "min": 600, "max": 1400, "step": 20,
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding (px)",
+      "min": 0, "max": 80, "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section top padding (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section bottom padding (px)",
+      "min": 0, "max": 160, "step": 8,
+      "default": 80
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number / value",
+          "default": "22+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "ani pe piața din România"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "D&P în România",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "22+",
+            "label": "ani pe piața din România"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "40",
+            "label": "locații de vânzare active astăzi"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "15–20%",
+            "label": "creștere anuală a cifrei de afaceri"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

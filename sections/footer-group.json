@@ -33,24 +33,8 @@
         "footer-3": {
           "type": "link_list",
           "settings": {
-            "subheading": "Services",
-            "menu": "footer",
-            "default_open": false
-          }
-        },
-        "footer-4": {
-          "type": "link_list",
-          "settings": {
-            "subheading": "Socials",
-            "menu": "footer",
-            "default_open": false
-          }
-        },
-        "footer-5": {
-          "type": "link_list",
-          "settings": {
-            "subheading": "Legal",
-            "menu": "footer",
+            "subheading": "Altele",
+            "menu": "altele",
             "default_open": false
           }
         }
@@ -58,9 +42,7 @@
       "block_order": [
         "footer-1",
         "footer-2",
-        "footer-3",
-        "footer-4",
-        "footer-5"
+        "footer-3"
       ],
       "custom_css": [],
       "settings": {

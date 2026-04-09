@@ -6,6 +6,19 @@
 	{% render 'section-margin' %}
 {%- endstyle -%}
 
+{%- if section.settings.image_position == 'right' -%}
+<style>
+  /* Flip layout: image moves right, text left */
+  .section-{{ section.id }} .collapsible-content__gallery {
+    order: 2;
+    border-radius: var(--border-radius-media) 0 0 var(--border-radius-media);
+  }
+  .section-{{ section.id }} .collapsible-content__info {
+    order: 1;
+  }
+</style>
+{%- endif -%}
+
 {% assign count = 0 %}
 {%- for block in section.blocks -%}
     {% if block.type == 'image' %}
@@ -198,6 +211,27 @@
 		}
 	],
 	"settings": [
+		{
+			"type": "header",
+			"content": "Layout"
+		},
+		{
+			"type": "select",
+			"id": "image_position",
+			"label": "Image position",
+			"info": "When set to Right, rounded corners automatically face the text",
+			"options": [
+				{
+					"value": "left",
+					"label": "Left (default)"
+				},
+				{
+					"value": "right",
+					"label": "Right"
+				}
+			],
+			"default": "left"
+		},
 		{
 			"type": "select",
 			"id": "aspect_ratio",

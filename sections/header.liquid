@@ -84,6 +84,36 @@
 			padding-top: 1rem;
 		}
 	}
+
+	/* ── Right-side nav links (Despre Noi + Magazine) ── */
+	.header__nav-links-right {
+		display: none; /* hidden on mobile — hamburger handles those */
+	}
+
+	@media screen and (min-width: 1100px) {
+		/* Show the right-side container on desktop */
+		.header__nav-links-right {
+			display: flex;
+			align-items: center;
+			gap: 1.6rem;
+			padding-right: 1.6rem;
+			margin-right: 0.8rem;
+			border-right: 1px solid rgba(var(--color-foreground), 0.1);
+		}
+
+		.header__right-nav-link {
+			font-family: var(--font-header-menu-family);
+			font-style: var(--font-header-menu-style);
+			font-weight: var(--font-header-menu-weight);
+			font-size: calc(var(--font-header-menu-scale) * 0.9rem);
+			letter-spacing: calc(var(--font-header-menu-letter-spacing) * 0.1);
+			text-transform: var(--font-header-menu-text-transform);
+			text-decoration: none;
+			color: rgb(var(--color-foreground));
+			white-space: nowrap;
+			transition: color var(--duration-default);
+		}
+	}
 </style>
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
@@ -110,6 +140,65 @@
 		</header>
 	</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 {% endunless %}
+
+<script>
+(function() {
+  // URLs for the two links to move to the right side
+  var RIGHT_NAV_LINKS = [
+    { href: '/pages/contact',           label: 'Despre Noi' },
+    { href: '/pages/magazinele-noastre', label: 'Magazine' }
+  ];
+
+  function initRightNav() {
+    // Only run on desktop (1100px+, matching header-drawer breakpoint)
+    if (window.innerWidth < 1100) return;
+
+    var rightPart = document.querySelector('.header__right--part');
+    if (!rightPart) return;
+
+    // 1. Hide the links from the left inline menu
+    RIGHT_NAV_LINKS.forEach(function(item) {
+      var leftLink = document.querySelector(
+        '.header__inline-menu a[href="' + item.href + '"]'
+      );
+      if (leftLink) {
+        var li = leftLink.closest('li');
+        if (li) li.style.display = 'none';
+      }
+    });
+
+    // 2. Build the right-side container (only once)
+    if (document.querySelector('.header__nav-links-right')) return;
+
+    var container = document.createElement('div');
+    container.className = 'header__nav-links-right';
+
+    RIGHT_NAV_LINKS.forEach(function(item) {
+      var a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+      a.className = 'header__right-nav-link link-hover-line focus-inset';
+
+      // Mark active page
+      if (window.location.pathname === item.href) {
+        a.style.opacity = '0.5';
+      }
+
+      container.appendChild(a);
+    });
+
+    // 3. Insert before the first child of .header__right--part
+    rightPart.insertBefore(container, rightPart.firstChild);
+  }
+
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRightNav);
+  } else {
+    initRightNav();
+  }
+})();
+</script>
 
 {% javascript %}
 	class StickyHeader extends HTMLElement {
