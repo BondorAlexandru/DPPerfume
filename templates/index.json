@@ -75,9 +75,9 @@
         "collection_item_wDLNLh": {
           "type": "collection_item",
           "settings": {
-            "collection": "classic-collection-1",
+            "collection": "classic-collection",
             "button_label": "Descoperă colecția",
-            "button_link": "shopify://collections/classic-collection-1",
+            "button_link": "shopify://collections/classic-collection",
             "overlay_opacity": 0.6
           }
         },
@@ -131,6 +131,35 @@
         "show_desc": false,
         "collection_heading_size": "h2",
         "collections_to_show": 4,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "products_grid_DL4bNC": {
+      "type": "products-grid",
+      "custom_css": [],
+      "name": "t:sections.products-grid.name",
+      "settings": {
+        "subheading": "",
+        "heading": "Promoții",
+        "description": "",
+        "heading_size": "h1",
+        "collection": "promoții",
+        "product_list": [],
+        "products_per_page": 5,
+        "products_to_show": 5,
+        "sort": "products_high",
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_vendor": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_collection": false,
+        "show_desc": false,
+        "columns_mobile": "2",
+        "button_label": "Descoperă produsele",
+        "button_link": "shopify://collections/promoții",
+        "button_style": "simple",
         "margin_top": "m",
         "margin_bottom": "m"
       }
@@ -422,6 +451,7 @@
   "order": [
     "slideshow",
     "categories_list_6QxCjk",
+    "products_grid_DL4bNC",
     "product-slider",
     "products_grid_7giBeM",
     "featured-products",

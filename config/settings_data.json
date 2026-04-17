@@ -33,10 +33,15 @@
     "product_color_option_display": "count",
     "type_color_swatch": "custom",
     "swatch_type": "variant_image",
-    "show_collection_card": true,
+    "show_collection_card": false,
+    "show_search_block": false,
     "cart_type": "drawer",
     "cart_color_scheme": "background-1",
     "empty_cart_dec": "Browse our latest collection or check your saved favorites to add more items to your cart.",
+    "empty_cart_promo": false,
+    "empty_cart_heading": "Coșul Tău",
+    "notification": false,
+    "show_shipping": false,
     "account_heading": "Bine ai venit la contul tău D&P",
     "account_description": "Editează-ți profilul, urmărește-ți comanda și bucură-te de o experiență de neuitat!",
     "home_page_slider": false,
@@ -58,11 +63,6 @@
         "settings": {
           "home": false
         }
-      },
-      "8605505498557855500": {
-        "type": "shopify://apps/bogos-io-free-gift/blocks/app-embed/0432bba6-720a-4e95-be5a-b868386f7aa6",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
