@@ -11,54 +11,14 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {}
-    },
-    "media-banner": {
-      "type": "media-banner",
-      "blocks": {
-        "media_slide": {
-          "type": "media_slide",
-          "settings": {
-            "overlay_opacity": 0,
-            "enable_hover": true,
-            "show_video": false,
-            "video_url": "",
-            "description_video": "",
-            "subheading": "",
-            "description": "",
-            "position_content": "bottom",
-            "align_content": "left"
-          }
-        },
-        "media_slide1": {
-          "type": "media_slide",
-          "settings": {
-            "overlay_opacity": 0,
-            "enable_hover": true,
-            "show_video": false,
-            "video_url": "",
-            "description_video": "",
-            "subheading": "",
-            "description": "",
-            "position_content": "bottom",
-            "align_content": "left"
-          }
-        }
-      },
-      "block_order": [
-        "media_slide",
-        "media_slide1"
-      ],
       "settings": {
-        "header_overlay": false,
-        "layout": "overlay",
-        "gap": false,
-        "aspect_ratio": "full"
+        "enable_search": false,
+        "margin_top": "xl",
+        "margin_bottom": "xl"
       }
     }
   },
   "order": [
-    "main",
-    "media-banner"
+    "main"
   ]
 }
