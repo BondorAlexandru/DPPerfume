@@ -281,7 +281,8 @@
   background: rgb(var(--color-background));
   transform: translateX(100%);
   transition: transform var(--duration-long) ease;
-  height: 100vh;
+  height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
 }
 .facets__wrapper #ProductCount {
   display: none;
