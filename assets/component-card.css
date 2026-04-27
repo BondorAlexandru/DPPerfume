@@ -563,8 +563,6 @@
   gap: 0.8rem;
   z-index: 3;
   pointer-events: none;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
 }
 .card__badge .badge {
   display: flex;
@@ -574,8 +572,12 @@
   overflow: hidden;
 }
 .card__badge .badge.badge--soldout {
-  color: rgb(var(--color-badge-soldout-text));
-  background-color: rgb(var(--color-badge-soldout-background));
+  color: white;
+  background-color: black !important;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px 13px !important;
+  border-radius: 15px;
 }
 .card__badge .badge.badge--sale {
   color: rgb(var(--color-badge-sale-text));
