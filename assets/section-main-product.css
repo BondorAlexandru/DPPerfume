@@ -2815,7 +2815,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: calc(var(--font-heading-h3-scale) * 1.4rem);;
   font-weight: 300;
   color: rgb(var(--color-foreground));
   flex-shrink: 0;
@@ -2847,7 +2847,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
   line-height: 1.6;
 }
 .info-dropdown-block__content .rte h4 {
-  font-size: 16px;
+  font-size: calc(var(--font-heading-card-scale) * 1.4rem);
   font-weight: 600;
   margin: 0 0 0.3em;
 }

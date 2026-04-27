@@ -161,7 +161,7 @@
       "type": "product-recommendations",
       "settings": {
         "subheading": "",
-        "heading": "You May Also Like",
+        "heading": "Produse Recomandate",
         "description": "",
         "heading_size": "h1",
         "products_limit": 4,

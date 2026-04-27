@@ -7776,3 +7776,16 @@ details[open] > .header__icon--menu .icon-hamburger {
 .quantity__button {
   border-radius: 0;
 }
+
+/* Mobile + tablet: move slideshow tab indicator to top of section */
+@media screen and (max-width: 989px) {
+  .slideshow__mob-tab-wrapper {
+    top: 9rem !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Pagination: circular border for current page and hover state */
+.pagination__item {
+  border-radius: 50% !important;
+}

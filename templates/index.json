@@ -12,37 +12,19 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "slideshow-item": {
-          "type": "slideshow-item",
-          "settings": {
-            "image": "shopify://shop_images/Midnight_Reverie_Hero.jpg",
-            "overlay_opacity": 0.1,
-            "show_video": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description_video": "",
-            "heading": "U-E6 Midnight Reverie",
-            "description": "<p>Experimentați un parfum intens cu note dominante de bergamota, ghimbir si pară. O alegere perfecta pentru evenimentele speciale.</p>",
-            "tab_subheading": "",
-            "tab_heading": "Seri Rafinate",
-            "button_label": "Descoperă produsul",
-            "button_link": "shopify://products/e6-midnight-reverie",
-            "button_style": "primary",
-            "enable_fullscreen_link": true
-          }
-        },
         "slideshow-item1": {
           "type": "slideshow-item",
           "settings": {
-            "image": "shopify://shop_images/Richest_Joy_Hero.jpg",
+            "image": "shopify://shop_images/Hero_Classic_Wider.png",
             "overlay_opacity": 0.1,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
-            "heading": "M16 Richest Joy",
-            "description": "<p>Experimentati un parfum intens cu note dominante de cedru, portocală si șofran. O alegere perfecta pentru evenimentele speciale.</p>",
+            "heading": "Classic Collection",
+            "description": "<p>Descoperiți colecția clasică cu ingrediente atemporale care se potrivesc oricărui moment al zilei. Eleganță și rafinament în fiecare pulverizare.</p>",
             "tab_subheading": "",
-            "tab_heading": "Încredere Absolută",
-            "button_label": "Descoperă produsul",
+            "tab_heading": "",
+            "button_label": "Descoperă",
             "button_link": "shopify://products/m16-richest-joy",
             "button_style": "primary",
             "enable_fullscreen_link": true
@@ -50,7 +32,6 @@
         }
       },
       "block_order": [
-        "slideshow-item",
         "slideshow-item1"
       ],
       "settings": {
@@ -60,10 +41,10 @@
         "aspect_ratio": "full",
         "heading_size": "h1",
         "tabs_size": "h3",
-        "is_autoplay": false,
+        "is_autoplay": true,
         "is_hover_stop_autoplay": false,
-        "slideshow_speed": 1,
-        "slideshow_delay": 3,
+        "slideshow_speed": 4,
+        "slideshow_delay": 6,
         "slide_effects": "slide",
         "margin_top": "no-indent",
         "margin_bottom": "m"
@@ -76,6 +57,7 @@
           "type": "collection_item",
           "settings": {
             "collection": "classic-collection",
+            "image": "shopify://shop_images/Collection_Classic.jpg",
             "button_label": "Descoperă colecția",
             "button_link": "shopify://collections/classic-collection",
             "overlay_opacity": 0.6
@@ -85,6 +67,7 @@
           "type": "collection_item",
           "settings": {
             "collection": "private-collection",
+            "image": "shopify://shop_images/Collection_Private.jpg",
             "button_label": "Descoperă colecția",
             "button_link": "shopify://collections/private-collection",
             "overlay_opacity": 0.6
@@ -94,6 +77,7 @@
           "type": "collection_item",
           "settings": {
             "collection": "niche-collection",
+            "image": "shopify://shop_images/Collection_Niche.jpg",
             "button_label": "Descoperă colecția",
             "button_link": "shopify://collections/niche-collection",
             "overlay_opacity": 0.6
@@ -103,6 +87,7 @@
           "type": "collection_item",
           "settings": {
             "collection": "arabian-collection",
+            "image": "shopify://shop_images/Collection_Arabian.jpg",
             "button_label": "descoperă colecția",
             "button_link": "shopify://collections/arabian-collection",
             "overlay_opacity": 0.6
@@ -137,6 +122,7 @@
     },
     "products_grid_DL4bNC": {
       "type": "products-grid",
+      "disabled": true,
       "custom_css": [],
       "name": "t:sections.products-grid.name",
       "settings": {
@@ -146,8 +132,8 @@
         "heading_size": "h1",
         "collection": "promoții",
         "product_list": [],
-        "products_per_page": 5,
-        "products_to_show": 5,
+        "products_per_page": 4,
+        "products_to_show": 4,
         "sort": "products_high",
         "image_ratio": "portrait",
         "image_fit": "cover",
@@ -164,6 +150,61 @@
         "margin_bottom": "m"
       }
     },
+    "image_banner_ArUqxm": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "info_position": "inside",
+        "image": "shopify://shop_images/Contact_Page_Header.png",
+        "image_ratio": "16/9",
+        "opacity_overlay": 0.5,
+        "heading": "Promoții",
+        "heading_size": "h1",
+        "text_information": "<p>Profită de reduceri limitate la parfumurile tale preferate și bucură-te de livrare rapidă în toată România.</p>",
+        "text_align": "center",
+        "text_width": "full",
+        "additional_text": "",
+        "button_label": "Descoperă Promoții",
+        "button_style": "primary",
+        "button_link": "shopify://collections/promoții",
+        "button_label2": "",
+        "button_style2": "tertiary",
+        "button_link2": "",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "products_grid_7giBeM": {
+      "type": "products-grid",
+      "custom_css": [],
+      "name": "t:sections.products-grid.name",
+      "settings": {
+        "subheading": "",
+        "heading": "Noutăți",
+        "description": "",
+        "heading_size": "h1",
+        "collection": "noutați",
+        "product_list": [],
+        "products_per_page": 10,
+        "products_to_show": 5,
+        "sort": "date_reversed",
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_vendor": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_collection": false,
+        "show_desc": false,
+        "columns_mobile": "2",
+        "button_label": "toate noutățile",
+        "button_link": "shopify://collections/noutați",
+        "button_style": "simple",
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
     "product-slider": {
       "type": "product-slider",
       "blocks": {
@@ -174,7 +215,7 @@
             "image": "shopify://shop_images/IngredientsN8.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Pompus. Fructat, proaspăt, încrezător."
+            "description": "Pompus. Extract de parfum unisex cu fruct tropical și lemnos rafinat. Proaspăt, elegant, sigur pe sine."
           }
         },
         "product_slide1": {
@@ -184,7 +225,7 @@
             "image": "shopify://shop_images/IngredientsM15.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Upstarrus. Modern, versatile, and designed to make an impact without the effort."
+            "description": "Upstarrus. Eleganță unisex învelită în flori luminoase și lemn cald. Intens, sensual, de neuitat cu 9 ore de prezență pură."
           }
         },
         "product_slide2": {
@@ -194,7 +235,7 @@
             "image": "shopify://shop_images/IngredientsM17.jpg",
             "color_scheme": "",
             "overlay_opacity": 0.1,
-            "description": "Moonlite. Comfortable, chic, and always in season."
+            "description": "Moonlite: dulce-fructat, floral, oriental. Romantic și misterios, cu o persistență de lungă durată."
           }
         }
       },
@@ -238,7 +279,7 @@
         "margin_bottom": "s"
       }
     },
-    "products_grid_7giBeM": {
+    "products_grid_jrwJDz": {
       "type": "products-grid",
       "custom_css": [],
       "name": "t:sections.products-grid.name",
@@ -394,6 +435,42 @@
         "margin_bottom": "no-indent"
       }
     },
+    "usp_strip_xjGLr7": {
+      "type": "usp-strip",
+      "blocks": {
+        "item_PBbK3V": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Produse Vegane",
+            "copy": "Nu folosim ingrediente de origine animală"
+          }
+        },
+        "item_9wXmFj": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Livrare Gratuită",
+            "copy": "La comenzi peste suma de 235 RON"
+          }
+        },
+        "item_8CnGHF": {
+          "type": "item",
+          "settings": {
+            "icon": "medal",
+            "title": "Calitate Certificată",
+            "copy": "Conform normelor UE și standardelor IFRA"
+          }
+        }
+      },
+      "block_order": [
+        "item_PBbK3V",
+        "item_9wXmFj",
+        "item_8CnGHF"
+      ],
+      "name": "USP Strip",
+      "settings": {}
+    },
     "image_with_text_DECNpR": {
       "type": "image-with-text",
       "custom_css": [],
@@ -426,7 +503,7 @@
           "settings": {
             "title": "Urmărește-ne pe Instagram",
             "title_color": "",
-            "title_size_v2": 14,
+            "title_size_v2": 16,
             "alignment": "center",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 20,
@@ -452,11 +529,14 @@
     "slideshow",
     "categories_list_6QxCjk",
     "products_grid_DL4bNC",
-    "product-slider",
+    "image_banner_ArUqxm",
     "products_grid_7giBeM",
+    "product-slider",
+    "products_grid_jrwJDz",
     "featured-products",
     "image-with-text",
     "media_banner_A9VLBr",
+    "usp_strip_xjGLr7",
     "image_with_text_DECNpR",
     "apps_dTGCBw"
   ]

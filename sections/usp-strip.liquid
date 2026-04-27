@@ -1,0 +1,187 @@
+{% comment %}
+  USP Strip — 3-column benefits section for D&P Parfumum
+  Icons via Phosphor Icons (Light weight)
+{% endcomment %}
+
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+
+<section class="usp-strip">
+  <div class="usp-strip__inner page-width">
+    <div class="usp-strip__grid" style="--usp-cols: {{ section.blocks.size | default: 3 }};">
+      {% for block in section.blocks %}
+        <div class="usp-strip__item" {{ block.shopify_attributes }}>
+          <div class="usp-strip__icon" aria-hidden="true">
+            <i class="ph-light ph-{{ block.settings.icon | escape }}"></i>
+          </div>
+          {% if block.settings.title != blank %}
+            <h3 class="usp-strip__title">{{ block.settings.title | escape }}</h3>
+          {% endif %}
+          {% if block.settings.copy != blank %}
+            <p class="usp-strip__copy">{{ block.settings.copy | escape }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .usp-strip {
+    padding: 6rem 0;
+    background: rgb(var(--color-background));
+    border-top: 0.1rem solid rgb(var(--color-border));
+    border-bottom: 0.1rem solid rgb(var(--color-border));
+  }
+  .usp-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--usp-cols, 3), 1fr);
+    gap: 0;
+  }
+  .usp-strip__item {
+    text-align: center;
+    padding: 1.5rem 3rem;
+    position: relative;
+  }
+  .usp-strip__item + .usp-strip__item::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 0.1rem;
+    height: 70%;
+    background: rgb(var(--color-border));
+  }
+  .usp-strip__icon {
+    margin-bottom: 1.75rem;
+    display: inline-flex;
+    height: 6rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .usp-strip__icon i {
+    font-size: 5.6rem !important;
+    color: rgb(var(--color-foreground));
+    line-height: 1;
+  }
+  .usp-strip__title {
+    margin: 0 0 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: rgb(var(--color-foreground));
+  }
+  .usp-strip__copy {
+    margin: 0 auto;
+    max-width: 24rem;
+    font-size: calc(var(--font-body-second-scale) * 1rem);
+    color: rgb(var(--color-foreground-secondary));
+    line-height: 1.55;
+  }
+  @media screen and (max-width: 989px) {
+    .usp-strip__item { padding: 1.5rem 1.5rem; }
+  }
+  @media screen and (max-width: 749px) {
+    .usp-strip { padding: 4.5rem 0; }
+    .usp-strip__grid { grid-template-columns: 1fr; }
+    .usp-strip__item { padding: 2.5rem 1rem; }
+    .usp-strip__item + .usp-strip__item::before {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 0.1rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "USP Strip",
+  "tag": "section",
+  "class": "shopify-section--usp-strip",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A row of benefit columns with icons. Add up to 4 columns using the block editor below."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Column",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "leaf",
+          "options": [
+            { "value": "leaf", "label": "Leaf (vegan / natural)" },
+            { "value": "paw-print", "label": "Paw (animal-friendly)" },
+            { "value": "truck", "label": "Truck (delivery)" },
+            { "value": "medal", "label": "Medal (quality / award)" },
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "shield-check", "label": "Shield (trust / secure)" },
+            { "value": "flower", "label": "Flower" },
+            { "value": "flower-lotus", "label": "Lotus" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "recycle", "label": "Recycle (eco)" },
+            { "value": "package", "label": "Package" },
+            { "value": "hand-heart", "label": "Hand & heart" },
+            { "value": "lock-key", "label": "Lock (secure payment)" },
+            { "value": "credit-card", "label": "Credit card" },
+            { "value": "phone", "label": "Phone (support)" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Produse Vegane"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Description",
+          "default": "Nu folosim ingrediente de origine animală"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP Strip",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Produse Vegane",
+            "copy": "Nu folosim ingrediente de origine animală"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Livrare Gratuită",
+            "copy": "La comenzi peste suma de 235 RON"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "medal",
+            "title": "Calitate Certificată",
+            "copy": "Conform normelor UE și standardelor IFRA"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -39,8 +39,8 @@
         "show_size_count": false,
         "show_desc": false,
         "columns_mobile": "2",
-        "show_collection_description": true,
-        "description_products": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent turpis nunc, facilisis nec lorem sit amet, cursus tincidunt felis. Aliquam pharetra ornare malesuada. Vivamus faucibus enim ac justo iaculis, non pellentesque magna bibendum. Suspendisse non massa id nunc suscipit ornare et ac leo. Ut sapien ante, dictum id accumsan sit amet, aliquam non velit.",
+        "show_collection_description": false,
+        "description_products": "Aici se scrie descriere",
         "margin_top": "m",
         "margin_bottom": "m"
       }
