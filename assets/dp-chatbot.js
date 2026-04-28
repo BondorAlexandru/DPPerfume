@@ -402,13 +402,13 @@ class PerfumeChatbot {
             // console.log(urlCode);
             // console.log(name);
             // console.log(perfume);
-            let link_value = `https://www.dpparfum.ro/produs/${urlCode}`
+            let link_value = `https://dpparfumum.myshopify.com/products/${urlCode}`
             if (name.toLowerCase().includes("private collection"))
-                link_value = `https://www.dpparfum.ro/produs/${urlCode}-private-collection/`
+                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-private-collection/`
             if (name.toLowerCase().includes("arabian") && name.toLowerCase().includes("-"))
-                link_value = `https://www.dpparfum.ro/produs/${urlCode}-arabian/`
+                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-arabian/`
             if (urlCode === 'D3' && perfume.toLowerCase().includes("dama"))
-                link_value = `https://www.dpparfum.ro/produs/${urlCode}-2`
+                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-2`
             perfumeEntryRec['name'] = name;
             perfumeEntryRec['link'] = link_value;
             perfumeEntryRec['link_pic'] = this.select_url_from_name(name);
@@ -423,7 +423,7 @@ class PerfumeChatbot {
         {
             let perfumeEntryRec = {}
             perfumeEntryRec['name'] = "M15";
-            perfumeEntryRec['link'] = "https://www.dpparfum.ro/exclusives-parfums/";
+            perfumeEntryRec['link'] = "https://dpparfumum.myshopify.com/collections/niche-collection/";
             perfumeEntryRec['link_pic'] = "https://dpparfum-1e60d.kxcdn.com/wp-content/uploads/2024/09/Slideshow-3-1000x1000.webp";
             formattedPerfumes.push(formattedPerfumes);
         }

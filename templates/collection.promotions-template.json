@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_FhTCTk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4NMJVL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Promoții",
+            "heading_size": "h1"
+          }
+        },
+        "text_eYKqgA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>De peste 23 de ani, D&P Perfumum îți oferă parfumuri rafinate din esențe naturale franțuzești, la prețuri accesibile. Acum ai libertatea să îți creezi pachetul perfect pentru tine sau cei dragi, combinând după bunul plac aromele preferate din colecțiile noastre cu odorizantele dorite.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4NMJVL",
+        "text_eYKqgA"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "alignment": "left",
+        "width": "medium",
+        "margin_top": "m",
+        "margin_bottom": "xs"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 32,
+        "grid_space": "standard",
+        "enable_per_row_button": true,
+        "default_per_row": "small",
+        "enable_filtering": true,
+        "enable_tag": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "image_filter_ratio": "4/5",
+        "image_filter_fit": "cover",
+        "image_filter_columns": 5,
+        "image_ratio": "portrait",
+        "image_fit": "cover",
+        "show_vendor": false,
+        "show_collection": false,
+        "show_color_count": true,
+        "show_size_count": false,
+        "show_desc": false,
+        "columns_mobile": "2",
+        "show_collection_description": false,
+        "description_products": "Aici se scrie descriere",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "rich_text_FhTCTk",
+    "product-grid"
+  ]
+}

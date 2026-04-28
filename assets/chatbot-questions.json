@@ -1,7 +1,7 @@
 {
     "questions": {
         "1": {
-            "text": "Cu ce vă putem ajuta?",
+            "text": "Cu ce te putem ajuta?",
             "answers": {
                 "3.1": {
                   "text": "Vreau să îmi aleg un parfum.",
@@ -12,13 +12,13 @@
                     "nextQuestion": "1.1"
                 },
                 "2.1": {
-                    "text": "Vreau sa gasesc cel mai apropiat magazin.",
+                    "text": "Vreau să găsesc cel mai apropiat magazin.",
                     "nextQuestion": "2.1"
                 }
             }
         },
         "1.1": {
-            "text": "Pentru a ne contacta, vă rugăm apelați 0740 520 000 sau lasați-ne un mesaj la adresa de email office@d&p.ro",
+            "text": "Pentru a ne contacta, te rugăm să suni la 0740 520 000 sau să ne lași un mesaj la adresa de email office@d&p.ro",
             "answers": {
                 "1": {
                     "text": "Mulțumesc",
@@ -27,20 +27,20 @@
             }
         },
         "3.1": {
-            "text": "Aveti un parfum pe baza caruia putem recomanda?",
+            "text": "Ai un parfum pe baza căruia îți putem face o recomandare?",
             "answers": {
                 "1": {
                     "text": "Da",
                     "nextQuestion": "3.2.1"
                 },
                 "2": {
-                    "text": "Nu, ajuta-ma sa imi gasesc parfumul ideal!",
+                    "text": "Nu, ajută-mă să îmi găsesc parfumul ideal!",
                     "nextQuestion": "3.2.2"
                 }
             }
         },
         "3.2.1": {
-            "text": "Vă rugăm tastați numele parfumului dumneavoastră favorit aici:",
+            "text": "Te rugăm să tastezi numele parfumului tău favorit aici:",
             "system_options": {
               "input_list": []
             },
@@ -52,7 +52,7 @@
             }
         },
         "3.2.2": {
-            "text": "Pentru cine doriți sa cumparati parfumul?",
+            "text": "Pentru cine vrei să cumperi parfumul?",
             "answers": {
                 "1": {
                     "text": "Pentru mine",
@@ -65,40 +65,40 @@
             }
         },
         "3.3": {
-            "text": "In ce circumstante doriti sa folositi parfumul ales?",
+            "text": "În ce circumstanțe vrei să folosești parfumul ales?",
             "answers": {
                 "1": {
                     "text": "Pentru zi",
                     "nextQuestion": "3.4"
                 },
                 "2": {
-                    "text": "Pentru seara",
+                    "text": "Pentru seară",
                     "nextQuestion": "3.4"
                 }
             }
         },
         "3.4": {
-            "text": "Ce optiune reprezinta cel mai bine parfumul ales?",
+            "text": "Ce opțiune reprezintă cel mai bine parfumul ales?",
             "answers": {
                 "1": {
                     "text": "Pentru femei",
                     "nextQuestion": "3.5"
                 },
                 "2": {
-                    "text": "Pentru barbati",
+                    "text": "Pentru bărbați",
                     "nextQuestion": "3.5"
                 }
             }
         },
         "3.5": {
-            "text": "Din ce categorie olfactiva ar face parte parfumul ales?",
+            "text": "Din ce categorie olfactivă ar face parte parfumul ales?",
             "answers": {
                 "1": {
                     "text": "Dulce",
                     "nextQuestion": "3.5.1"
                 },
                 "2": {
-                    "text": "Proaspat",
+                    "text": "Proaspăt",
                     "nextQuestion": "3.5.2"
                 },
                 "3": {
@@ -112,7 +112,7 @@
             }
         },
         "3.5.1": {
-            "text": "Ati ales Dulce, care aroma va defineste cel mai bine alegerea?",
+            "text": "Ai ales Dulce, care aromă îți definește cel mai bine alegerea?",
             "answers": {
                 "1": {
                     "text": "Fructat",
@@ -127,13 +127,13 @@
                     "nextQuestion": "3.6"
                 },
                 "4": {
-                    "text": "Nu stiu",
+                    "text": "Nu știu",
                     "nextQuestion": "3.6"
                 }
             }
         },
         "3.5.2": {
-            "text": "Ati ales Proaspat, care aroma va defineste cel mai bine alegerea?",
+            "text": "Ai ales Proaspăt, care aromă îți definește cel mai bine alegerea?",
             "answers": {
                 "1": {
                     "text": "Citric",
@@ -144,13 +144,13 @@
                     "nextQuestion": "3.6"
                 },
                 "3": {
-                    "text": "Nu stiu",
+                    "text": "Nu știu",
                     "nextQuestion": "3.6"
                 }
             }
         },
         "3.5.3": {
-            "text": "Ati ales Deep, care aroma va defineste cel mai bine alegerea?",
+            "text": "Ai ales Deep, care aromă îți definește cel mai bine alegerea?",
             "answers": {
                 "1": {
                     "text": "Lemnos",
@@ -161,13 +161,13 @@
                     "nextQuestion": "3.6"
                 },
                 "3": {
-                    "text": "Nu stiu",
+                    "text": "Nu știu",
                     "nextQuestion": "3.6"
                 }
             }
         },
         "3.5.4": {
-            "text": "Ati ales Spice, care aroma va defineste cel mai bine alegerea?",
+            "text": "Ai ales Spice, care aromă îți definește cel mai bine alegerea?",
             "answers": {
                 "1": {
                     "text": "Aromatic",
@@ -182,13 +182,13 @@
                     "nextQuestion": "3.6"
                 },
                 "4": {
-                    "text": "Nu stiu",
+                    "text": "Nu știu",
                     "nextQuestion": "3.6"
                 }
             }
         },
         "3.6": {
-            "text": "Ce intensitate doriți să aibă parfumul ales?",
+            "text": "Ce intensitate vrei să aibă parfumul ales?",
             "answers": {
                 "1": {
                     "text": "Subtil",
@@ -209,7 +209,7 @@
             }
         },
         "end": {
-            "text": "Vă mulțumim pentru că ați ales D&P! Vă mai putem ajuta cu ceva?",
+            "text": "Îți mulțumim că ai ales D&P! Te mai putem ajuta cu ceva?",
             "answers": {
                 "1": {
                     "text": "Da",
@@ -223,7 +223,7 @@
         },
         
         "recommendation_model_brand": {
-            "text": "Pe baza analizei notelor olfactive ale preferinței dumneavoastră, vă putem sugera urmatorul parfum:",
+            "text": "Pe baza analizei notelor olfactive ale preferinței tale, îți putem sugera următorul parfum:",
             "system_options": {
               "output_list": []
             },
@@ -239,7 +239,7 @@
             }
         },
         "recommendation": {
-            "text": "Pe baza analizei notelor olfactive ale preferinței dumneavoastră, vă putem sugera urmatoarele parfumuri: ",
+            "text": "Pe baza analizei notelor olfactive ale preferinței tale, îți putem sugera următoarele parfumuri:",
             "system_options": {
               "output_list": []
             },

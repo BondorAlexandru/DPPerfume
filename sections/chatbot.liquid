@@ -286,7 +286,7 @@
     font-size: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: width 0.4s ease, padding 0.4s ease;
-    pointer-events: none;
+    cursor: pointer;
     z-index: 998;
     height: 60px;
     display: flex;
@@ -1015,7 +1015,7 @@
         }
         if (this.chatToggle) {
           var toggleIcon = document.getElementById("dp-toggle-icon");
-          this.chatToggle.addEventListener("click", function() {
+          var toggleChat = function() {
             self.chatWrapper.classList.toggle("hidden");
             self.chatLabel.classList.toggle("visible");
             self.chatToggle.classList.toggle("rotated");
@@ -1024,7 +1024,11 @@
             } else {
               setTimeout(function() { toggleIcon.src = closeIconSvg; }, 150);
             }
-          });
+          };
+          this.chatToggle.addEventListener("click", toggleChat);
+          if (this.chatLabel) {
+            this.chatLabel.addEventListener("click", toggleChat);
+          }
         }
       };
 
