@@ -1262,12 +1262,11 @@
           productDiv.className = "product-item";
           var imageContainer = document.createElement("div");
           imageContainer.className = "product-image";
-          imageContainer.style.backgroundImage = "url(" + product.link_pic + ")";
-          var productCode = product.name.split(' ')[0];
+          imageContainer.style.backgroundImage = 'url("' + product.link_pic + '")';
           var nameContainer = document.createElement("div");
           nameContainer.className = "product-name";
           var codeSpan = document.createElement("span");
-          codeSpan.textContent = productCode;
+          codeSpan.textContent = product.name;
           nameContainer.appendChild(codeSpan);
           var addButton = document.createElement("a");
           addButton.href = product.link;

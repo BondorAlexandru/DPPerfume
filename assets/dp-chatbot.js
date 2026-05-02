@@ -64,7 +64,7 @@ class PerfumeChatbot {
      * @param {string} line - String of line
      * @returns {value} Array of values from csv line
      */
-    parseCSVLine(line) {
+    parseCSVLine(line, delimiter = ',') {
         const values = [];
         let currentValue = '';
         let insideQuotes = false;
@@ -79,7 +79,7 @@ class PerfumeChatbot {
                 } else {
                     insideQuotes = !insideQuotes;
                 }
-            } else if (char === ',' && !insideQuotes) {
+            } else if (char === delimiter && !insideQuotes) {
                 values.push(currentValue.trim());
                 currentValue = '';
             } else {
@@ -103,20 +103,35 @@ class PerfumeChatbot {
             const response = await fetch(csvFile);
             const fileContent = await response.text();
 
-            const lines = fileContent
-                .replace(/^\uFEFF/, '')
-                .split('\n')
-                .map(line => line.trim())
-                .filter(line => line.length > 0);
+            const cleaned = fileContent.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
+            const lines = [];
+            let current = '';
+            let insideQuotes = false;
+            for (let i = 0; i < cleaned.length; i++) {
+                const ch = cleaned[i];
+                if (ch === '"') {
+                    insideQuotes = !insideQuotes;
+                    current += ch;
+                } else if (ch === '\n' && !insideQuotes) {
+                    const trimmed = current.trim();
+                    if (trimmed.length > 0) lines.push(trimmed);
+                    current = '';
+                } else {
+                    current += ch;
+                }
+            }
+            if (current.trim().length > 0) lines.push(current.trim());
 
             if (lines.length < 2) {
                 throw new Error('CSV file must contain at least headers and one data row');
             }
 
-            const headers = this.parseCSVLine(lines[0]);
+            const delimiter = lines[0].includes(';') ? ';' : ',';
+
+            const headers = this.parseCSVLine(lines[0], delimiter);
             const data = [];
             for (let i = 1; i < lines.length; i++) {
-                const values = this.parseCSVLine(lines[i]);
+                const values = this.parseCSVLine(lines[i], delimiter);
 
                 if (values.length !== headers.length) {
                     console.warn(`Skipping line ${i + 1}: Invalid number of values`);
@@ -240,8 +255,7 @@ class PerfumeChatbot {
                 perfume_match: row.Nume_Produs,
                 timp: row.Timp,
                 sex: row.Sex,
-                aroma_1: row.Aroma,
-                aroma_2: row.AromaSecundara,
+                categorie_olfactiva: row['Categorie Olfactiva'] || '',
                 intensitate: row.Intensitate,
                 link: row.link
             }));
@@ -267,8 +281,7 @@ class PerfumeChatbot {
             perfume_match: row.Nume_Produs,
             timp: row.Timp,
             sex: row.Sex,
-            aroma_1: row.Aroma,
-            aroma_2: row.AromaSecundara,
+            categorie_olfactiva: row['Categorie Olfactiva'] || '',
             intensitate: row.Intensitate,
             link: row.link
         }));
@@ -356,9 +369,9 @@ class PerfumeChatbot {
                     }
                 }
 
-                if (check_option_next_filter === "aroma_2")
+                if (check_option_next_filter === "categorie_olfactiva")
                 {
-                    if (((perfume['aroma_1'].toLowerCase()).includes(check_option_value))) {
+                    if (((perfume['categorie_olfactiva'].toLowerCase()).includes(check_option_value))) {
                         keys_to_preserve.push(question.answers[key])
                         break;
                     }
@@ -383,6 +396,17 @@ class PerfumeChatbot {
      * @param {List} perfumes - List of perfume objects to format
      * @returns {List} Formatted list of perfume objects
      */
+    slugifyHandle(value) {
+        if (!value) return '';
+        return value
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/['\u2018\u2019]/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
     generate_perfume_list(perfumeNames) {
 
         const seenLinks = new Set();
@@ -390,28 +414,16 @@ class PerfumeChatbot {
         for (let perfume of perfumeNames)
         {
             let perfumeEntryRec = {};
-            if(typeof perfume === 'string') {
-                name = perfume.match(/[A-Z]{1,2}(?:-?\d{1,2})/);
-            }
-            else {
-                name = perfume['perfume_match'].match(/[A-Z]{1,2}(?:-?\d{1,2})/);
-            }
-
-            const match = name.match(/[A-Z]{1,2}(?:-?\d{1,2})/);
-            const urlCode = match ? match[0].toLowerCase() : '';
-            // console.log(urlCode);
-            // console.log(name);
-            // console.log(perfume);
-            let link_value = `https://dpparfumum.myshopify.com/products/${urlCode}`
-            if (name.toLowerCase().includes("private collection"))
-                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-private-collection/`
-            if (name.toLowerCase().includes("arabian") && name.toLowerCase().includes("-"))
-                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-arabian/`
-            if (urlCode === 'D3' && perfume.toLowerCase().includes("dama"))
-                link_value = `https://dpparfumum.myshopify.com/products/${urlCode}-2`
-            perfumeEntryRec['name'] = name;
+            const fullName = (typeof perfume === 'string') ? perfume : perfume['perfume_match'];
+            const codeMatch = fullName ? fullName.match(/[A-Z]{1,2}(?:-?\d{1,2})/) : null;
+            const displayCode = codeMatch ? codeMatch[0] : '';
+            const handle = this.slugifyHandle(fullName);
+            const link_value = handle
+                ? `https://dpparfumum.myshopify.com/products/${handle}`
+                : `https://dpparfumum.myshopify.com/products/${displayCode.toLowerCase()}`;
+            perfumeEntryRec['name'] = fullName || displayCode;
             perfumeEntryRec['link'] = link_value;
-            perfumeEntryRec['link_pic'] = this.select_url_from_name(name);
+            perfumeEntryRec['link_pic'] = this.select_url_from_name(displayCode);
             if (!seenLinks.has(link_value))
             {
                 formattedPerfumes.push(perfumeEntryRec);
@@ -471,9 +483,9 @@ class PerfumeChatbot {
                 }
             }
 
-            if (filter === "aroma_2")
+            if (filter === "categorie_olfactiva")
             {
-                if (((perfume['aroma_1'].toLowerCase()).includes(filter_value.toLowerCase()))) {
+                if (((perfume['categorie_olfactiva'].toLowerCase()).includes(filter_value.toLowerCase()))) {
                     match = true;
                 }
             }
@@ -537,9 +549,9 @@ class PerfumeChatbot {
                     }
                 }
 
-                if (key === "aroma_2")
+                if (key === "categorie_olfactiva")
                 {
-                    if (!((perfume['aroma_1'].toLowerCase()).includes(this.filters[key].toLowerCase()))) {
+                    if (!((perfume['categorie_olfactiva'].toLowerCase()).includes(this.filters[key].toLowerCase()))) {
                         match = false;
                         break;
                     }
@@ -741,8 +753,8 @@ class PerfumeChatbot {
             this.currentQuestion === "3.5.2" ||
             this.currentQuestion === "3.5.3" ||
             this.currentQuestion === "3.5.4" ) {
-            this.filters['aroma_1'] = answer.text;
-            let options = this.get_next_options(this.currentQuestion, 'aroma_2');
+            this.filters['categorie_olfactiva'] = answer.text;
+            let options = this.get_next_options(this.currentQuestion, 'categorie_olfactiva');
             // console.log(options);
             // console.log(options[0]);
             if ((options.length == 2) || options.length == 1)
@@ -759,8 +771,8 @@ class PerfumeChatbot {
 
         if (this.currentQuestion === "3.6" && this.currentQuestion !== "end") {
             // console.log(answer);
-            this.filters['aroma_2'] = answer.text;
-            this.filter_out_perfumes('aroma_2', answer.text);
+            this.filters['categorie_olfactiva'] = answer.text;
+            this.filter_out_perfumes('categorie_olfactiva', answer.text);
             let options = this.get_next_options(this.currentQuestion, "intensitate");
             // console.log(options);
             if ((options.length == 2) || options.length == 1)
