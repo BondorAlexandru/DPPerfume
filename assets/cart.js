@@ -298,6 +298,12 @@ class CartItems extends HTMLElement {
 					);
 				}
 				publish(PUB_SUB_EVENTS.cartUpdate, { source: "cart-items" });
+				const baselineSig = this.cartSignature(parsedState);
+				if (parseInt(quantity) === 0) {
+					this.reloadWhenCartChanges(baselineSig);
+				} else {
+					this.refreshSectionsWhenCartChanges(baselineSig);
+				}
 			})
 			.catch(() => {
 				this.querySelectorAll(".loading-overlay").forEach((overlay) =>
@@ -358,6 +364,87 @@ class CartItems extends HTMLElement {
 		return new DOMParser()
 			.parseFromString(html, "text/html")
 			.querySelector(selector).innerHTML;
+	}
+
+	cartSignature(cart) {
+		return JSON.stringify({
+			tp: cart.total_price,
+			td: cart.total_discount,
+			items: (cart.items || []).map(
+				(it) => `${it.key}:${it.quantity}:${it.final_line_price}`
+			),
+		});
+	}
+
+	reloadWhenCartChanges(baselineSig) {
+		const intervalMs = 300;
+		const maxAttempts = 17;
+		let attempts = 0;
+		const probe = () => {
+			attempts += 1;
+			fetch(`${routes.cart_url}.js`)
+				.then((r) => r.json())
+				.then((cart) => {
+					const sig = this.cartSignature(cart);
+					if (sig !== baselineSig) {
+						window.location.reload();
+						return;
+					}
+					if (attempts < maxAttempts) {
+						setTimeout(probe, intervalMs);
+					} else {
+						window.location.reload();
+					}
+				})
+				.catch(() => window.location.reload());
+		};
+		probe();
+	}
+	refreshCartSections() {
+		const sections = this.getSectionsToRender();
+		const sectionParam = sections.map((s) => s.section).join(",");
+		return fetch(`${routes.cart_url}?sections=${sectionParam}`)
+			.then((response) => response.json())
+			.then((data) => {
+				sections.forEach((section) => {
+					const html = data[section.section];
+					if (!html) return;
+					const target = document.getElementById(section.id);
+					if (!target) return;
+					const elementToReplace =
+						target.querySelector(section.selector) || target;
+					try {
+						elementToReplace.innerHTML = this.getSectionInnerHTML(
+							html,
+							section.selector
+						);
+					} catch (e) {}
+				});
+			})
+			.catch((e) => console.error("refreshCartSections", e));
+	}
+
+	refreshSectionsWhenCartChanges(baselineSig) {
+		const intervalMs = 300;
+		const maxAttempts = 17;
+		let attempts = 0;
+		const probe = () => {
+			attempts += 1;
+			fetch(`${routes.cart_url}.js`)
+				.then((r) => r.json())
+				.then((cart) => {
+					const sig = this.cartSignature(cart);
+					if (sig !== baselineSig) {
+						this.refreshCartSections();
+						return;
+					}
+					if (attempts < maxAttempts) {
+						setTimeout(probe, intervalMs);
+					}
+				})
+				.catch(() => {});
+		};
+		probe();
 	}
 
 	enableLoading(line) {
