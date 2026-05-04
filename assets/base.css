@@ -7789,3 +7789,14 @@ details[open] > .header__icon--menu .icon-hamburger {
 .pagination__item {
   border-radius: 50% !important;
 }
+
+/* FBP: pill-shape CTA button, hide badge + powered-by */
+.rbr-addBundleBtn-container {
+  border-radius: 99px !important;
+}
+.rbr-poweredBy__container {
+  display: none !important;
+}
+.rbr-discountBadge__container {
+  display: none !important;
+}
