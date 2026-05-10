@@ -20,12 +20,12 @@
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
-            "heading": "Classic Collection",
-            "description": "<p>Descoperiți colecția clasică cu ingrediente atemporale care se potrivesc oricărui moment al zilei. Eleganță și rafinament în fiecare pulverizare.</p>",
+            "heading": "Promoțiile Noastre",
+            "description": "<p>De peste 23 de ani, D&P Perfumum vă oferă parfumuri rafinate, create din esențe naturale franțuzești, la prețuri accesibile. Acum, D&P vă întâmpină cu o ofertă specială: la parfumurile alese primiți produse GRATUITE.</p>",
             "tab_subheading": "",
             "tab_heading": "",
             "button_label": "Descoperă",
-            "button_link": "shopify://products/m16-richest-joy",
+            "button_link": "shopify://collections/promoții",
             "button_style": "primary",
             "enable_fullscreen_link": true
           }

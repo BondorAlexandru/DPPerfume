@@ -19,13 +19,48 @@
 	else
 	assign terms = results.terms | escape
 	assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
-	endif 
+	endif
 
 	if results.results_count
 		assign res_count = results.results_count
 	else
 		assign res_count =  results.products_count
 	endif
+
+	assign current_path = request.path | downcase
+	assign hide_sex_pills = false
+	if current_path contains '/collections/barbati' or current_path contains '/collections/barbați' or current_path contains '/collections/femei' or current_path contains '/collections/unisex'
+		assign hide_sex_pills = true
+	endif
+
+	assign pill_barbati = null
+	assign pill_femei = null
+	assign pill_unisex = null
+	unless hide_sex_pills
+		for filter in results.filters
+			if filter.type == 'list' or filter.type == 'boolean'
+				for value in filter.values
+					assign vlabel = value.label | downcase | strip
+					if pill_barbati == null
+						if vlabel == 'bărbați' or vlabel == 'barbati' or vlabel == 'bărbat' or vlabel == 'barbat' or vlabel == 'masculin'
+							assign pill_barbati = value
+						endif
+					endif
+					if pill_femei == null
+						if vlabel == 'damă' or vlabel == 'dama' or vlabel == 'femei' or vlabel == 'femeie' or vlabel == 'feminin'
+							assign pill_femei = value
+						endif
+					endif
+					if pill_unisex == null
+						if vlabel == 'unisex'
+							assign pill_unisex = value
+						endif
+					endif
+				endfor
+			endif
+		endfor
+	endunless
+
 -%}
 
 
@@ -67,10 +102,10 @@
 															{% if value.active %}checked{% endif %}
 															{% if value.count == 0 and value.active == false %}disabled{% endif %}
 														>
-														<label for="Filter-{{ filter.label | escape }}-tag-{{ forloop.index }}" 
-															class="facet-checkbox facets-tag__button secondary_text {% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}" 
-														>														
-															{{ value.label | escape }} 
+														<label for="Filter-{{ filter.label | escape }}-tag-{{ forloop.index }}"
+															class="facet-checkbox facets-tag__button secondary_text {% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
+														>
+															{{ value.label | escape }}
 														</label>
 													</li>
 												{%- endfor -%}
@@ -95,13 +130,52 @@
 
 				<div class="facets__horizontal-top">
 
-					<div class="facets__sort-wrapper 
+					<div class="facets__sort-wrapper
 						{% if enable_filtering == false %} facets__sort-wrapper_no-filter {% endif %} facets__sort-wrapper_vertical" >
 						<div class="facets__product-count" role="status">
-							<p class="facets__product-count-text secondary_text">
-								{{ 'products.facets.items' | t }}: {{ results.all_products_count }}
-							</p>
-						</div>		
+							{%- unless hide_sex_pills -%}
+								{%- if pill_barbati or pill_femei or pill_unisex -%}
+									<ul class="facets__sex-pills list-unstyled" role="list">
+										{%- if pill_barbati -%}
+											<li class="facets__sex-pill-item{% if pill_barbati.count == 0 and pill_barbati.active == false %} facets__sex-pill-item--disabled{% endif %}">
+												<input dir="ltr" type="checkbox" class="visually-hidden facets__sex-pill-input"
+													name="{{ pill_barbati.param_name }}"
+													value="{{ pill_barbati.value }}"
+													id="SexPill-Barbati-{{ section.id }}"
+													{% if pill_barbati.active %}checked{% endif %}
+													{% if pill_barbati.count == 0 and pill_barbati.active == false %}disabled{% endif %}
+												>
+												<label for="SexPill-Barbati-{{ section.id }}" class="facets__sex-pill secondary_text">Bărbați</label>
+											</li>
+										{%- endif -%}
+										{%- if pill_femei -%}
+											<li class="facets__sex-pill-item{% if pill_femei.count == 0 and pill_femei.active == false %} facets__sex-pill-item--disabled{% endif %}">
+												<input dir="ltr" type="checkbox" class="visually-hidden facets__sex-pill-input"
+													name="{{ pill_femei.param_name }}"
+													value="{{ pill_femei.value }}"
+													id="SexPill-Femei-{{ section.id }}"
+													{% if pill_femei.active %}checked{% endif %}
+													{% if pill_femei.count == 0 and pill_femei.active == false %}disabled{% endif %}
+												>
+												<label for="SexPill-Femei-{{ section.id }}" class="facets__sex-pill secondary_text">Damă</label>
+											</li>
+										{%- endif -%}
+										{%- if pill_unisex -%}
+											<li class="facets__sex-pill-item{% if pill_unisex.count == 0 and pill_unisex.active == false %} facets__sex-pill-item--disabled{% endif %}">
+												<input dir="ltr" type="checkbox" class="visually-hidden facets__sex-pill-input"
+													name="{{ pill_unisex.param_name }}"
+													value="{{ pill_unisex.value }}"
+													id="SexPill-Unisex-{{ section.id }}"
+													{% if pill_unisex.active %}checked{% endif %}
+													{% if pill_unisex.count == 0 and pill_unisex.active == false %}disabled{% endif %}
+												>
+												<label for="SexPill-Unisex-{{ section.id }}" class="facets__sex-pill secondary_text">Unisex</label>
+											</li>
+										{%- endif -%}
+									</ul>
+								{%- endif -%}
+							{%- endunless -%}
+						</div>
 						{% if enable_per_row_button %}
 							<div class="per-row__wrapper">
 								<div class="per-row__buttons">
@@ -193,8 +267,8 @@
 									{% when 'boolean', 'list' %}
 										{% liquid
 											assign color_swatch = false
-											assign color_trigger = settings.trigger_swatch | append: '<br />' | append: settings.trigger_swatch_other | strip | newline_to_br | split: '<br />' 
-											assign name_option = filter.label | handle | strip 
+											assign color_trigger = settings.trigger_swatch | append: '<br />' | append: settings.trigger_swatch_other | strip | newline_to_br | split: '<br />'
+											assign name_option = filter.label | handle | strip
 
 											for item in color_trigger
 												assign item_temp = item | handle | strip
@@ -222,7 +296,7 @@
 												>
 													{%- for value in filter.values -%}
 														{% liquid
-															if settings.type_color_swatch == 'custom' and color_swatch 
+															if settings.type_color_swatch == 'custom' and color_swatch
 																assign color_value = value.value | handle | strip
 																assign color_value_custom = color_value
 																
@@ -488,3 +562,24 @@
 		</facet-remove>
 	</div>{% endcomment %}
 </div>
+
+<script>
+	(function () {
+		if (window.__facetSexPillSyncAttached) return;
+		window.__facetSexPillSyncAttached = true;
+		document.addEventListener('change', function (event) {
+			var target = event.target;
+			if (!target || target.tagName !== 'INPUT' || target.type !== 'checkbox') return;
+			var form = target.closest('form');
+			if (!form) return;
+			if (form.id !== 'FacetFiltersForm' && form.id !== 'FacetFiltersFormMobile') return;
+			if (!target.name) return;
+			var selector = 'input[type="checkbox"][name="' + CSS.escape(target.name) + '"][value="' + CSS.escape(target.value) + '"]';
+			form.querySelectorAll(selector).forEach(function (input) {
+				if (input !== target && input.checked !== target.checked) {
+					input.checked = target.checked;
+				}
+			});
+		}, true);
+	})();
+</script>

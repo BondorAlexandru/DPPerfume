@@ -21,6 +21,28 @@
 	}
 {% endstyle %}
 
+{% style %}
+  @media screen and (max-width: 749px) {
+    .product-slider [data-id^="product-slider-"] {
+      --slide-height: auto !important;
+    }
+
+    .product-slider .product-slider__image-slider,
+    .product-slider .product-slider__image-swiper,
+    .product-slider .product-slider__image-swiper .swiper-wrapper,
+    .product-slider .product-slider__image-swiper .swiper-slide {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+
+    .product-slider .product-slider__image-slider__box {
+      aspect-ratio: 1 / 1 !important;
+      height: auto !important;
+      min-height: 0 !important;
+    }
+  }
+{% endstyle %}
+
 {% liquid
 	assign slide_effects = section.settings.slide_effects
 	assign slideshow_speed = section.settings.slideshow_speed

@@ -893,7 +893,20 @@
 										{%- endform -%}
 									</product-form>
 								</div>
-	
+							{%- when 'custom_button' -%}
+								{%- liquid
+									assign label = block.settings.label
+									assign link = block.settings.link
+									assign style_variant = block.settings.style
+									assign new_tab = block.settings.open_new_tab
+								-%}
+								{%- if label != blank -%}
+									<div class="product__custom-button" {{ block.shopify_attributes }}>
+										<a href="{{ link | default: '#' }}" class="button button--full-width button--{{ style_variant }} focus-inset"{% if new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>
+											<span>{{ label | escape }}</span>
+										</a>
+									</div>
+								{%- endif -%}
 							{%- when 'pickup_availability' -%}
 								{%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
 								<div class="pickup-availability {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}" {{ block.shopify_attributes }}>
@@ -1141,7 +1154,7 @@
 
 							{%- when 'fragrance_general' -%}
 								{%- capture general_content -%}
-									<p>{{ block.settings.label_famille }}: {{ product.metafields.fragrance.olfactory_family.value | join: ", " }}<br/>{{ block.settings.label_occasion }}: {{ product.metafields.fragrance.occasion.value | join: ", " }}<br/>{{ block.settings.label_intensity }}: {{ product.metafields.fragrance.intensity.value | join: ", " }}</p>
+									<p>{{ block.settings.label_famille }}: {{ product.metafields.fragrance.olfactory_family.value | join: ", " }}<br/>{{ block.settings.label_occasion }}: {{ product.metafields.fragrance.occasion.value | join: ", " }}<br/>{{ block.settings.label_intensity }}: {{ product.metafields.fragrance.intensity.value | join: ", " }}<br/>{{ block.settings.label_sex }}: {{ product.metafields.fragrance.gender.value | join: ", " }}</p>
 								{%- endcapture -%}
 								<div class="info-dropdown-block" {{ block.shopify_attributes }}>
 									{%- render 'info-dropdown-item', title: block.settings.title, content: general_content, open_by_default: block.settings.open_by_default -%}

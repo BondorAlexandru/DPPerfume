@@ -350,6 +350,48 @@
 .facets__product-count-text.loading {
   visibility: hidden;
 }
+.facets__sex-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+.facets__sex-pill-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.facets__sex-pill {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  text-decoration: none;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  transition: var(--duration-default);
+  cursor: pointer;
+  user-select: none;
+}
+.facets__sex-pill:hover {
+  border-color: rgba(var(--color-foreground), 1);
+}
+.facets__sex-pill-input:checked + .facets__sex-pill {
+  border-color: rgba(var(--color-foreground), 1);
+  background: rgba(var(--color-foreground), 1);
+  color: rgb(var(--color-background));
+}
+.facets__sex-pill-input:focus-visible + .facets__sex-pill {
+  outline: 2px solid rgba(var(--color-foreground), 1);
+  outline-offset: 2px;
+}
+.facets__sex-pill-item--disabled .facets__sex-pill {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.facets__sex-pill-item--disabled .facets__sex-pill:hover {
+  border-color: rgba(var(--color-foreground), 0.2);
+}
 .facets-sorting {
   display: flex;
   align-items: center;
@@ -378,6 +420,7 @@
   line-height: normal;
   color: rgb(var(--color-foreground));
   transition: all var(--duration-default);
+  background-color: transparent;
 }
 .facets-sorting__field .select select option {
   background-color: rgba(var(--color-background));

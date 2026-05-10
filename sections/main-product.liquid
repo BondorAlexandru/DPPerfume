@@ -537,6 +537,40 @@ customElements.define('product-modal', ProductModal);
 			]
 		},
 		{
+			"type": "custom_button",
+			"name": "Custom button",
+			"settings": [
+				{
+					"type": "text",
+					"id": "label",
+					"label": "Button label",
+					"default": "Click me"
+				},
+				{
+					"type": "url",
+					"id": "link",
+					"label": "Button link"
+				},
+				{
+					"type": "select",
+					"id": "style",
+					"label": "Button style",
+					"options": [
+						{ "value": "primary",   "label": "Primary (filled black)" },
+						{ "value": "secondary", "label": "Secondary" },
+						{ "value": "tertiary",  "label": "Tertiary (outlined)" }
+					],
+					"default": "primary"
+				},
+				{
+					"type": "checkbox",
+					"id": "open_new_tab",
+					"label": "Open in new tab",
+					"default": false
+				}
+			]
+		},
+		{
 			"type": "share",
 			"name": "t:sections.main-product.blocks.share.name",
 			"limit": 1,
@@ -699,6 +733,12 @@ customElements.define('product-modal', ProductModal);
 					"id": "label_intensity",
 					"label": "Label: Intensity",
 					"default": "Intensitate"
+				},
+				{
+					"type": "text",
+					"id": "label_sex",
+					"label": "Label: Sex",
+					"default": "Sex"
 				},
 				{
 					"type": "checkbox",

@@ -5110,6 +5110,10 @@ details[open] > .header__icon--menu .icon-hamburger {
   opacity: 0;
   pointer-events: none;
 }
+.list-menu--inline .header__submenu .header__menu-item + .header__submenu {
+  opacity: 1;
+  pointer-events: all;
+}
 .list-menu--inline .header__menu-item + .header__submenu:hover, .list-menu--inline .header__menu-item + .header__submenu:focus-within, .list-menu--inline .header__menu-item + .header__submenu:focus, .list-menu--inline .header__menu-item + .header__submenu:active {
   opacity: 1;
   pointer-events: all;

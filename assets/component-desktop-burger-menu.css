@@ -75,6 +75,26 @@
 }
 .burger-menu .menu-drawer__dropdown-submenu details > .menu-drawer__submenu {
   padding-left: 0.8rem;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+.burger-menu .menu-drawer__dropdown-submenu summary.menu-drawer__menu-item {
+  pointer-events: none;
+  cursor: default;
+  list-style: none;
+}
+.burger-menu .menu-drawer__dropdown-submenu summary.menu-drawer__menu-item::-webkit-details-marker {
+  display: none;
+}
+.burger-menu .menu-drawer__dropdown-submenu summary.menu-drawer__menu-item > * {
+  pointer-events: auto;
+}
+.burger-menu .menu-drawer__dropdown-submenu .menu-drawer__menu-item > .icon-caret {
+  display: none;
 }
 .burger-menu .menu-drawer__dropdown-submenu .menu-drawer__menu details > summary > .icon-caret {
   transform: rotate(0deg);
@@ -326,6 +346,50 @@ details:not(.menu-opening) > .burger-menu__submenu > .burger-menu__submenu-inner
 details[open].menu-opening > .burger-menu__submenu {
   visibility: visible;
   transform: translateX(0);
+}
+@media screen and (min-width: 1100px) {
+  .desktop-burger-menu .burger-menu__list li > menu-drawer,
+  .desktop-burger-menu .burger-menu__list li > menu-drawer > details {
+    width: 100%;
+  }
+  .desktop-burger-menu details > .burger-menu__submenu {
+    display: block;
+    visibility: visible;
+    position: static;
+    inset: auto;
+    transform: none;
+    background-color: transparent;
+    padding: 0 0 0 1.6rem;
+    transition: none;
+  }
+  .desktop-burger-menu details > .burger-menu__submenu .burger-menu__header {
+    display: none;
+  }
+  .desktop-burger-menu details > .burger-menu__submenu .burger-menu__submenu-inner {
+    overflow: visible;
+  }
+  .desktop-burger-menu details > .burger-menu__submenu .burger-menu__list {
+    margin-top: 0;
+    padding: 0;
+  }
+  .desktop-burger-menu .burger-menu--open details > .burger-menu__submenu .burger-menu__item {
+    opacity: 1;
+    transition: none;
+  }
+  .desktop-burger-menu .burger-menu__summary .burger-menu__arrow {
+    display: none;
+  }
+  .desktop-burger-menu summary.burger-menu__summary {
+    list-style: none;
+    pointer-events: none;
+    cursor: default;
+  }
+  .desktop-burger-menu summary.burger-menu__summary::-webkit-details-marker {
+    display: none;
+  }
+  .desktop-burger-menu summary.burger-menu__summary > * {
+    pointer-events: auto;
+  }
 }
 .burger-menu__submenu .burger-menu__header {
   justify-content: space-between;

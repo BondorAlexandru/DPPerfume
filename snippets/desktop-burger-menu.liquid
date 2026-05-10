@@ -48,7 +48,7 @@
 								<li>
 									{% if item.links != blank %}
 										<menu-drawer>
-											<details id="Details-BurgerMenu-Link-{{ forloop.index }}">
+											<details id="Details-BurgerMenu-Link-{{ forloop.index }}" open>
 												<summary
 													class="burger-menu__item burger-menu__summary"
 												>
@@ -106,7 +106,7 @@
 																		</a>
 																	{% else %}
 																		<menu-drawer>
-																			<details id="Details-BurgerMenu-ChildLink-{{ forloop.index }}">
+																			<details id="Details-BurgerMenu-ChildLink-{{ forloop.index }}" open>
 																				<summary
 																					class="burger-menu__item burger-menu__summary"
 																				>

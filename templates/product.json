@@ -56,6 +56,15 @@
             "button_link_2": ""
           }
         },
+        "custom_button_pLGBYR": {
+          "type": "custom_button",
+          "settings": {
+            "label": "alege-ți cadoul gratis",
+            "link": "shopify://collections/promoții",
+            "style": "tertiary",
+            "open_new_tab": true
+          }
+        },
         "description_J3BppF": {
           "type": "description",
           "settings": {
@@ -70,6 +79,7 @@
             "label_famille": "Familie Olfactivă",
             "label_occasion": "Ocazie",
             "label_intensity": "Intensitate",
+            "label_sex": "Sex",
             "open_by_default": true
           }
         },
@@ -188,6 +198,7 @@
         "inventory",
         "variant_picker",
         "buy_buttons",
+        "custom_button_pLGBYR",
         "description_J3BppF",
         "fragrance_general_ecNApx",
         "fragrance_notes_VqdXwE",
