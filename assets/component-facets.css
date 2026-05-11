@@ -352,7 +352,7 @@
 }
 .facets__sex-pills {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.8rem;
   margin: 0;
   padding: 0;
@@ -361,17 +361,20 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  flex: 0 0 auto;
 }
 .facets__sex-pill {
   display: inline-block;
   padding: 0.8rem 2rem;
   border: 1px solid rgba(var(--color-foreground), 0.2);
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
   color: rgb(var(--color-foreground));
   transition: var(--duration-default);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 .facets__sex-pill:hover {
   border-color: rgba(var(--color-foreground), 1);
