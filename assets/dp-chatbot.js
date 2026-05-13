@@ -419,8 +419,8 @@ class PerfumeChatbot {
             const displayCode = codeMatch ? codeMatch[0] : '';
             const handle = this.slugifyHandle(fullName);
             const link_value = handle
-                ? `https://dpparfumum.myshopify.com/products/${handle}`
-                : `https://dpparfumum.myshopify.com/products/${displayCode.toLowerCase()}`;
+                ? `https://dpparfum.ro/products/${handle}`
+                : `https://dpparfum.ro/products/${displayCode.toLowerCase()}`;
             perfumeEntryRec['name'] = fullName || displayCode;
             perfumeEntryRec['link'] = link_value;
             perfumeEntryRec['link_pic'] = this.select_url_from_name(displayCode);
@@ -435,7 +435,7 @@ class PerfumeChatbot {
         {
             let perfumeEntryRec = {}
             perfumeEntryRec['name'] = "M15";
-            perfumeEntryRec['link'] = "https://dpparfumum.myshopify.com/collections/niche-collection/";
+            perfumeEntryRec['link'] = "https://dpparfum.ro/collections/niche-collection/";
             perfumeEntryRec['link_pic'] = "https://dpparfum-1e60d.kxcdn.com/wp-content/uploads/2024/09/Slideshow-3-1000x1000.webp";
             formattedPerfumes.push(formattedPerfumes);
         }
