@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "campaign_form": {
+      "type": "campaign-form",
+      "blocks": {
+        "details": {
+          "type": "info",
+          "settings": {
+            "title": "Date necesare",
+            "content": "<p>Pregătește datele personale, data achiziției, magazinul, numărul bonului și bonul fiscal.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "details"
+      ],
+      "name": "Formular campanie",
+      "settings": {
+        "subheading": "/ campanie /",
+        "heading": "Formular campanie",
+        "text": "<p>Completează formularul cu datele achiziției și atașează bonul fiscal.</p>",
+        "form_heading": "Înscriere campanie",
+        "form_description": "Completează toate câmpurile de mai jos pentru validarea înscrierii.",
+        "button_label": "Trimite formularul",
+        "success_message": "Formularul a fost trimis. Te vom contacta în cel mai scurt timp.",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "campaign_form"
+  ]
+}

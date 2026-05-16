@@ -5017,6 +5017,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 .list-menu--inline .list-menu-item:active > .header__submenu {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 .list-menu--inline .list-menu-item:hover > .header__submenu:hover, .list-menu--inline .list-menu-item:hover > .header__submenu:focus-within, .list-menu--inline .list-menu-item:hover > .header__submenu:focus, .list-menu--inline .list-menu-item:hover > .header__submenu:active,
 .list-menu--inline .list-menu-item:focus-within > .header__submenu:hover,
@@ -5033,6 +5034,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 .list-menu--inline .list-menu-item:active > .header__submenu:active {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 .list-menu--inline .list-menu-item {
   padding-inline: 1.2rem;
@@ -5064,7 +5066,7 @@ details[open] > .header__icon--menu .icon-hamburger {
   top: 100%;
   right: 50%;
   transform: translateX(50%);
-  height: var(--header-height);
+  height: 1rem;
   width: calc(100% + 2.4rem);
 }
 .list-menu--inline .list-menu-item > .header__menu-item {
@@ -5109,18 +5111,24 @@ details[open] > .header__icon--menu .icon-hamburger {
 .list-menu--inline .header__menu-item + .header__submenu {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
-.list-menu--inline .header__submenu .header__menu-item + .header__submenu {
+.list-menu--inline .list-menu-item:hover > .header__submenu .header__menu-item + .header__submenu,
+.list-menu--inline .list-menu-item:focus-within > .header__submenu .header__menu-item + .header__submenu,
+.list-menu--inline .list-menu-item:active > .header__submenu .header__menu-item + .header__submenu {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 .list-menu--inline .header__menu-item + .header__submenu:hover, .list-menu--inline .header__menu-item + .header__submenu:focus-within, .list-menu--inline .header__menu-item + .header__submenu:focus, .list-menu--inline .header__menu-item + .header__submenu:active {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 .list-menu--inline .header__menu-item:hover + .header__submenu, .list-menu--inline .header__menu-item:focus-within + .header__submenu, .list-menu--inline .header__menu-item:focus + .header__submenu, .list-menu--inline .header__menu-item:active + .header__submenu {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 
 .header__inline-menu .header__menu-item {
@@ -5141,7 +5149,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__submenu {
   padding-inline: 0;
   text-transform: none;
-  transition: opacity var(--duration-default);
+  transition: opacity var(--duration-default), visibility var(--duration-default);
   z-index: 15;
 }
 .header__submenu.list-menu {
@@ -5183,6 +5191,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__inline-menu li:hover > .header__submenu {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 .header__inline-menu span.header__menu-item {
   display: flex;

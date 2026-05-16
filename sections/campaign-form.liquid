@@ -1,0 +1,365 @@
+{%- style -%}
+  {% render 'section-margin' %}
+
+  .campaign-section-{{ section.id }} {
+    padding: 60px 0;
+  }
+  .campaign-section-{{ section.id }} .campaign-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .campaign-section-{{ section.id }} .campaign-form-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 40px;
+  }
+  @media screen and (max-width: 600px) {
+    .campaign-section-{{ section.id }} .campaign-form-card {
+      padding: 24px;
+    }
+  }
+  .campaign-section-{{ section.id }} .form-heading {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: #000;
+  }
+  .campaign-section-{{ section.id }} .form-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 32px 0;
+  }
+  .campaign-section-{{ section.id }} .form-field {
+    margin-bottom: 24px;
+  }
+  .campaign-section-{{ section.id }} .form-field label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .campaign-section-{{ section.id }} .form-field input,
+  .campaign-section-{{ section.id }} .form-field select,
+  .campaign-section-{{ section.id }} .form-field textarea {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    color: #000;
+  }
+  .campaign-section-{{ section.id }} .form-field input[type="file"] {
+    padding-bottom: 10px;
+    cursor: pointer;
+  }
+  .campaign-section-{{ section.id }} .form-field input::placeholder,
+  .campaign-section-{{ section.id }} .form-field textarea::placeholder {
+    color: #999;
+  }
+  .campaign-section-{{ section.id }} .form-field input:focus,
+  .campaign-section-{{ section.id }} .form-field select:focus,
+  .campaign-section-{{ section.id }} .form-field textarea:focus {
+    border-bottom-color: #000;
+  }
+  .campaign-section-{{ section.id }} .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    margin-top: 8px;
+  }
+  .campaign-section-{{ section.id }} .form-submit:hover {
+    background: #000;
+  }
+  .campaign-section-{{ section.id }} .form-submit svg {
+    width: 16px;
+    height: 16px;
+  }
+  .campaign-section-{{ section.id }} .form-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 24px;
+    background: #e8f5e9;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-size: 14px;
+  }
+  .campaign-section-{{ section.id }} .form-errors {
+    padding: 12px;
+    margin-bottom: 24px;
+    background: #fdecea;
+    border-radius: 4px;
+    color: #c0392b;
+    font-size: 14px;
+  }
+{%- endstyle -%}
+
+<div class="campaign-section-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="campaign-container">
+    <div class="campaign-form-card">
+      {%- if section.settings.form_heading != blank -%}
+        <h2 class="form-heading">{{ section.settings.form_heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.form_description != blank -%}
+        <p class="form-description">{{ section.settings.form_description | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- form 'contact', id: 'CampaignForm', class: 'campaign-form-fields', enctype: 'multipart/form-data' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="form-status" tabindex="-1" autofocus>
+            {{ section.settings.success_message | default: 'Formularul a fost trimis. Te vom contacta în cel mai scurt timp.' }}
+          </div>
+        {%- elsif form.errors -%}
+          <div class="form-errors" tabindex="-1" autofocus>
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <input type="hidden" name="contact[Tip cerere]" value="Formular campanie">
+        <input type="hidden" name="contact[Destinatar]" value="office@dpparfum.ro">
+        <input type="hidden" name="contact[subject]" value="Formular campanie">
+
+        <div class="form-field">
+          <label for="CampaignForm-last-name">Nume</label>
+          <input
+            type="text"
+            id="CampaignForm-last-name"
+            name="contact[Nume]"
+            autocomplete="family-name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-first-name">Prenume</label>
+          <input
+            type="text"
+            id="CampaignForm-first-name"
+            name="contact[Prenume]"
+            autocomplete="given-name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-email">Email</label>
+          <input
+            type="email"
+            id="CampaignForm-email"
+            name="contact[email]"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            autocomplete="email"
+            required
+            {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-phone">Număr telefon</label>
+          <input
+            type="tel"
+            id="CampaignForm-phone"
+            name="contact[Numar telefon]"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-purchase-date">Data achiziției</label>
+          <input
+            type="date"
+            id="CampaignForm-purchase-date"
+            name="contact[Data achizitiei]"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-store">Magazinul de unde a fost făcută achiziția</label>
+          <input
+            type="text"
+            id="CampaignForm-store"
+            name="contact[Magazin]"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-receipt-number">Nr. bonului</label>
+          <input
+            type="text"
+            id="CampaignForm-receipt-number"
+            name="contact[Nr bon]"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="CampaignForm-receipt-upload">Upload al bonului</label>
+          <input
+            type="file"
+            id="CampaignForm-receipt-upload"
+            name="contact[Upload bon]"
+            accept="image/*,.pdf"
+            required
+          >
+        </div>
+
+        <button type="submit" class="form-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span>{{ section.settings.button_label | default: 'Trimite formularul' }}</span>
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Formular campanie",
+  "tag": "section",
+  "class": "spaced-section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Coloana stângă"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitlu",
+      "default": "/ campanie /"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Formular campanie"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Descriere",
+      "default": "<p>Completează formularul cu datele achiziției și atașează bonul fiscal.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Setări formular"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Titlu formular",
+      "default": "Înscriere campanie"
+    },
+    {
+      "type": "textarea",
+      "id": "form_description",
+      "label": "Descriere formular",
+      "default": "Completează toate câmpurile de mai jos pentru validarea înscrierii."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Text buton",
+      "default": "Trimite formularul"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Mesaj de confirmare",
+      "default": "Formularul a fost trimis. Te vom contacta în cel mai scurt timp."
+    },
+    {
+      "type": "header",
+      "content": "Margini"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info campanie",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu",
+          "default": "Date necesare"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Conținut",
+          "default": "<p>Ai nevoie de datele personale, data achiziției, magazinul, numărul bonului și bonul fiscal.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formular campanie",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "title": "Email",
+            "content": "<p>Formularul este procesat pentru office@dpparfum.ro.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
