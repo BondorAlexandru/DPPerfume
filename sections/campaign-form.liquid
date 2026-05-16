@@ -92,13 +92,20 @@
   .campaign-section-{{ section.id }} .form-status {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px;
+    gap: 10px;
+    padding: 14px 16px;
     margin-bottom: 24px;
     background: #e8f5e9;
+    border: 1px solid #9bcf9d;
     border-radius: 4px;
-    color: #2e7d32;
+    color: #1f6d25;
     font-size: 14px;
+    font-weight: 500;
+  }
+  .campaign-section-{{ section.id }} .form-status svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
   }
   .campaign-section-{{ section.id }} .form-errors {
     padding: 12px;
@@ -123,8 +130,11 @@
 
       {%- form 'contact', id: 'CampaignForm', class: 'campaign-form-fields', enctype: 'multipart/form-data' -%}
         {%- if form.posted_successfully? -%}
-          <div class="form-status" tabindex="-1" autofocus>
-            {{ section.settings.success_message | default: 'Formularul a fost trimis. Te vom contacta în cel mai scurt timp.' }}
+          <div id="CampaignForm-success" class="form-status" tabindex="-1" autofocus role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            {{ section.settings.success_message | default: 'Formularul a fost trimis cu succes. Mulțumim!' }}
           </div>
         {%- elsif form.errors -%}
           <div class="form-errors" tabindex="-1" autofocus>
@@ -292,7 +302,7 @@
       "type": "textarea",
       "id": "success_message",
       "label": "Mesaj de confirmare",
-      "default": "Formularul a fost trimis. Te vom contacta în cel mai scurt timp."
+      "default": "Formularul a fost trimis cu succes. Mulțumim!"
     },
     {
       "type": "header",

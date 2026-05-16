@@ -22,7 +22,7 @@
         "form_heading": "Înscriere campanie",
         "form_description": "Completează toate câmpurile de mai jos pentru validarea înscrierii.",
         "button_label": "Trimite formularul",
-        "success_message": "Formularul a fost trimis. Te vom contacta în cel mai scurt timp.",
+        "success_message": "Formularul a fost trimis cu succes. Mulțumim!",
         "margin_top": "no-indent",
         "margin_bottom": "m"
       }
