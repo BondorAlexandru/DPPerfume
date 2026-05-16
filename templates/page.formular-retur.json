@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "returns_form": {
+      "type": "returns-form",
+      "blocks": {
+        "address": {
+          "type": "info",
+          "settings": {
+            "title": "Adresă de retur",
+            "content": "<p>Smart Trade Management SRL<br/>Str. Maior Ion Coravu nr. 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, București</p>"
+          }
+        },
+        "conditions": {
+          "type": "info",
+          "settings": {
+            "title": "Condiții de retur",
+            "content": "<p>Produsele se pot returna doar sigilate și nefolosite, în termen de 30 de zile de la primire. Fiecare produs vine cu sigiliu tip hologramă — odată rupt acest sigiliu, produsul nu mai poate fi returnat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "address",
+        "conditions"
+      ],
+      "name": "Formular de retur",
+      "settings": {
+        "subheading": "/ retur produse /",
+        "heading": "Formular de retur",
+        "text": "<p>Completează formularul pentru a solicita un retur. După aprobarea cererii vei primi confirmarea pe email.</p>",
+        "form_heading": "Solicită un retur",
+        "form_description": "Returul poate fi acceptat doar pentru produse sigilate, nefolosite, în termen de 30 de zile de la primire.",
+        "button_label": "Trimite cererea de retur",
+        "success_message": "Cererea ta de retur a fost trimisă. Te vom contacta pe email cu confirmarea.",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "returns_form"
+  ]
+}

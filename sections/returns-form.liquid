@@ -1,0 +1,477 @@
+{%- style -%}
+  {% render 'section-margin' %}
+
+  .returns-section-{{ section.id }} {
+    padding: 60px 0;
+  }
+  .returns-section-{{ section.id }} .returns-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media screen and (min-width: 990px) {
+    .returns-section-{{ section.id }} .returns-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+  .returns-section-{{ section.id }} .returns-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 40px;
+  }
+  .returns-section-{{ section.id }} .returns-subheading {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  .returns-section-{{ section.id }} .returns-heading {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+    color: #000;
+  }
+  .returns-section-{{ section.id }} .returns-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+    max-width: 500px;
+  }
+  .returns-section-{{ section.id }} .returns-info {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .returns-section-{{ section.id }} .returns-info-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #000;
+  }
+  .returns-section-{{ section.id }} .returns-info-item div {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+  }
+  .returns-section-{{ section.id }} .returns-info-item a {
+    color: #666;
+  }
+  .returns-section-{{ section.id }} .returns-info-item a:hover {
+    color: #000;
+  }
+  .returns-section-{{ section.id }} .returns-form-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 40px;
+  }
+  @media screen and (max-width: 600px) {
+    .returns-section-{{ section.id }} .returns-form-card {
+      padding: 24px;
+    }
+  }
+  .returns-section-{{ section.id }} .form-heading {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: #000;
+  }
+  .returns-section-{{ section.id }} .form-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 32px 0;
+  }
+  .returns-section-{{ section.id }} .form-field {
+    margin-bottom: 24px;
+  }
+  .returns-section-{{ section.id }} .form-field label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .returns-section-{{ section.id }} .form-field input,
+  .returns-section-{{ section.id }} .form-field select,
+  .returns-section-{{ section.id }} .form-field textarea {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    color: #000;
+  }
+  .returns-section-{{ section.id }} .form-field select {
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  .returns-section-{{ section.id }} .form-field input::placeholder,
+  .returns-section-{{ section.id }} .form-field textarea::placeholder {
+    color: #999;
+  }
+  .returns-section-{{ section.id }} .form-field input:focus,
+  .returns-section-{{ section.id }} .form-field select:focus,
+  .returns-section-{{ section.id }} .form-field textarea:focus {
+    border-bottom-color: #000;
+  }
+  .returns-section-{{ section.id }} .form-field textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  .returns-section-{{ section.id }} .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .returns-section-{{ section.id }} .form-check input {
+    width: auto;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .returns-section-{{ section.id }} .form-check label {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+  }
+  .returns-section-{{ section.id }} .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    margin-top: 8px;
+  }
+  .returns-section-{{ section.id }} .form-submit:hover {
+    background: #000;
+  }
+  .returns-section-{{ section.id }} .form-submit svg {
+    width: 16px;
+    height: 16px;
+  }
+  .returns-section-{{ section.id }} .form-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 24px;
+    background: #e8f5e9;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-size: 14px;
+  }
+  .returns-section-{{ section.id }} .form-errors {
+    padding: 12px;
+    margin-bottom: 24px;
+    background: #fdecea;
+    border-radius: 4px;
+    color: #c0392b;
+    font-size: 14px;
+  }
+{%- endstyle -%}
+
+<div class="returns-section-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="returns-container">
+    <div class="returns-left">
+      {%- if section.settings.subheading != blank -%}
+        <p class="returns-subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="returns-heading">{{ section.settings.heading | newline_to_br }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="returns-text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      <div class="returns-info">
+        {% for block in section.blocks %}
+          {% if block.type == 'info' %}
+            <div class="returns-info-item" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h4>{{ block.settings.title }}</h4>
+              {% endif %}
+              {% if block.settings.content != blank %}
+                <div>{{ block.settings.content }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="returns-form-card">
+      {%- if section.settings.form_heading != blank -%}
+        <h2 class="form-heading">{{ section.settings.form_heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.form_description != blank -%}
+        <p class="form-description">{{ section.settings.form_description | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- form 'contact', id: 'ReturnsForm', class: 'returns-form-fields' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="form-status" tabindex="-1" autofocus>
+            {{ section.settings.success_message | default: 'Cererea ta de retur a fost trimisă. Te vom contacta pe email cu confirmarea.' }}
+          </div>
+        {%- elsif form.errors -%}
+          <div class="form-errors" tabindex="-1" autofocus>
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <input type="hidden" name="contact[Tip cerere]" value="Cerere de retur">
+
+        <div class="form-field">
+          <label for="ReturnsForm-name">Nume și prenume</label>
+          <input
+            type="text"
+            id="ReturnsForm-name"
+            name="contact[Nume]"
+            value="{% if customer %}{{ customer.name }}{% endif %}"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-email">Email</label>
+          <input
+            type="email"
+            id="ReturnsForm-email"
+            name="contact[email]"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            autocomplete="email"
+            required
+            {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-phone">Telefon</label>
+          <input
+            type="tel"
+            id="ReturnsForm-phone"
+            name="contact[Telefon]"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-order">Număr comandă</label>
+          <input
+            type="text"
+            id="ReturnsForm-order"
+            name="contact[Nr comanda]"
+            placeholder="ex. #1234"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-product">Produs(e) de returnat</label>
+          <input
+            type="text"
+            id="ReturnsForm-product"
+            name="contact[Produs]"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-reason">Motivul returului</label>
+          <select id="ReturnsForm-reason" name="contact[Motiv retur]" required>
+            <option value="" disabled selected>Selectează motivul</option>
+            <option value="Am primit alt produs decât cel comandat">Am primit alt produs decât cel comandat</option>
+            <option value="Parfum scurs din cauza defectului de valf">Parfum scurs din cauza defectului de valf</option>
+            <option value="Produs expirat">Produs expirat</option>
+            <option value="Flacon rupt în timpul transportului">Flacon rupt în timpul transportului</option>
+            <option value="Produsul nu are etichetele față/spate">Produsul nu are etichetele față/spate</option>
+            <option value="Nu mai vreau produsul">Nu mai vreau produsul</option>
+            <option value="Alt motiv">Alt motiv</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="ReturnsForm-body">Detalii suplimentare</label>
+          <textarea
+            id="ReturnsForm-body"
+            name="contact[body]"
+          >{{ form.body }}</textarea>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="ReturnsForm-seal" name="contact[Confirmare sigiliu]" value="Confirmat: produs sigilat, nefolosit" required>
+          <label for="ReturnsForm-seal">Confirm că produsul este sigilat și nefolosit, în starea în care a fost livrat. Produsele desigilate nu pot fi returnate.</label>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span>{{ section.settings.button_label | default: 'Trimite cererea de retur' }}</span>
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Formular de retur",
+  "tag": "section",
+  "class": "spaced-section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Coloana stângă"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitlu",
+      "default": "/ retur produse /"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Formular de retur"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Descriere",
+      "default": "<p>Completează formularul pentru a solicita un retur. După aprobarea cererii vei primi confirmarea pe email.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Setări formular"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Titlu formular",
+      "default": "Solicită un retur"
+    },
+    {
+      "type": "textarea",
+      "id": "form_description",
+      "label": "Descriere formular",
+      "default": "Returul poate fi acceptat doar pentru produse sigilate, nefolosite, în termen de 30 de zile de la primire."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Text buton",
+      "default": "Trimite cererea de retur"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Mesaj de confirmare",
+      "default": "Cererea ta de retur a fost trimisă. Te vom contacta pe email cu confirmarea."
+    },
+    {
+      "type": "header",
+      "content": "Margini"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info retur",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu",
+          "default": "Adresă de retur"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Conținut",
+          "default": "<p>Smart Trade Management SRL<br/>Str. Maior Ion Coravu nr. 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, București</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formular de retur",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "title": "Adresă de retur",
+            "content": "<p>Smart Trade Management SRL<br/>Str. Maior Ion Coravu nr. 45, bloc H2, sc. A, ap. 7 birou 2, etaj 1, Sector 2, București</p>"
+          }
+        },
+        {
+          "type": "info",
+          "settings": {
+            "title": "Condiții",
+            "content": "<p>Produsele se pot returna doar sigilate și nefolosite, în termen de 30 de zile de la primire. Produsele desigilate nu pot fi returnate.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
