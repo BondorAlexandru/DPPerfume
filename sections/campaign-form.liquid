@@ -107,6 +107,20 @@
     height: 18px;
     flex-shrink: 0;
   }
+  .campaign-section-{{ section.id }} .form-success-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    z-index: 9999;
+    transform: translateX(-50%);
+    width: min(calc(100vw - 32px), 520px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  }
+  @media screen and (max-width: 600px) {
+    .campaign-section-{{ section.id }} .form-success-toast {
+      bottom: 16px;
+    }
+  }
   .campaign-section-{{ section.id }} .form-errors {
     padding: 12px;
     margin-bottom: 24px;
@@ -136,6 +150,33 @@
             </svg>
             {{ section.settings.success_message | default: 'Formularul a fost trimis cu succes. Mulțumim!' }}
           </div>
+          <div class="form-status form-success-toast" role="status" aria-live="polite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            {{ section.settings.success_message | default: 'Formularul a fost trimis cu succes. Mulțumim!' }}
+          </div>
+          <script>
+            (function () {
+              var successMessage = document.getElementById('CampaignForm-success');
+              if (!successMessage) return;
+
+              var showSuccess = function () {
+                successMessage.focus({ preventScroll: true });
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              };
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', showSuccess);
+              } else {
+                showSuccess();
+              }
+
+              window.addEventListener('load', function () {
+                window.setTimeout(showSuccess, 150);
+              });
+            })();
+          </script>
         {%- elsif form.errors -%}
           <div class="form-errors" tabindex="-1" autofocus>
             {{ form.errors | default_errors }}
