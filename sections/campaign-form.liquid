@@ -92,34 +92,13 @@
   .campaign-section-{{ section.id }} .form-status {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 16px;
+    gap: 8px;
+    padding: 12px;
     margin-bottom: 24px;
     background: #e8f5e9;
-    border: 1px solid #9bcf9d;
     border-radius: 4px;
-    color: #1f6d25;
+    color: #2e7d32;
     font-size: 14px;
-    font-weight: 500;
-  }
-  .campaign-section-{{ section.id }} .form-status svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-  .campaign-section-{{ section.id }} .form-success-toast {
-    position: fixed;
-    left: 50%;
-    bottom: 24px;
-    z-index: 9999;
-    transform: translateX(-50%);
-    width: min(calc(100vw - 32px), 520px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-  }
-  @media screen and (max-width: 600px) {
-    .campaign-section-{{ section.id }} .form-success-toast {
-      bottom: 16px;
-    }
   }
   .campaign-section-{{ section.id }} .form-errors {
     padding: 12px;
@@ -144,39 +123,9 @@
 
       {%- form 'contact', id: 'CampaignForm', class: 'campaign-form-fields', enctype: 'multipart/form-data' -%}
         {%- if form.posted_successfully? -%}
-          <div id="CampaignForm-success" class="form-status" tabindex="-1" autofocus role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-            {{ section.settings.success_message | default: 'Formularul a fost trimis cu succes. Mulțumim!' }}
+          <div class="form-status" tabindex="-1" autofocus>
+            {{ section.settings.success_message | default: 'Formularul a fost trimis. Te vom contacta în cel mai scurt timp.' }}
           </div>
-          <div class="form-status form-success-toast" role="status" aria-live="polite">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-            {{ section.settings.success_message | default: 'Formularul a fost trimis cu succes. Mulțumim!' }}
-          </div>
-          <script>
-            (function () {
-              var successMessage = document.getElementById('CampaignForm-success');
-              if (!successMessage) return;
-
-              var showSuccess = function () {
-                successMessage.focus({ preventScroll: true });
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              };
-
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', showSuccess);
-              } else {
-                showSuccess();
-              }
-
-              window.addEventListener('load', function () {
-                window.setTimeout(showSuccess, 150);
-              });
-            })();
-          </script>
         {%- elsif form.errors -%}
           <div class="form-errors" tabindex="-1" autofocus>
             {{ form.errors | default_errors }}
@@ -343,7 +292,7 @@
       "type": "textarea",
       "id": "success_message",
       "label": "Mesaj de confirmare",
-      "default": "Formularul a fost trimis cu succes. Mulțumim!"
+      "default": "Formularul a fost trimis. Te vom contacta în cel mai scurt timp."
     },
     {
       "type": "header",
