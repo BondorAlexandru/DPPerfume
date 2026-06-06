@@ -118,6 +118,21 @@
 		{%- endif -%}
 
 		<div class='header__right--part'>
+			{%- comment -%} Desktop-only nav links (hidden <1100px; mobile uses the drawer) {%- endcomment -%}
+			<div class='header__nav-links-right'>
+				<a
+					href='/pages/despre_noi'
+					class='header__right-nav-link link-hover-line focus-inset{% if request.path == "/pages/despre_noi" %} header__right-nav-link--active{% endif %}'
+				>
+					Despre Noi
+				</a>
+				<a
+					href='/pages/magazinele-noastre'
+					class='header__right-nav-link link-hover-line focus-inset{% if request.path == "/pages/magazinele-noastre" %} header__right-nav-link--active{% endif %}'
+				>
+					Magazine
+				</a>
+			</div>
 			{%- if section.settings.enable_search -%}
 				{% if request.page_type != 'search' %}
 					<div class='header__search header__icons--hover{% if section.settings.search_button_type == 'icon' %} only_icon{% elsif section.settings.search_button_type == 'text' %} only_text{% endif %}{% if section.settings.search_mobile_button_type == 'icon' %} mobile_only_icon{% elsif section.settings.search_mobile_button_type == 'text' %} mobile_only_text{% endif %}'>

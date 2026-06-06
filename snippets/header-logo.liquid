@@ -9,7 +9,7 @@
 						src="{{ section.settings.logo | image_url: width: image_size }}"
 						class="header__heading-logo"
 						width="{{ section.settings.logo_width }}"
-						height="{{ section.settings.logo.height }}"
+						height="{{ section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio }}"
 						alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
 			>
 			{%- if section.settings.logo_2 != blank -%}
@@ -17,7 +17,7 @@
 							src="{{ section.settings.logo_2 | image_url: width: image_size }}"
 							class="header__heading-logo header__heading-logo--overlay"
 							width="{{ section.settings.logo_width }}"
-							height="{{ section.settings.logo_2.height }}"
+							height="{{ section.settings.logo_width | divided_by: section.settings.logo_2.aspect_ratio }}"
 							alt="{{ section.settings.logo_2.alt | default: shop.name | escape }}"
 				>
 			{%- endif -%}
@@ -28,7 +28,7 @@
 							src="{{ section.settings.logo_2 | image_url: width: image_size }}"
 							class="header__heading-logo header__heading-logo--overlay"
 							width="{{ section.settings.logo_width }}"
-							height="{{ section.settings.logo_2.height }}"
+							height="{{ section.settings.logo_width | divided_by: section.settings.logo_2.aspect_ratio }}"
 							alt="{{ section.settings.logo_2.alt | default: shop.name | escape }}"
 				>
 		{%- else -%}

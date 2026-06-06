@@ -113,6 +113,18 @@
 			white-space: nowrap;
 			transition: color var(--duration-default);
 		}
+
+		.header__right-nav-link--active {
+			opacity: 0.5;
+		}
+
+		/* These items live on the right side on desktop — hide their inline-menu
+		   copies so the nav never wraps to two rows on first paint */
+		.header__inline-menu li:has(> a[href$="/pages/contact"]),
+		.header__inline-menu li:has(> a[href$="/pages/despre_noi"]),
+		.header__inline-menu li:has(> a[href$="/pages/magazinele-noastre"]) {
+			display: none;
+		}
 	}
 </style>
 
@@ -140,65 +152,6 @@
 		</header>
 	</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 {% endunless %}
-
-<script>
-(function() {
-  // URLs for the two links to move to the right side
-  var RIGHT_NAV_LINKS = [
-    { href: '/pages/contact',           label: 'Despre Noi' },
-    { href: '/pages/magazinele-noastre', label: 'Magazine' }
-  ];
-
-  function initRightNav() {
-    // Only run on desktop (1100px+, matching header-drawer breakpoint)
-    if (window.innerWidth < 1100) return;
-
-    var rightPart = document.querySelector('.header__right--part');
-    if (!rightPart) return;
-
-    // 1. Hide the links from the left inline menu
-    RIGHT_NAV_LINKS.forEach(function(item) {
-      var leftLink = document.querySelector(
-        '.header__inline-menu a[href="' + item.href + '"]'
-      );
-      if (leftLink) {
-        var li = leftLink.closest('li');
-        if (li) li.style.display = 'none';
-      }
-    });
-
-    // 2. Build the right-side container (only once)
-    if (document.querySelector('.header__nav-links-right')) return;
-
-    var container = document.createElement('div');
-    container.className = 'header__nav-links-right';
-
-    RIGHT_NAV_LINKS.forEach(function(item) {
-      var a = document.createElement('a');
-      a.href = item.href;
-      a.textContent = item.label;
-      a.className = 'header__right-nav-link link-hover-line focus-inset';
-
-      // Mark active page
-      if (window.location.pathname === item.href) {
-        a.style.opacity = '0.5';
-      }
-
-      container.appendChild(a);
-    });
-
-    // 3. Insert before the first child of .header__right--part
-    rightPart.insertBefore(container, rightPart.firstChild);
-  }
-
-  // Run after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initRightNav);
-  } else {
-    initRightNav();
-  }
-})();
-</script>
 
 {% javascript %}
 	class StickyHeader extends HTMLElement {

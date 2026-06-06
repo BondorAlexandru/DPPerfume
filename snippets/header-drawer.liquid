@@ -562,6 +562,29 @@
                   {%- endif -%}
                 </li>
               {%- endfor -%}
+
+              {%- comment -%} Separator + extra links (Despre noi / Magazine) — desktop shows these via JS in header.liquid {%- endcomment -%}
+              <li aria-hidden="true">
+                <hr class="menu-drawer__separator">
+              </li>
+              <li>
+                <a
+                  href="/pages/despre_noi"
+                  class="menu-drawer__menu-item list-menu__item h3 link--text focus-inset{% if request.path == '/pages/despre_noi' %} menu-drawer__menu-item--active{% endif %}"
+                  {% if request.path == '/pages/despre_noi' %}aria-current="page"{% endif %}
+                >
+                  Despre noi
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/pages/magazinele-noastre"
+                  class="menu-drawer__menu-item list-menu__item h3 link--text focus-inset{% if request.path == '/pages/magazinele-noastre' %} menu-drawer__menu-item--active{% endif %}"
+                  {% if request.path == '/pages/magazinele-noastre' %}aria-current="page"{% endif %}
+                >
+                  Magazine
+                </a>
+              </li>
             </ul>
             <ul class="menu-drawer__menu list-menu" role="list">
               {% if burger_block.settings.main_menu.links != blank %}
