@@ -26,12 +26,84 @@
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
 <style>
+	/* ── Fixed header stack: announcement + countdown bars pinned above the navbar ──
+	   Heights come from the bars' own measured CSS vars (--ann-height /
+	   --countdown-bar-height), which the announcement/countdown observers keep in
+	   sync and reset to 0 when a bar is disabled or dismissed. overflow-x:hidden on
+	   html/body breaks position:sticky, so the navbar must stay position:fixed. */
 	.shopify-section-header {
-		position: sticky;
+		position: fixed;
 		width: 100%;
-		top: 0;
+		top: calc(var(--ann-height) + var(--countdown-bar-height));
 		z-index: 100;
 		background-color: rgb(var(--color-background));
+	}
+
+	.section-announcement {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 101;
+	}
+
+	.section-countdown-timer-bar {
+		position: fixed;
+		top: var(--ann-height);
+		left: 0;
+		right: 0;
+		z-index: 101;
+	}
+
+	/* Let the announcement bar grow to fit its text (it wraps on narrow screens)
+	   instead of clipping it to the configured height. */
+	.section-announcement,
+	.section-announcement .announcement-bar {
+		height: auto;
+		min-height: var(--announcement-height);
+		overflow: visible;
+	}
+
+	body {
+		padding-top: calc(var(--header-nav-height, 56.5px) + var(--ann-height) + var(--countdown-bar-height));
+	}
+
+	/* On desktop, base.css makes .announcement-bar__text a flex container, which
+	   turns the text / <strong> / <a> into flex items and collapses the
+	   whitespace between them ("perioada15 iunie", "D&P.Regulamentul"). Keep it a
+	   normal block so the rich text flows inline with its spaces preserved. */
+	@media screen and (min-width: 750px) {
+		.section-announcement .announcement-bar__text {
+			display: block;
+		}
+	}
+
+	/* ── Mobile: keep the announcement readable and compact ── */
+	@media screen and (max-width: 749px) {
+		.section-announcement .announcement-bar {
+			gap: 0.6rem;
+		}
+
+		.section-announcement .container {
+			padding-inline: 1.4rem;
+		}
+
+		.section-announcement .announcement-bar__message {
+			min-height: 0;
+			padding: 0.7rem 0;
+			gap: 0.4rem 0.6rem;
+		}
+
+		.section-announcement .announcement-bar__text,
+		.section-announcement .announcement-bar__text a {
+			font-size: 1.15rem;
+			line-height: 1.4;
+		}
+
+		.section-announcement .announcement-bar__close-button {
+			align-self: flex-start;
+			padding-top: 0.7rem;
+		}
 	}
 
 	header-drawer {
@@ -123,6 +195,22 @@
 		}
 	}
 </style>
+
+<script>
+	/* Track the navbar's real height so the fixed header stack reserves the
+	   correct space across breakpoints (replaces the old hardcoded 56.5px). */
+	(function () {
+		var nav = document.querySelector('.shopify-section-header');
+		if (!nav) return;
+		var setNavHeight = function () {
+			document.documentElement.style.setProperty('--header-nav-height', nav.offsetHeight + 'px');
+		};
+		setNavHeight();
+		if (window.ResizeObserver) new ResizeObserver(setNavHeight).observe(nav);
+		window.addEventListener('resize', setNavHeight);
+		window.addEventListener('load', setNavHeight);
+	})();
+</script>
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>

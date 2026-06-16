@@ -1,11 +1,15 @@
 <style>
 	:root {
 		--announcement-height: {{ section.settings.height_mobile }}px;
+		/* Seed the measured height too, so the fixed header stack is positioned
+		   correctly on first paint before announcement.js / header.js run. */
+		--ann-height: {{ section.settings.height_mobile }}px;
 	}
 
 	@media screen and (min-width: 765px) {
 		:root {
 		--announcement-height: {{ section.settings.height }}px;
+		--ann-height: {{ section.settings.height }}px;
 	}
 	}
 </style>
