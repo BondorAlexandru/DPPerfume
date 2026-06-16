@@ -13,7 +13,6 @@
   "sections": {
     "announcement_bar_3JRCKz": {
       "type": "announcement-bar",
-      "disabled": true,
       "name": "t:sections.announcement-bar.name",
       "settings": {
         "height": 40,
