@@ -11,6 +11,18 @@
   "type": "header",
   "name": "t:sections.header.settings.header-group.label",
   "sections": {
+    "announcement_bar_3JRCKz": {
+      "type": "announcement-bar",
+      "disabled": true,
+      "name": "t:sections.announcement-bar.name",
+      "settings": {
+        "height": 40,
+        "height_mobile": 40,
+        "color_scheme": "background-2",
+        "text_align": "left",
+        "text": "În perioada <strong>15 iunie – 15 iulie</strong>, la orice achiziție de minimum 230 lei, poți participa la tombola D&P.  <a href=\"https://dpparfum.ro/pages/regulament-tombola?utm_source=chatgpt.com\" target=\"_blank\">Regulamentul campaniei</a>"
+      }
+    },
     "countdown-timer-bar": {
       "type": "countdown-timer-bar",
       "disabled": true,
@@ -98,6 +110,7 @@
     }
   },
   "order": [
+    "announcement_bar_3JRCKz",
     "countdown-timer-bar",
     "header"
   ]
