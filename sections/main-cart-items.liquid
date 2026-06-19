@@ -30,18 +30,7 @@
         <div id="main-cart-shipping" data-id="{{ section.id }}">
 					<p class="main-cart--title h3">{{ 'sections.cart.title' | t }}</p>
           <div class="js-contents-shipping">
-            {% if settings.show_shipping %}
-              <div class="cart-shipping" data-min-spend="{{ settings.min_spend | times: 100.0 }}" data-total="{{ cart.total_price }}"
-                data-message = " {{ settings.message_shipping }}">
-                <span class="cart-shipping__progress">
-                  <span class="cart-shipping__progress-current"></span>
-                </span>
-                <p class="cart-shipping__message cart-shipping__message_default active secondary_text"></p>
-                <p class="cart-shipping__message cart-shipping__message_success secondary_text">
-                  {{ settings.message_shipping_free }}
-                </p>
-              </div>
-            {% endif %}
+            {% render 'cart-rewards-bar' %}
           </div>
         </div>
         <div class="cart__warnings">

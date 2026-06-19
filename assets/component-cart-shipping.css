@@ -2,53 +2,161 @@
   --progress-prev: 0%;
 }
 
-.cart-shipping {
-  --progress: 0%;
+/* ============================================================
+   Dual-threshold cart rewards bar (AOV booster)
+   Level 1: Free shipping  ·  Level 2: Giveaway entry
+   ============================================================ */
+
+.cart-shipping,
+.cart-rewards {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
-.cart-shipping__message {
-  display: none;
+
+/* ---- Tier labels (row above the bar) ---- */
+.cart-rewards__tiers {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin: 0;
-  color: rgb(var(--color-foreground-secondary)) !important;
 }
-.cart-shipping__message.active {
-  display: flex;
-  margin-bottom: 0.8rem;
+
+.cart-rewards__tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: rgb(var(--color-foreground-secondary, var(--color-foreground)));
+  opacity: 0.55;
+  transition: opacity var(--duration-default, 0.3s) ease,
+    color var(--duration-default, 0.3s) ease;
 }
-.cart-shipping__message svg {
+
+.cart-rewards__tier--giveaway {
+  text-align: right;
+}
+
+.cart-rewards__tier-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 0.1rem solid rgb(var(--color-border));
+  color: rgb(var(--color-foreground));
+  transition: background-color var(--duration-default, 0.3s) ease,
+    border-color var(--duration-default, 0.3s) ease,
+    color var(--duration-default, 0.3s) ease;
+}
+
+.cart-rewards__tier-label {
+  font-weight: 500;
+}
+
+/* Reward icon shown while locked, check shown once unlocked */
+.cart-rewards__icon-check {
   display: none;
-  flex-shrink: 0;
 }
-.cart-shipping__message_success svg {
-  display: block;
-  flex-shrink: 0;
-}
-.cart-shipping__progress {
+
+/* ---- Progress bar ---- */
+.cart-shipping__progress,
+.cart-rewards__bar {
   position: relative;
   display: block;
   width: 100%;
-  height: 0.1rem;
+  height: 0.5rem;
   background: rgb(var(--color-border));
   border-radius: 0.6rem;
   overflow: hidden;
 }
+
 .cart-shipping__progress-current {
-  content: "";
   position: absolute;
   inset: 0;
-  background-color: rgb(var(--color-foreground));
   width: var(--progress-prev);
-  transition: width var(--duration-default);
+  background-color: rgb(var(--color-foreground));
+  border-radius: 0.6rem;
+  transition: width var(--duration-default, 0.3s) ease;
 }
-.cart-shipping__message {
+
+/* Milestone tick marking the free-shipping point (50% of the track) */
+.cart-rewards__tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.2rem;
+  height: 1.1rem;
+  transform: translate(-50%, -50%);
+  background: rgb(var(--color-background));
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* ---- Message ---- */
+.cart-shipping__message,
+.cart-rewards__message {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  color: rgb(var(--color-foreground-secondary, var(--color-foreground)));
+}
+
+.cart-shipping__message.active,
+.cart-rewards__message.active {
+  display: flex;
+}
+
+/* ---- Unlocked states ---- */
+.cart-rewards.reward-shipping-unlocked .cart-rewards__tier--shipping,
+.cart-rewards.reward-giveaway-unlocked .cart-rewards__tier--giveaway {
+  opacity: 1;
   color: rgb(var(--color-foreground));
 }
-.cart-shipping_light .cart-shipping__progress {
+
+.cart-rewards.reward-shipping-unlocked
+  .cart-rewards__tier--shipping
+  .cart-rewards__tier-icon,
+.cart-rewards.reward-giveaway-unlocked
+  .cart-rewards__tier--giveaway
+  .cart-rewards__tier-icon {
+  background-color: rgb(var(--color-foreground));
+  border-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+.cart-rewards.reward-shipping-unlocked
+  .cart-rewards__tier--shipping
+  .cart-rewards__icon-reward,
+.cart-rewards.reward-giveaway-unlocked
+  .cart-rewards__tier--giveaway
+  .cart-rewards__icon-reward {
+  display: none;
+}
+
+.cart-rewards.reward-shipping-unlocked
+  .cart-rewards__tier--shipping
+  .cart-rewards__icon-check,
+.cart-rewards.reward-giveaway-unlocked
+  .cart-rewards__tier--giveaway
+  .cart-rewards__icon-check {
+  display: block;
+}
+
+/* Hide the milestone tick once the whole bar is full */
+.cart-rewards.reward-giveaway-unlocked .cart-rewards__tick {
+  opacity: 0;
+}
+
+/* ---- Light variant (kept from original) ---- */
+.cart-shipping_light .cart-shipping__progress,
+.cart-shipping_light .cart-rewards__bar {
   background-color: rgb(var(--color-background));
 }
 .cart-shipping_light .cart-shipping__progress-current {

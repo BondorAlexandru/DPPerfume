@@ -43,18 +43,7 @@
           {% render 'icon-close' %}
         </button>
 
-        {% if settings.show_shipping %}
-          <div class="cart-shipping" data-min-spend="{{ settings.min_spend | times: 100.0 }}" data-total="{{ cart.total_price }}"
-            data-message = " {{ settings.message_shipping }}">
-            <span class="cart-shipping__progress">
-              <span class="cart-shipping__progress-current"></span>
-            </span>
-            <p class="cart-shipping__message secondary_text cart-shipping__message_default active"></p>
-            <p class="cart-shipping__message secondary_text cart-shipping__message_success">
-              {{ settings.message_shipping_free }}
-            </p>
-          </div>
-        {% endif %}
+        {% render 'cart-rewards-bar' %}
       </div>
       {%- if cart == empty -%}
         <div class="drawer__inner-empty">

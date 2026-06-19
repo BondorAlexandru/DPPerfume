@@ -1283,23 +1283,64 @@
 				"default": true
 			},
 			{
-				"type": "textarea",
-				"id": "message_shipping",
-				"label": "t:settings_schema.cart.settings.message_shipping.label",
-				"info": "t:settings_schema.cart.settings.message_shipping.info",
-				"default": "You're ||amount|| away from free shipping."
+				"type": "header",
+				"content": "Level 1 — Transport Gratuit"
 			},
 			{
 				"type": "text",
 				"id": "min_spend",
 				"label": "t:settings_schema.cart.settings.min_spend.label",
-				"info": "t:settings_schema.cart.settings.min_spend.info",
-				"default": "100"
+				"info": "Prag (RON) pentru transport gratuit.",
+				"default": "235"
+			},
+			{
+				"type": "text",
+				"id": "reward_label_shipping",
+				"label": "Etichetă recompensă 1",
+				"default": "Transport Gratuit"
+			},
+			{
+				"type": "textarea",
+				"id": "message_shipping",
+				"label": "Mesaj sub prag 1",
+				"info": "Folosește ||amount|| pentru suma rămasă.",
+				"default": "Mai adaugă produse în valoare de minim ||amount|| pentru Transport Gratuit."
+			},
+			{
+				"type": "header",
+				"content": "Level 2 — Tombolă"
+			},
+			{
+				"type": "text",
+				"id": "giveaway_spend",
+				"label": "Prag participare Tombolă (RON)",
+				"info": "Trebuie să fie mai mare decât pragul Transport Gratuit.",
+				"default": "250"
+			},
+			{
+				"type": "text",
+				"id": "reward_label_giveaway",
+				"label": "Etichetă recompensă 2",
+				"default": "Tombolă"
+			},
+			{
+				"type": "textarea",
+				"id": "message_giveaway",
+				"label": "Mesaj între praguri (transport gratuit deblocat)",
+				"info": "Folosește ||amount|| pentru suma rămasă până la Tombolă.",
+				"default": "Ai primit Transport Gratuit. Mai adaugă produse în valoare de minim ||amount|| pentru a participa la Tombolă."
+			},
+			{
+				"type": "textarea",
+				"id": "message_giveaway_free",
+				"label": "Mesaj ambele recompense deblocate",
+				"default": "Felicitări! Ai deblocat Transport Gratuit și participarea la Tombolă."
 			},
 			{
 				"type": "textarea",
 				"id": "message_shipping_free",
 				"label": "t:settings_schema.cart.settings.message_shipping_free.label",
+				"info": "Nefolosit de bara cu două praguri (păstrat pentru compatibilitate).",
 				"default": "Congratulations! You qualify for free shipping."
 			}
 		]

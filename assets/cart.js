@@ -21,8 +21,6 @@ class CartItems extends HTMLElement {
 			document.getElementById("CartDrawer-LineItemStatus");
 
 		if (document.querySelector(".cart-shipping")) {
-			this.minSpend = document.querySelector(".cart-shipping").dataset.minSpend;
-			this.minTotal = Math.round(this.minSpend * (Shopify.currency.rate || 1));
 			this.cartShipping();
 		}
 
@@ -36,38 +34,58 @@ class CartItems extends HTMLElement {
 	cartUpdateUnsubscriber = undefined;
 
 	cartShipping() {
-		let progressPrev = getComputedStyle(
-			document.querySelector(".cart-shipping__progress-current")
-		).getPropertyValue("width");
+		const wrapper = document.querySelector(".cart-shipping");
+		if (!wrapper) return;
+		const fill = wrapper.querySelector(".cart-shipping__progress-current");
+		const messageEl = wrapper.querySelector(".cart-shipping__message");
+
+		// Animate the fill from its previous width (set before each re-render).
+		const progressPrev = getComputedStyle(fill).getPropertyValue("width");
 		document.documentElement.style.setProperty("--progress-prev", progressPrev);
 
-		this.total = document.querySelector(".cart-shipping").dataset.total;
-		this.progress = (this.total / this.minTotal) * 100;
-		if (this.progress > 100) this.progress = 100;
+		// All amounts in cents. data-* thresholds are store-currency; convert.
+		const rate = (window.Shopify && Shopify.currency && Shopify.currency.rate) || 1;
+		const total = parseFloat(wrapper.dataset.total) || 0;
+		const shippingThreshold = Math.round(parseFloat(wrapper.dataset.minSpend) * rate);
+		const giveawayThreshold = Math.round(parseFloat(wrapper.dataset.giveawaySpend) * rate);
 
-		if (this.minTotal > this.total) {
-			let amount = this.minTotal - this.total;
-			let message = document
-				.querySelector(".cart-shipping")
-				.dataset.message.replace("||amount||", formatMoney(amount));
-			document.querySelector(".cart-shipping__message_default").innerHTML =
-				message;
-			document
-				.querySelector(".cart-shipping__message_success")
-				.classList.remove("active");
-			document
-				.querySelector(".cart-shipping__message_default")
-				.classList.add("active");
+		const shippingUnlocked = total >= shippingThreshold;
+		const giveawayUnlocked = total >= giveawayThreshold;
+
+		// Segmented bar: each tier owns an equal visual half of the track.
+		//   0 .. tier1  -> 0% .. 50%      tier1 .. tier2 -> 50% .. 100%
+		let progress;
+		if (giveawayUnlocked) {
+			progress = 100;
+		} else if (shippingUnlocked) {
+			const span = giveawayThreshold - shippingThreshold;
+			progress = 50 + (span > 0 ? ((total - shippingThreshold) / span) * 50 : 50);
 		} else {
-			document
-				.querySelector(".cart-shipping__message_default")
-				.classList.remove("active");
-			document
-				.querySelector(".cart-shipping__message_success")
-				.classList.add("active");
+			progress = shippingThreshold > 0 ? (total / shippingThreshold) * 50 : 0;
 		}
-		document.querySelector(".cart-shipping__progress-current").style.width =
-			this.progress + "%";
+		if (progress > 100) progress = 100;
+
+		// Message reflects the next reward the customer can still unlock.
+		let message;
+		if (!shippingUnlocked) {
+			message = wrapper.dataset.message.replace(
+				"||amount||",
+				formatMoney(shippingThreshold - total)
+			);
+		} else if (!giveawayUnlocked) {
+			message = wrapper.dataset.messageGiveaway.replace(
+				"||amount||",
+				formatMoney(giveawayThreshold - total)
+			);
+		} else {
+			message = wrapper.dataset.messageComplete;
+		}
+		if (messageEl) messageEl.innerHTML = message;
+
+		wrapper.classList.toggle("reward-shipping-unlocked", shippingUnlocked);
+		wrapper.classList.toggle("reward-giveaway-unlocked", giveawayUnlocked);
+
+		fill.style.width = progress + "%";
 	}
 
 	connectedCallback() {
@@ -103,6 +121,8 @@ class CartItems extends HTMLElement {
 				const html = new DOMParser().parseFromString(responseText, "text/html");
 				const sourceQty = html.querySelector("cart-items");
 				this.innerHTML = sourceQty.innerHTML;
+				// Re-rendered markup ships with an empty rewards bar; recompute it.
+				if (document.querySelector(".cart-shipping")) this.cartShipping();
 			})
 			.catch((e) => {
 				console.error(e);
@@ -420,6 +440,8 @@ class CartItems extends HTMLElement {
 						);
 					} catch (e) {}
 				});
+				// Re-rendered markup ships with an empty rewards bar; recompute it.
+				if (document.querySelector(".cart-shipping")) this.cartShipping();
 			})
 			.catch((e) => console.error("refreshCartSections", e));
 	}
