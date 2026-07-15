@@ -3,8 +3,7 @@
 }
 
 /* ============================================================
-   Dual-threshold cart rewards bar (AOV booster)
-   Level 1: Free shipping  ·  Level 2: Giveaway entry
+   Free-shipping cart rewards bar (AOV booster)
    ============================================================ */
 
 .cart-shipping,
@@ -34,10 +33,6 @@
   opacity: 0.55;
   transition: opacity var(--duration-default, 0.3s) ease,
     color var(--duration-default, 0.3s) ease;
-}
-
-.cart-rewards__tier--giveaway {
-  text-align: right;
 }
 
 .cart-rewards__tier-icon {
@@ -85,19 +80,6 @@
   transition: width var(--duration-default, 0.3s) ease;
 }
 
-/* Milestone tick marking the free-shipping point (50% of the track) */
-.cart-rewards__tick {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.2rem;
-  height: 1.1rem;
-  transform: translate(-50%, -50%);
-  background: rgb(var(--color-background));
-  opacity: 0.9;
-  z-index: 1;
-}
-
 /* ---- Message ---- */
 .cart-shipping__message,
 .cart-rewards__message {
@@ -113,18 +95,14 @@
   display: flex;
 }
 
-/* ---- Unlocked states ---- */
-.cart-rewards.reward-shipping-unlocked .cart-rewards__tier--shipping,
-.cart-rewards.reward-giveaway-unlocked .cart-rewards__tier--giveaway {
+/* ---- Unlocked state ---- */
+.cart-rewards.reward-shipping-unlocked .cart-rewards__tier--shipping {
   opacity: 1;
   color: rgb(var(--color-foreground));
 }
 
 .cart-rewards.reward-shipping-unlocked
   .cart-rewards__tier--shipping
-  .cart-rewards__tier-icon,
-.cart-rewards.reward-giveaway-unlocked
-  .cart-rewards__tier--giveaway
   .cart-rewards__tier-icon {
   background-color: rgb(var(--color-foreground));
   border-color: rgb(var(--color-foreground));
@@ -133,25 +111,14 @@
 
 .cart-rewards.reward-shipping-unlocked
   .cart-rewards__tier--shipping
-  .cart-rewards__icon-reward,
-.cart-rewards.reward-giveaway-unlocked
-  .cart-rewards__tier--giveaway
   .cart-rewards__icon-reward {
   display: none;
 }
 
 .cart-rewards.reward-shipping-unlocked
   .cart-rewards__tier--shipping
-  .cart-rewards__icon-check,
-.cart-rewards.reward-giveaway-unlocked
-  .cart-rewards__tier--giveaway
   .cart-rewards__icon-check {
   display: block;
-}
-
-/* Hide the milestone tick once the whole bar is full */
-.cart-rewards.reward-giveaway-unlocked .cart-rewards__tick {
-  opacity: 0;
 }
 
 /* ---- Light variant (kept from original) ---- */

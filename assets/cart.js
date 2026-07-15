@@ -47,35 +47,19 @@ class CartItems extends HTMLElement {
 		const rate = (window.Shopify && Shopify.currency && Shopify.currency.rate) || 1;
 		const total = parseFloat(wrapper.dataset.total) || 0;
 		const shippingThreshold = Math.round(parseFloat(wrapper.dataset.minSpend) * rate);
-		const giveawayThreshold = Math.round(parseFloat(wrapper.dataset.giveawaySpend) * rate);
 
 		const shippingUnlocked = total >= shippingThreshold;
-		const giveawayUnlocked = total >= giveawayThreshold;
 
-		// Segmented bar: each tier owns an equal visual half of the track.
-		//   0 .. tier1  -> 0% .. 50%      tier1 .. tier2 -> 50% .. 100%
-		let progress;
-		if (giveawayUnlocked) {
-			progress = 100;
-		} else if (shippingUnlocked) {
-			const span = giveawayThreshold - shippingThreshold;
-			progress = 50 + (span > 0 ? ((total - shippingThreshold) / span) * 50 : 50);
-		} else {
-			progress = shippingThreshold > 0 ? (total / shippingThreshold) * 50 : 0;
-		}
+		// Single-tier bar: fill from 0% at empty to 100% at the free-shipping threshold.
+		let progress = shippingThreshold > 0 ? (total / shippingThreshold) * 100 : 0;
 		if (progress > 100) progress = 100;
 
-		// Message reflects the next reward the customer can still unlock.
+		// Message reflects whether free shipping is still to be unlocked.
 		let message;
 		if (!shippingUnlocked) {
 			message = wrapper.dataset.message.replace(
 				"||amount||",
 				formatMoney(shippingThreshold - total)
-			);
-		} else if (!giveawayUnlocked) {
-			message = wrapper.dataset.messageGiveaway.replace(
-				"||amount||",
-				formatMoney(giveawayThreshold - total)
 			);
 		} else {
 			message = wrapper.dataset.messageComplete;
@@ -83,7 +67,6 @@ class CartItems extends HTMLElement {
 		if (messageEl) messageEl.innerHTML = message;
 
 		wrapper.classList.toggle("reward-shipping-unlocked", shippingUnlocked);
-		wrapper.classList.toggle("reward-giveaway-unlocked", giveawayUnlocked);
 
 		fill.style.width = progress + "%";
 	}

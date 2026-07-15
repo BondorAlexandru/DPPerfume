@@ -1,9 +1,8 @@
 {% comment %}
-  Renders the dual-threshold cart rewards progress bar (AOV booster).
+  Renders the free-shipping cart progress bar (AOV booster).
 
-  Two reward tiers, configured in Theme settings > Cart:
-    Level 1 (settings.min_spend)      → Free shipping  ("Transport Gratuit")
-    Level 2 (settings.giveaway_spend) → Giveaway entry ("Tombolă")
+  Single reward tier, configured in Theme settings > Cart:
+    settings.min_spend → Free shipping ("Transport Gratuit")
 
   All state/copy logic lives in CartItems.cartShipping() (assets/cart.js); this
   snippet only renders the markup + data attributes the script reads. The outer
@@ -18,10 +17,8 @@
     class="cart-shipping cart-rewards"
     data-total="{{ cart.total_price }}"
     data-min-spend="{{ settings.min_spend | times: 100.0 }}"
-    data-giveaway-spend="{{ settings.giveaway_spend | times: 100.0 }}"
     data-message="{{ settings.message_shipping | strip | escape }}"
-    data-message-giveaway="{{ settings.message_giveaway | strip | escape }}"
-    data-message-complete="{{ settings.message_giveaway_free | strip | escape }}"
+    data-message-complete="{{ settings.message_shipping_free | strip | escape }}"
   >
     <div class="cart-rewards__tiers">
       <div class="cart-rewards__tier cart-rewards__tier--shipping">
@@ -37,23 +34,10 @@
         </span>
         <span class="cart-rewards__tier-label">{{ settings.reward_label_shipping | default: 'Transport Gratuit' }}</span>
       </div>
-
-      <div class="cart-rewards__tier cart-rewards__tier--giveaway">
-        <span class="cart-rewards__tier-label">{{ settings.reward_label_giveaway | default: 'Tombolă' }}</span>
-        <span class="cart-rewards__tier-icon">
-          <svg class="cart-rewards__icon-reward" viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true">
-            <path d="M4 8.5h16V12H4zM5.5 12v8h13v-8M12 8.5V20M12 8.5S10.5 4 8.2 5.1 12 8.5 12 8.5zM12 8.5s1.5-4.5 3.8-3.4S12 8.5 12 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <svg class="cart-rewards__icon-check" viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true">
-            <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </div>
     </div>
 
     <span class="cart-shipping__progress cart-rewards__bar">
       <span class="cart-shipping__progress-current"></span>
-      <span class="cart-rewards__tick" aria-hidden="true"></span>
     </span>
 
     <p class="cart-shipping__message cart-rewards__message secondary_text active" role="status" aria-live="polite"></p>
