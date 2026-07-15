@@ -15,16 +15,16 @@
         "slideshow-item1": {
           "type": "slideshow-item",
           "settings": {
-            "image": "shopify://shop_images/Website_Hero_IMG_V2_1.jpg",
+            "image": "shopify://shop_images/Homepage_IMG.png",
             "overlay_opacity": 0.1,
             "show_video": false,
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description_video": "",
-            "heading": "Cumpără și intri automat în tombola D&P",
-            "description": "<p>În perioada <strong>15 iunie – 15 iulie</strong>, la orice achiziție de <strong>minimum 230 lei</strong>, poți participa la tombola D&P.<br/></p>",
+            "heading": "Ofertele verii pentru noul tău parfum!",
+            "description": "<p>Valabilitate între<strong> 15 iulie </strong>și<strong> 15 septembrie</strong>, <br/>în limita stocului disponibil</p>",
             "tab_subheading": "",
             "tab_heading": "",
-            "button_label": "Participă",
+            "button_label": "Descoperă ofertele",
             "button_link": "shopify://collections/promoții",
             "button_style": "primary",
             "enable_fullscreen_link": true
