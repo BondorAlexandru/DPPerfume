@@ -587,6 +587,14 @@
   padding: 5px 13px !important;
   border-radius: 15px;
 }
+.card__badge .badge.badge--discount {
+  color: #6d2b26;
+  background-color: #f0d8d3 !important;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px 13px !important;
+  border-radius: 15px;
+}
 .card__badge .badge.badge--sale {
   color: rgb(var(--color-badge-sale-text));
   background-color: rgb(var(--color-badge-sale-background));

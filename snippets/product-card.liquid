@@ -243,18 +243,30 @@
 			{%- endif -%}
 
 			<div class="card__information-top subtitle">
+				{%- comment -%}
+					ERP badge (fragrance.badge): free text synced from the ERP, e.g. "new" or "-40%".
+					A value containing "%" is a discount and gets its own pill; anything else keeps
+					the "new" pill. When an ERP badge is present it replaces Shopify's automatic
+					sale badge, which would otherwise render as "Vânzare 40%" next to it.
+				{%- endcomment -%}
+				{%- assign erp_badge = product_card_product.metafields.fragrance.badge | strip -%}
+				{%- if erp_badge contains '%' -%}
+					{%- assign erp_badge_class = 'badge--discount' -%}
+				{%- else -%}
+					{%- assign erp_badge_class = 'badge--new' -%}
+				{%- endif -%}
 				{%- if settings.badge_sale_show
 					or settings.badge_soldout_show
 					or settings.badge_custom_show
-					or product_card_product.metafields.fragrance.badge != blank
+					or erp_badge != blank
 				-%}
 					<div class="card__badge">
-						{%- if product_card_product.metafields.fragrance.badge != blank -%}
+						{%- if erp_badge != blank -%}
 							<span
-								class="subtitle badge badge--new"
+								class="subtitle badge {{ erp_badge_class }}"
 								aria-hidden="true"
 							>
-								{{- product_card_product.metafields.fragrance.badge | capitalize -}}
+								{{- erp_badge | capitalize -}}
 							</span>
 						{%- endif -%}
 						{%- if product_card_product.available == false
@@ -270,6 +282,7 @@
 								> product_card_product.price
 							and product_card_product.available
 							and settings.badge_sale_show
+							and erp_badge == blank
 						-%}
 							<span
 								class="subtitle badge badge--sale {% if settings.badges_background %} badge-transparent {% endif %}"
