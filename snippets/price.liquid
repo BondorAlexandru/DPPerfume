@@ -90,9 +90,6 @@
         <span class="price-item price-item--regular">
           {{ money_price }}
         </span>
-        {%- if volume_ml > 0 -%}
-          <span class="price__per-litre">Preț per mililitru: {{ price_per_ml }} lei/mL</span>
-        {%- endif -%}
       </dd>
     </div>
     <div class="price__sale">
@@ -115,9 +112,6 @@
         <span class="price-item price-item--sale">
           {{ money_price }}
         </span>
-        {%- if volume_ml > 0 -%}
-          <span class="price__per-litre">Preț per mililitru: {{ price_per_ml }} lei/mL</span>
-        {%- endif -%}
       </dd>
 
     </div>
@@ -140,4 +134,7 @@
       </dd>
     </dl>
   </dl>
+  {%- if volume_ml > 0 -%}
+    <span class="price__per-litre">Preț per mililitru: {{ price_per_ml }} lei/mL</span>
+  {%- endif -%}
 </div>

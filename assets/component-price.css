@@ -1,5 +1,7 @@
 .price__per-litre {
   display: block;
+  width: 100%;
+  order: 1;
   font-size: 1.1rem;
   color: rgba(var(--color-foreground), 0.5);
   margin-top: 0.2rem;

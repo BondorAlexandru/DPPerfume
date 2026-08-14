@@ -1203,7 +1203,7 @@ main .shopify-section:first-child.not-margin .section--have-overlay:not(.article
 .product .price-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   gap: 0 0.5rem;
   margin-top: 0;
   margin-bottom: 1.6rem;
